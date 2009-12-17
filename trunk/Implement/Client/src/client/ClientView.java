@@ -26,6 +26,20 @@ public class ClientView extends FrameView {
 
         initComponents();
 
+        //init panels
+        panelCauhinh = new JPanelCauHinh();
+        panelSubmitXML = new JPanelSubmitXML();
+        panelThongKe = new JPanelThongKe();
+        panelThuePhong = new JPanelThuePhong();
+        panelTimPhong = new JPanelTimPhong();
+        panelTraPhong = new JPanelTraPhong();
+        panelXemChiTiet = new JPanelXemChiTiet();
+        panelXemPhong = new JPanelXemPhong();
+
+        //load and paint default panel
+        jRightPanel.add(panelXemChiTiet, -1);
+        jRightPanel.validate();
+
         // status bar initialization - message timeout, idle icon and busy animation, etc
         ResourceMap resourceMap = getResourceMap();
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
@@ -339,18 +353,7 @@ public class ClientView extends FrameView {
         jSplitPane2.setLeftComponent(jLeftPanel);
 
         jRightPanel.setName("jRightPanel"); // NOI18N
-
-        javax.swing.GroupLayout jRightPanelLayout = new javax.swing.GroupLayout(jRightPanel);
-        jRightPanel.setLayout(jRightPanelLayout);
-        jRightPanelLayout.setHorizontalGroup(
-            jRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 909, Short.MAX_VALUE)
-        );
-        jRightPanelLayout.setVerticalGroup(
-            jRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
-        );
-
+        jRightPanel.setLayout(new java.awt.GridLayout(1, 1));
         jSplitPane2.setRightComponent(jRightPanel);
 
         jSplitMainPane.setBottomComponent(jSplitPane2);
@@ -364,7 +367,16 @@ public class ClientView extends FrameView {
         // TODO add your handling code here:
         if(!jToggleBtnXemPhong.isSelected())
         {
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
             //add panel xem phong
+            jRightPanel.add(panelXemChiTiet,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnXemPhongMouseClicked
 
@@ -373,6 +385,16 @@ public class ClientView extends FrameView {
         if(!jToggleBtnTimPhong.isSelected())
         {
             //add panel tim phong
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
+            //add panel xem phong
+            jRightPanel.add(panelTimPhong,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnTimPhongMouseClicked
 
@@ -380,15 +402,34 @@ public class ClientView extends FrameView {
         // TODO add your handling code here:
         if(!jToggleBtnThuePhong.isSelected())
         {
-            //add pane thue phong
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
+            //add panel xem phong
+            jRightPanel.add(panelThuePhong,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnThuePhongMouseClicked
 
+    @SuppressWarnings("empty-statement")
     private void jToggleBtnTraPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTraPhongMouseClicked
         // TODO add your handling code here:
         if(!jToggleBtnTraPhong.isSelected())
         {
-            //add pane tra phong
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
+            //add panel xem phong
+            jRightPanel.add(panelTraPhong,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnTraPhongMouseClicked
 
@@ -396,7 +437,16 @@ public class ClientView extends FrameView {
         // TODO add your handling code here:
         if(!jToggleBtnThongKe.isSelected())
         {
-            //add pane thong ke
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
+            //add panel xem phong
+            jRightPanel.add(panelThongKe,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnThongKeMouseClicked
 
@@ -404,7 +454,16 @@ public class ClientView extends FrameView {
         // TODO add your handling code here:
         if(!jToggleBtnSubmitXML.isSelected())
         {
-            //add pane submit xml
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+            
+            //add panel xem phong
+            jRightPanel.add(panelSubmitXML,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnSubmitXMLMouseClicked
 
@@ -412,7 +471,16 @@ public class ClientView extends FrameView {
         // TODO add your handling code here:
         if(!jToggleBtnCauHinh.isSelected())
         {
-            //add pane cau hinh
+            //remove old panel
+            int count = jRightPanel.getComponentCount();
+            if(count>0)
+            {
+                jRightPanel.remove(count-1);
+            }
+
+            //add panel xem phong
+            jRightPanel.add(panelCauhinh,-1);
+            jRightPanel.validate();
         }
     }//GEN-LAST:event_jToggleBtnCauHinhMouseClicked
 
@@ -450,4 +518,14 @@ public class ClientView extends FrameView {
     private int busyIconIndex = 0;
 
     private JDialog aboutBox;
+
+    //panels
+    private JPanelCauHinh panelCauhinh;
+    private JPanelSubmitXML panelSubmitXML;
+    private JPanelThongKe panelThongKe;
+    private JPanelThuePhong panelThuePhong;
+    private JPanelTimPhong panelTimPhong;
+    private JPanelTraPhong panelTraPhong;
+    private JPanelXemChiTiet panelXemChiTiet;
+    private JPanelXemPhong panelXemPhong;
 }

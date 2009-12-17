@@ -61,7 +61,8 @@ public class JPanelXemChiTiet extends javax.swing.JPanel {
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setLayout(new java.awt.GridLayout(3, 1));
 
-        jLabelHinhPhong_XemChiTiet.setIcon(null);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelXemChiTiet.class);
+        jLabelHinhPhong_XemChiTiet.setIcon(resourceMap.getIcon("jLabelHinhPhong_XemChiTiet.icon")); // NOI18N
         jLabelHinhPhong_XemChiTiet.setName("jLabelHinhPhong_XemChiTiet"); // NOI18N
         jPanel2.add(jLabelHinhPhong_XemChiTiet);
 
@@ -69,7 +70,6 @@ public class JPanelXemChiTiet extends javax.swing.JPanel {
         jSeparator3.setName("jSeparator3"); // NOI18N
         jPanel2.add(jSeparator3);
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelXemChiTiet.class);
         jLabelGiaTien_XemChiTiet.setText(resourceMap.getString("jLabelGiaTien_XemChiTiet.text")); // NOI18N
         jLabelGiaTien_XemChiTiet.setName("jLabelGiaTien_XemChiTiet"); // NOI18N
         jPanel2.add(jLabelGiaTien_XemChiTiet);
