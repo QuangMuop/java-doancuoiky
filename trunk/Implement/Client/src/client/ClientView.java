@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import javax.swing.Icon;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -112,7 +111,7 @@ public class ClientView extends FrameView {
         statusMessageLabel = new javax.swing.JLabel();
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
-        jSplitPane1 = new javax.swing.JSplitPane();
+        jSplitMainPane = new javax.swing.JSplitPane();
         jTopPanel = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -121,42 +120,15 @@ public class ClientView extends FrameView {
         jLabelThoiGian = new javax.swing.JLabel();
         jSplitPane2 = new javax.swing.JSplitPane();
         jLeftPanel = new javax.swing.JPanel();
-        jBtnXemPhong = new javax.swing.JButton();
-        jBtnTimPhong = new javax.swing.JButton();
-        jBtnThuePhong = new javax.swing.JButton();
-        jBtnTraPhong = new javax.swing.JButton();
-        jBtnThongKe = new javax.swing.JButton();
-        jBtnSubmitXML = new javax.swing.JButton();
-        jBtnCauHinh = new javax.swing.JButton();
+        jToggleBtnXemPhong = new javax.swing.JToggleButton();
+        jToggleBtnTimPhong = new javax.swing.JToggleButton();
+        jToggleBtnThuePhong = new javax.swing.JToggleButton();
+        jToggleBtnTraPhong = new javax.swing.JToggleButton();
+        jToggleBtnThongKe = new javax.swing.JToggleButton();
+        jToggleBtnSubmitXML = new javax.swing.JToggleButton();
+        jToggleBtnCauHinh = new javax.swing.JToggleButton();
         jRightPanel = new javax.swing.JPanel();
-        jPaneXemChiTiet = new javax.swing.JSplitPane();
-        jSplitPane4 = new javax.swing.JSplitPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabelHinhPhong_XemChiTiet = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabelGiaTien_XemChiTiet = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jBtnThoat_XemChiTiet = new javax.swing.JButton();
-        jBtnCapNhat_XemChiTiet = new javax.swing.JButton();
-        jBtnChinhSua_XemChiTiet = new javax.swing.JButton();
-        jBtnThuePhong_XemChiTiet = new javax.swing.JButton();
-        jPaneTimPhong = new javax.swing.JSplitPane();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jBtnThoat_TimPhong = new javax.swing.JButton();
-        jBtnTimPhong_TimPhong = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btnGroupMainController = new javax.swing.ButtonGroup();
 
         mainPanel.setName("mainPanel"); // NOI18N
 
@@ -230,9 +202,9 @@ public class ClientView extends FrameView {
                 .addGap(3, 3, 3))
         );
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jSplitPane1.setDoubleBuffered(true);
-        jSplitPane1.setName("jSplitPane1"); // NOI18N
+        jSplitMainPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitMainPane.setDoubleBuffered(true);
+        jSplitMainPane.setName("jSplitMainPane"); // NOI18N
 
         jTopPanel.setName("jTopPanel"); // NOI18N
         jTopPanel.setLayout(new java.awt.GridLayout(1, 3, 5, 5));
@@ -264,7 +236,7 @@ public class ClientView extends FrameView {
         jLabelThoiGian.setName("jLabelThoiGian"); // NOI18N
         jTopPanel.add(jLabelThoiGian);
 
-        jSplitPane1.setLeftComponent(jTopPanel);
+        jSplitMainPane.setLeftComponent(jTopPanel);
 
         jSplitPane2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jSplitPane2.setName("jSplitPane2"); // NOI18N
@@ -272,68 +244,97 @@ public class ClientView extends FrameView {
         jLeftPanel.setName("jLeftPanel"); // NOI18N
         jLeftPanel.setLayout(new java.awt.GridLayout(7, 1, 5, 5));
 
-        jBtnXemPhong.setText(resourceMap.getString("jBtnXemPhong.text")); // NOI18N
-        jBtnXemPhong.setName("jBtnXemPhong"); // NOI18N
-        jBtnXemPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnXemPhong);
+        jToggleBtnXemPhong.setSelected(true);
+        jToggleBtnXemPhong.setText(resourceMap.getString("jToggleBtnXemPhong.text")); // NOI18N
+        jToggleBtnXemPhong.setToolTipText(resourceMap.getString("jToggleBtnXemPhong.toolTipText")); // NOI18N
+        jToggleBtnXemPhong.setDoubleBuffered(true);
+        jToggleBtnXemPhong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnXemPhong.setName("jToggleBtnXemPhong"); // NOI18N
+        jToggleBtnXemPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnXemPhongMouseClicked(evt);
+                jToggleBtnXemPhongMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnXemPhong);
+        jLeftPanel.add(jToggleBtnXemPhong);
 
-        jBtnTimPhong.setText(resourceMap.getString("jBtnTimPhong.text")); // NOI18N
-        jBtnTimPhong.setName("jBtnTimPhong"); // NOI18N
-        jBtnTimPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnTimPhong);
+        jToggleBtnTimPhong.setText(resourceMap.getString("jToggleBtnTimPhong.text")); // NOI18N
+        jToggleBtnTimPhong.setToolTipText(resourceMap.getString("jToggleBtnTimPhong.toolTipText")); // NOI18N
+        jToggleBtnTimPhong.setDoubleBuffered(true);
+        jToggleBtnTimPhong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnTimPhong.setName("jToggleBtnTimPhong"); // NOI18N
+        jToggleBtnTimPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnTimPhongMouseClicked(evt);
+                jToggleBtnTimPhongMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnTimPhong);
+        jLeftPanel.add(jToggleBtnTimPhong);
 
-        jBtnThuePhong.setText(resourceMap.getString("jBtnThuePhong.text")); // NOI18N
-        jBtnThuePhong.setName("jBtnThuePhong"); // NOI18N
-        jBtnThuePhong.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnThuePhong);
+        jToggleBtnThuePhong.setText(resourceMap.getString("jToggleBtnThuePhong.text")); // NOI18N
+        jToggleBtnThuePhong.setToolTipText(resourceMap.getString("jToggleBtnThuePhong.toolTipText")); // NOI18N
+        jToggleBtnThuePhong.setDoubleBuffered(true);
+        jToggleBtnThuePhong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnThuePhong.setName("jToggleBtnThuePhong"); // NOI18N
+        jToggleBtnThuePhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnThuePhongMouseClicked(evt);
+                jToggleBtnThuePhongMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnThuePhong);
+        jLeftPanel.add(jToggleBtnThuePhong);
 
-        jBtnTraPhong.setText(resourceMap.getString("jBtnTraPhong.text")); // NOI18N
-        jBtnTraPhong.setName("jBtnTraPhong"); // NOI18N
-        jBtnTraPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnTraPhong);
+        jToggleBtnTraPhong.setText(resourceMap.getString("jToggleBtnTraPhong.text")); // NOI18N
+        jToggleBtnTraPhong.setToolTipText(resourceMap.getString("jToggleBtnTraPhong.toolTipText")); // NOI18N
+        jToggleBtnTraPhong.setDoubleBuffered(true);
+        jToggleBtnTraPhong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnTraPhong.setName("jToggleBtnTraPhong"); // NOI18N
+        jToggleBtnTraPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnTraPhongMouseClicked(evt);
+                jToggleBtnTraPhongMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnTraPhong);
+        jLeftPanel.add(jToggleBtnTraPhong);
 
-        jBtnThongKe.setText(resourceMap.getString("jBtnThongKe.text")); // NOI18N
-        jBtnThongKe.setName("jBtnThongKe"); // NOI18N
-        jBtnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnThongKe);
+        jToggleBtnThongKe.setText(resourceMap.getString("jToggleBtnThongKe.text")); // NOI18N
+        jToggleBtnThongKe.setToolTipText(resourceMap.getString("jToggleBtnThongKe.toolTipText")); // NOI18N
+        jToggleBtnThongKe.setDoubleBuffered(true);
+        jToggleBtnThongKe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnThongKe.setName("jToggleBtnThongKe"); // NOI18N
+        jToggleBtnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnThongKeMouseClicked(evt);
+                jToggleBtnThongKeMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnThongKe);
+        jLeftPanel.add(jToggleBtnThongKe);
 
-        jBtnSubmitXML.setText(resourceMap.getString("jBtnSubmitXML.text")); // NOI18N
-        jBtnSubmitXML.setName("jBtnSubmitXML"); // NOI18N
-        jBtnSubmitXML.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnSubmitXML);
+        jToggleBtnSubmitXML.setText(resourceMap.getString("jToggleBtnSubmitXML.text")); // NOI18N
+        jToggleBtnSubmitXML.setToolTipText(resourceMap.getString("jToggleBtnSubmitXML.toolTipText")); // NOI18N
+        jToggleBtnSubmitXML.setDoubleBuffered(true);
+        jToggleBtnSubmitXML.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnSubmitXML.setName("jToggleBtnSubmitXML"); // NOI18N
+        jToggleBtnSubmitXML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnSubmitXMLMouseClicked(evt);
+                jToggleBtnSubmitXMLMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnSubmitXML);
+        jLeftPanel.add(jToggleBtnSubmitXML);
 
-        jBtnCauHinh.setText(resourceMap.getString("jBtnCauHinh.text")); // NOI18N
-        jBtnCauHinh.setName("jBtnCauHinh"); // NOI18N
-        jBtnCauHinh.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnCauHinh);
+        jToggleBtnCauHinh.setText(resourceMap.getString("jToggleBtnCauHinh.text")); // NOI18N
+        jToggleBtnCauHinh.setToolTipText(resourceMap.getString("jToggleBtnCauHinh.toolTipText")); // NOI18N
+        jToggleBtnCauHinh.setDoubleBuffered(true);
+        jToggleBtnCauHinh.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnCauHinh.setName("jToggleBtnCauHinh"); // NOI18N
+        jToggleBtnCauHinh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnCauHinhMouseClicked(evt);
+                jToggleBtnCauHinhMouseClicked(evt);
             }
         });
-        jLeftPanel.add(jBtnCauHinh);
+        jLeftPanel.add(jToggleBtnCauHinh);
 
         jSplitPane2.setLeftComponent(jLeftPanel);
 
@@ -352,230 +353,87 @@ public class ClientView extends FrameView {
 
         jSplitPane2.setRightComponent(jRightPanel);
 
-        jSplitPane1.setBottomComponent(jSplitPane2);
+        jSplitMainPane.setBottomComponent(jSplitPane2);
 
-        jPaneXemChiTiet.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jPaneXemChiTiet.setName("jPaneXemChiTiet"); // NOI18N
-
-        jSplitPane4.setName("jSplitPane4"); // NOI18N
-
-        jPanel2.setName("jPanel2"); // NOI18N
-        jPanel2.setLayout(new java.awt.GridLayout(3, 1));
-
-        jLabelHinhPhong_XemChiTiet.setIcon(resourceMap.getIcon("jLabelHinhPhong_XemChiTiet.icon")); // NOI18N
-        jLabelHinhPhong_XemChiTiet.setText(resourceMap.getString("jLabelHinhPhong_XemChiTiet.text")); // NOI18N
-        jLabelHinhPhong_XemChiTiet.setName("jLabelHinhPhong_XemChiTiet"); // NOI18N
-        jPanel2.add(jLabelHinhPhong_XemChiTiet);
-
-        jSeparator3.setMaximumSize(new java.awt.Dimension(32767, 2));
-        jSeparator3.setName("jSeparator3"); // NOI18N
-        jPanel2.add(jSeparator3);
-
-        jLabelGiaTien_XemChiTiet.setText(resourceMap.getString("jLabelGiaTien_XemChiTiet.text")); // NOI18N
-        jLabelGiaTien_XemChiTiet.setName("jLabelGiaTien_XemChiTiet"); // NOI18N
-        jPanel2.add(jLabelGiaTien_XemChiTiet);
-
-        jSplitPane4.setLeftComponent(jPanel2);
-
-        jPanel3.setName("jPanel3"); // NOI18N
-        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
-
-        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
-        jLabel3.setName("jLabel3"); // NOI18N
-        jPanel3.add(jLabel3);
-
-        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
-        jLabel4.setName("jLabel4"); // NOI18N
-        jPanel3.add(jLabel4);
-
-        jLabel5.setText(resourceMap.getString("jLabel5.text")); // NOI18N
-        jLabel5.setName("jLabel5"); // NOI18N
-        jPanel3.add(jLabel5);
-
-        jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
-        jLabel6.setName("jLabel6"); // NOI18N
-        jPanel3.add(jLabel6);
-
-        jLabel7.setText(resourceMap.getString("jLabel7.text")); // NOI18N
-        jLabel7.setName("jLabel7"); // NOI18N
-        jPanel3.add(jLabel7);
-
-        jLabel8.setText(resourceMap.getString("jLabel8.text")); // NOI18N
-        jLabel8.setName("jLabel8"); // NOI18N
-        jPanel3.add(jLabel8);
-
-        jSplitPane4.setRightComponent(jPanel3);
-
-        jPaneXemChiTiet.setLeftComponent(jSplitPane4);
-
-        jPanel1.setName("jPanel1"); // NOI18N
-
-        jBtnThoat_XemChiTiet.setText(resourceMap.getString("jBtnThoat_XemChiTiet.text")); // NOI18N
-        jBtnThoat_XemChiTiet.setName("jBtnThoat_XemChiTiet"); // NOI18N
-        jBtnThoat_XemChiTiet.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnThoat_XemChiTietMouseClicked(evt);
-            }
-        });
-        jPanel1.add(jBtnThoat_XemChiTiet);
-
-        jBtnCapNhat_XemChiTiet.setText(resourceMap.getString("jBtnCapNhat_XemChiTiet.text")); // NOI18N
-        jBtnCapNhat_XemChiTiet.setEnabled(false);
-        jBtnCapNhat_XemChiTiet.setName("jBtnCapNhat_XemChiTiet"); // NOI18N
-        jPanel1.add(jBtnCapNhat_XemChiTiet);
-
-        jBtnChinhSua_XemChiTiet.setText(resourceMap.getString("jBtnChinhSua_XemChiTiet.text")); // NOI18N
-        jBtnChinhSua_XemChiTiet.setName("jBtnChinhSua_XemChiTiet"); // NOI18N
-        jPanel1.add(jBtnChinhSua_XemChiTiet);
-
-        jBtnThuePhong_XemChiTiet.setText(resourceMap.getString("jBtnThuePhong_XemChiTiet.text")); // NOI18N
-        jBtnThuePhong_XemChiTiet.setName("jBtnThuePhong_XemChiTiet"); // NOI18N
-        jPanel1.add(jBtnThuePhong_XemChiTiet);
-
-        jPaneXemChiTiet.setRightComponent(jPanel1);
-
-        jPaneTimPhong.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jPaneTimPhong.setName("jPaneTimPhong"); // NOI18N
-
-        jPanel4.setName("jPanel4"); // NOI18N
-        jPanel4.setLayout(new java.awt.GridLayout(2, 2));
-
-        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
-        jLabel2.setName("jLabel2"); // NOI18N
-        jPanel4.add(jLabel2);
-
-        jTextField1.setText(resourceMap.getString("jTextField1.text")); // NOI18N
-        jTextField1.setName("jTextField1"); // NOI18N
-        jPanel4.add(jTextField1);
-
-        jBtnThoat_TimPhong.setText(resourceMap.getString("jBtnThoat_TimPhong.text")); // NOI18N
-        jBtnThoat_TimPhong.setName("jBtnThoat_TimPhong"); // NOI18N
-        jPanel4.add(jBtnThoat_TimPhong);
-
-        jBtnTimPhong_TimPhong.setText(resourceMap.getString("jBtnTimPhong_TimPhong.text")); // NOI18N
-        jBtnTimPhong_TimPhong.setName("jBtnTimPhong_TimPhong"); // NOI18N
-        jPanel4.add(jBtnTimPhong_TimPhong);
-
-        jPaneTimPhong.setLeftComponent(jPanel4);
-
-        jPanel5.setName("jPanel5"); // NOI18N
-        jPanel5.setLayout(new java.awt.GridLayout(2, 1));
-
-        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(78, 7));
-        jLabel1.setMinimumSize(new java.awt.Dimension(78, 7));
-        jLabel1.setName("jLabel1"); // NOI18N
-        jPanel5.add(jLabel1);
-
-        jScrollPane1.setName("jScrollPane1"); // NOI18N
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setName("jTable1"); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel5.add(jScrollPane1);
-
-        jPaneTimPhong.setRightComponent(jPanel5);
-
-        setComponent(jSplitPane1);
+        setComponent(jSplitMainPane);
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
     //click on button Xem phong
-    private void jBtnXemPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXemPhongMouseClicked
+    private void jToggleBtnXemPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMouseClicked
         // TODO add your handling code here:
-        jRightPanel.add(jPaneXemChiTiet, -1);
-        jPaneXemChiTiet.setVisible(true);                
+        if(!jToggleBtnXemPhong.isSelected())
+        {
+            //add panel xem phong
+        }
+    }//GEN-LAST:event_jToggleBtnXemPhongMouseClicked
 
-    }//GEN-LAST:event_jBtnXemPhongMouseClicked
-
-    private void jBtnThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThongKeMouseClicked
+    private void jToggleBtnTimPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTimPhongMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnThongKeMouseClicked
+        if(!jToggleBtnTimPhong.isSelected())
+        {
+            //add panel tim phong
+        }
+    }//GEN-LAST:event_jToggleBtnTimPhongMouseClicked
 
-    private void jBtnTimPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnTimPhongMouseClicked
+    private void jToggleBtnThuePhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThuePhongMouseClicked
         // TODO add your handling code here:
-        jRightPanel.remove(jPaneXemChiTiet);
-        jRightPanel.add(jPaneTimPhong,-1);
-        jPaneTimPhong.setVisible(true);
-    }//GEN-LAST:event_jBtnTimPhongMouseClicked
+        if(!jToggleBtnThuePhong.isSelected())
+        {
+            //add pane thue phong
+        }
+    }//GEN-LAST:event_jToggleBtnThuePhongMouseClicked
 
-    private void jBtnThuePhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThuePhongMouseClicked
+    private void jToggleBtnTraPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTraPhongMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnThuePhongMouseClicked
+        if(!jToggleBtnTraPhong.isSelected())
+        {
+            //add pane tra phong
+        }
+    }//GEN-LAST:event_jToggleBtnTraPhongMouseClicked
 
-    private void jBtnTraPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnTraPhongMouseClicked
+    private void jToggleBtnThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThongKeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnTraPhongMouseClicked
+        if(!jToggleBtnThongKe.isSelected())
+        {
+            //add pane thong ke
+        }
+    }//GEN-LAST:event_jToggleBtnThongKeMouseClicked
 
-    private void jBtnCauHinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCauHinhMouseClicked
+    private void jToggleBtnSubmitXMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnSubmitXMLMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnCauHinhMouseClicked
+        if(!jToggleBtnSubmitXML.isSelected())
+        {
+            //add pane submit xml
+        }
+    }//GEN-LAST:event_jToggleBtnSubmitXMLMouseClicked
 
-    private void jBtnSubmitXMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnSubmitXMLMouseClicked
+    private void jToggleBtnCauHinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnCauHinhMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnSubmitXMLMouseClicked
-
-    private void jBtnThoat_XemChiTietMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThoat_XemChiTietMouseClicked
-        // TODO add your handling code here:
-        jRightPanel.remove(jPaneXemChiTiet);
-    }//GEN-LAST:event_jBtnThoat_XemChiTietMouseClicked
+        if(!jToggleBtnCauHinh.isSelected())
+        {
+            //add pane cau hinh
+        }
+    }//GEN-LAST:event_jToggleBtnCauHinhMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnCapNhat_XemChiTiet;
-    private javax.swing.JButton jBtnCauHinh;
-    private javax.swing.JButton jBtnChinhSua_XemChiTiet;
-    private javax.swing.JButton jBtnSubmitXML;
-    private javax.swing.JButton jBtnThoat_TimPhong;
-    private javax.swing.JButton jBtnThoat_XemChiTiet;
-    private javax.swing.JButton jBtnThongKe;
-    private javax.swing.JButton jBtnThuePhong;
-    private javax.swing.JButton jBtnThuePhong_XemChiTiet;
-    private javax.swing.JButton jBtnTimPhong;
-    private javax.swing.JButton jBtnTimPhong_TimPhong;
-    private javax.swing.JButton jBtnTraPhong;
-    private javax.swing.JButton jBtnXemPhong;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabelGiaTien_XemChiTiet;
-    private javax.swing.JLabel jLabelHinhPhong_XemChiTiet;
+    private javax.swing.ButtonGroup btnGroupMainController;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTenKhachSan;
     private javax.swing.JLabel jLabelThoiGian;
     private javax.swing.JPanel jLeftPanel;
-    private javax.swing.JSplitPane jPaneTimPhong;
-    private javax.swing.JSplitPane jPaneXemChiTiet;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jRightPanel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitMainPane;
     private javax.swing.JSplitPane jSplitPane2;
-    private javax.swing.JSplitPane jSplitPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleBtnCauHinh;
+    private javax.swing.JToggleButton jToggleBtnSubmitXML;
+    private javax.swing.JToggleButton jToggleBtnThongKe;
+    private javax.swing.JToggleButton jToggleBtnThuePhong;
+    private javax.swing.JToggleButton jToggleBtnTimPhong;
+    private javax.swing.JToggleButton jToggleBtnTraPhong;
+    private javax.swing.JToggleButton jToggleBtnXemPhong;
     private javax.swing.JPanel jTopPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;

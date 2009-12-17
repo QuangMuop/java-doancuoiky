@@ -142,11 +142,11 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JSplitPane" name="jSplitPane1">
+    <Container class="javax.swing.JSplitPane" name="jSplitMainPane">
       <Properties>
         <Property name="orientation" type="int" value="0"/>
         <Property name="doubleBuffered" type="boolean" value="true"/>
-        <Property name="name" type="java.lang.String" value="jSplitPane1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="jSplitMainPane" noResource="true"/>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
@@ -237,67 +237,110 @@
                 <Property name="verticalGap" type="int" value="5"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="jBtnXemPhong">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnXemPhong">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnXemPhong.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnXemPhong" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnXemPhong.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnXemPhong.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnXemPhong" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnXemPhongMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnXemPhongMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnTimPhong">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnTimPhong">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnTimPhong.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnTimPhong" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnTimPhong.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnTimPhong.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnTimPhong" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnTimPhongMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnTimPhongMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnThuePhong">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnThuePhong">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnThuePhong.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnThuePhong" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnThuePhong.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnThuePhong.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnThuePhong" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnThuePhongMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnThuePhongMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnTraPhong">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnTraPhong">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnTraPhong.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnTraPhong" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnTraPhong.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnTraPhong.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnTraPhong" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnTraPhongMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnTraPhongMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnThongKe">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnThongKe">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnThongKe.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnThongKe" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnThongKe.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnThongKe.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnThongKe" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnThongKeMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnThongKeMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnSubmitXML">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnSubmitXML">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnSubmitXML.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnSubmitXML" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnSubmitXML.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnSubmitXML.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnSubmitXML" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnSubmitXMLMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnSubmitXMLMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnCauHinh">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnCauHinh">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnCauHinh.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnCauHinh" noResource="true"/>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupMainController"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnCauHinh.text"/>
+                    <Property name="toolTipText" type="java.lang.String" resourceKey="jToggleBtnCauHinh.toolTipText"/>
+                    <Property name="doubleBuffered" type="boolean" value="true"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnCauHinh" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnCauHinhMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnCauHinhMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -329,272 +372,12 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JSplitPane" name="jPaneXemChiTiet">
-      <Properties>
-        <Property name="orientation" type="int" value="0"/>
-        <Property name="name" type="java.lang.String" value="jPaneXemChiTiet" noResource="true"/>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
-      <SubComponents>
-        <Container class="javax.swing.JSplitPane" name="jSplitPane4">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="jSplitPane4" noResource="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="left"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel2">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                  <JSplitPaneConstraints position="left"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                <Property name="columns" type="int" value="1"/>
-                <Property name="rows" type="int" value="3"/>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelHinhPhong_XemChiTiet">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" resourceKey="jLabelHinhPhong_XemChiTiet.icon"/>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabelHinhPhong_XemChiTiet.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabelHinhPhong_XemChiTiet" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSeparator" name="jSeparator3">
-                  <Properties>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[32767, 2]"/>
-                    </Property>
-                    <Property name="name" type="java.lang.String" value="jSeparator3" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelGiaTien_XemChiTiet">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabelGiaTien_XemChiTiet.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabelGiaTien_XemChiTiet" noResource="true"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel3">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                  <JSplitPaneConstraints position="right"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                <Property name="columns" type="int" value="2"/>
-                <Property name="rows" type="int" value="3"/>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel3.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel4.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel4" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel5.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel5" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel6.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel7.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel7" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel8.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabel8" noResource="true"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel1">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="right"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="jBtnThoat_XemChiTiet">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnThoat_XemChiTiet.text"/>
-                <Property name="name" type="java.lang.String" value="jBtnThoat_XemChiTiet" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnThoat_XemChiTietMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBtnCapNhat_XemChiTiet">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnCapNhat_XemChiTiet.text"/>
-                <Property name="enabled" type="boolean" value="false"/>
-                <Property name="name" type="java.lang.String" value="jBtnCapNhat_XemChiTiet" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBtnChinhSua_XemChiTiet">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnChinhSua_XemChiTiet.text"/>
-                <Property name="name" type="java.lang.String" value="jBtnChinhSua_XemChiTiet" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBtnThuePhong_XemChiTiet">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnThuePhong_XemChiTiet.text"/>
-                <Property name="name" type="java.lang.String" value="jBtnThuePhong_XemChiTiet" noResource="true"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JSplitPane" name="jPaneTimPhong">
-      <Properties>
-        <Property name="orientation" type="int" value="0"/>
-        <Property name="name" type="java.lang.String" value="jPaneTimPhong" noResource="true"/>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel4">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel4" noResource="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="left"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="2"/>
-            <Property name="rows" type="int" value="2"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel2.text"/>
-                <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jTextField1.text"/>
-                <Property name="name" type="java.lang.String" value="jTextField1" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBtnThoat_TimPhong">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnThoat_TimPhong.text"/>
-                <Property name="name" type="java.lang.String" value="jBtnThoat_TimPhong" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jBtnTimPhong_TimPhong">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jBtnTimPhong_TimPhong.text"/>
-                <Property name="name" type="java.lang.String" value="jBtnTimPhong_TimPhong" noResource="true"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel5">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="jPanel5" noResource="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="right"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="1"/>
-            <Property name="rows" type="int" value="2"/>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" resourceKey="jLabel1.text"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[78, 7]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[78, 7]"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="jLabel1" noResource="true"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="jScrollPane1" noResource="true"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                    <Property name="name" type="java.lang.String" value="jTable1" noResource="true"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.ButtonGroup" name="btnGroupMainController">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="component" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
-      <ComponentRef name="jSplitPane1"/>
+      <ComponentRef name="jSplitMainPane"/>
     </Property>
     <Property name="statusBar" type="javax.swing.JComponent" editor="org.netbeans.modules.form.ComponentChooserEditor">
       <ComponentRef name="statusPanel"/>
