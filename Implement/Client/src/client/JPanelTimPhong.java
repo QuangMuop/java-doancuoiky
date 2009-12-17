@@ -89,6 +89,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jLabelMaPhong.setName("jLabelMaPhong"); // NOI18N
         jPanel1.add(jLabelMaPhong);
 
+        jTxtMaPhong.setBackground(resourceMap.getColor("jTxtMaPhong.background")); // NOI18N
         jTxtMaPhong.setText(resourceMap.getString("jTxtMaPhong.text")); // NOI18N
         jTxtMaPhong.setName("jTxtMaPhong"); // NOI18N
         jPanel1.add(jTxtMaPhong);
@@ -162,6 +163,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
+        jTableResult.setBackground(resourceMap.getColor("jTableResult.background")); // NOI18N
         jTableResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

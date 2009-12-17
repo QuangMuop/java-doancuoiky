@@ -93,6 +93,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel11.setName("jLabel11"); // NOI18N
         jPanel6.add(jLabel11);
 
+        jTextField2.setBackground(resourceMap.getColor("jTextField2.background")); // NOI18N
         jTextField2.setName("jTextField2"); // NOI18N
         jPanel6.add(jTextField2);
 
@@ -100,6 +101,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel13.setName("jLabel13"); // NOI18N
         jPanel6.add(jLabel13);
 
+        jFormattedTextField1.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jFormattedTextField1.setName("jFormattedTextField1"); // NOI18N
         jPanel6.add(jFormattedTextField1);
 
@@ -107,6 +109,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel14.setName("jLabel14"); // NOI18N
         jPanel6.add(jLabel14);
 
+        jComboBox1.setBackground(resourceMap.getColor("jComboBox3.background")); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nam", "Nu" }));
         jComboBox1.setName("jComboBox1"); // NOI18N
         jPanel6.add(jComboBox1);
@@ -115,6 +118,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel15.setName("jLabel15"); // NOI18N
         jPanel6.add(jLabel15);
 
+        jTextField3.setBackground(resourceMap.getColor("jFormattedTextField3.background")); // NOI18N
         jTextField3.setName("jTextField3"); // NOI18N
         jPanel6.add(jTextField3);
 
@@ -122,6 +126,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel16.setName("jLabel16"); // NOI18N
         jPanel6.add(jLabel16);
 
+        jFormattedTextField2.setBackground(resourceMap.getColor("jFormattedTextField3.background")); // NOI18N
         jFormattedTextField2.setName("jFormattedTextField2"); // NOI18N
         jPanel6.add(jFormattedTextField2);
 
@@ -129,6 +134,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel17.setName("jLabel17"); // NOI18N
         jPanel6.add(jLabel17);
 
+        jComboBox2.setBackground(resourceMap.getColor("jComboBox3.background")); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Trong nuoc", "Nuoc ngoai" }));
         jComboBox2.setName("jComboBox2"); // NOI18N
         jPanel6.add(jComboBox2);
@@ -146,6 +152,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel20.setName("jLabel20"); // NOI18N
         jPanel6.add(jLabel20);
 
+        jComboBox3.setBackground(resourceMap.getColor("jComboBox3.background")); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setName("jComboBox3"); // NOI18N
         jPanel6.add(jComboBox3);
@@ -170,6 +177,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel25.setName("jLabel25"); // NOI18N
         jPanel6.add(jLabel25);
 
+        jFormattedTextField3.setBackground(resourceMap.getColor("jFormattedTextField3.background")); // NOI18N
         jFormattedTextField3.setName("jFormattedTextField3"); // NOI18N
         jPanel6.add(jFormattedTextField3);
 
@@ -177,6 +185,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel26.setName("jLabel26"); // NOI18N
         jPanel6.add(jLabel26);
 
+        jComboBox4.setBackground(resourceMap.getColor("jComboBox3.background")); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         jComboBox4.setName("jComboBox4"); // NOI18N
         jPanel6.add(jComboBox4);

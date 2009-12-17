@@ -104,6 +104,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabel3.setName("jLabel3"); // NOI18N
         jPanel7.add(jLabel3);
 
+        jComboBox1.setBackground(resourceMap.getColor("jComboBox1.background")); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "//tu phat sinh ra nhung phong dang thue", " " }));
         jComboBox1.setName("jComboBox1"); // NOI18N
         jPanel7.add(jComboBox1);
