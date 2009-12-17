@@ -1,0 +1,11 @@
+PANER
+	- ...
+	- ...
+
+TITLE
+	- RED
+	- SIZE: 16
+
+HEADER 1
+	- BLUE
+	- SIZE: 14

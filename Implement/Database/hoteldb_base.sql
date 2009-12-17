@@ -39,6 +39,7 @@ DROP TABLE IF EXISTS `hoteldb`.`khach_hang`;
 CREATE TABLE  `hoteldb`.`khach_hang` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ten` text NOT NULL,
+  `gioi_tinh` text,
   `dia_chi` text NOT NULL,
   `dien_thoai` text NOT NULL,
   `ngay_sinh` datetime NOT NULL,
