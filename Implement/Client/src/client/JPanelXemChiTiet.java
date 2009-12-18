@@ -35,7 +35,6 @@ public class JPanelXemChiTiet extends javax.swing.JPanel {
         jSplitPane4 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         jLabelHinhPhong_XemChiTiet = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
         jLabelGiaTien_XemChiTiet = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -65,10 +64,6 @@ public class JPanelXemChiTiet extends javax.swing.JPanel {
         jLabelHinhPhong_XemChiTiet.setIcon(resourceMap.getIcon("jLabelHinhPhong_XemChiTiet.icon")); // NOI18N
         jLabelHinhPhong_XemChiTiet.setName("jLabelHinhPhong_XemChiTiet"); // NOI18N
         jPanel2.add(jLabelHinhPhong_XemChiTiet);
-
-        jSeparator3.setMaximumSize(new java.awt.Dimension(32767, 2));
-        jSeparator3.setName("jSeparator3"); // NOI18N
-        jPanel2.add(jSeparator3);
 
         jLabelGiaTien_XemChiTiet.setText(resourceMap.getString("jLabelGiaTien_XemChiTiet.text")); // NOI18N
         jLabelGiaTien_XemChiTiet.setName("jLabelGiaTien_XemChiTiet"); // NOI18N
@@ -158,7 +153,6 @@ public class JPanelXemChiTiet extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSplitPane jSplitPane4;
     // End of variables declaration//GEN-END:variables
 
