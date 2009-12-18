@@ -86,6 +86,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel9.setName("jLabel9"); // NOI18N
         jPanel6.add(jLabel9);
 
+        jLabel10.setEnabled(false);
         jLabel10.setName("jLabel10"); // NOI18N
         jPanel6.add(jLabel10);
 

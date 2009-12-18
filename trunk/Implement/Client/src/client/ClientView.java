@@ -4,6 +4,7 @@
 
 package client;
 
+import java.awt.CardLayout;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -13,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -28,17 +30,45 @@ public class ClientView extends FrameView {
 
         //init panels
         panelCauhinh = new JPanelCauHinh();
+        panelCauhinh.setName("panelCauhinh");
+
         panelSubmitXML = new JPanelSubmitXML();
+        panelSubmitXML.setName("panelSubmitXML");
+
         panelThongKe = new JPanelThongKe();
+        panelThongKe.setName("panelThongKe");
+
         panelThuePhong = new JPanelThuePhong();
+        panelThuePhong.setName("panelThuePhong");
+
         panelTimPhong = new JPanelTimPhong();
+        panelTimPhong.setName("panelTimPhong");
+
         panelTraPhong = new JPanelTraPhong();
+        panelTraPhong.setName("panelTraPhong");
+
         panelXemChiTiet = new JPanelXemChiTiet();
+        panelXemChiTiet.setName("panelXemChiTiet");
+
         panelXemPhong = new JPanelXemPhong();
+        panelXemPhong.setName("panelXemPhong");
 
         //load and paint default panel
-        jRightPanel.add(panelXemChiTiet, -1);
-        jRightPanel.validate();
+        jRightPanel.add(panelThuePhong,panelThuePhong.getName());
+        jRightPanel.add(panelCauhinh,panelCauhinh.getName());
+        jRightPanel.add(panelSubmitXML,panelSubmitXML.getName());
+        jRightPanel.add(panelThongKe,panelThongKe.getName());
+        jRightPanel.add(panelTimPhong,panelTimPhong.getName());
+        jRightPanel.add(panelTraPhong,panelTraPhong.getName());
+        jRightPanel.add(panelXemChiTiet,panelXemChiTiet.getName());
+        jRightPanel.add(panelXemPhong,panelXemPhong.getName());
+
+        //inti for button with image
+        java.net.URL imageURL = ClientView.class.getResource("resources/XemPhongBtnPress.jpg");
+        if (imageURL != null) {
+            ImageIcon icon = new ImageIcon(imageURL);
+            //icon.paintIcon(jToggleBtnThongKe, jToggleBtnThongKe.getGraphics(), 0, 0);
+        }
 
         // status bar initialization - message timeout, idle icon and busy animation, etc
         ResourceMap resourceMap = getResourceMap();
@@ -125,6 +155,7 @@ public class ClientView extends FrameView {
         statusMessageLabel = new javax.swing.JLabel();
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
         jSplitMainPane = new javax.swing.JSplitPane();
         jTopPanel = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
@@ -190,15 +221,23 @@ public class ClientView extends FrameView {
 
         progressBar.setName("progressBar"); // NOI18N
 
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+
         javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
         statusPanel.setLayout(statusPanelLayout);
         statusPanelLayout.setHorizontalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 1007, Short.MAX_VALUE)
             .addGroup(statusPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 837, Short.MAX_VALUE)
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(statusMessageLabel))
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 618, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -208,12 +247,18 @@ public class ClientView extends FrameView {
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addComponent(statusPanelSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusMessageLabel)
-                    .addComponent(statusAnimationLabel)
-                    .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3))
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(statusMessageLabel)
+                            .addComponent(statusAnimationLabel)
+                            .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3))
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
         );
 
         jSplitMainPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -259,6 +304,7 @@ public class ClientView extends FrameView {
         jLeftPanel.setLayout(new java.awt.GridLayout(7, 1, 5, 5));
 
         btnGroupMainController.add(jToggleBtnXemPhong);
+        jToggleBtnXemPhong.setIcon(resourceMap.getIcon("jToggleBtnXemPhong.icon")); // NOI18N
         jToggleBtnXemPhong.setSelected(true);
         jToggleBtnXemPhong.setText(resourceMap.getString("jToggleBtnXemPhong.text")); // NOI18N
         jToggleBtnXemPhong.setToolTipText(resourceMap.getString("jToggleBtnXemPhong.toolTipText")); // NOI18N
@@ -353,7 +399,7 @@ public class ClientView extends FrameView {
         jSplitPane2.setLeftComponent(jLeftPanel);
 
         jRightPanel.setName("jRightPanel"); // NOI18N
-        jRightPanel.setLayout(new java.awt.GridLayout(1, 1));
+        jRightPanel.setLayout(new java.awt.CardLayout());
         jSplitPane2.setRightComponent(jRightPanel);
 
         jSplitMainPane.setBottomComponent(jSplitPane2);
@@ -365,127 +411,71 @@ public class ClientView extends FrameView {
     //click on button Xem phong
     private void jToggleBtnXemPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnXemPhong.isSelected())
+        //if(!jToggleBtnXemPhong.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelXemChiTiet,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelXemPhong.getName());
         }
     }//GEN-LAST:event_jToggleBtnXemPhongMouseClicked
 
     private void jToggleBtnTimPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTimPhongMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnTimPhong.isSelected())
+        //if(!jToggleBtnTimPhong.isSelected())
         {
-            //add panel tim phong
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelTimPhong,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelTimPhong.getName());
         }
     }//GEN-LAST:event_jToggleBtnTimPhongMouseClicked
 
     private void jToggleBtnThuePhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThuePhongMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnThuePhong.isSelected())
+        //if(!jToggleBtnThuePhong.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelThuePhong,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelThuePhong.getName());
         }
     }//GEN-LAST:event_jToggleBtnThuePhongMouseClicked
 
     @SuppressWarnings("empty-statement")
     private void jToggleBtnTraPhongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTraPhongMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnTraPhong.isSelected())
+        //if(!jToggleBtnTraPhong.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelTraPhong,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelTraPhong.getName());                        
         }
     }//GEN-LAST:event_jToggleBtnTraPhongMouseClicked
 
     private void jToggleBtnThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThongKeMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnThongKe.isSelected())
+        //if(!jToggleBtnThongKe.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelThongKe,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelThongKe.getName());            
         }
     }//GEN-LAST:event_jToggleBtnThongKeMouseClicked
 
     private void jToggleBtnSubmitXMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnSubmitXMLMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnSubmitXML.isSelected())
+        //if(!jToggleBtnSubmitXML.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-            
-            //add panel xem phong
-            jRightPanel.add(panelSubmitXML,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelSubmitXML.getName());
         }
     }//GEN-LAST:event_jToggleBtnSubmitXMLMouseClicked
 
     private void jToggleBtnCauHinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnCauHinhMouseClicked
         // TODO add your handling code here:
-        if(!jToggleBtnCauHinh.isSelected())
+        //if(!jToggleBtnCauHinh.isSelected())
         {
-            //remove old panel
-            int count = jRightPanel.getComponentCount();
-            if(count>0)
-            {
-                jRightPanel.remove(count-1);
-            }
-
-            //add panel xem phong
-            jRightPanel.add(panelCauhinh,-1);
-            jRightPanel.validate();
+            CardLayout cl = (CardLayout)jRightPanel.getLayout();
+            cl.show(jRightPanel, panelCauhinh.getName());
         }
     }//GEN-LAST:event_jToggleBtnCauHinhMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupMainController;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTenKhachSan;
     private javax.swing.JLabel jLabelThoiGian;
@@ -528,4 +518,6 @@ public class ClientView extends FrameView {
     private JPanelTraPhong panelTraPhong;
     private JPanelXemChiTiet panelXemChiTiet;
     private JPanelXemPhong panelXemPhong;
+
+    ImageIcon xemPhongIcon;
 }
