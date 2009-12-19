@@ -1514,10 +1514,10 @@ xac nhan da lay duoc tu truoc.
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="szGyNqqQTEG3VBcvDFqM5AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">56</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">140</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">88</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">377</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
 <XPD:REF name="Model">LDUhbOwiqESiN1UGrJlN2AAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DA03ATOwvU++rwGH54BfZQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="hEAAQmFcnUK36ZsANX/mPQAA">
@@ -1545,8 +1545,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="YJiJpsG7e0Kt++gUa0Mi4wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">604</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">80</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">728</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">36</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">107</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
 <XPD:REF name="Model">Tqu9aPPT2EmbZR+kCBpz6gAA</XPD:REF>
@@ -1576,8 +1576,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:OBJ name="OwnedViews[2]" type="UMLNoteView" guid="6S7GDTBUk0KblvYSFOFBvAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">620</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">300</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">940</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">133</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Note cac loi co the gap:
@@ -1589,8 +1589,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="o9FH9q77NEKFoOy4hTWUOgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">224</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">284</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">628</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">252</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">187</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">56</XPD:ATTR>
 <XPD:REF name="Model">9bI1hHL8GkKzuFO1APPOfgAA</XPD:REF>
@@ -1641,7 +1641,7 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Specializations[3]">PA+Welqaf0m9mhteBK+J1wAA</XPD:REF>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">Q7Ta9CnczEyn2M0753iNkgAA</XPD:REF>
-<XPD:ATTR name="#TypedParameters" type="integer">12</XPD:ATTR>
+<XPD:ATTR name="#TypedParameters" type="integer">11</XPD:ATTR>
 <XPD:REF name="TypedParameters[0]">6c8EhAZuEUy3RUezGmZRQAAA</XPD:REF>
 <XPD:REF name="TypedParameters[1]">XNcROBVz2USmFLEw9/CMXwAA</XPD:REF>
 <XPD:REF name="TypedParameters[2]">RLdjTDMgHEKbfLXteC3f6AAA</XPD:REF>
@@ -1650,10 +1650,9 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="TypedParameters[5]">gFCTpcEC2UOI9hSW17rq/QAA</XPD:REF>
 <XPD:REF name="TypedParameters[6]">/H+kNw/3+kaDjBFXkR3nlgAA</XPD:REF>
 <XPD:REF name="TypedParameters[7]">ztMV8LawCkyqqpYMKi1aNAAA</XPD:REF>
-<XPD:REF name="TypedParameters[8]">RhPrULJ1E0uJTlWFI++CEwAA</XPD:REF>
-<XPD:REF name="TypedParameters[9]">4M+4mMPL/0OXC1KGrJhQPQAA</XPD:REF>
-<XPD:REF name="TypedParameters[10]">LwXDQxtOL0OcPWVmgYi6gQAA</XPD:REF>
-<XPD:REF name="TypedParameters[11]">U7K/jlmIDk6B4a8rJl+2VgAA</XPD:REF>
+<XPD:REF name="TypedParameters[8]">4M+4mMPL/0OXC1KGrJhQPQAA</XPD:REF>
+<XPD:REF name="TypedParameters[9]">LwXDQxtOL0OcPWVmgYi6gQAA</XPD:REF>
+<XPD:REF name="TypedParameters[10]">U7K/jlmIDk6B4a8rJl+2VgAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>
 <XPD:REF name="Associations[0]">5fdfs6F9LEWLjv0m03Co8QAA</XPD:REF>
 <XPD:REF name="Associations[1]">D2Dy4xNF3U+1W0kyJHKZAwAA</XPD:REF>
@@ -1699,7 +1698,7 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Views[1]">NgEk8/AE/Uq+kySKl2p2CgAA</XPD:REF>
 <XPD:REF name="Views[2]">gi02TL0qNEOISB5ZMzDWCQAA</XPD:REF>
 <XPD:REF name="Views[3]">s3NhtDH9xEWss+ti9uvUegAA</XPD:REF>
-<XPD:ATTR name="#TypedParameters" type="integer">12</XPD:ATTR>
+<XPD:ATTR name="#TypedParameters" type="integer">11</XPD:ATTR>
 <XPD:REF name="TypedParameters[0]">pB+Wew/eV0KPPqXdjHbKVAAA</XPD:REF>
 <XPD:REF name="TypedParameters[1]">dzpCaQ/Zu0m0zGxYMgXZYgAA</XPD:REF>
 <XPD:REF name="TypedParameters[2]">pN5Uh/GQI0mVR09KPClHVgAA</XPD:REF>
@@ -1708,10 +1707,9 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="TypedParameters[5]">XhP7VtWDxUu9at0ASd2J+gAA</XPD:REF>
 <XPD:REF name="TypedParameters[6]">DHcdvCI5dUy+zXjbJQFiggAA</XPD:REF>
 <XPD:REF name="TypedParameters[7]">8TdaC5eIbk2CU1qCAD5MnQAA</XPD:REF>
-<XPD:REF name="TypedParameters[8]">5JAtvcf0d0qIs9ApfGA8xAAA</XPD:REF>
-<XPD:REF name="TypedParameters[9]">Qk4Xnxw8wUixeuulmqwr6wAA</XPD:REF>
-<XPD:REF name="TypedParameters[10]">uffiHYAW4EauQ8zTMkKPWQAA</XPD:REF>
-<XPD:REF name="TypedParameters[11]">LqSzd6sVuUuGxJmhR0/7MAAA</XPD:REF>
+<XPD:REF name="TypedParameters[8]">Qk4Xnxw8wUixeuulmqwr6wAA</XPD:REF>
+<XPD:REF name="TypedParameters[9]">uffiHYAW4EauQ8zTMkKPWQAA</XPD:REF>
+<XPD:REF name="TypedParameters[10]">LqSzd6sVuUuGxJmhR0/7MAAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">ftO3dVB0WkSu7E6YPv6imwAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">6</XPD:ATTR>
@@ -1792,12 +1790,11 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="BehavioralFeature">kfob9fLCbkGjQNnA5n+QzwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedParameters" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#TypedParameters" type="integer">4</XPD:ATTR>
 <XPD:REF name="TypedParameters[0]">uePRZnuILEaxJLKrd03evQAA</XPD:REF>
-<XPD:REF name="TypedParameters[1]" pathname="tp">9PbrOM6mj0mNHODZ8kUQAgAA</XPD:REF>
-<XPD:REF name="TypedParameters[2]">I6VZeGOKP0qP7eSsW8rusgAA</XPD:REF>
-<XPD:REF name="TypedParameters[3]">24dP1LCBAk6SqAFHwifgBgAA</XPD:REF>
-<XPD:REF name="TypedParameters[4]">XnCksxAn3U65qvij+zV/NwAA</XPD:REF>
+<XPD:REF name="TypedParameters[1]">I6VZeGOKP0qP7eSsW8rusgAA</XPD:REF>
+<XPD:REF name="TypedParameters[2]">24dP1LCBAk6SqAFHwifgBgAA</XPD:REF>
+<XPD:REF name="TypedParameters[3]">XnCksxAn3U65qvij+zV/NwAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>
 <XPD:REF name="Associations[0]">IWVvfIm85EqQMKNovPWf7AAA</XPD:REF>
 <XPD:REF name="Associations[1]">I28bwE0RKEauvZIGLQ3/qwAA</XPD:REF>
@@ -2349,8 +2346,23 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Views[1]">7hPnyoh390e5wMnKLjXdHAAA</XPD:REF>
 <XPD:REF name="Views[2]">NWQBYdbO30q5T1MRnn9TmwAA</XPD:REF>
 <XPD:REF name="Views[3]">xoSeroGhMU++/GIV83cFkQAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="oKiBWINyl02arQQNfdKPnAAA">
+<XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="serTLR7n70qgHytgMXpK/AAA">
+<XPD:ATTR name="Name" type="string">kiemTraMaXacNhan</XPD:ATTR>
+<XPD:REF name="Owner">LDUhbOwiqESiN1UGrJlN2AAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="uwzaVDtq0UivxKU9kKFa0wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">serTLR7n70qgHytgMXpK/AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="Kub3z8l6PUWHjMux9qv+kAAA">
+<XPD:ATTR name="Name" type="string">ma</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">serTLR7n70qgHytgMXpK/AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="oKiBWINyl02arQQNfdKPnAAA">
 <XPD:ATTR name="Name" type="string">guiYeuCauDatPhong</XPD:ATTR>
 <XPD:REF name="Owner">LDUhbOwiqESiN1UGrJlN2AAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
@@ -2370,7 +2382,27 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="BehavioralFeature">oKiBWINyl02arQQNfdKPnAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="C5dPYUC6iUGsZiZp5WLV/wAA">
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="SCn3eqa8bk6cqPgJS7R7sQAA">
+<XPD:ATTR name="Name" type="string">guiYeuCauHuyDatPhong</XPD:ATTR>
+<XPD:REF name="Owner">LDUhbOwiqESiN1UGrJlN2AAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="GzIJTt5uc0S4q+VRRb3/ZwAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">SCn3eqa8bk6cqPgJS7R7sQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="PtUa+6BZMEiJxWkb5FVwbwAA">
+<XPD:ATTR name="Name" type="string">idClient</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">SCn3eqa8bk6cqPgJS7R7sQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[2]" type="UMLParameter" guid="vsBGKOn8nU2MVoRo+c2FOgAA">
+<XPD:ATTR name="Name" type="string">maXacNhan</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">SCn3eqa8bk6cqPgJS7R7sQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="C5dPYUC6iUGsZiZp5WLV/wAA">
 <XPD:ATTR name="Name" type="string">nhanKetQua</XPD:ATTR>
 <XPD:REF name="Owner">LDUhbOwiqESiN1UGrJlN2AAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
@@ -2584,8 +2616,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">VjInEw8fHUe86WVYEnNjdQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">XNO9w3f+Fki3nkZNzar18QAA</XPD:REF>
-<XPD:REF name="Views[1]">Hfa6DbP5ZEC2d8gi04v9LQAA</XPD:REF>
-<XPD:REF name="Views[2]">+64AzMh3/E6g5hTh0J5sYwAA</XPD:REF>
+<XPD:REF name="Views[1]">+64AzMh3/E6g5hTh0J5sYwAA</XPD:REF>
+<XPD:REF name="Views[2]">Hfa6DbP5ZEC2d8gi04v9LQAA</XPD:REF>
 <XPD:REF name="Views[3]">4amof0XB0UmXAJdUYCWSGgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="JRaV/ObtjEmfvGDlhRZEGAAA">
@@ -2593,8 +2625,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">9DUCw6+WT0iab3HX+nboSwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">jD2pVpj11EKHqvkf57aBBAAA</XPD:REF>
-<XPD:REF name="Views[1]">+35Y26LNaEuSc4r1y+29LQAA</XPD:REF>
-<XPD:REF name="Views[2]">zE2P0/+FZ0WRXbAmSlUBTAAA</XPD:REF>
+<XPD:REF name="Views[1]">zE2P0/+FZ0WRXbAmSlUBTAAA</XPD:REF>
+<XPD:REF name="Views[2]">+35Y26LNaEuSc4r1y+29LQAA</XPD:REF>
 <XPD:REF name="Views[3]">yYmKELcolUCF/ZxbqGoVWwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -2611,8 +2643,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">lTeXUoOJZkeT3TzEKcC5iwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">JQ8OkzYDlEiwEyNn4LrJRwAA</XPD:REF>
-<XPD:REF name="Views[1]">pSrihuVIN0ao7OH968WsGAAA</XPD:REF>
-<XPD:REF name="Views[2]">q0GfwlnVA0OJz6CdTEHFsAAA</XPD:REF>
+<XPD:REF name="Views[1]">q0GfwlnVA0OJz6CdTEHFsAAA</XPD:REF>
+<XPD:REF name="Views[2]">pSrihuVIN0ao7OH968WsGAAA</XPD:REF>
 <XPD:REF name="Views[3]">bGf7PYN56UW1fYyPCne6RwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="1iQ5qgAgbkObT88yxG9UygAA">
@@ -2620,8 +2652,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">9DUCw6+WT0iab3HX+nboSwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">NrPCZZZKmkWdWY5EnKtkMgAA</XPD:REF>
-<XPD:REF name="Views[1]">kasyGqlDEkK16mL7kmkCdAAA</XPD:REF>
-<XPD:REF name="Views[2]">8MBTOhNmH0i3z7cF0lBOAwAA</XPD:REF>
+<XPD:REF name="Views[1]">8MBTOhNmH0i3z7cF0lBOAwAA</XPD:REF>
+<XPD:REF name="Views[2]">kasyGqlDEkK16mL7kmkCdAAA</XPD:REF>
 <XPD:REF name="Views[3]">oYLq044vAEK83gaiDJ22MAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -3052,8 +3084,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">40Fg5G2zQECH9fUf76+/ogAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">JkscuWQuAkq34sjUpCgnCgAA</XPD:REF>
-<XPD:REF name="Views[1]">RPRwqIbimUOB62Kh5KKfAwAA</XPD:REF>
-<XPD:REF name="Views[2]">zqelVJOj3EaHydEHWzkE2AAA</XPD:REF>
+<XPD:REF name="Views[1]">zqelVJOj3EaHydEHWzkE2AAA</XPD:REF>
+<XPD:REF name="Views[2]">RPRwqIbimUOB62Kh5KKfAwAA</XPD:REF>
 <XPD:REF name="Views[3]">FScKT9pl8UWmlP3owtnz1QAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="6vGHDXqR1EmeL2ZToV5aewAA">
@@ -3061,8 +3093,8 @@ xac nhan da lay duoc tu truoc.
 <XPD:REF name="Participant">9DUCw6+WT0iab3HX+nboSwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">oYAjHw5hiEOO7Cbw8tYoTAAA</XPD:REF>
-<XPD:REF name="Views[1]">005O+W0zA0GYvJEKigS9QAAA</XPD:REF>
-<XPD:REF name="Views[2]">WHbaRm7BUkO+GsLQFO9u8AAA</XPD:REF>
+<XPD:REF name="Views[1]">WHbaRm7BUkO+GsLQFO9u8AAA</XPD:REF>
+<XPD:REF name="Views[2]">005O+W0zA0GYvJEKigS9QAAA</XPD:REF>
 <XPD:REF name="Views[3]">XfcTma/zdkarrkuMhPVtTwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
