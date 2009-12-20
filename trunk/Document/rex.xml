@@ -1,0 +1,40 @@
+<KhachSan>
+	<ThongTinLoaiPhong total="3">
+		<LoaiPhong id="0">
+			<Ten>Hang sang</Ten>
+			<SoPhong>10</SoPhong>
+			<Gia>
+				<VND>500000</VND>
+			</Gia>
+		</LoaiPhong>
+		<LoaiPhong id="1">
+			<Ten>Hang trung</Ten>
+			<SoPhong>20</SoPhong>
+			<Gia>
+				<VND>300000</VND>
+			</Gia>
+		</LoaiPhong>
+		<LoaiPhong id="2">
+			<Ten>Hang thuong</Ten>
+			<SoPhong>15</SoPhong>
+			<Gia>
+				<VND>200000</VND>
+			</Gia>
+		</LoaiPhong>
+	</ThongTinLoaiPhong>
+	<DanhSachPhong>
+		<Phong type="0" status="0" cost="475000">
+			<MoTa></MoTa>
+		</Phong>
+		<Phong type="2" status="1">
+			<MoTa></MoTa>
+		</Phong>
+		<Phong type="2" status="0">
+			<MoTa></MoTa>
+		</Phong>
+		...
+		<Phong type="1" status="0" cost="510000">
+			<MoTa></MoTa>
+		</Phong>
+	</DanhSachPhong>
+</KhachSan>
