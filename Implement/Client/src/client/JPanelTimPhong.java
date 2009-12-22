@@ -47,7 +47,6 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jCheckTinhTrang = new javax.swing.JCheckBox();
         jLabelTinhTrang = new javax.swing.JLabel();
         jCbTinhTrang = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
         jBtnTimKiem = new javax.swing.JButton();
         bgLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -82,72 +81,124 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
+        jPanel2.setAutoscrolls(true);
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setOpaque(false);
-        jPanel2.setLayout(new java.awt.GridLayout(4, 3, 5, 5));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jCheckMaPhong.setBackground(resourceMap.getColor("jCheckMaPhong.background")); // NOI18N
         jCheckMaPhong.setText(resourceMap.getString("jCheckMaPhong.text")); // NOI18N
         jCheckMaPhong.setName("jCheckMaPhong"); // NOI18N
+        jCheckMaPhong.setOpaque(false);
         jCheckMaPhong.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckMaPhongItemStateChanged(evt);
             }
         });
-        jPanel2.add(jCheckMaPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jCheckMaPhong, gridBagConstraints);
 
         jLabelMaPhong.setText(resourceMap.getString("jLabelMaPhong.text")); // NOI18N
         jLabelMaPhong.setName("jLabelMaPhong"); // NOI18N
-        jPanel2.add(jLabelMaPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jLabelMaPhong, gridBagConstraints);
 
         jTxtMaPhong.setBackground(resourceMap.getColor("jTxtMaPhong.background")); // NOI18N
         jTxtMaPhong.setText(resourceMap.getString("jTxtMaPhong.text")); // NOI18N
         jTxtMaPhong.setName("jTxtMaPhong"); // NOI18N
-        jPanel2.add(jTxtMaPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 3;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jTxtMaPhong, gridBagConstraints);
 
         jCheckLoaiPhong.setText(resourceMap.getString("jCheckLoaiPhong.text")); // NOI18N
         jCheckLoaiPhong.setName("jCheckLoaiPhong"); // NOI18N
+        jCheckLoaiPhong.setOpaque(false);
         jCheckLoaiPhong.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckLoaiPhongItemStateChanged(evt);
             }
         });
-        jPanel2.add(jCheckLoaiPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jCheckLoaiPhong, gridBagConstraints);
 
         jLabelLoaiPhong.setText(resourceMap.getString("jLabelLoaiPhong.text")); // NOI18N
         jLabelLoaiPhong.setEnabled(false);
         jLabelLoaiPhong.setName("jLabelLoaiPhong"); // NOI18N
-        jPanel2.add(jLabelLoaiPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jLabelLoaiPhong, gridBagConstraints);
 
+        jCbLoaiPhong.setBackground(resourceMap.getColor("jCbLoaiPhong.background")); // NOI18N
         jCbLoaiPhong.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Binh thuong", "Dac biet", " " }));
         jCbLoaiPhong.setEnabled(false);
         jCbLoaiPhong.setName("jCbLoaiPhong"); // NOI18N
-        jPanel2.add(jCbLoaiPhong);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jCbLoaiPhong, gridBagConstraints);
 
         jCheckTinhTrang.setText(resourceMap.getString("jCheckTinhTrang.text")); // NOI18N
         jCheckTinhTrang.setName("jCheckTinhTrang"); // NOI18N
+        jCheckTinhTrang.setOpaque(false);
         jCheckTinhTrang.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckTinhTrangItemStateChanged(evt);
             }
         });
-        jPanel2.add(jCheckTinhTrang);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jCheckTinhTrang, gridBagConstraints);
 
         jLabelTinhTrang.setText(resourceMap.getString("jLabelTinhTrang.text")); // NOI18N
         jLabelTinhTrang.setEnabled(false);
         jLabelTinhTrang.setName("jLabelTinhTrang"); // NOI18N
-        jPanel2.add(jLabelTinhTrang);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jLabelTinhTrang, gridBagConstraints);
 
+        jCbTinhTrang.setBackground(resourceMap.getColor("jCbLoaiPhong.background")); // NOI18N
         jCbTinhTrang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Con trong", "Da dat cho", "Dang sua chua" }));
         jCbTinhTrang.setEnabled(false);
         jCbTinhTrang.setName("jCbTinhTrang"); // NOI18N
-        jPanel2.add(jCbTinhTrang);
-
-        jLabel7.setName("jLabel7"); // NOI18N
-        jPanel2.add(jLabel7);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
+        jPanel2.add(jCbTinhTrang, gridBagConstraints);
 
         jBtnTimKiem.setText(resourceMap.getString("jBtnTimKiem.text")); // NOI18N
         jBtnTimKiem.setName("jBtnTimKiem"); // NOI18N
-        jPanel2.add(jBtnTimKiem);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(3, 8, 0, 8);
+        jPanel2.add(jBtnTimKiem, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -226,24 +277,23 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(389, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(330, 330, 330))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                .addGap(181, 181, 181))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addGap(49, 49, 49)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(335, 335, 335))
+                .addContainerGap(530, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -325,7 +375,6 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckTinhTrang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelLoaiPhong;
     private javax.swing.JLabel jLabelMaPhong;
     private javax.swing.JLabel jLabelTinhTrang;

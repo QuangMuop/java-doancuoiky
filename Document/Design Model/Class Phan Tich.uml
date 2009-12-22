@@ -439,10 +439,10 @@
 <XPD:OBJ name="OwnedViews[8]" type="UMLClassView" guid="gk0Mo1bEzEi5ZBPxz9+OPQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">504</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">468</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">336</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">484</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">315</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">134</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">108</XPD:ATTR>
 <XPD:REF name="Model">C4qI4MMstkGwVx8VIptfDgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="+9NXt7LjTEm7YSL6pe4DqQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="YBusCRG28kaSIPuEPVFRuwAA">
@@ -594,7 +594,7 @@ xac nhan da lay duoc tu truoc.
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteLinkView" guid="dTa+XAvoDUCBzSp7miihPAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">818,525;1116,508</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">650,529;1116,507</XPD:ATTR>
 <XPD:REF name="Head">HW+lRFcJAEC64ZeCmCyQIAAA</XPD:REF>
 <XPD:REF name="Tail">gk0Mo1bEzEi5ZBPxz9+OPQAA</XPD:REF>
 </XPD:OBJ>
@@ -2350,17 +2350,6 @@ bang voi enum tuong ung
 <XPD:REF name="Type_">BUuGjDEtLEap6Fy44e0hbQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="3gAYJAMED0y9gCU/tmT2/gAA">
-<XPD:ATTR name="Name" type="string">lstPhong</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Phong[]</XPD:ATTR>
-<XPD:REF name="Owner">C4qI4MMstkGwVx8VIptfDgAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="MyDwp8Y9MkG3hIEXhSoEjwAA">
-<XPD:ATTR name="Name" type="string">lstKhach</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">KhachHang[]</XPD:ATTR>
-<XPD:REF name="Owner">C4qI4MMstkGwVx8VIptfDgAA</XPD:REF>
-</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[11]" type="UMLEnumeration" guid="VG/dfXO3rU6yKvcxBqwjlQAA">
 <XPD:ATTR name="Name" type="string">LoaiThue</XPD:ATTR>
@@ -3368,8 +3357,8 @@ bang voi enum tuong ung
 <XPD:REF name="Participant">BUuGjDEtLEap6Fy44e0hbQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">oBVkKrWYS0SYH/aFzNPkGwAA</XPD:REF>
-<XPD:REF name="Views[1]">Riyp7nUUJ02JQgVSA150fAAA</XPD:REF>
-<XPD:REF name="Views[2]">LOi4maSZtEO/URXOCKzioAAA</XPD:REF>
+<XPD:REF name="Views[1]">LOi4maSZtEO/URXOCKzioAAA</XPD:REF>
+<XPD:REF name="Views[2]">Riyp7nUUJ02JQgVSA150fAAA</XPD:REF>
 <XPD:REF name="Views[3]">Jtv1gbRzDkqU3lVNerZgCgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="/zKiMDdYo0WWfzggqNGQEgAA">
@@ -3377,8 +3366,8 @@ bang voi enum tuong ung
 <XPD:REF name="Participant">inXTV/o+90eMVODKR9vQyQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">KSkRxL+96UWmiUf/nN5xCwAA</XPD:REF>
-<XPD:REF name="Views[1]">X5nJ6i3/yEenQWc4W1E8qwAA</XPD:REF>
-<XPD:REF name="Views[2]">+uEAPlZe3EuIKFz0viXCNgAA</XPD:REF>
+<XPD:REF name="Views[1]">+uEAPlZe3EuIKFz0viXCNgAA</XPD:REF>
+<XPD:REF name="Views[2]">X5nJ6i3/yEenQWc4W1E8qwAA</XPD:REF>
 <XPD:REF name="Views[3]">rAC3Z1xAMEaJGyBFIBeRNwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>

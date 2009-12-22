@@ -269,6 +269,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnXemPhong" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnXemPhong.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnXemPhong.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnXemPhongMousePressed"/>
@@ -291,6 +293,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnTimPhong" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnTimPhong.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnTimPhong.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnTimPhongMousePressed"/>
@@ -313,6 +317,7 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnThuePhong" noResource="true"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnThuePhong.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnThuePhongMousePressed"/>
@@ -335,6 +340,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnTraPhong" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnTraPhong.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnTraPhong.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnTraPhongMousePressed"/>
@@ -357,6 +364,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnThongKe" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnThongKe.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnThongKe.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnThongKeMousePressed"/>
@@ -379,6 +388,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnSubmitXML" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnSubmitXML.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnSubmitXML.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnSubmitXMLMousePressed"/>
@@ -401,6 +412,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnCauHinh" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnCauHinh.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnCauHinh.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnCauHinhMousePressed"/>
@@ -423,6 +436,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnHelp" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnHelp.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnHelp.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnHelpMousePressed"/>
@@ -445,6 +460,8 @@
                       <Insets value="null"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="jToggleBtnAbout" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.selectedIcon"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnAboutMousePressed"/>

@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -28,48 +27,8 @@ public class ClientView extends FrameView {
 
         initComponents();
 
-        //init panels
-        panelCauhinh = new JPanelCauHinh();
-        panelCauhinh.setName("panelCauhinh");
-
-        panelSubmitXML = new JPanelSubmitXML();
-        panelSubmitXML.setName("panelSubmitXML");
-
-        panelThongKe = new JPanelThongKe();
-        panelThongKe.setName("panelThongKe");
-
-        panelThuePhong = new JPanelThuePhong();
-        panelThuePhong.setName("panelThuePhong");
-
-        panelTimPhong = new JPanelTimPhong();
-        panelTimPhong.setName("panelTimPhong");
-
-        panelTraPhong = new JPanelTraPhong();
-        panelTraPhong.setName("panelTraPhong");
-
-        panelXemChiTiet = new JPanelXemChiTiet();
-        panelXemChiTiet.setName("panelXemChiTiet");
-
-        panelXemPhong = new JPanelXemPhong();
-        panelXemPhong.setName("panelXemPhong");
-
-        //load and paint default panel
-        jRightPanel.add(panelThuePhong,panelThuePhong.getName());
-        jRightPanel.add(panelCauhinh,panelCauhinh.getName());
-        jRightPanel.add(panelSubmitXML,panelSubmitXML.getName());
-        jRightPanel.add(panelThongKe,panelThongKe.getName());
-        jRightPanel.add(panelTimPhong,panelTimPhong.getName());
-        jRightPanel.add(panelTraPhong,panelTraPhong.getName());
-        jRightPanel.add(panelXemChiTiet,panelXemChiTiet.getName());
-        jRightPanel.add(panelXemPhong,panelXemPhong.getName());
-
-        //inti for button with image
-        java.net.URL imageURL = ClientView.class.getResource("resources/XemPhongBtnPress.jpg");
-        if (imageURL != null) {
-            ImageIcon icon = new ImageIcon(imageURL);
-            //icon.paintIcon(jToggleBtnThongKe, jToggleBtnThongKe.getGraphics(), 0, 0);
-        }
-
+        myInit();
+                
         // status bar initialization - message timeout, idle icon and busy animation, etc
         ResourceMap resourceMap = getResourceMap();
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
@@ -309,6 +268,8 @@ public class ClientView extends FrameView {
         jToggleBtnXemPhong.setIconTextGap(0);
         jToggleBtnXemPhong.setMargin(null);
         jToggleBtnXemPhong.setName("jToggleBtnXemPhong"); // NOI18N
+        jToggleBtnXemPhong.setPressedIcon(resourceMap.getIcon("jToggleBtnXemPhong.pressedIcon")); // NOI18N
+        jToggleBtnXemPhong.setSelectedIcon(resourceMap.getIcon("jToggleBtnXemPhong.selectedIcon")); // NOI18N
         jToggleBtnXemPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnXemPhongMousePressed(evt);
@@ -329,6 +290,8 @@ public class ClientView extends FrameView {
         jToggleBtnTimPhong.setIconTextGap(0);
         jToggleBtnTimPhong.setMargin(null);
         jToggleBtnTimPhong.setName("jToggleBtnTimPhong"); // NOI18N
+        jToggleBtnTimPhong.setPressedIcon(resourceMap.getIcon("jToggleBtnTimPhong.pressedIcon")); // NOI18N
+        jToggleBtnTimPhong.setSelectedIcon(resourceMap.getIcon("jToggleBtnTimPhong.selectedIcon")); // NOI18N
         jToggleBtnTimPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnTimPhongMousePressed(evt);
@@ -349,6 +312,7 @@ public class ClientView extends FrameView {
         jToggleBtnThuePhong.setIconTextGap(0);
         jToggleBtnThuePhong.setMargin(null);
         jToggleBtnThuePhong.setName("jToggleBtnThuePhong"); // NOI18N
+        jToggleBtnThuePhong.setSelectedIcon(resourceMap.getIcon("jToggleBtnThuePhong.selectedIcon")); // NOI18N
         jToggleBtnThuePhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnThuePhongMousePressed(evt);
@@ -369,6 +333,8 @@ public class ClientView extends FrameView {
         jToggleBtnTraPhong.setIconTextGap(0);
         jToggleBtnTraPhong.setMargin(null);
         jToggleBtnTraPhong.setName("jToggleBtnTraPhong"); // NOI18N
+        jToggleBtnTraPhong.setPressedIcon(resourceMap.getIcon("jToggleBtnTraPhong.pressedIcon")); // NOI18N
+        jToggleBtnTraPhong.setSelectedIcon(resourceMap.getIcon("jToggleBtnTraPhong.selectedIcon")); // NOI18N
         jToggleBtnTraPhong.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnTraPhongMousePressed(evt);
@@ -389,6 +355,8 @@ public class ClientView extends FrameView {
         jToggleBtnThongKe.setIconTextGap(0);
         jToggleBtnThongKe.setMargin(null);
         jToggleBtnThongKe.setName("jToggleBtnThongKe"); // NOI18N
+        jToggleBtnThongKe.setPressedIcon(resourceMap.getIcon("jToggleBtnThongKe.pressedIcon")); // NOI18N
+        jToggleBtnThongKe.setSelectedIcon(resourceMap.getIcon("jToggleBtnThongKe.selectedIcon")); // NOI18N
         jToggleBtnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnThongKeMousePressed(evt);
@@ -409,6 +377,8 @@ public class ClientView extends FrameView {
         jToggleBtnSubmitXML.setIconTextGap(0);
         jToggleBtnSubmitXML.setMargin(null);
         jToggleBtnSubmitXML.setName("jToggleBtnSubmitXML"); // NOI18N
+        jToggleBtnSubmitXML.setPressedIcon(resourceMap.getIcon("jToggleBtnSubmitXML.pressedIcon")); // NOI18N
+        jToggleBtnSubmitXML.setSelectedIcon(resourceMap.getIcon("jToggleBtnSubmitXML.selectedIcon")); // NOI18N
         jToggleBtnSubmitXML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnSubmitXMLMousePressed(evt);
@@ -429,6 +399,8 @@ public class ClientView extends FrameView {
         jToggleBtnCauHinh.setIconTextGap(0);
         jToggleBtnCauHinh.setMargin(null);
         jToggleBtnCauHinh.setName("jToggleBtnCauHinh"); // NOI18N
+        jToggleBtnCauHinh.setPressedIcon(resourceMap.getIcon("jToggleBtnCauHinh.pressedIcon")); // NOI18N
+        jToggleBtnCauHinh.setSelectedIcon(resourceMap.getIcon("jToggleBtnCauHinh.selectedIcon")); // NOI18N
         jToggleBtnCauHinh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnCauHinhMousePressed(evt);
@@ -449,6 +421,8 @@ public class ClientView extends FrameView {
         jToggleBtnHelp.setIconTextGap(0);
         jToggleBtnHelp.setMargin(null);
         jToggleBtnHelp.setName("jToggleBtnHelp"); // NOI18N
+        jToggleBtnHelp.setPressedIcon(resourceMap.getIcon("jToggleBtnHelp.pressedIcon")); // NOI18N
+        jToggleBtnHelp.setSelectedIcon(resourceMap.getIcon("jToggleBtnHelp.selectedIcon")); // NOI18N
         jToggleBtnHelp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnHelpMousePressed(evt);
@@ -469,6 +443,8 @@ public class ClientView extends FrameView {
         jToggleBtnAbout.setIconTextGap(0);
         jToggleBtnAbout.setMargin(null);
         jToggleBtnAbout.setName("jToggleBtnAbout"); // NOI18N
+        jToggleBtnAbout.setPressedIcon(resourceMap.getIcon("jToggleBtnAbout.pressedIcon")); // NOI18N
+        jToggleBtnAbout.setSelectedIcon(resourceMap.getIcon("jToggleBtnAbout.selectedIcon")); // NOI18N
         jToggleBtnAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jToggleBtnAboutMousePressed(evt);
@@ -494,7 +470,7 @@ public class ClientView extends FrameView {
         setComponent(jSplitMainPane);
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jToggleBtnXemPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
@@ -543,6 +519,12 @@ public class ClientView extends FrameView {
 
     private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
         // TODO add your handling code here:
+//        if (aboutBox == null) {
+//            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
+//            aboutBox = new ClientAboutBox(mainFrame);
+//            aboutBox.setLocationRelativeTo(mainFrame);
+//        }
+//        ClientApp.getApplication().show(aboutBox);
     }//GEN-LAST:event_jToggleBtnAboutMousePressed
 
     //click on button Xem phong
@@ -580,16 +562,46 @@ public class ClientView extends FrameView {
     private int busyIconIndex = 0;
 
     private JDialog aboutBox;
-
+    
     //panels
     private JPanelCauHinh panelCauhinh;
     private JPanelSubmitXML panelSubmitXML;
     private JPanelThongKe panelThongKe;
     private JPanelThuePhong panelThuePhong;
     private JPanelTimPhong panelTimPhong;
-    private JPanelTraPhong panelTraPhong;
-    private JPanelXemChiTiet panelXemChiTiet;
+    private JPanelTraPhong panelTraPhong;    
     private JPanelXemPhong panelXemPhong;
+    
+    private void myInit() {
+        //init panels
+        panelCauhinh = new JPanelCauHinh();
+        panelCauhinh.setName("panelCauhinh");
 
-    ImageIcon xemPhongIcon;
+        panelSubmitXML = new JPanelSubmitXML();
+        panelSubmitXML.setName("panelSubmitXML");
+
+        panelThongKe = new JPanelThongKe();
+        panelThongKe.setName("panelThongKe");
+
+        panelThuePhong = new JPanelThuePhong();
+        panelThuePhong.setName("panelThuePhong");
+
+        panelTimPhong = new JPanelTimPhong();
+        panelTimPhong.setName("panelTimPhong");
+
+        panelTraPhong = new JPanelTraPhong();
+        panelTraPhong.setName("panelTraPhong");
+
+        panelXemPhong = new JPanelXemPhong();
+        panelXemPhong.setName("panelXemPhong");
+
+        //load and paint default panel
+        jRightPanel.add(panelXemPhong,panelXemPhong.getName()); 
+        jRightPanel.add(panelThuePhong,panelThuePhong.getName());
+        jRightPanel.add(panelCauhinh,panelCauhinh.getName());
+        jRightPanel.add(panelSubmitXML,panelSubmitXML.getName());
+        jRightPanel.add(panelThongKe,panelThongKe.getName());
+        jRightPanel.add(panelTimPhong,panelTimPhong.getName());
+        jRightPanel.add(panelTraPhong,panelTraPhong.getName());
+    }
 }
