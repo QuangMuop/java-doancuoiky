@@ -31,55 +31,118 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelHeThong = new javax.swing.JPanel();
+        jMainPanelHeThong = new javax.swing.JPanel();
+        bgLabel1 = new javax.swing.JLabel();
+        jPanelNghiepVu = new javax.swing.JPanel();
+        jMainPanelNghiepVu = new javax.swing.JPanel();
+        bgLabel2 = new javax.swing.JLabel();
+        bgLabel = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
-        setLayout(new java.awt.GridLayout(1, 1));
+        setLayout(new java.awt.GridBagLayout());
 
         jTabbedPane1.setDoubleBuffered(true);
         jTabbedPane1.setName("jTabbedPane1"); // NOI18N
 
-        jPanel1.setName("jPanelTabHeThong"); // NOI18N
+        jPanelHeThong.setName("jPanelTabHeThong"); // NOI18N
+        jPanelHeThong.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+        jMainPanelHeThong.setName("jMainPanelHeThong"); // NOI18N
+        jMainPanelHeThong.setOpaque(false);
+
+        javax.swing.GroupLayout jMainPanelHeThongLayout = new javax.swing.GroupLayout(jMainPanelHeThong);
+        jMainPanelHeThong.setLayout(jMainPanelHeThongLayout);
+        jMainPanelHeThongLayout.setHorizontalGroup(
+            jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 969, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
+        jMainPanelHeThongLayout.setVerticalGroup(
+            jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 721, Short.MAX_VALUE)
         );
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelHeThong.add(jMainPanelHeThong, gridBagConstraints);
+
+        bgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelCauHinh.class);
-        jTabbedPane1.addTab(resourceMap.getString("jPanelTabHeThong.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabHeThong.TabConstraints.tabIcon"), jPanel1); // NOI18N
+        bgLabel1.setIcon(resourceMap.getIcon("bgLabel1.icon")); // NOI18N
+        bgLabel1.setText(resourceMap.getString("bgLabel1.text")); // NOI18N
+        bgLabel1.setName("bgLabel1"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelHeThong.add(bgLabel1, gridBagConstraints);
 
-        jPanel2.setName("jPanelTabNghiepVu"); // NOI18N
+        jTabbedPane1.addTab(resourceMap.getString("jPanelTabHeThong.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabHeThong.TabConstraints.tabIcon"), jPanelHeThong); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+        jPanelNghiepVu.setName("jPanelTabNghiepVu"); // NOI18N
+        jPanelNghiepVu.setLayout(new java.awt.GridBagLayout());
+
+        jMainPanelNghiepVu.setName("jMainPanelNghiepVu"); // NOI18N
+
+        javax.swing.GroupLayout jMainPanelNghiepVuLayout = new javax.swing.GroupLayout(jMainPanelNghiepVu);
+        jMainPanelNghiepVu.setLayout(jMainPanelNghiepVuLayout);
+        jMainPanelNghiepVuLayout.setHorizontalGroup(
+            jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
+        jMainPanelNghiepVuLayout.setVerticalGroup(
+            jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab(resourceMap.getString("jPanelTabNghiepVu.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabNghiepVu.TabConstraints.tabIcon"), jPanel2); // NOI18N
+        jPanelNghiepVu.add(jMainPanelNghiepVu, new java.awt.GridBagConstraints());
 
-        add(jTabbedPane1);
+        bgLabel2.setIcon(resourceMap.getIcon("bgLabel2.icon")); // NOI18N
+        bgLabel2.setText(resourceMap.getString("bgLabel2.text")); // NOI18N
+        bgLabel2.setName("bgLabel2"); // NOI18N
+        jPanelNghiepVu.add(bgLabel2, new java.awt.GridBagConstraints());
+
+        jTabbedPane1.addTab(resourceMap.getString("jPanelTabNghiepVu.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabNghiepVu.TabConstraints.tabIcon"), jPanelNghiepVu); // NOI18N
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(jTabbedPane1, gridBagConstraints);
+
+        bgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bgLabel.setIcon(resourceMap.getIcon("bgLabel.icon")); // NOI18N
+        bgLabel.setText(resourceMap.getString("bgLabel.text")); // NOI18N
+        bgLabel.setName("bgLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(bgLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel bgLabel;
+    private javax.swing.JLabel bgLabel1;
+    private javax.swing.JLabel bgLabel2;
+    private javax.swing.JPanel jMainPanelHeThong;
+    private javax.swing.JPanel jMainPanelNghiepVu;
+    private javax.swing.JPanel jPanelHeThong;
+    private javax.swing.JPanel jPanelNghiepVu;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 
