@@ -104,12 +104,14 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
 
@@ -118,7 +120,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 55);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 45);
         jPanel1.add(jLabel3, gridBagConstraints);
 
         jComboBox1.setBackground(resourceMap.getColor("jComboBox1.background")); // NOI18N
@@ -127,7 +130,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jComboBox1, gridBagConstraints);
 
@@ -136,7 +139,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 50);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 40);
         jPanel1.add(jLabel4, gridBagConstraints);
 
         jLabel5.setText(resourceMap.getString("jLabel5.text")); // NOI18N
@@ -144,7 +148,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel5, gridBagConstraints);
 
@@ -153,7 +157,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 66);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
         jPanel1.add(jLabel6, gridBagConstraints);
 
         jLabel7.setText(resourceMap.getString("jLabel7.text")); // NOI18N
@@ -161,7 +166,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel7, gridBagConstraints);
 
@@ -170,7 +175,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 52);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 42);
         jPanel1.add(jLabel8, gridBagConstraints);
 
         jLabel9.setText(resourceMap.getString("jLabel9.text")); // NOI18N
@@ -178,7 +184,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel9, gridBagConstraints);
 
@@ -187,7 +193,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 60);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 50);
         jPanel1.add(jLabel10, gridBagConstraints);
 
         jLabel11.setText(resourceMap.getString("jLabel11.text")); // NOI18N
@@ -195,7 +202,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel11, gridBagConstraints);
 
@@ -204,7 +211,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 38);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 28);
         jPanel1.add(jLabel12, gridBagConstraints);
 
         jLabel13.setText(resourceMap.getString("jLabel13.text")); // NOI18N
@@ -212,7 +220,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel13, gridBagConstraints);
 
@@ -221,7 +229,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 30);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 20);
         jPanel1.add(jLabel14, gridBagConstraints);
 
         jLabel15.setText(resourceMap.getString("jLabel15.text")); // NOI18N
@@ -229,7 +238,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel15, gridBagConstraints);
 
@@ -240,6 +249,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel16, gridBagConstraints);
 
@@ -248,6 +258,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel17, gridBagConstraints);
 
@@ -256,7 +267,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 21);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 11);
         jPanel1.add(jLabel18, gridBagConstraints);
 
         jLabel19.setText(resourceMap.getString("jLabel19.text")); // NOI18N
@@ -264,7 +276,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel19, gridBagConstraints);
 
@@ -273,7 +285,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 56);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 46);
         jPanel1.add(jLabel20, gridBagConstraints);
 
         jLabel21.setText(resourceMap.getString("jLabel21.text")); // NOI18N
@@ -281,7 +294,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel21, gridBagConstraints);
 
@@ -290,7 +303,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 64);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 54);
         jPanel1.add(jLabel22, gridBagConstraints);
 
         jLabel23.setText(resourceMap.getString("jLabel23.text")); // NOI18N
@@ -298,7 +312,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel23, gridBagConstraints);
 
@@ -307,7 +321,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 71);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 61);
         jPanel1.add(jLabel24, gridBagConstraints);
 
         jLabel25.setText(resourceMap.getString("jLabel25.text")); // NOI18N
@@ -315,7 +330,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel25, gridBagConstraints);
 
@@ -324,7 +339,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 54);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 44);
         jPanel1.add(jLabel26, gridBagConstraints);
 
         jLabel28.setText(resourceMap.getString("jLabel28.text")); // NOI18N
@@ -332,7 +348,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel28, gridBagConstraints);
 
@@ -341,7 +357,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 26);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 16);
         jPanel1.add(jLabel29, gridBagConstraints);
 
         jLabel30.setText(resourceMap.getString("jLabel30.text")); // NOI18N
@@ -349,7 +366,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel30, gridBagConstraints);
 
@@ -358,7 +375,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 15;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 66);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
         jPanel1.add(jLabel31, gridBagConstraints);
 
         jLabel32.setText(resourceMap.getString("jLabel32.text")); // NOI18N
@@ -366,7 +384,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 15;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel32, gridBagConstraints);
 
@@ -377,7 +395,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel33, gridBagConstraints);
 
@@ -388,6 +406,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel34, gridBagConstraints);
 
@@ -396,7 +415,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 46);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 36);
         jPanel1.add(jLabel35, gridBagConstraints);
 
         jLabel36.setText(resourceMap.getString("jLabel36.text")); // NOI18N
@@ -404,7 +424,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel1.add(jLabel36, gridBagConstraints);
 
@@ -413,6 +433,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel1.add(jLabel37, gridBagConstraints);
 
@@ -421,10 +442,13 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.insets = new java.awt.Insets(13, 0, 2, 0);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(13, 66, 2, 65);
         jPanel1.add(jButton2, gridBagConstraints);
 
-        jPanel7.add(jPanel1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel7.add(jPanel1, gridBagConstraints);
 
         bgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bgLabel.setIcon(resourceMap.getIcon("bgLabel.icon")); // NOI18N

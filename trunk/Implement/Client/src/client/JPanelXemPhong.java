@@ -11,6 +11,8 @@
 
 package client;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author huy
@@ -20,6 +22,20 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     /** Creates new form JPanelXemPhong */
     public JPanelXemPhong() {
         initComponents();
+
+        panelLau1 = new JPanelLau1();
+        panelLau1.setName("panelLau1");
+
+        panelLau2 = new JPanelLau2();
+        panelLau2.setName("panelLau2");
+
+        panelLau3 = new JPanelLau3();
+        panelLau3.setName("panelLau3");
+
+        jPanelLauControl.add(panelLau1, panelLau1.getName());
+        jPanelLauControl.add(panelLau2, panelLau2.getName());
+        jPanelLauControl.add(panelLau3, panelLau3.getName());
+
         myPanel = new JPanelThumbnail();
 
         myPanel.setName("MyPanel");
@@ -37,13 +53,176 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanelLauControl = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jBtnPrev = new javax.swing.JButton();
+        jLabelPageNumber = new javax.swing.JLabel();
+        jBtnNext = new javax.swing.JButton();
+        bgLabel1 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new java.awt.CardLayout());
+
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane1.setName("jSplitPane1"); // NOI18N
+
+        jPanelLauControl.setName("jPanelLauControl"); // NOI18N
+        jPanelLauControl.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setLeftComponent(jPanelLauControl);
+
+        jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setName("jPanel1"); // NOI18N
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelXemPhong.class);
+        jBtnPrev.setText(resourceMap.getString("jBtnPrev.text")); // NOI18N
+        jBtnPrev.setEnabled(false);
+        jBtnPrev.setName("jBtnPrev"); // NOI18N
+        jBtnPrev.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnPrevMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 13, 0, 13);
+        jPanel1.add(jBtnPrev, gridBagConstraints);
+
+        jLabelPageNumber.setText(resourceMap.getString("jLabelPageNumber.text")); // NOI18N
+        jLabelPageNumber.setName("jLabelPageNumber"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel1.add(jLabelPageNumber, gridBagConstraints);
+
+        jBtnNext.setText(resourceMap.getString("jBtnNext.text")); // NOI18N
+        jBtnNext.setName("jBtnNext"); // NOI18N
+        jBtnNext.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnNextMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 13, 0, 13);
+        jPanel1.add(jBtnNext, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel2.add(jPanel1, gridBagConstraints);
+
+        bgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bgLabel1.setIcon(resourceMap.getIcon("bgLabel1.icon")); // NOI18N
+        bgLabel1.setText(resourceMap.getString("bgLabel1.text")); // NOI18N
+        bgLabel1.setName("bgLabel1"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel2.add(bgLabel1, gridBagConstraints);
+
+        jSplitPane1.setRightComponent(jPanel2);
+
+        add(jSplitPane1, "card2");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_formComponentShown
+
+    private void jBtnPrevMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnPrevMousePressed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(jLabelPageNumber.getText());
+        if(num>1)
+        {
+            CardLayout cl;
+            num--;
+            switch(num)
+            {
+                case 1:
+                    cl = (CardLayout)jPanelLauControl.getLayout();
+                    cl.show(jPanelLauControl, panelLau1.getName());
+                    jBtnPrev.setEnabled(false);
+                    jBtnNext.setEnabled(true);
+                    break;
+                case 2:
+                    cl = (CardLayout)jPanelLauControl.getLayout();
+                    cl.show(jPanelLauControl, panelLau2.getName());
+                    jBtnPrev.setEnabled(true);
+                    jBtnNext.setEnabled(true);
+                    break;
+            }
+            jLabelPageNumber.setText("" + num);
+        }
+    }//GEN-LAST:event_jBtnPrevMousePressed
+
+    private void jBtnNextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnNextMousePressed
+        // TODO add your handling code here:
+        int num = Integer.parseInt(jLabelPageNumber.getText());
+        if(num<3)
+        {
+            CardLayout cl;
+            num++;
+            switch(num)
+            {
+                case 2:
+                    cl = (CardLayout)jPanelLauControl.getLayout();
+                    cl.show(jPanelLauControl, panelLau2.getName());
+                    jBtnPrev.setEnabled(true);
+                    jBtnNext.setEnabled(true);
+                    break;
+                case 3:
+                    cl = (CardLayout)jPanelLauControl.getLayout();
+                    cl.show(jPanelLauControl, panelLau3.getName());
+
+                    jBtnPrev.setEnabled(true);
+                    jBtnNext.setEnabled(false);
+                    break;
+            }
+            jLabelPageNumber.setText("" + num);
+        }
+    }//GEN-LAST:event_jBtnNextMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgLabel1;
+    private javax.swing.JButton jBtnNext;
+    private javax.swing.JButton jBtnPrev;
+    private javax.swing.JLabel jLabelPageNumber;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelLauControl;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
     private JPanelThumbnail myPanel;
+
+    private JPanelLau1 panelLau1;
+    private JPanelLau2 panelLau2;
+    private JPanelLau3 panelLau3;
+
 }
