@@ -14,6 +14,8 @@
         <title>Hotel Agency</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="template/header.jsp" />
+        <a href="./hotels?hid=1">Rex</a>
+        <jsp:include page="template/footer.jsp" />
     </body>
 </html>
