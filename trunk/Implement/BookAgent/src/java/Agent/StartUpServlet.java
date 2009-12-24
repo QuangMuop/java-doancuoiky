@@ -8,6 +8,7 @@ package Agent;
 import Hotel.HotelInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +18,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hvu
  */
-public class HotelController extends HttpServlet {
+public class StartUpServlet extends HttpServlet {
 
-
+    public static String path;
+    public static ArrayList<HotelInfo> listHotels;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -31,15 +33,11 @@ public class HotelController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         try {
-            Integer hid = Integer.parseInt(request.getParameter("hid"));
-            if (hid != null) {
-                HotelModel model = new HotelModel();
-                HotelInfo hotel = model.getHotelById(hid);
-                request.setAttribute("hotel", hotel);
-                getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
-            }
+            path = getServletContext().getRealPath("/");
+            HotelModel model = new HotelModel();
+            listHotels = model.getHotels();
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         } finally { 
             out.close();
         }

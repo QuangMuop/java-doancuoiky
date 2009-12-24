@@ -4,9 +4,25 @@
         <servlet-name>HotelController</servlet-name>
         <servlet-class>Agent.HotelController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StartUpServlet</servlet-name>
+        <servlet-class>Agent.StartUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BookController</servlet-name>
+        <servlet-class>Agent.BookController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HotelController</servlet-name>
         <url-pattern>/hotels</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartUpServlet</servlet-name>
+        <url-pattern>/startup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookController</servlet-name>
+        <url-pattern>/book</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -14,6 +30,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>startup</welcome-file>
         </welcome-file-list>
     </web-app>
