@@ -15,7 +15,7 @@
     </head>
     <body>
         <jsp:include page="template/header.jsp" />
-        <a href="./hotels?hid=1">Rex</a>
+        About
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>

@@ -3,6 +3,7 @@ package Agent;
 
 import Hotel.HotelInfo;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
@@ -25,7 +26,7 @@ public class HotelModel {
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document dom = builder.parse(HotelController.path + "ListKhachSan.xml");
+            Document dom = builder.parse(StartUpServlet.path + "ListKhachSan.xml");
             dom.normalize();
 
             NodeList listHotels = dom.getElementsByTagName("KhachSan");
@@ -35,7 +36,6 @@ public class HotelModel {
                     return info;
                 }
             }
-            
         } catch (SAXException ex) {
             Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -44,5 +44,30 @@ public class HotelModel {
             Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return info;
+    }
+
+    public ArrayList<HotelInfo> getHotels() {
+        ArrayList<HotelInfo> listHotels = new ArrayList<HotelInfo>();
+
+        try {
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document dom = builder.parse(StartUpServlet.path + "ListKhachSan.xml");
+            dom.normalize();
+
+            NodeList listNodes = dom.getElementsByTagName("KhachSan");
+            for (int i = 0; i < listNodes.getLength(); i++) {
+                listHotels.add(new HotelInfo((Element) listNodes.item(i)));
+            }
+        } catch (SAXException ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listHotels;
     }
 }
