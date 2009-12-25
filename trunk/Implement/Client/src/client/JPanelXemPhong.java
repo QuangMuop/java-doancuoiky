@@ -11,8 +11,6 @@
 
 package client;
 
-import java.awt.CardLayout;
-
 /**
  *
  * @author huy
@@ -23,19 +21,10 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     public JPanelXemPhong() {
         initComponents();
 
-        panelLau1 = new JPanelLau1();
-        panelLau1.setName("panelLau1");
-
-        panelLau2 = new JPanelLau2();
-        panelLau2.setName("panelLau2");
-
-        panelLau3 = new JPanelLau3();
-        panelLau3.setName("panelLau3");
-
-        jPanelLauControl.add(panelLau1, panelLau1.getName());
-        jPanelLauControl.add(panelLau2, panelLau2.getName());
-        jPanelLauControl.add(panelLau3, panelLau3.getName());
-
+        panelFloor = new JPanelFloor();
+        
+        jPanelLauControl.add(panelFloor, panelFloor.getName());
+        
         myPanel = new JPanelThumbnail();
 
         myPanel.setName("MyPanel");
@@ -160,23 +149,25 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         int num = Integer.parseInt(jLabelPageNumber.getText());
         if(num>1)
         {
-            CardLayout cl;
+            
             num--;
             switch(num)
             {
                 case 1:
-                    cl = (CardLayout)jPanelLauControl.getLayout();
-                    cl.show(jPanelLauControl, panelLau1.getName());
+                    panelFloor.repaintFloor(num);
+
                     jBtnPrev.setEnabled(false);
                     jBtnNext.setEnabled(true);
                     break;
                 case 2:
-                    cl = (CardLayout)jPanelLauControl.getLayout();
-                    cl.show(jPanelLauControl, panelLau2.getName());
+                    panelFloor.repaintFloor(num);
+
                     jBtnPrev.setEnabled(true);
                     jBtnNext.setEnabled(true);
                     break;
             }
+            panelFloor.validate();
+            this.validate();
             jLabelPageNumber.setText("" + num);
         }
     }//GEN-LAST:event_jBtnPrevMousePressed
@@ -186,24 +177,25 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         int num = Integer.parseInt(jLabelPageNumber.getText());
         if(num<3)
         {
-            CardLayout cl;
+            
             num++;
             switch(num)
             {
                 case 2:
-                    cl = (CardLayout)jPanelLauControl.getLayout();
-                    cl.show(jPanelLauControl, panelLau2.getName());
+                   panelFloor.repaintFloor(num);
+
                     jBtnPrev.setEnabled(true);
                     jBtnNext.setEnabled(true);
                     break;
                 case 3:
-                    cl = (CardLayout)jPanelLauControl.getLayout();
-                    cl.show(jPanelLauControl, panelLau3.getName());
+                  panelFloor.repaintFloor(num);
 
                     jBtnPrev.setEnabled(true);
                     jBtnNext.setEnabled(false);
                     break;
             }
+            panelFloor.validate();
+            this.validate();
             jLabelPageNumber.setText("" + num);
         }
     }//GEN-LAST:event_jBtnNextMousePressed
@@ -221,8 +213,5 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private JPanelThumbnail myPanel;
 
-    private JPanelLau1 panelLau1;
-    private JPanelLau2 panelLau2;
-    private JPanelLau3 panelLau3;
-
+    private JPanelFloor panelFloor;
 }
