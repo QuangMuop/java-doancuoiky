@@ -16,4 +16,5 @@ public interface IPhongDAO {
     public boolean updatePhongTheoId(int id, Phong phong);
     public ArrayList getDSLau(CompareOption option);
     public ArrayList<Phong> getDSPhongDangThue();
+    public ArrayList<Phong> getDSPhongChuaThue();
 }

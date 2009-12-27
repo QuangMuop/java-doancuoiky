@@ -44,7 +44,7 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
 
             return lst;
         } catch (SQLException ex) {
-            Logger.getLogger(MySqlTinhTrangPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySqlLoaiPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         finally
@@ -76,7 +76,7 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
 
             return loaiPhong;
         } catch (SQLException ex) {
-            Logger.getLogger(MySqlTinhTrangPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySqlLoaiPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         finally
@@ -108,7 +108,7 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
 
             return loaiPhong;
         } catch (SQLException ex) {
-            Logger.getLogger(MySqlTinhTrangPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySqlLoaiPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         finally
@@ -117,4 +117,29 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
         }
     }
 
+    public boolean updateLoaiPhongTheoId(LoaiPhong loaiPhong, int id) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection("HOTELDB", "root", "root");
+
+            String sql = "update loai_phong set ten = ?, gia = ? where id = ?;";
+
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+            statement.setString(1, loaiPhong.getTen());
+            statement.setInt(2, loaiPhong.getGia());
+            statement.setInt(3, loaiPhong.getId());
+
+            if(statement.executeUpdate()>0)
+                return true;
+            else
+                return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlLoaiPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
 }

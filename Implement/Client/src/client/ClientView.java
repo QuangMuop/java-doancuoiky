@@ -282,6 +282,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnXemPhong, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnTimPhong);
@@ -304,6 +305,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnTimPhong, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnThuePhong);
@@ -325,6 +327,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnThuePhong, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnTraPhong);
@@ -347,6 +350,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnTraPhong, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnThongKe);
@@ -369,6 +373,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnThongKe, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnSubmitXML);
@@ -391,6 +396,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnSubmitXML, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnCauHinh);
@@ -413,6 +419,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnCauHinh, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnHelp);
@@ -435,6 +442,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnHelp, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnAbout);
@@ -457,6 +465,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnAbout, gridBagConstraints);
 
         jSplitPane2.setLeftComponent(jLeftPanel);
