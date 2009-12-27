@@ -38,6 +38,8 @@ public class MySqlPhongDAO implements IPhongDAO {
             TinhTrangPhong tinhTrangPhong;
             LoaiPhong loaiPhong;
 
+            MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
+            MySqlLoaiPhongDAO loaiPhongDAO = new MySqlLoaiPhongDAO();
             while(rs.next())
             {
                  phong = new Phong();
@@ -45,15 +47,12 @@ public class MySqlPhongDAO implements IPhongDAO {
                  phong.setLau(rs.getInt("lau"));
                  phong.setGia(rs.getInt("gia"));
 
-                 tinhTrangPhong = new TinhTrangPhong();
-                 tinhTrangPhong.setId(rs.getInt("id_tinh_trang"));
-                 tinhTrangPhong.setTen(rs.getString("tinh_trang_phong.ten"));
+                 int id_tinh_trang = rs.getInt("id_tinh_trang");
+                 tinhTrangPhong = tinhTrangPhongDAO.getTinhTrangPhongTheoId(id_tinh_trang);
                  phong.setIdTinhTrang(tinhTrangPhong);
 
-                 loaiPhong = new LoaiPhong();
-                 loaiPhong.setGia(rs.getInt("loai_phong.gia"));
-                 loaiPhong.setId(rs.getInt("id_loai_phong"));
-                 loaiPhong.setTen(rs.getString("loai_phong.ten"));
+                 int id_loai_phong = rs.getInt("id_loai_phong");
+                 loaiPhong = loaiPhongDAO.getLoaiPhongTheoId(id_loai_phong);
                  phong.setIdLoaiPhong(loaiPhong);
 
                  phong.setHinhAnh(rs.getString("hinh_anh"));
@@ -171,32 +170,19 @@ public class MySqlPhongDAO implements IPhongDAO {
     {
         Connector connector = new MySqlConnector();
         try {
+            MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
+            TinhTrangPhong tinhTrangPhong = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("da thue");
+
             connector.openConnection("HOTELDB", "root", "root");
-
-            String sql = "select * from tinh_trang_phong where ten = ?;";
-            CallableStatement statement = connector.getConnection().prepareCall(sql);
-            statement.setString(1, "da thue");
-
-            ResultSet rs = statement.executeQuery();
-
-            TinhTrangPhong tinhTrangPhong = null;
-            while(rs.next())
-            {
-                tinhTrangPhong = new TinhTrangPhong();
-                tinhTrangPhong.setId(rs.getInt("id"));
-                tinhTrangPhong.setTen(rs.getString("ten"));
-            }
-
-            statement.close();
 
             if(tinhTrangPhong!=null)
             {
-                sql = "select phong.*, loai_phong.ten, loai_phong.gia from phong, loai_phong where phong.id_loai_phong = loai_phong.id and phong.id_tinh_trang = ? order by id";
-                statement = connector.getConnection().prepareCall(sql);
+                String sql = "select phong.*, loai_phong.ten, loai_phong.gia from phong, loai_phong where phong.id_loai_phong = loai_phong.id and phong.id_tinh_trang = ? order by id";
+                CallableStatement statement = connector.getConnection().prepareCall(sql);
                 statement.setInt(1, tinhTrangPhong.getId());
 
                 //execute query
-                rs = statement.executeQuery();
+                ResultSet rs = statement.executeQuery();
                 ArrayList<Phong> lstPhong = new ArrayList<Phong>();
                 Phong phong;
                 LoaiPhong loaiPhong;
@@ -349,7 +335,7 @@ public class MySqlPhongDAO implements IPhongDAO {
         }
     }
 
-    public ArrayList<Phong> getDSPhongChuaThue()
+    public ArrayList<Phong> getDSPhongConTrong()
     {
         Connector connector = new MySqlConnector();
         try {
@@ -358,7 +344,7 @@ public class MySqlPhongDAO implements IPhongDAO {
 
             connector.openConnection("HOTELDB", "root", "root");
 
-            String sql = "select phong.*, tinh_trang_phong.ten , loai_phong.ten, loai_phong.gia from phong, tinh_trang_phong, loai_phong where phong.id_tinh_trang =  tinh_trang_phong.id and phong.id_loai_phong = loai_phong.id and phong.id_tinh_trang = ? order by id";
+            String sql = "select phong.*, loai_phong.ten, loai_phong.gia from phong, loai_phong where phong.id_loai_phong = loai_phong.id and phong.id_tinh_trang = ? order by id";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
             statement.setInt(1, tinhTrangPhong.getId());
 
@@ -375,10 +361,7 @@ public class MySqlPhongDAO implements IPhongDAO {
                  phong.setId(rs.getInt("id"));
                  phong.setLau(rs.getInt("lau"));
                  phong.setGia(rs.getInt("gia"));
-
-                 tinhTrangPhong = new TinhTrangPhong();
-                 tinhTrangPhong.setId(rs.getInt("id_tinh_trang"));
-                 tinhTrangPhong.setTen(rs.getString("tinh_trang_phong.ten"));
+                 
                  phong.setIdTinhTrang(tinhTrangPhong);
 
                  loaiPhong = new LoaiPhong();

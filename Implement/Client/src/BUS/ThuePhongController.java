@@ -7,6 +7,7 @@ package BUS;
 
 import DAO.DAOFactory;
 import DAO.IThuePhongDAO;
+import DTO.KhachHang;
 import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
@@ -37,7 +38,7 @@ public class ThuePhongController {
             String error = kiemTraNghiepVuThuePhong(thuePhong);
             if(error.equals(""))
             {
-                if(thuePhongDAO.ghiNhanThuePhong(thuePhong))
+                if(thuePhongDAO.insertThuePhong(thuePhong))
                     return "";
                 else
                     return "Thue phong that bai";
@@ -53,7 +54,7 @@ public class ThuePhongController {
 
     public boolean tiepNhanViecTraPhong(ThuePhong thuePhong)
     {
-        return thuePhongDAO.ghiNhanTraPhong(thuePhong);
+        return thuePhongDAO.updateThuePhong(thuePhong);
     }
 
     /**
@@ -63,6 +64,17 @@ public class ThuePhongController {
      * */
     private String kiemTraNghiepVuThuePhong(ThuePhong thuePhong)
     {
+        KhachHang khach = thuePhong.getKhachHang();
+        if(khach.getId().equals(""))
+        {
+            return "Vui long nhap vao CMND";
+        }
+        if(khach.getTen().equals(""))
+        {
+            return "Vui long nhap ten khach hang";
+        }
+
+
         //ngay thue phai lon hon hoac bang ngay hien tai
         Date ngayThue = thuePhong.getNgayThue();
 
@@ -78,12 +90,12 @@ public class ThuePhongController {
 
     public ArrayList<LoaiThue> layDSLoaiThue()
     {
-        return thuePhongDAO.layDSLoaiThue();
+        return thuePhongDAO.getDSLoaiThue();
     }
 
     public ArrayList<ThuePhong> layDSThuePhong()
     {
-        return null;
+        return thuePhongDAO.getDSThuePhong();
     }
 
     public int tinhTienThuePhong(Phong phong, int soNgayThue)

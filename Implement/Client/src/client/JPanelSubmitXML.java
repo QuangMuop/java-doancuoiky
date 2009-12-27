@@ -140,7 +140,7 @@ public class JPanelSubmitXML extends javax.swing.JPanel {
         jPanel3.add(jPanel4, gridBagConstraints);
 
         bgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bgLabel1.setIcon(null);
+        bgLabel1.setIcon(resourceMap.getIcon("bgLabel1.icon")); // NOI18N
         bgLabel1.setName("bgLabel1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

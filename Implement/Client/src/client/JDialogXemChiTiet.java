@@ -25,6 +25,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     public JDialogXemChiTiet(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
+        this.pack();
     }
 
     public JDialogXemChiTiet(Phong phong) {
@@ -34,9 +37,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         this.phong = phong;
 
         //init
-        //this.jTxtLoaiPhong.setText(phong.getIdLoaiPhong().getTen());
-        //this.jTxtMoTa.setText(phong.getMoTa());
-       // this.jTxtSoPhong.setText(phong.getId());
+        //this.j
 
     }
 
@@ -55,18 +56,17 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jLabelHinhPhong1 = new javax.swing.JLabel();
         jLabelGiaTien1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTxtSoPhong1 = new javax.swing.JTextField();
+        jTxtSoPhong = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTxtLau1 = new javax.swing.JTextField();
+        jTxtLau = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTxtLoaiPhong1 = new javax.swing.JTextField();
+        jTxtLoaiPhong = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTxtMoTa1 = new javax.swing.JTextArea();
         jBtnThoat = new javax.swing.JButton();
         jBtnCapNhat = new javax.swing.JButton();
         jBtnChinhSua = new javax.swing.JButton();
-        jBtnThuePhong = new javax.swing.JButton();
         jTxtGiaTien = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         bgLabel4 = new javax.swing.JLabel();
@@ -112,16 +112,16 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jLabel4, gridBagConstraints);
 
-        jTxtSoPhong1.setBackground(resourceMap.getColor("jTxtSoPhong1.background")); // NOI18N
-        jTxtSoPhong1.setColumns(10);
-        jTxtSoPhong1.setEditable(false);
-        jTxtSoPhong1.setName("jTxtSoPhong1"); // NOI18N
+        jTxtSoPhong.setBackground(resourceMap.getColor("jTxtSoPhong.background")); // NOI18N
+        jTxtSoPhong.setColumns(10);
+        jTxtSoPhong.setEditable(false);
+        jTxtSoPhong.setName("jTxtSoPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel8.add(jTxtSoPhong1, gridBagConstraints);
+        jPanel8.add(jTxtSoPhong, gridBagConstraints);
 
         jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
@@ -132,14 +132,15 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jLabel2, gridBagConstraints);
 
-        jTxtLau1.setBackground(resourceMap.getColor("jTxtLau1.background")); // NOI18N
-        jTxtLau1.setName("jTxtLau1"); // NOI18N
+        jTxtLau.setBackground(resourceMap.getColor("jTxtLau.background")); // NOI18N
+        jTxtLau.setEditable(false);
+        jTxtLau.setName("jTxtLau"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel8.add(jTxtLau1, gridBagConstraints);
+        jPanel8.add(jTxtLau, gridBagConstraints);
 
         jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
         jLabel6.setName("jLabel6"); // NOI18N
@@ -150,15 +151,15 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jLabel6, gridBagConstraints);
 
-        jTxtLoaiPhong1.setBackground(resourceMap.getColor("jTxtLoaiPhong1.background")); // NOI18N
-        jTxtLoaiPhong1.setEditable(false);
-        jTxtLoaiPhong1.setName("jTxtLoaiPhong1"); // NOI18N
+        jTxtLoaiPhong.setBackground(resourceMap.getColor("jTxtLoaiPhong.background")); // NOI18N
+        jTxtLoaiPhong.setEditable(false);
+        jTxtLoaiPhong.setName("jTxtLoaiPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel8.add(jTxtLoaiPhong1, gridBagConstraints);
+        jPanel8.add(jTxtLoaiPhong, gridBagConstraints);
 
         jLabel8.setText(resourceMap.getString("jLabel8.text")); // NOI18N
         jLabel8.setName("jLabel8"); // NOI18N
@@ -188,9 +189,15 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
         jBtnThoat.setText(resourceMap.getString("jBtnThoat.text")); // NOI18N
         jBtnThoat.setName("jBtnThoat"); // NOI18N
+        jBtnThoat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnThoatMousePressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnThoat, gridBagConstraints);
 
         jBtnCapNhat.setText(resourceMap.getString("jBtnCapNhat.text")); // NOI18N
@@ -202,8 +209,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnCapNhat, gridBagConstraints);
 
         jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
@@ -214,18 +222,13 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnChinhSua, gridBagConstraints);
 
-        jBtnThuePhong.setText(resourceMap.getString("jBtnThuePhong.text")); // NOI18N
-        jBtnThuePhong.setName("jBtnThuePhong"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        jPanel8.add(jBtnThuePhong, gridBagConstraints);
-
         jTxtGiaTien.setBackground(resourceMap.getColor("jTxtGiaTien.background")); // NOI18N
+        jTxtGiaTien.setEditable(false);
         jTxtGiaTien.setText(resourceMap.getString("jTxtGiaTien.text")); // NOI18N
         jTxtGiaTien.setName("jTxtGiaTien"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -275,6 +278,11 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnChinhSuaMousePressed
 
+    private void jBtnThoatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThoatMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_jBtnThoatMousePressed
+
     /**
     * @param args the command line arguments
     */
@@ -297,7 +305,6 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     private javax.swing.JButton jBtnCapNhat;
     private javax.swing.JButton jBtnChinhSua;
     private javax.swing.JButton jBtnThoat;
-    private javax.swing.JButton jBtnThuePhong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -309,10 +316,10 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTxtGiaTien;
-    private javax.swing.JTextField jTxtLau1;
-    private javax.swing.JTextField jTxtLoaiPhong1;
+    private javax.swing.JTextField jTxtLau;
+    private javax.swing.JTextField jTxtLoaiPhong;
     private javax.swing.JTextArea jTxtMoTa1;
-    private javax.swing.JTextField jTxtSoPhong1;
+    private javax.swing.JTextField jTxtSoPhong;
     // End of variables declaration//GEN-END:variables
 
 }

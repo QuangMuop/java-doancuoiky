@@ -140,9 +140,7 @@
         <Component class="javax.swing.JLabel" name="bgLabel1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="0" name="null"/>
-            </Property>
+            <Property name="icon" type="javax.swing.Icon" resourceKey="bgLabel1.icon"/>
             <Property name="name" type="java.lang.String" value="bgLabel1" noResource="true"/>
           </Properties>
           <Constraints>

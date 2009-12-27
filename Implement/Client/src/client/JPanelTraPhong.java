@@ -526,6 +526,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     }
 
     private void initComboBoxMaPhong() {
+        jCbMaPhong.removeAllItems();
+
         int i;
         for(i=0;i<lstThuePhong.size();i++)
         {
@@ -574,8 +576,11 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
     private void jCbMaPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbMaPhongItemStateChanged
         // TODO add your handling code here:
-        ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
-        hienThiThongTinThuePhong(thuePhong);
+        if(jCbMaPhong.getItemCount()>0)
+        {
+            ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+            hienThiThongTinThuePhong(thuePhong);
+        }
     }//GEN-LAST:event_jCbMaPhongItemStateChanged
 
 
