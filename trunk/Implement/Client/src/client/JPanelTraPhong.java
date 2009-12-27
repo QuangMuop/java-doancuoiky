@@ -11,6 +11,18 @@
 
 package client;
 
+import BUS.PhongController;
+import BUS.ThuePhongController;
+import DTO.KhachHang;
+import DTO.Phong;
+import DTO.ThuePhong;
+import Utils.MyDateTime;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author huy
@@ -20,6 +32,9 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     /** Creates new form JPanelTraPhong */
     public JPanelTraPhong() {
         initComponents();
+
+        thuePhongController = new ThuePhongController();
+        phongController = new PhongController();
     }
 
     /** This method is called from within the constructor to
@@ -32,49 +47,47 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPaneTraPhong = new javax.swing.JSplitPane();
-        jLabel27 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        bgLabel = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jCbMaPhong = new javax.swing.JComboBox();
+        jLabel42 = new javax.swing.JLabel();
+        jLabelLoaiPhong = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabelDonGia = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabelNgayThue = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabelNgayTra = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabelSoNgayThue = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabelSoNguoiCuTru = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabelTenKhach = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabelNgaySinh = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabelGioiTinh = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabelDiaChi = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabelDienThoai = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabelLoaiKhach = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabelDonGiaKhachHang = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabelTongTien = new javax.swing.JLabel();
+        jBtnTraPhong = new javax.swing.JButton();
+        jLabel75 = new javax.swing.JLabel();
+        imgPhong = new javax.swing.JLabel();
+        imgNguoiThue = new javax.swing.JLabel();
+        imgThanhToan = new javax.swing.JLabel();
+        bgLabel1 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -84,444 +97,534 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         });
         setLayout(new java.awt.GridLayout(1, 1));
 
-        jPaneTraPhong.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jPaneTraPhong.setName("jPaneTraPhong"); // NOI18N
+        jPanel8.setName("jPanel8"); // NOI18N
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
+        jPanel2.setName("jPanel2"); // NOI18N
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelTraPhong.class);
-        jLabel27.setFont(resourceMap.getFont("jLabel27.font")); // NOI18N
-        jLabel27.setForeground(resourceMap.getColor("jLabel27.foreground")); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setIcon(resourceMap.getIcon("jLabel27.icon")); // NOI18N
-        jLabel27.setText(resourceMap.getString("jLabel27.text")); // NOI18N
-        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel27.setName("jLabel27"); // NOI18N
-        jPaneTraPhong.setLeftComponent(jLabel27);
-
-        jPanel7.setName("jPanel7"); // NOI18N
-        jPanel7.setLayout(new java.awt.GridBagLayout());
-
-        jPanel1.setName("jPanel1"); // NOI18N
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
-        jLabel1.setForeground(resourceMap.getColor("jLabel1.foreground")); // NOI18N
-        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
-        jLabel1.setName("jLabel1"); // NOI18N
+        jLabel39.setFont(resourceMap.getFont("jLabel39.font")); // NOI18N
+        jLabel39.setForeground(resourceMap.getColor("jLabel39.foreground")); // NOI18N
+        jLabel39.setText(resourceMap.getString("jLabel39.text")); // NOI18N
+        jLabel39.setName("jLabel39"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel1, gridBagConstraints);
-
-        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
-        jLabel2.setName("jLabel2"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel2, gridBagConstraints);
-
-        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
-        jLabel3.setName("jLabel3"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        jPanel2.add(jLabel39, gridBagConstraints);
+
+        jLabel41.setText(resourceMap.getString("jLabel41.text")); // NOI18N
+        jLabel41.setName("jLabel41"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 45);
-        jPanel1.add(jLabel3, gridBagConstraints);
+        jPanel2.add(jLabel41, gridBagConstraints);
 
-        jComboBox1.setBackground(resourceMap.getColor("jComboBox1.background")); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "//tu phat sinh ra nhung phong dang thue", " " }));
-        jComboBox1.setName("jComboBox1"); // NOI18N
+        jCbMaPhong.setBackground(resourceMap.getColor("jCbMaPhong.background")); // NOI18N
+        jCbMaPhong.setName("jCbMaPhong"); // NOI18N
+        jCbMaPhong.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbMaPhongItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jComboBox1, gridBagConstraints);
+        jPanel2.add(jCbMaPhong, gridBagConstraints);
 
-        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
-        jLabel4.setName("jLabel4"); // NOI18N
+        jLabel42.setText(resourceMap.getString("jLabel42.text")); // NOI18N
+        jLabel42.setName("jLabel42"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 40);
-        jPanel1.add(jLabel4, gridBagConstraints);
+        jPanel2.add(jLabel42, gridBagConstraints);
 
-        jLabel5.setText(resourceMap.getString("jLabel5.text")); // NOI18N
-        jLabel5.setName("jLabel5"); // NOI18N
+        jLabelLoaiPhong.setText(resourceMap.getString("jLabelLoaiPhong.text")); // NOI18N
+        jLabelLoaiPhong.setName("jLabelLoaiPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel5, gridBagConstraints);
+        jPanel2.add(jLabelLoaiPhong, gridBagConstraints);
 
-        jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
-        jLabel6.setName("jLabel6"); // NOI18N
+        jLabel44.setText(resourceMap.getString("jLabel44.text")); // NOI18N
+        jLabel44.setName("jLabel44"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
-        jPanel1.add(jLabel6, gridBagConstraints);
+        jPanel2.add(jLabel44, gridBagConstraints);
 
-        jLabel7.setText(resourceMap.getString("jLabel7.text")); // NOI18N
-        jLabel7.setName("jLabel7"); // NOI18N
+        jLabelDonGia.setText(resourceMap.getString("jLabelDonGia.text")); // NOI18N
+        jLabelDonGia.setName("jLabelDonGia"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel7, gridBagConstraints);
+        jPanel2.add(jLabelDonGia, gridBagConstraints);
 
-        jLabel8.setText(resourceMap.getString("jLabel8.text")); // NOI18N
-        jLabel8.setName("jLabel8"); // NOI18N
+        jLabel46.setText(resourceMap.getString("jLabel46.text")); // NOI18N
+        jLabel46.setName("jLabel46"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 42);
-        jPanel1.add(jLabel8, gridBagConstraints);
+        jPanel2.add(jLabel46, gridBagConstraints);
 
-        jLabel9.setText(resourceMap.getString("jLabel9.text")); // NOI18N
-        jLabel9.setName("jLabel9"); // NOI18N
+        jLabelNgayThue.setText(resourceMap.getString("jLabelNgayThue.text")); // NOI18N
+        jLabelNgayThue.setName("jLabelNgayThue"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel9, gridBagConstraints);
+        jPanel2.add(jLabelNgayThue, gridBagConstraints);
 
-        jLabel10.setText(resourceMap.getString("jLabel10.text")); // NOI18N
-        jLabel10.setName("jLabel10"); // NOI18N
+        jLabel48.setText(resourceMap.getString("jLabel48.text")); // NOI18N
+        jLabel48.setName("jLabel48"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 50);
-        jPanel1.add(jLabel10, gridBagConstraints);
+        jPanel2.add(jLabel48, gridBagConstraints);
 
-        jLabel11.setText(resourceMap.getString("jLabel11.text")); // NOI18N
-        jLabel11.setName("jLabel11"); // NOI18N
+        jLabelNgayTra.setText(resourceMap.getString("jLabelNgayTra.text")); // NOI18N
+        jLabelNgayTra.setName("jLabelNgayTra"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel11, gridBagConstraints);
+        jPanel2.add(jLabelNgayTra, gridBagConstraints);
 
-        jLabel12.setText(resourceMap.getString("jLabel12.text")); // NOI18N
-        jLabel12.setName("jLabel12"); // NOI18N
+        jLabel50.setText(resourceMap.getString("jLabel50.text")); // NOI18N
+        jLabel50.setName("jLabel50"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 28);
-        jPanel1.add(jLabel12, gridBagConstraints);
+        jPanel2.add(jLabel50, gridBagConstraints);
 
-        jLabel13.setText(resourceMap.getString("jLabel13.text")); // NOI18N
-        jLabel13.setName("jLabel13"); // NOI18N
+        jLabelSoNgayThue.setText(resourceMap.getString("jLabelSoNgayThue.text")); // NOI18N
+        jLabelSoNgayThue.setName("jLabelSoNgayThue"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel13, gridBagConstraints);
+        jPanel2.add(jLabelSoNgayThue, gridBagConstraints);
 
-        jLabel14.setText(resourceMap.getString("jLabel14.text")); // NOI18N
-        jLabel14.setName("jLabel14"); // NOI18N
+        jLabel52.setText(resourceMap.getString("jLabel52.text")); // NOI18N
+        jLabel52.setName("jLabel52"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 20);
-        jPanel1.add(jLabel14, gridBagConstraints);
+        jPanel2.add(jLabel52, gridBagConstraints);
 
-        jLabel15.setText(resourceMap.getString("jLabel15.text")); // NOI18N
-        jLabel15.setName("jLabel15"); // NOI18N
+        jLabelSoNguoiCuTru.setText(resourceMap.getString("jLabelSoNguoiCuTru.text")); // NOI18N
+        jLabelSoNguoiCuTru.setName("jLabelSoNguoiCuTru"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel15, gridBagConstraints);
+        jPanel2.add(jLabelSoNguoiCuTru, gridBagConstraints);
 
-        jLabel16.setFont(resourceMap.getFont("jLabel16.font")); // NOI18N
-        jLabel16.setForeground(resourceMap.getColor("jLabel16.foreground")); // NOI18N
-        jLabel16.setText(resourceMap.getString("jLabel16.text")); // NOI18N
-        jLabel16.setName("jLabel16"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel16, gridBagConstraints);
-
-        jLabel17.setText(resourceMap.getString("jLabel17.text")); // NOI18N
-        jLabel17.setName("jLabel17"); // NOI18N
+        jLabel54.setFont(resourceMap.getFont("jLabel54.font")); // NOI18N
+        jLabel54.setForeground(resourceMap.getColor("jLabel54.foreground")); // NOI18N
+        jLabel54.setText(resourceMap.getString("jLabel54.text")); // NOI18N
+        jLabel54.setName("jLabel54"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel17, gridBagConstraints);
+        jPanel2.add(jLabel54, gridBagConstraints);
 
-        jLabel18.setText(resourceMap.getString("jLabel18.text")); // NOI18N
-        jLabel18.setName("jLabel18"); // NOI18N
+        jLabel56.setText(resourceMap.getString("jLabel56.text")); // NOI18N
+        jLabel56.setName("jLabel56"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 11);
-        jPanel1.add(jLabel18, gridBagConstraints);
+        jPanel2.add(jLabel56, gridBagConstraints);
 
-        jLabel19.setText(resourceMap.getString("jLabel19.text")); // NOI18N
-        jLabel19.setName("jLabel19"); // NOI18N
+        jLabelTenKhach.setText(resourceMap.getString("jLabelTenKhach.text")); // NOI18N
+        jLabelTenKhach.setName("jLabelTenKhach"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel19, gridBagConstraints);
+        jPanel2.add(jLabelTenKhach, gridBagConstraints);
 
-        jLabel20.setText(resourceMap.getString("jLabel20.text")); // NOI18N
-        jLabel20.setName("jLabel20"); // NOI18N
+        jLabel58.setText(resourceMap.getString("jLabel58.text")); // NOI18N
+        jLabel58.setName("jLabel58"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 46);
-        jPanel1.add(jLabel20, gridBagConstraints);
+        jPanel2.add(jLabel58, gridBagConstraints);
 
-        jLabel21.setText(resourceMap.getString("jLabel21.text")); // NOI18N
-        jLabel21.setName("jLabel21"); // NOI18N
+        jLabelNgaySinh.setText(resourceMap.getString("jLabelNgaySinh.text")); // NOI18N
+        jLabelNgaySinh.setName("jLabelNgaySinh"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel21, gridBagConstraints);
+        jPanel2.add(jLabelNgaySinh, gridBagConstraints);
 
-        jLabel22.setText(resourceMap.getString("jLabel22.text")); // NOI18N
-        jLabel22.setName("jLabel22"); // NOI18N
+        jLabel60.setText(resourceMap.getString("jLabel60.text")); // NOI18N
+        jLabel60.setName("jLabel60"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 54);
-        jPanel1.add(jLabel22, gridBagConstraints);
+        jPanel2.add(jLabel60, gridBagConstraints);
 
-        jLabel23.setText(resourceMap.getString("jLabel23.text")); // NOI18N
-        jLabel23.setName("jLabel23"); // NOI18N
+        jLabelGioiTinh.setText(resourceMap.getString("jLabelGioiTinh.text")); // NOI18N
+        jLabelGioiTinh.setName("jLabelGioiTinh"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel23, gridBagConstraints);
+        jPanel2.add(jLabelGioiTinh, gridBagConstraints);
 
-        jLabel24.setText(resourceMap.getString("jLabel24.text")); // NOI18N
-        jLabel24.setName("jLabel24"); // NOI18N
+        jLabel62.setText(resourceMap.getString("jLabel62.text")); // NOI18N
+        jLabel62.setName("jLabel62"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 61);
-        jPanel1.add(jLabel24, gridBagConstraints);
+        jPanel2.add(jLabel62, gridBagConstraints);
 
-        jLabel25.setText(resourceMap.getString("jLabel25.text")); // NOI18N
-        jLabel25.setName("jLabel25"); // NOI18N
+        jLabelDiaChi.setText(resourceMap.getString("jLabelDiaChi.text")); // NOI18N
+        jLabelDiaChi.setName("jLabelDiaChi"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel25, gridBagConstraints);
+        jPanel2.add(jLabelDiaChi, gridBagConstraints);
 
-        jLabel26.setText(resourceMap.getString("jLabel26.text")); // NOI18N
-        jLabel26.setName("jLabel26"); // NOI18N
+        jLabel64.setText(resourceMap.getString("jLabel64.text")); // NOI18N
+        jLabel64.setName("jLabel64"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 44);
-        jPanel1.add(jLabel26, gridBagConstraints);
+        jPanel2.add(jLabel64, gridBagConstraints);
 
-        jLabel28.setText(resourceMap.getString("jLabel28.text")); // NOI18N
-        jLabel28.setName("jLabel28"); // NOI18N
+        jLabelDienThoai.setText(resourceMap.getString("jLabelDienThoai.text")); // NOI18N
+        jLabelDienThoai.setName("jLabelDienThoai"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel28, gridBagConstraints);
+        jPanel2.add(jLabelDienThoai, gridBagConstraints);
 
-        jLabel29.setText(resourceMap.getString("jLabel29.text")); // NOI18N
-        jLabel29.setName("jLabel29"); // NOI18N
+        jLabel66.setText(resourceMap.getString("jLabel66.text")); // NOI18N
+        jLabel66.setName("jLabel66"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 16);
-        jPanel1.add(jLabel29, gridBagConstraints);
+        jPanel2.add(jLabel66, gridBagConstraints);
 
-        jLabel30.setText(resourceMap.getString("jLabel30.text")); // NOI18N
-        jLabel30.setName("jLabel30"); // NOI18N
+        jLabelLoaiKhach.setText(resourceMap.getString("jLabelLoaiKhach.text")); // NOI18N
+        jLabelLoaiKhach.setName("jLabelLoaiKhach"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel30, gridBagConstraints);
+        jPanel2.add(jLabelLoaiKhach, gridBagConstraints);
 
-        jLabel31.setText(resourceMap.getString("jLabel31.text")); // NOI18N
-        jLabel31.setName("jLabel31"); // NOI18N
+        jLabel68.setText(resourceMap.getString("jLabel68.text")); // NOI18N
+        jLabel68.setName("jLabel68"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
-        jPanel1.add(jLabel31, gridBagConstraints);
+        jPanel2.add(jLabel68, gridBagConstraints);
 
-        jLabel32.setText(resourceMap.getString("jLabel32.text")); // NOI18N
-        jLabel32.setName("jLabel32"); // NOI18N
+        jLabelDonGiaKhachHang.setText(resourceMap.getString("jLabelDonGiaKhachHang.text")); // NOI18N
+        jLabelDonGiaKhachHang.setName("jLabelDonGiaKhachHang"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel32, gridBagConstraints);
+        jPanel2.add(jLabelDonGiaKhachHang, gridBagConstraints);
 
-        jLabel33.setFont(resourceMap.getFont("jLabel33.font")); // NOI18N
-        jLabel33.setForeground(resourceMap.getColor("jLabel33.foreground")); // NOI18N
-        jLabel33.setText(resourceMap.getString("jLabel33.text")); // NOI18N
-        jLabel33.setName("jLabel33"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel33, gridBagConstraints);
-
-        jLabel34.setFont(resourceMap.getFont("jLabel34.font")); // NOI18N
-        jLabel34.setForeground(resourceMap.getColor("jLabel34.foreground")); // NOI18N
-        jLabel34.setText(resourceMap.getString("jLabel34.text")); // NOI18N
-        jLabel34.setName("jLabel34"); // NOI18N
+        jLabel70.setFont(resourceMap.getFont("jLabel70.font")); // NOI18N
+        jLabel70.setForeground(resourceMap.getColor("jLabel70.foreground")); // NOI18N
+        jLabel70.setText(resourceMap.getString("jLabel70.text")); // NOI18N
+        jLabel70.setName("jLabel70"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 17;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel34, gridBagConstraints);
+        jPanel2.add(jLabel70, gridBagConstraints);
 
-        jLabel35.setText(resourceMap.getString("jLabel35.text")); // NOI18N
-        jLabel35.setName("jLabel35"); // NOI18N
+        jLabel72.setText(resourceMap.getString("jLabel72.text")); // NOI18N
+        jLabel72.setName("jLabel72"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 36);
-        jPanel1.add(jLabel35, gridBagConstraints);
+        jPanel2.add(jLabel72, gridBagConstraints);
 
-        jLabel36.setText(resourceMap.getString("jLabel36.text")); // NOI18N
-        jLabel36.setName("jLabel36"); // NOI18N
+        jLabelTongTien.setText(resourceMap.getString("jLabelTongTien.text")); // NOI18N
+        jLabelTongTien.setName("jLabelTongTien"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel1.add(jLabel36, gridBagConstraints);
+        jPanel2.add(jLabelTongTien, gridBagConstraints);
 
-        jLabel37.setText(resourceMap.getString("jLabel37.text")); // NOI18N
-        jLabel37.setName("jLabel37"); // NOI18N
+        jBtnTraPhong.setText(resourceMap.getString("jBtnTraPhong.text")); // NOI18N
+        jBtnTraPhong.setName("jBtnTraPhong"); // NOI18N
+        jBtnTraPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnTraPhongMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(13, 135, 2, 134);
+        jPanel2.add(jBtnTraPhong, gridBagConstraints);
+
+        jLabel75.setFont(resourceMap.getFont("jLabel75.font")); // NOI18N
+        jLabel75.setForeground(resourceMap.getColor("jLabel75.foreground")); // NOI18N
+        jLabel75.setText(resourceMap.getString("jLabel75.text")); // NOI18N
+        jLabel75.setName("jLabel75"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 21, 0);
+        jPanel2.add(jLabel75, gridBagConstraints);
+
+        imgPhong.setIcon(resourceMap.getIcon("imgPhong.icon")); // NOI18N
+        imgPhong.setText(resourceMap.getString("imgPhong.text")); // NOI18N
+        imgPhong.setName("imgPhong"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 7;
+        gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 21);
+        jPanel2.add(imgPhong, gridBagConstraints);
+
+        imgNguoiThue.setIcon(resourceMap.getIcon("imgNguoiThue.icon")); // NOI18N
+        imgNguoiThue.setText(resourceMap.getString("imgNguoiThue.text")); // NOI18N
+        imgNguoiThue.setName("imgNguoiThue"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridheight = 7;
+        gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 21);
+        jPanel2.add(imgNguoiThue, gridBagConstraints);
+
+        imgThanhToan.setIcon(resourceMap.getIcon("imgThanhToan.icon")); // NOI18N
+        imgThanhToan.setText(resourceMap.getString("imgThanhToan.text")); // NOI18N
+        imgThanhToan.setName("imgThanhToan"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
-        jPanel1.add(jLabel37, gridBagConstraints);
-
-        jButton2.setText(resourceMap.getString("jButton2.text")); // NOI18N
-        jButton2.setName("jButton2"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(13, 66, 2, 65);
-        jPanel1.add(jButton2, gridBagConstraints);
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 21);
+        jPanel2.add(imgThanhToan, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jPanel7.add(jPanel1, gridBagConstraints);
+        jPanel8.add(jPanel2, gridBagConstraints);
 
-        bgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bgLabel.setIcon(resourceMap.getIcon("bgLabel.icon")); // NOI18N
-        bgLabel.setText(resourceMap.getString("bgLabel.text")); // NOI18N
-        bgLabel.setName("bgLabel"); // NOI18N
+        bgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bgLabel1.setIcon(resourceMap.getIcon("bgLabel1.icon")); // NOI18N
+        bgLabel1.setName("bgLabel1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        jPanel7.add(bgLabel, gridBagConstraints);
+        jPanel8.add(bgLabel1, gridBagConstraints);
 
-        jPaneTraPhong.setRightComponent(jPanel7);
-
-        add(jPaneTraPhong);
+        add(jPanel8);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-
+        //lay ds phong dang thue
+        lstThuePhong = thuePhongController.layDSThuePhong();
+        if(lstThuePhong!=null)
+        {
+            initComboBoxMaPhong();
+            hienThiThongTinThuePhong(lstThuePhong.get(0));
+        }
     }//GEN-LAST:event_formComponentShown
+
+    private void hienThiThongTinThuePhong(ThuePhong thuePhong) {
+        KhachHang khach = thuePhong.getKhachHang();
+        jLabelDiaChi.setText(khach.getDiaChi());
+        jLabelDienThoai.setText(khach.getDienThoai());
+        jLabelGioiTinh.setText(khach.getGioiTinh());
+        //jLabelDonGiaKhachHang.setText(khach.getIdLoaiKhachHang().);
+        jLabelLoaiKhach.setText(khach.getIdLoaiKhachHang().getTen());
+        jLabelNgaySinh.setText(khach.getNgaySinh().toString());
+        jLabelTenKhach.setText(khach.getTen());
+        
+        Phong phong = thuePhong.getPhong();
+        jLabelDonGia.setText("" + phong.getIdLoaiPhong().getGia());
+        jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());
+        
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");        
+        
+        Date ngayTra = calendar.getTime();
+        jLabelNgayTra.setText(sdf.format(ngayTra));
+        
+        Date ngayThue = thuePhong.getNgayThue();
+        jLabelNgayThue.setText(sdf.format(ngayThue));
+        
+        int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
+        jLabelSoNgayThue.setText("" + soNgayThue);
+        //jLabelSoNguoiCuTru.setText(TOOL_TIP_TEXT_KEY);
+        jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(phong, soNgayThue));
+    }
+
+    private void initComboBoxMaPhong() {
+        int i;
+        for(i=0;i<lstThuePhong.size();i++)
+        {
+            jCbMaPhong.addItem(lstThuePhong.get(i).getPhong().getId());
+        }
+    }
+
+    private ThuePhong timThuePhongTheoMaPhong(int id)
+    {
+        int i;
+        for(i=0;i<lstThuePhong.size();i++)
+        {
+            if(lstThuePhong.get(i).getPhong().getId() == id)
+                return lstThuePhong.get(i);
+        }
+        return null;
+    }
+
+    private void jBtnTraPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnTraPhongMousePressed
+        // TODO add your handling code here:
+        try
+        {
+            ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+
+            Calendar calendar = Calendar.getInstance();
+
+            Date ngayTra = calendar.getTime();
+            thuePhong.setNgayTra(ngayTra);
+
+            Date ngayThue = thuePhong.getNgayThue();
+
+            int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
+            int tongGia = thuePhongController.tinhTienThuePhong(thuePhong.getPhong(), soNgayThue);
+            thuePhong.setTongGia(tongGia);
+
+            if(thuePhongController.tiepNhanViecTraPhong(thuePhong))
+                JOptionPane.showConfirmDialog(this.getComponent(0),"Tra phong thanh cong!" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            else
+                JOptionPane.showConfirmDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jBtnTraPhongMousePressed
+
+    private void jCbMaPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbMaPhongItemStateChanged
+        // TODO add your handling code here:
+        ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+        hienThiThongTinThuePhong(thuePhong);
+    }//GEN-LAST:event_jCbMaPhongItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bgLabel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JSplitPane jPaneTraPhong;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel bgLabel1;
+    private javax.swing.JLabel imgNguoiThue;
+    private javax.swing.JLabel imgPhong;
+    private javax.swing.JLabel imgThanhToan;
+    private javax.swing.JButton jBtnTraPhong;
+    private javax.swing.JComboBox jCbMaPhong;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabelDiaChi;
+    private javax.swing.JLabel jLabelDienThoai;
+    private javax.swing.JLabel jLabelDonGia;
+    private javax.swing.JLabel jLabelDonGiaKhachHang;
+    private javax.swing.JLabel jLabelGioiTinh;
+    private javax.swing.JLabel jLabelLoaiKhach;
+    private javax.swing.JLabel jLabelLoaiPhong;
+    private javax.swing.JLabel jLabelNgaySinh;
+    private javax.swing.JLabel jLabelNgayThue;
+    private javax.swing.JLabel jLabelNgayTra;
+    private javax.swing.JLabel jLabelSoNgayThue;
+    private javax.swing.JLabel jLabelSoNguoiCuTru;
+    private javax.swing.JLabel jLabelTenKhach;
+    private javax.swing.JLabel jLabelTongTien;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
 
+    private ArrayList<ThuePhong> lstThuePhong;
+    
+    private ThuePhongController thuePhongController;
+    private PhongController phongController;
 }

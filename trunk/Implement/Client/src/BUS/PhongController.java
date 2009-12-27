@@ -76,4 +76,8 @@ public class PhongController {
     {
         return phongDAO.getDSPhongTheoDK(id, loaiPhong, tinhTrang);
     }
+
+    public ArrayList<Phong> getDSPhongChuaThue() {
+        return phongDAO.getDSPhongChuaThue();
+    }
 }

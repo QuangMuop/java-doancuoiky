@@ -6,12 +6,15 @@
 package DAO;
 
 import DTO.KhachHang;
+import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
+import java.util.ArrayList;
 import java.util.Date;
 
 public interface IThuePhongDAO {
     public boolean ghiNhanThuePhong(ThuePhong tp);
     public boolean ghiNhanTraPhong(ThuePhong tp);
     public ThuePhong layThuePhong(KhachHang k, Phong p, Date ngay);
+    public ArrayList<LoaiThue> layDSLoaiThue();
 }

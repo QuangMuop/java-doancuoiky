@@ -12,12 +12,16 @@
 package client;
 
 import BUS.KhachHangController;
+import BUS.PhongController;
 import BUS.ThuePhongController;
 import DTO.KhachHang;
 import DTO.LoaiKhachHang;
-import java.text.DateFormat;
+import DTO.LoaiThue;
+import DTO.Phong;
+import DTO.ThuePhong;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,6 +37,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
         khachController = new KhachHangController();
         thuePhongController = new ThuePhongController();
+        phongController = new PhongController();
 
     }
 
@@ -78,6 +83,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         imgRoom = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lLabelLau = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jCbLoaiThue = new javax.swing.JComboBox();
         bgLabel3 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -246,6 +253,11 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jCbMaPhong.setBackground(resourceMap.getColor("jCbMaPhong.background")); // NOI18N
         jCbMaPhong.setToolTipText(resourceMap.getString("jCbMaPhong.toolTipText")); // NOI18N
         jCbMaPhong.setName("jCbMaPhong"); // NOI18N
+        jCbMaPhong.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbMaPhongItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -338,7 +350,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 7;
         gridBagConstraints.insets = new java.awt.Insets(22, 100, 1, 100);
@@ -372,7 +384,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridheight = 6;
+        gridBagConstraints.gridheight = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 28);
         jPanel2.add(imgRoom, gridBagConstraints);
@@ -395,6 +407,24 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel2.add(lLabelLau, gridBagConstraints);
 
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 28, 2, 16);
+        jPanel2.add(jLabel2, gridBagConstraints);
+
+        jCbLoaiThue.setBackground(resourceMap.getColor("jCbLoaiThue.background")); // NOI18N
+        jCbLoaiThue.setName("jCbLoaiThue"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        jPanel2.add(jCbLoaiThue, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -404,7 +434,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jPanel7.add(jPanel2, gridBagConstraints);
 
         bgLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bgLabel3.setIcon(null);
+        bgLabel3.setIcon(resourceMap.getIcon("bgLabel3.icon")); // NOI18N
         bgLabel3.setName("bgLabel3"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -424,11 +454,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         lstLoaiKhachHang = khachController.getDSLoaiKhachHang();
         if(lstLoaiKhachHang!=null)
         {
-            //add item to combobox
-            for(i=0;i<lstLoaiKhachHang.size();i++)
-            {
-                jCbLoaiKhach.addItem(lstLoaiKhachHang.get(i).getTen());
-            }
+            initComboBoxLoaiKhachHang();
         }
 
         //lay so nguoi cu tru lon nhat va add vao commbobox
@@ -436,7 +462,66 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         {
             jCbSoNguoiCuTru.addItem(i);
         }
+
+        //lay danh sach phong chua thue va add vao combobox
+        lstPhong = phongController.getDSPhongChuaThue();
+        if(lstPhong!=null)
+        {
+            initComboBoxMaPhong();
+        }
+
+        //lay loai thue va add vao combobox
+        lstLoaiThue = thuePhongController.layDSLoaiThue();
+        if(lstLoaiThue!=null)
+        {
+            initComboBoxLoaiThue();
+        }
+
+        //khoi tao gia tri cho ngay thue bang voi ngay hien tai
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        jTxtNgayThue.setText(sdf.format(cal.getTime()));
+
     }//GEN-LAST:event_formComponentShown
+
+    private void initComboBoxLoaiThue()
+    {
+        int i;
+        //add item to combobox
+        for(i=0;i<lstLoaiThue.size();i++)
+        {
+            jCbLoaiThue.addItem(lstLoaiThue.get(i).getLoai());
+        }
+    }
+
+    private void initComboBoxLoaiKhachHang()
+    {
+        int i;
+        //add item to combobox
+        for(i=0;i<lstLoaiKhachHang.size();i++)
+        {
+            jCbLoaiKhach.addItem(lstLoaiKhachHang.get(i).getTen());
+        }
+    }
+
+    private void initComboBoxMaPhong()
+    {
+        int i;
+        for(i=0;i<lstPhong.size();i++)
+            {
+                jCbMaPhong.addItem(lstPhong.get(i).getId());                
+            }
+            
+            jCbMaPhong.setSelectedIndex(0);
+            hienThiThongTinPhong(lstPhong.get(0));
+    }
+
+    private void hienThiThongTinPhong(Phong phong)
+    {
+        this.jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());
+        this.jLabelGiaTien.setText("" + phong.getGia());
+        this.lLabelLau.setText("" + phong.getLau());
+    }
 
     private void jBtnThuePhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThuePhongMousePressed
         // TODO add your handling code here:
@@ -444,18 +529,56 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         {
             //lay thong tin khach hang
             KhachHang khach = new KhachHang();
+
             khach.setDiaChi(jTxtDiaChi.getText());
             khach.setDienThoai(jTxtDienThoai.getText());
             khach.setGioiTinh((String)jCbGioiTinh.getSelectedItem());
-            DateFormat d = new SimpleDateFormat();
-            khach.setNgaySinh(d.parse(jTxtNgaySinh.getText()));
-            khach.setTen(jTxtTenKhach.getText());            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            khach.setNgaySinh(sdf.parse(jTxtNgaySinh.getText()));
+            khach.setTen(jTxtTenKhach.getText());
+            LoaiKhachHang loaiKhachHang = layLoaiKhachHangTheoTen(jCbLoaiKhach.getSelectedItem().toString());
+            khach.setIdLoaiKhachHang(loaiKhachHang);
+
+            ThuePhong thuePhong = new ThuePhong();
+            thuePhong.setIdLoaiThue(layLoaiThueTheoTen(jCbLoaiThue.getSelectedItem().toString()));
+            thuePhong.setKhachHang(khach);
+            thuePhong.setNgayThue(sdf.parse(jTxtNgayThue.getText()));
+            thuePhong.setPhong(layPhongTheoId(Integer.parseInt(jCbMaPhong.getSelectedItem().toString())));
+
+            String error = thuePhongController.tiepNhanViecThuePhong(thuePhong);
+            if(error.equals(""))
+            {
+                JOptionPane.showConfirmDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            }
+            else
+            {
+                JOptionPane.showConfirmDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            }
         }
         catch(Exception ex)
         {
             JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThuePhongMousePressed
+
+    private void jCbMaPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbMaPhongItemStateChanged
+        // TODO add your handling code here:
+        Phong phong = layPhongTheoId(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+        hienThiThongTinPhong(phong);
+    }//GEN-LAST:event_jCbMaPhongItemStateChanged
+
+    private LoaiThue layLoaiThueTheoTen(String ten)
+    {
+        int i;
+        for(i=0;i<lstLoaiThue.size();i++)
+        {
+            if(lstLoaiThue.get(i).getLoai().equals(ten))
+            {
+                return lstLoaiThue.get(i);
+            }
+        }
+        return null;
+    }
 
     private LoaiKhachHang layLoaiKhachHangTheoTen(String ten)
     {
@@ -470,6 +593,20 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         return null;
     }
 
+    private Phong layPhongTheoId(int id)
+    {
+        int i;
+        for(i=0;i<lstPhong.size();i++)
+        {
+            if(lstPhong.get(i).getId() == id)
+            {
+                return lstPhong.get(i);
+            }
+        }
+        return null;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel3;
     private javax.swing.JLabel imgCustomer;
@@ -477,9 +614,11 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private javax.swing.JButton jBtnThuePhong;
     private javax.swing.JComboBox jCbGioiTinh;
     private javax.swing.JComboBox jCbLoaiKhach;
+    private javax.swing.JComboBox jCbLoaiThue;
     private javax.swing.JComboBox jCbMaPhong;
     private javax.swing.JComboBox jCbSoNguoiCuTru;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -508,5 +647,9 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
     private KhachHangController khachController;
     private ThuePhongController thuePhongController;
+    private PhongController phongController;
+
     private ArrayList<LoaiKhachHang> lstLoaiKhachHang;
+    private ArrayList<Phong> lstPhong;
+    private ArrayList<LoaiThue> lstLoaiThue;
 }

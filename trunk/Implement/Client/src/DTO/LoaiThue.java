@@ -9,7 +9,27 @@ package DTO;
  *
  * @author bin
  */
-public enum LoaiThue {
-    DatPhong,
-    ThuePhong
+public class LoaiThue {
+    int id;
+    String loai;
+
+    public int getId()
+    {
+        return this.id;
+    }
+
+    public String getLoai()
+    {
+        return this.loai;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public void setLoai(String loai)
+    {
+        this.loai = loai;
+    }
 }
