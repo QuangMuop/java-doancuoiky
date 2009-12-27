@@ -58,11 +58,11 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jMainPanelHeThong.setLayout(jMainPanelHeThongLayout);
         jMainPanelHeThongLayout.setHorizontalGroup(
             jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 969, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jMainPanelHeThongLayout.setVerticalGroup(
             jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -97,11 +97,11 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jMainPanelNghiepVu.setLayout(jMainPanelNghiepVuLayout);
         jMainPanelNghiepVuLayout.setHorizontalGroup(
             jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jMainPanelNghiepVuLayout.setVerticalGroup(
             jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanelNghiepVu.add(jMainPanelNghiepVu, new java.awt.GridBagConstraints());
