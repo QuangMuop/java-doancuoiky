@@ -68,13 +68,13 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFTxtThang1">
+                <Component class="javax.swing.JFormattedTextField" name="jFTxtThang">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" resourceKey="jFTxtThang1.background"/>
+                    <Property name="background" type="java.awt.Color" resourceKey="jFTxtThang.background"/>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                       <Format format="#0" subtype="-1" type="0"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="jFTxtThang1" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="jFTxtThang" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -82,10 +82,10 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelNam1">
+                <Component class="javax.swing.JLabel" name="jLabelNam">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabelNam1.text"/>
-                    <Property name="name" type="java.lang.String" value="jLabelNam1" noResource="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabelNam.text"/>
+                    <Property name="name" type="java.lang.String" value="jLabelNam" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -93,13 +93,13 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFTxtNam1">
+                <Component class="javax.swing.JFormattedTextField" name="jFTxtNam">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" resourceKey="jFTxtNam1.background"/>
+                    <Property name="background" type="java.awt.Color" resourceKey="jFTxtNam.background"/>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                       <Format format="#0" subtype="-1" type="0"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="jFTxtNam1" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="jFTxtNam" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -107,11 +107,14 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBtnThongKe1">
+                <Component class="javax.swing.JButton" name="jBtnThongKe">
                   <Properties>
-                    <Property name="text" type="java.lang.String" resourceKey="jBtnThongKe1.text"/>
-                    <Property name="name" type="java.lang.String" value="jBtnThongKe1" noResource="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jBtnThongKe.text"/>
+                    <Property name="name" type="java.lang.String" value="jBtnThongKe" noResource="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnThongKeMousePressed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                       <GridBagConstraints gridX="1" gridY="5" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="9" insetsLeft="9" insetsBottom="9" insetsRight="9" anchor="10" weightX="0.0" weightY="0.0"/>

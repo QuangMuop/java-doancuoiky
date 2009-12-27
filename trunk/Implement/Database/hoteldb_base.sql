@@ -37,7 +37,7 @@ CREATE TABLE  `LOAI_KHACH_HANG` (
 
 -- Tao bang KHACH_HANG
 CREATE TABLE  `KHACH_HANG` (
-  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `id` TEXT NOT NULL,
   `ten` text NOT NULL,
   `gioi_tinh` text,
   `dia_chi` text NOT NULL,

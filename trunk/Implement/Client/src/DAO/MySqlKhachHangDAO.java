@@ -11,19 +11,20 @@ import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySqlKhachHangDAO implements IKhachHangDAO {
 
-    public KhachHang getKhachHangTheoId(int id) {
+    public KhachHang getKhachHangTheoId(String id) {
         Connector connector = new MySqlConnector();
         try {
             connector.openConnection("HOTELDB", "root", "root");
 
-            String sql = "select khach_hang.*, loai_khach_hang.ten_loai_khach_hang from khach_hang, loai_khach_hang where khach_hang.id_loai_khach_hang = loai_khach_hang.id and khach_hang.id = ?;";
+            String sql = "select khach_hang.*, loai_khach_hang.ten_loai_khach_hang from khach_hang, loai_khach_hang where khach_hang.id_loai_khach_hang = loai_khach_hang.id and khach_hang.id like ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
-            statement.setInt(1, id);
+            statement.setString(1, id);
 
             ResultSet rs = statement.executeQuery();
             KhachHang khach = null;
@@ -31,7 +32,7 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
             while(rs.next())
             {
                 khach = new KhachHang();
-                khach.setId(rs.getInt("id"));
+                khach.setId(rs.getString("id"));
                 khach.setDiaChi(rs.getString("dia_chi"));
                 khach.setGioiTinh(rs.getString("gioi_tinh"));
                 khach.setDienThoai(rs.getString("dien_thoai"));
@@ -60,17 +61,26 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
         try {
             connector.openConnection("HOTELDB", "root", "root");
 
-            String sql = "insert into khach_hang (ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values(?,?,?,?,?,?);";
+            String sql = "insert into khach_hang (id,ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values(?,?,?,?,?,?,?);";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
-            statement.setString(1, khachhang.getTen());
-            statement.setString(2, khachhang.getGioiTinh());
-            statement.setString(3, khachhang.getDiaChi());
-            statement.setString(4, khachhang.getDienThoai());
-            statement.setDate(5,(Date) khachhang.getNgaySinh());
-            statement.setInt(6, khachhang.getIdLoaiKhachHang().getId());
+            statement.setString(1, khachhang.getId());
+            statement.setString(2, khachhang.getTen());
+            statement.setString(3, khachhang.getGioiTinh());
+            statement.setString(4, khachhang.getDiaChi());
+            statement.setString(5, khachhang.getDienThoai());
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");            
+            String strDate = sdf.format(khachhang.getNgaySinh());
+            //statement.setString(6, sdf.format(khachhang.getNgaySinh()));
+
+            statement.setDate(6, Date.valueOf(strDate));
+
+            //statement.setDate(6,(Date) khachhang.getNgaySinh());
+
+            statement.setInt(7, khachhang.getIdLoaiKhachHang().getId());
 
             //execute query
-            if(statement.executeUpdate(sql)>0)
+            if(statement.executeUpdate()>0)
             {
                 statement.close();
                 return true;

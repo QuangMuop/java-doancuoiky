@@ -11,6 +11,14 @@
 
 package client;
 
+import DAO.Connector;
+import DAO.MySqlConnector;
+import DAO.MySqlKhachHangDAO;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author huy
@@ -36,10 +44,10 @@ public class JPanelThongKe extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabelThang1 = new javax.swing.JLabel();
-        jFTxtThang1 = new javax.swing.JFormattedTextField();
-        jLabelNam1 = new javax.swing.JLabel();
-        jFTxtNam1 = new javax.swing.JFormattedTextField();
-        jBtnThongKe1 = new javax.swing.JButton();
+        jFTxtThang = new javax.swing.JFormattedTextField();
+        jLabelNam = new javax.swing.JLabel();
+        jFTxtNam = new javax.swing.JFormattedTextField();
+        jBtnThongKe = new javax.swing.JButton();
         imgThongKe1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         bgLabel1 = new javax.swing.JLabel();
@@ -73,9 +81,9 @@ public class JPanelThongKe extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(9, 8, 9, 10);
         jPanel6.add(jLabelThang1, gridBagConstraints);
 
-        jFTxtThang1.setBackground(resourceMap.getColor("jFTxtThang1.background")); // NOI18N
-        jFTxtThang1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFTxtThang1.setName("jFTxtThang1"); // NOI18N
+        jFTxtThang.setBackground(resourceMap.getColor("jFTxtThang.background")); // NOI18N
+        jFTxtThang.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFTxtThang.setName("jFTxtThang"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -83,20 +91,20 @@ public class JPanelThongKe extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 65;
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
-        jPanel6.add(jFTxtThang1, gridBagConstraints);
+        jPanel6.add(jFTxtThang, gridBagConstraints);
 
-        jLabelNam1.setText(resourceMap.getString("jLabelNam1.text")); // NOI18N
-        jLabelNam1.setName("jLabelNam1"); // NOI18N
+        jLabelNam.setText(resourceMap.getString("jLabelNam.text")); // NOI18N
+        jLabelNam.setName("jLabelNam"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
-        jPanel6.add(jLabelNam1, gridBagConstraints);
+        jPanel6.add(jLabelNam, gridBagConstraints);
 
-        jFTxtNam1.setBackground(resourceMap.getColor("jFTxtNam1.background")); // NOI18N
-        jFTxtNam1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFTxtNam1.setName("jFTxtNam1"); // NOI18N
+        jFTxtNam.setBackground(resourceMap.getColor("jFTxtNam.background")); // NOI18N
+        jFTxtNam.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFTxtNam.setName("jFTxtNam"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -104,16 +112,21 @@ public class JPanelThongKe extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 65;
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
-        jPanel6.add(jFTxtNam1, gridBagConstraints);
+        jPanel6.add(jFTxtNam, gridBagConstraints);
 
-        jBtnThongKe1.setText(resourceMap.getString("jBtnThongKe1.text")); // NOI18N
-        jBtnThongKe1.setName("jBtnThongKe1"); // NOI18N
+        jBtnThongKe.setText(resourceMap.getString("jBtnThongKe.text")); // NOI18N
+        jBtnThongKe.setName("jBtnThongKe"); // NOI18N
+        jBtnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnThongKeMousePressed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
-        jPanel6.add(jBtnThongKe1, gridBagConstraints);
+        jPanel6.add(jBtnThongKe, gridBagConstraints);
 
         imgThongKe1.setIcon(resourceMap.getIcon("imgThongKe1.icon")); // NOI18N
         imgThongKe1.setName("imgThongKe1"); // NOI18N
@@ -247,17 +260,24 @@ public class JPanelThongKe extends javax.swing.JPanel {
         add(jSplitPane3, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBtnThongKeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThongKeMousePressed
+        // TODO add your handling code here:
+
+        
+
+    }//GEN-LAST:event_jBtnThongKeMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel1;
     private javax.swing.JLabel bgLabel4;
     private javax.swing.JLabel imgThongKe1;
-    private javax.swing.JButton jBtnThongKe1;
-    private javax.swing.JFormattedTextField jFTxtNam1;
-    private javax.swing.JFormattedTextField jFTxtThang1;
+    private javax.swing.JButton jBtnThongKe;
+    private javax.swing.JFormattedTextField jFTxtNam;
+    private javax.swing.JFormattedTextField jFTxtThang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelNam1;
+    private javax.swing.JLabel jLabelNam;
     private javax.swing.JLabel jLabelThang1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

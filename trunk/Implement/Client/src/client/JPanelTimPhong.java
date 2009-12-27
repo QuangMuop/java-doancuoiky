@@ -415,6 +415,8 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         lstLoaiPhong = phongController.getDSLoaiPhong();
         if(lstLoaiPhong!=null)
         {
+            jCbLoaiPhong.removeAllItems();
+
             for(i=0;i<lstLoaiPhong.size();i++)
             {
                 jCbLoaiPhong.addItem(lstLoaiPhong.get(i).getTen());
@@ -425,6 +427,8 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         lstTinhTrangPhong = phongController.getDSTinhTrangPhong();
         if(lstTinhTrangPhong!=null)
         {
+            jCbTinhTrang.removeAllItems();
+
             for(i=0;i<lstTinhTrangPhong.size();i++)
             {
                 jCbTinhTrang.addItem(lstTinhTrangPhong.get(i).getTen());

@@ -8,6 +8,6 @@ package DAO;
 import DTO.KhachHang;
 
 public interface IKhachHangDAO {
-    public KhachHang getKhachHangTheoId(int id);
+    public KhachHang getKhachHangTheoId(String id);
     public boolean insertKhachHang(KhachHang k);
 }

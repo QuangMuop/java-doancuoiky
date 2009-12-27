@@ -78,6 +78,6 @@ public class PhongController {
     }
 
     public ArrayList<Phong> getDSPhongChuaThue() {
-        return phongDAO.getDSPhongChuaThue();
+        return phongDAO.getDSPhongConTrong();
     }
 }

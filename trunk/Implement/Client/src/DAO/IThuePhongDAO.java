@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public interface IThuePhongDAO {
-    public boolean ghiNhanThuePhong(ThuePhong tp);
-    public boolean ghiNhanTraPhong(ThuePhong tp);
-    public ThuePhong layThuePhong(KhachHang k, Phong p, Date ngay);
-    public ArrayList<LoaiThue> layDSLoaiThue();
+    public boolean insertThuePhong(ThuePhong tp);
+    public boolean updateThuePhong(ThuePhong tp);
+    public ThuePhong getThuePhong(KhachHang k, Phong p, Date ngay);
+    public ArrayList<ThuePhong> getDSThuePhong();
+    public ArrayList<LoaiThue> getDSLoaiThue();
 }

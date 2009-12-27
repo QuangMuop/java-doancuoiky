@@ -13,7 +13,7 @@ import java.util.Date;
  * @author bin
  */
 public class KhachHang {
-    private int id;
+    private String id;
     
     private String ten;
     private String gioiTinh;
@@ -25,11 +25,11 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(int id) {
+    public KhachHang(String id) {
         this.id = id;
     }
 
-    public KhachHang(int id, String ten, String diaChi, String dienThoai, Date ngaySinh) {
+    public KhachHang(String id, String ten, String diaChi, String dienThoai, Date ngaySinh) {
         this.id = id;
         this.ten = ten;
         this.diaChi = diaChi;
@@ -37,11 +37,11 @@ public class KhachHang {
         this.ngaySinh = ngaySinh;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
