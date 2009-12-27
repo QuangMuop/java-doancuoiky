@@ -77,6 +77,11 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         bgLabel = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new java.awt.GridLayout(1, 1));
 
         jPaneTraPhong.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -466,6 +471,11 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
         add(jPaneTraPhong);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
