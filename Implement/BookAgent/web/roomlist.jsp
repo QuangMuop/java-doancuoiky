@@ -20,6 +20,7 @@
                     <th>ID</th>
                     <th>Số người tối đa</th>
                     <th>Tình trạng</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                     <td><%= room.getId() %></td>
                     <td><%= (room.getMaxPeople() == 0)? 4 : room.getMaxPeople() %></td>
                     <td><%= (room.isCanStay())? "Trống" : "Không trống" %></td>
+                    <td>url</td>
                 </tr>
         <% } %>
             </tbody>

@@ -17,6 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author hvu
  */
 public class BookController extends HttpServlet {
+
+    public enum ACTION_CODE {
+        BOOK_NAVIGATE,
+        UNBOOK_NAVIGATE,
+        BOOK,
+        UNBOOK,
+        INVALID
+    }
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,6 +38,19 @@ public class BookController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            String action = request.getParameter("action");
+            switch (mapActionCode(action)) {
+                case BOOK:
+                    break;
+                case BOOK_NAVIGATE:
+                    break;
+                case UNBOOK:
+                    out.print("unbook at " + request.getParameter("hid"));
+                    break;
+                case UNBOOK_NAVIGATE:
+                    getServletContext().getRequestDispatcher("/unbook.jsp").forward(request, response);
+                    break;
+            }
         } finally { 
             out.close();
         }
@@ -71,4 +92,19 @@ public class BookController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private ACTION_CODE mapActionCode(String action) {
+        if (action.equals("book-nav")) {
+            return ACTION_CODE.BOOK_NAVIGATE;
+        }
+        else if (action.equals("unbook-nav")) {
+            return ACTION_CODE.UNBOOK_NAVIGATE;
+        }
+        else if (action.equals("book")) {
+            return ACTION_CODE.BOOK;
+        }
+        else if (action.equals("unbook")) {
+            return ACTION_CODE.UNBOOK;
+        }
+        return ACTION_CODE.INVALID;
+    }
 }

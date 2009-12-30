@@ -17,10 +17,10 @@
         <jsp:include page="template/header.jsp" />
         <p>
             Chương trình: Đặt vé qua mạng cho khách sạn. <br />
-            Ngôn ngữ: Jsp, Xml
-            Thực hiện:
-            - Nguyễn Hoàng Vũ
-            - Nguyễn Xuân Tường Huy
+            Ngôn ngữ: Jsp, Xml<br />
+            Thực hiện:<br />
+            - Nguyễn Hoàng Vũ<br />
+            - Nguyễn Xuân Tường Huy<br />
         </p>
         Testing:
         <br />
