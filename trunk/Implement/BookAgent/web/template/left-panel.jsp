@@ -9,7 +9,7 @@
     %>
     <ul>
         <li>
-        <a href="hotels?hid=<%= h.getId() %>"><%= h.getName() %></a>
+        <a href="hotels?action=get-hotel-info&hid=<%= h.getId() %>"><%= h.getName() %></a>
         </li>
     </ul>
     <%

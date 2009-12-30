@@ -49,8 +49,10 @@
         </div>
         
         <br />
-        <a href="book?hid=<%= hotel.getId() %>&mode=book">Đặt phòng</a> &nbsp;
-        <a href="book?hid=<%= hotel.getId() %>&mode=unbook">Hủy đặt phòng</a>
+        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>&all=0">Xem phòng trống</a>|
+        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>&all=1">Xem phòng</a>|
+        <a href="book?action=book-nav&hid=<%= hotel.getId() %>">Đặt phòng</a>|
+        <a href="book?action=unbook-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
         <% } %>
         <jsp:include page="template/footer.jsp" />
     </body>
