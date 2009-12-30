@@ -1,3 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE DanhSach SYSTEM "ListKhachSan.dtd">
+
 <DanhSach total="2">
 	<KhachSan id="0">
 		<Ten>Khach san Rex</Ten>
@@ -5,7 +8,7 @@
 		<SoPhong>20</SoPhong>
 		<Hinh>./rex.jpeg</Hinh>
 		<MoTa>Khach san Rex nam tren duong Truong Quoc Dung, duoc xay dung tu nam 2000, duoc su quan tam va ung ho tu rat nhieu cong ty du lich voi phong cach phuc vu tan tinh va chu dao.</MoTa>
-		<DuongDan>./rex.xml</DuongDan>
+		<DuongDan>/rex.xml</DuongDan>
 	</KhachSan>
 	<KhachSan id="1">
 		<Ten>Love Hotel</Ten>

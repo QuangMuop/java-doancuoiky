@@ -6,8 +6,10 @@
 package Agent;
 
 import Hotel.HotelInfo;
+import Hotel.RoomInfo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class HotelController extends HttpServlet {
 
+    HotelModel model = new HotelModel();
+
+    private enum ACTION_CODE {
+        GET_HOTEL_INFO,
+        GET_HOTELS,
+        GET_ROOMS,
+        INVALID
+    }
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,12 +43,25 @@ public class HotelController extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            Integer hid = Integer.parseInt(request.getParameter("hid"));
-            if (hid != null) {
-                HotelModel model = new HotelModel();
-                HotelInfo hotel = model.getHotelById(hid);
-                request.setAttribute("hotel", hotel);
-                getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
+            String action = request.getParameter("action");
+            int hid;
+            boolean getAllRooms;
+            switch (mapActionCode(action)) {
+                case GET_HOTELS:
+                    break;
+                case GET_HOTEL_INFO:
+                    hid = Integer.parseInt(request.getParameter("hid"));
+                    request.setAttribute("hotel", getHotelInfo(hid));
+                    getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
+                    break;
+                case GET_ROOMS:
+                    hid = Integer.parseInt(request.getParameter("hid"));
+                    getAllRooms = (request.getParameter("all").equals("1"));
+                    request.setAttribute("rooms", getRooms(hid, getAllRooms));
+                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
+                    break;
+                case INVALID:
+                    break;
             }
         } finally { 
             out.close();
@@ -81,4 +104,24 @@ public class HotelController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private ACTION_CODE mapActionCode(String action) {
+        if (action.equals("get-hotels")) {
+            return ACTION_CODE.GET_HOTELS;
+        }
+        else if (action.equals("get-hotel-info")) {
+            return ACTION_CODE.GET_HOTEL_INFO;
+        }
+        else if (action.equals("get-rooms")) {
+            return ACTION_CODE.GET_ROOMS;
+        }
+        return ACTION_CODE.INVALID;
+    }
+
+    private HotelInfo getHotelInfo(int hid) {
+        return model.getHotelById(hid);
+    }
+
+    private List<RoomInfo> getRooms(int hid, boolean getAllRooms) {
+        return model.getRooms(hid, getAllRooms);
+    }
 }

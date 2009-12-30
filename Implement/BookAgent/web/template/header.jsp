@@ -1,7 +1,7 @@
 <div class="header">
-    HEADER
+    LOGO
 </div>
 <div class="menu">
-    <a href="hotels.jsp" class="menuItem">Hotels</a>
-    <a href="index.jsp" class="menuItem">About</a>
+    <a href="hotels.jsp" class="mainMenuItem">Hotels</a> |
+    <a href="index.jsp" class="mainMenuItem">About</a>
 </div>

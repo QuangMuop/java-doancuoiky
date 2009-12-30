@@ -19,23 +19,13 @@
     </head>
     <body>
         <jsp:include page="template/header.jsp" />
+        <jsp:include page="template/left-panel.jsp" />
         <%
             HotelInfo hotel = (HotelInfo) request.getAttribute("hotel");
-        %>
-        <div class="left">
-            <%
-            ArrayList<HotelInfo> hotels = StartUpServlet.listHotels;
-            for (int i = 0; i < hotels.size(); i++ ) {
-                HotelInfo h = hotels.get(i);
-            %>
-            <a href="hotels?hid=<%= h.getId() %>"><%= h.getName() %></a>
-            <%
-            }
-            %>
-        </div>
+            if (hotel != null) { %>
+        <div class="main-panel">
+            &nbsp;
 
-        <% if (hotel != null) { %>
-        <div class="right">
             <table border="1" width="800px">
                 <tbody>
                     <tr>
@@ -57,8 +47,11 @@
                 </tbody>
             </table>
         </div>
+        
+        <br />
+        <a href="book?hid=<%= hotel.getId() %>&mode=book">Đặt phòng</a> &nbsp;
+        <a href="book?hid=<%= hotel.getId() %>&mode=unbook">Hủy đặt phòng</a>
         <% } %>
-
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>

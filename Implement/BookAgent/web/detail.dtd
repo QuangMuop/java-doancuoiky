@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/detail.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE KhachSan SYSTEM "detail.dtd">
+
+    <KhachSan>
+    ...
+    </KhachSan>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT KhachSan (DanhSachPhong|ThongTinLoaiPhong)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT ThongTinLoaiPhong (LoaiPhong)*>
+<!ATTLIST ThongTinLoaiPhong
+    total CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT LoaiPhong (Gia|SoPhong|Ten)*>
+<!ATTLIST LoaiPhong
+    id CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Ten (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT SoPhong (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Gia (VND)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT VND (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT DanhSachPhong (#PCDATA|Phong)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT Phong (MoTa)*>
+<!ATTLIST Phong
+    cost CDATA #IMPLIED
+    status CDATA #IMPLIED
+    type CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT MoTa EMPTY>
