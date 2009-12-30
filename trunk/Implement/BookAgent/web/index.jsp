@@ -15,7 +15,16 @@
     </head>
     <body>
         <jsp:include page="template/header.jsp" />
-        About
+        <p>
+            Chương trình: Đặt vé qua mạng cho khách sạn. <br />
+            Ngôn ngữ: Jsp, Xml
+            Thực hiện:
+            - Nguyễn Hoàng Vũ
+            - Nguyễn Xuân Tường Huy
+        </p>
+        Testing:
+        <br />
+        :<a href="hotels?action=get-rooms&hid=0&all=1">Get rooms</a>
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>

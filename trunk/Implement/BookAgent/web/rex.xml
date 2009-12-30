@@ -1,3 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE KhachSan SYSTEM "detail.dtd">
+
 <KhachSan>
 	<ThongTinLoaiPhong total="3">
 		<LoaiPhong id="0">
@@ -23,17 +26,17 @@
 		</LoaiPhong>
 	</ThongTinLoaiPhong>
 	<DanhSachPhong>
-		<Phong type="0" status="0" cost="475000">
+		<Phong id="0" type="0" status="0" cost="475000" max="2">
 			<MoTa></MoTa>
 		</Phong>
-		<Phong type="2" status="1">
+		<Phong id="1" type="2" status="1">
 			<MoTa></MoTa>
 		</Phong>
-		<Phong type="2" status="0">
+		<Phong id="2" type="2" status="0">
 			<MoTa></MoTa>
 		</Phong>
 		...
-		<Phong type="1" status="0" cost="510000">
+		<Phong id="n" type="1" status="0" cost="510000">
 			<MoTa></MoTa>
 		</Phong>
 	</DanhSachPhong>

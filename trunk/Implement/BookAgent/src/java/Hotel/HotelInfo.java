@@ -17,6 +17,7 @@ public class HotelInfo {
     private String description;
     private int numberOfRooms;
     private int maxNumberOfPeople;
+    private String path;
     private int[] roomTypes;
 
     public int getId() {
@@ -47,6 +48,9 @@ public class HotelInfo {
         return roomTypes;
     }
 
+    public String getPath() {
+        return this.path;
+    }
 
     public HotelInfo() {
     
@@ -59,6 +63,7 @@ public class HotelInfo {
             address = xmlNode.getElementsByTagName("DiaChi").item(0).getTextContent();
             description = xmlNode.getElementsByTagName("MoTa").item(0).getTextContent();
             numberOfRooms = Integer.parseInt(xmlNode.getElementsByTagName("SoPhong").item(0).getTextContent());
+            path = xmlNode.getElementsByTagName("DuongDan").item(0).getTextContent();
         }
         catch (Exception ex) {
             Logger.getLogger(HotelInfo.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,17 +71,6 @@ public class HotelInfo {
     }
 
     static public HotelInfo load(Element xmlNode) {
-        HotelInfo info = new HotelInfo();
-        try {
-            info.id = Integer.parseInt(xmlNode.getAttribute("id"));
-            info.name = xmlNode.getElementsByTagName("Ten").item(0).getNodeValue();
-            info.address = xmlNode.getElementsByTagName("DiaChi").item(0).getNodeValue();
-            info.description = xmlNode.getElementsByTagName("MoTa").item(0).getNodeValue();
-            info.numberOfRooms = Integer.parseInt(xmlNode.getElementsByTagName("SoPhong").item(0).getNodeValue());
-        }
-        catch (Exception ex) {
-            Logger.getLogger(HotelInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return info;
+        return new HotelInfo(xmlNode);
     }
 }
