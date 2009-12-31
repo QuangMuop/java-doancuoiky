@@ -11,6 +11,9 @@
 
 package client;
 
+import BUS.KhachHangController;
+import DTO.KhachHang;
+import DTO.LoaiKhachHang;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,7 +24,11 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -196,22 +203,61 @@ public class JPanelThumbnail extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox();
+
         setName("Form"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+
+        jComboBox1.setName("jComboBox1"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+
+        MySwingWorker worker = new MySwingWorker();
+        worker.execute();
+        try {
+            ArrayList<LoaiKhachHang> lst = worker.get();
+
+            int i;
+            for(i=0;i<lst.size();i++)
+            {
+                jComboBox1.addItem(lst.get(i).getTen());
+            }
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JPanelThumbnail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(JPanelThumbnail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_formComponentShown
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBox1;
     // End of variables declaration//GEN-END:variables
     private JLabel photographLabel = new JLabel();
     private JToolBar buttonBar = new JToolBar();
@@ -268,4 +314,19 @@ class MissingIcon implements Icon{
         return height;
     }
 
+}
+
+class MySwingWorker extends SwingWorker<ArrayList<LoaiKhachHang>,Void>
+{
+    @Override
+    protected ArrayList<LoaiKhachHang> doInBackground() throws Exception {
+        KhachHangController khachController = new KhachHangController();
+        return khachController.getDSLoaiKhachHang();
+    }
+
+    @Override
+    protected void done()
+    {
+
+    }
 }

@@ -35,4 +35,18 @@ public class KhachHangController {
     {
         return khachDAO.insertKhachHang(khach);
     }
+
+    public String kiemTraKhachHang(KhachHang khach)
+    {
+
+        if(khach.getId().equals(""))
+        {
+            return "Vui long nhap vao CMND khach hang";
+        }
+        if(khach.getTen().equals(""))
+        {
+            return "Vui long nhap ten khach hang";
+        }
+        return "";
+    }
 }

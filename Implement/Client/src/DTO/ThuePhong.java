@@ -5,6 +5,7 @@
 
 package DTO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,14 +13,33 @@ import java.util.Date;
  * @author bin
  */
 public class ThuePhong {
+    private String id;
     private Date ngayThue;
     private Date ngayTra;
     private int tongGia;
     private Phong phong;
-    private KhachHang khachHang;
+    private ArrayList<KhachHang> lstKhachHang;
     private LoaiThue idLoaiThue;
 
     public ThuePhong() {
+        lstKhachHang = new ArrayList<KhachHang>();
+        idLoaiThue = new LoaiThue();
+        phong = new Phong();
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+    
+    public ArrayList<KhachHang> getLstKhachHang()
+    {
+        return lstKhachHang;
     }
 
     public Date getNgayThue()
@@ -55,13 +75,9 @@ public class ThuePhong {
     public void setPhong(Phong phong) {
         this.phong = phong;
     }
-
-    public KhachHang getKhachHang() {
-        return khachHang;
-    }
-
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
+    
+    public void setLstKhachHang(ArrayList<KhachHang> khachHang) {
+        this.lstKhachHang = khachHang;
     }
 
     public LoaiThue getIdLoaiThue() {
@@ -72,4 +88,8 @@ public class ThuePhong {
         this.idLoaiThue = idLoaiThue;
     }
 
+    public void addKhachHang(KhachHang khach)
+    {
+        this.lstKhachHang.add(khach);
+    }
 }

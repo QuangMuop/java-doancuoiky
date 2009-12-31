@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -78,6 +79,48 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
             //statement.setDate(6,(Date) khachhang.getNgaySinh());
 
             statement.setInt(7, khachhang.getIdLoaiKhachHang().getId());
+
+            //execute query
+            if(statement.executeUpdate()>0)
+            {
+                statement.close();
+                return true;
+            }
+            else
+            {
+                statement.close();
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlKhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
+
+    public boolean insertKhachHang(ArrayList<KhachHang> lstKhachHang) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection("HOTELDB", "root", "root");
+
+            String sql = "insert into khach_hang (id,ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values ";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            int i;
+            for(i=0;i<lstKhachHang.size();i++)
+            {
+                KhachHang khach = lstKhachHang.get(i);
+                String tmpSql = "('" + khach.getId() + "','" + khach.getTen() + "','" + khach.getGioiTinh() + "','" + khach.getDiaChi() + "','" + khach.getDienThoai() + "','" + sdf.format(khach.getNgaySinh()) + "'," + khach.getIdLoaiKhachHang().getId() + "),";
+                sql += tmpSql;
+            }
+
+            sql = sql.substring(0, sql.length()-1);
+            sql += ";";
+
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
 
             //execute query
             if(statement.executeUpdate()>0)

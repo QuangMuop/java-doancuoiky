@@ -16,4 +16,5 @@ public interface ILoaiKhachHangDAO {
     public ArrayList<LoaiKhachHang> getDSLoaiKhachHang();
     public LoaiKhachHang getLoaiKhachHangTheoTen(String ten);
     public LoaiKhachHang getLoaiKhachHangTheoId(int id);
+    public boolean updateLoaiKhachHangTheoId(LoaiKhachHang loaiKhachHang, int id);
 }

@@ -21,7 +21,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,7 +39,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         initComponents();
 
         thuePhongController = new ThuePhongController();
-        phongController = new PhongController();
+        
     }
 
     /** This method is called from within the constructor to
@@ -65,20 +70,6 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabel52 = new javax.swing.JLabel();
         jLabelSoNguoiCuTru = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabelTenKhach = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabelNgaySinh = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabelGioiTinh = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabelDiaChi = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabelDienThoai = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabelLoaiKhach = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabelDonGiaKhachHang = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabelTongTien = new javax.swing.JLabel();
@@ -87,6 +78,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         imgPhong = new javax.swing.JLabel();
         imgNguoiThue = new javax.swing.JLabel();
         imgThanhToan = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableKhachHang = new javax.swing.JTable();
         bgLabel1 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -255,134 +248,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 2, 0);
         jPanel2.add(jLabel54, gridBagConstraints);
-
-        jLabel56.setText(resourceMap.getString("jLabel56.text")); // NOI18N
-        jLabel56.setName("jLabel56"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 11);
-        jPanel2.add(jLabel56, gridBagConstraints);
-
-        jLabelTenKhach.setText(resourceMap.getString("jLabelTenKhach.text")); // NOI18N
-        jLabelTenKhach.setName("jLabelTenKhach"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelTenKhach, gridBagConstraints);
-
-        jLabel58.setText(resourceMap.getString("jLabel58.text")); // NOI18N
-        jLabel58.setName("jLabel58"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 46);
-        jPanel2.add(jLabel58, gridBagConstraints);
-
-        jLabelNgaySinh.setText(resourceMap.getString("jLabelNgaySinh.text")); // NOI18N
-        jLabelNgaySinh.setName("jLabelNgaySinh"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelNgaySinh, gridBagConstraints);
-
-        jLabel60.setText(resourceMap.getString("jLabel60.text")); // NOI18N
-        jLabel60.setName("jLabel60"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 54);
-        jPanel2.add(jLabel60, gridBagConstraints);
-
-        jLabelGioiTinh.setText(resourceMap.getString("jLabelGioiTinh.text")); // NOI18N
-        jLabelGioiTinh.setName("jLabelGioiTinh"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelGioiTinh, gridBagConstraints);
-
-        jLabel62.setText(resourceMap.getString("jLabel62.text")); // NOI18N
-        jLabel62.setName("jLabel62"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 61);
-        jPanel2.add(jLabel62, gridBagConstraints);
-
-        jLabelDiaChi.setText(resourceMap.getString("jLabelDiaChi.text")); // NOI18N
-        jLabelDiaChi.setName("jLabelDiaChi"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelDiaChi, gridBagConstraints);
-
-        jLabel64.setText(resourceMap.getString("jLabel64.text")); // NOI18N
-        jLabel64.setName("jLabel64"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 44);
-        jPanel2.add(jLabel64, gridBagConstraints);
-
-        jLabelDienThoai.setText(resourceMap.getString("jLabelDienThoai.text")); // NOI18N
-        jLabelDienThoai.setName("jLabelDienThoai"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelDienThoai, gridBagConstraints);
-
-        jLabel66.setText(resourceMap.getString("jLabel66.text")); // NOI18N
-        jLabel66.setName("jLabel66"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 16);
-        jPanel2.add(jLabel66, gridBagConstraints);
-
-        jLabelLoaiKhach.setText(resourceMap.getString("jLabelLoaiKhach.text")); // NOI18N
-        jLabelLoaiKhach.setName("jLabelLoaiKhach"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelLoaiKhach, gridBagConstraints);
-
-        jLabel68.setText(resourceMap.getString("jLabel68.text")); // NOI18N
-        jLabel68.setName("jLabel68"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
-        jPanel2.add(jLabel68, gridBagConstraints);
-
-        jLabelDonGiaKhachHang.setText(resourceMap.getString("jLabelDonGiaKhachHang.text")); // NOI18N
-        jLabelDonGiaKhachHang.setName("jLabelDonGiaKhachHang"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jLabelDonGiaKhachHang, gridBagConstraints);
 
         jLabel70.setFont(resourceMap.getFont("jLabel70.font")); // NOI18N
         jLabel70.setForeground(resourceMap.getColor("jLabel70.foreground")); // NOI18N
@@ -390,16 +257,16 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabel70.setName("jLabel70"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 2, 0);
         jPanel2.add(jLabel70, gridBagConstraints);
 
         jLabel72.setText(resourceMap.getString("jLabel72.text")); // NOI18N
         jLabel72.setName("jLabel72"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 36);
         jPanel2.add(jLabel72, gridBagConstraints);
@@ -408,7 +275,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabelTongTien.setName("jLabelTongTien"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel2.add(jLabelTongTien, gridBagConstraints);
@@ -422,7 +289,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(13, 135, 2, 134);
@@ -453,7 +320,6 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridheight = 7;
         gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 21);
         jPanel2.add(imgNguoiThue, gridBagConstraints);
 
@@ -462,10 +328,61 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         imgThanhToan.setName("imgThanhToan"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 21);
         jPanel2.add(imgThanhToan, gridBagConstraints);
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jTableKhachHang.setBackground(resourceMap.getColor("jTableKhachHang.background")); // NOI18N
+        jTableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableKhachHang.setDoubleBuffered(true);
+        jTableKhachHang.setMaximumSize(new java.awt.Dimension(105, 80));
+        jTableKhachHang.setMinimumSize(new java.awt.Dimension(105, 80));
+        jTableKhachHang.setName("jTableKhachHang"); // NOI18N
+        jTableKhachHang.setOpaque(false);
+        jTableKhachHang.setPreferredSize(new java.awt.Dimension(525, 80));
+        jScrollPane1.setViewportView(jTableKhachHang);
+        jTableKhachHang.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title0")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(1).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title1")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(2).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title2")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(3).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title3")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(4).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title4")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(5).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title5")); // NOI18N
+        jTableKhachHang.getColumnModel().getColumn(6).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title6")); // NOI18N
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel2.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -488,7 +405,24 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         //lay ds phong dang thue
-        lstThuePhong = thuePhongController.layDSThuePhong();
+        //lstThuePhong = thuePhongController.layDSThuePhong();
+        //if(lstThuePhong!=null)
+        //{
+          //  initComboBoxMaPhong();
+           // hienThiThongTinThuePhong(lstThuePhong.get(0));
+        //}
+
+        WorkerTraPhong worker = new WorkerTraPhong();
+        worker.execute();
+
+        try {
+            lstThuePhong = worker.get();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JPanelTraPhong.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(JPanelTraPhong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         if(lstThuePhong!=null)
         {
             initComboBoxMaPhong();
@@ -497,21 +431,12 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     }//GEN-LAST:event_formComponentShown
 
     private void hienThiThongTinThuePhong(ThuePhong thuePhong) {
-        KhachHang khach = thuePhong.getKhachHang();
-        jLabelDiaChi.setText(khach.getDiaChi());
-        jLabelDienThoai.setText(khach.getDienThoai());
-        jLabelGioiTinh.setText(khach.getGioiTinh());
-        //jLabelDonGiaKhachHang.setText(khach.getIdLoaiKhachHang().);
-        jLabelLoaiKhach.setText(khach.getIdLoaiKhachHang().getTen());
-        jLabelNgaySinh.setText(khach.getNgaySinh().toString());
-        jLabelTenKhach.setText(khach.getTen());
-        
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                
         Phong phong = thuePhong.getPhong();
         jLabelDonGia.setText("" + phong.getIdLoaiPhong().getGia());
-        jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());
-        
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");        
+        jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());            
         
         Date ngayTra = calendar.getTime();
         jLabelNgayTra.setText(sdf.format(ngayTra));
@@ -520,9 +445,30 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jLabelNgayThue.setText(sdf.format(ngayThue));
         
         int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
-        jLabelSoNgayThue.setText("" + soNgayThue);
-        //jLabelSoNguoiCuTru.setText(TOOL_TIP_TEXT_KEY);
+        jLabelSoNgayThue.setText("" + soNgayThue);        
         jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(phong, soNgayThue));
+
+        //hien thi thong tin tren table
+        ArrayList<KhachHang> arrKhach = thuePhong.getLstKhachHang();
+        int i;
+        String[] header = new String[] { "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia" };
+        DefaultTableModel model = new DefaultTableModel(header, arrKhach.size());
+        for(i=0;i<arrKhach.size();i++)
+        {
+            KhachHang khach = new KhachHang();
+
+            Object[] arr = new Object[7];
+
+            arr[0] = khach.getTen();
+            arr[1] = sdf.format(khach.getNgaySinh());
+            arr[2] = khach.getGioiTinh();
+            arr[3] = khach.getDiaChi();
+            arr[4] = khach.getDienThoai();
+            arr[5] = khach.getIdLoaiKhachHang().getTen();
+            arr[6] = khach.getIdLoaiKhachHang().getGia();
+        }
+
+        jTableKhachHang.setModel(model);
     }
 
     private void initComboBoxMaPhong() {
@@ -560,7 +506,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             Date ngayThue = thuePhong.getNgayThue();
 
             int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
-            int tongGia = thuePhongController.tinhTienThuePhong(thuePhong.getPhong(), soNgayThue);
+            int tongGia = thuePhongController.tinhTienThuePhong(thuePhong, soNgayThue);
             thuePhong.setTongGia(tongGia);
 
             if(thuePhongController.tiepNhanViecTraPhong(thuePhong))
@@ -600,36 +546,35 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabelDiaChi;
-    private javax.swing.JLabel jLabelDienThoai;
     private javax.swing.JLabel jLabelDonGia;
-    private javax.swing.JLabel jLabelDonGiaKhachHang;
-    private javax.swing.JLabel jLabelGioiTinh;
-    private javax.swing.JLabel jLabelLoaiKhach;
     private javax.swing.JLabel jLabelLoaiPhong;
-    private javax.swing.JLabel jLabelNgaySinh;
     private javax.swing.JLabel jLabelNgayThue;
     private javax.swing.JLabel jLabelNgayTra;
     private javax.swing.JLabel jLabelSoNgayThue;
     private javax.swing.JLabel jLabelSoNguoiCuTru;
-    private javax.swing.JLabel jLabelTenKhach;
     private javax.swing.JLabel jLabelTongTien;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableKhachHang;
     // End of variables declaration//GEN-END:variables
 
     private ArrayList<ThuePhong> lstThuePhong;
     
     private ThuePhongController thuePhongController;
-    private PhongController phongController;
+    
+}
+
+class WorkerTraPhong extends SwingWorker<ArrayList<ThuePhong>, Void>
+{
+    private ThuePhongController thuePhongController;
+    @Override
+    protected ArrayList<ThuePhong> doInBackground() throws Exception {
+
+        thuePhongController = new ThuePhongController();
+        return thuePhongController.layDSThuePhong();
+    }
 }

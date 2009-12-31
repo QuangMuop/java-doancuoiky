@@ -112,4 +112,29 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
             connector.closeConnection();
         }
     }
+
+    public boolean updateLoaiKhachHangTheoId(LoaiKhachHang loaiKhachHang, int id) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection("HOTELDB", "root", "root");
+
+            String sql = "update loai_khach_hang set ten_loai_khach_hang = ? where id = ?;";
+
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+            statement.setString(1, loaiKhachHang.getTen());
+            statement.setInt(2, id);
+
+            if(statement.executeUpdate()>0)
+                return true;
+            else
+                return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlLoaiKhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
 }

@@ -12,6 +12,7 @@
 package client;
 
 import DTO.Phong;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,16 +31,83 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         this.pack();
     }
 
+    JDialogXemChiTiet(java.awt.Frame parent, boolean modal, Phong phong) {
+        super(parent, modal);
+        initComponents();
+
+        this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
+
+        this.phong = phong;
+        this.setSize(500, 500);
+
+        int cost = phong.getGia() + phong.getIdLoaiPhong().getGia();
+        String strLoaiPhong = phong.getIdLoaiPhong().getTen();
+
+        this.jTxtGiaTien.setText("" + cost);
+        this.jTxtLau.setText("" + phong.getLau());
+        this.jTxtLoaiPhong.setText(strLoaiPhong);
+        this.jTxtMoTa.setText(phong.getMoTa());
+        this.jTxtSoPhong.setText("" + phong.getId());
+        this.jTxtTinhTrang.setText(phong.getIdTinhTrang().getTen());
+
+        //set icon to display
+        strLoaiPhong = strLoaiPhong.toLowerCase();
+        ClassLoader cldr = this.getClass().getClassLoader();
+        java.net.URL imageURL;
+        if(strLoaiPhong.contains("vip"))
+            imageURL = cldr.getResource("client/resources/PhongVIP.png");
+        else if(strLoaiPhong.contains("hang trung"))
+            imageURL = cldr.getResource("client/resources/PhongHangTrung.png");
+        else if(strLoaiPhong.contains("hang thuong"))
+            imageURL = cldr.getResource("client/resources/PhongHangThuong.png");
+        else//truong hop khong khop thi gan dai luon :D
+            imageURL = cldr.getResource("client/resources/PhongHangTrung.png");
+        this.jLabelHinhPhong.setIcon(null);
+
+        ImageIcon icon = new ImageIcon(imageURL);
+        if(icon!=null)
+            this.jLabelHinhPhong.setIcon(icon);
+    }
+
     public JDialogXemChiTiet(Phong phong) {
         super();
         initComponents();
 
+        this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
+        this.pack();
+
         this.phong = phong;
 
-        //init
-        //this.j
+        int cost = phong.getGia() + phong.getIdLoaiPhong().getGia();
+        String strLoaiPhong = phong.getIdLoaiPhong().getTen();
 
+        this.jTxtGiaTien.setText("" + cost);
+        this.jTxtLau.setText("" + phong.getLau());
+        this.jTxtLoaiPhong.setText(strLoaiPhong);
+        this.jTxtMoTa.setText(phong.getMoTa());
+        this.jTxtSoPhong.setText("" + phong.getId());
+        this.jTxtTinhTrang.setText(phong.getIdTinhTrang().getTen());
+
+        //set icon to display
+        strLoaiPhong = strLoaiPhong.toLowerCase();
+        ClassLoader cldr = this.getClass().getClassLoader();
+        java.net.URL imageURL;
+        if(strLoaiPhong.contains("vip"))
+            imageURL = cldr.getResource("client/resources/PhongVIP.png");
+        else if(strLoaiPhong.contains("hang trung"))
+            imageURL = cldr.getResource("client/resources/PhongHangTrung.png");
+        else if(strLoaiPhong.contains("hang thuong"))
+            imageURL = cldr.getResource("client/resources/PhongHangThuong.png");
+        else//truong hop khong khop thi gan dai luon :D
+            imageURL = cldr.getResource("client/resources/PhongHangTrung.png");
+        this.jLabelHinhPhong.setIcon(null);
+
+        ImageIcon icon = new ImageIcon(imageURL);
+        if(icon!=null)
+            this.jLabelHinhPhong.setIcon(icon);
     }
+
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -53,7 +121,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jLabelHinhPhong1 = new javax.swing.JLabel();
+        jLabelHinhPhong = new javax.swing.JLabel();
         jLabelGiaTien1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTxtSoPhong = new javax.swing.JTextField();
@@ -63,19 +131,23 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jTxtLoaiPhong = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTxtMoTa1 = new javax.swing.JTextArea();
-        jBtnThoat = new javax.swing.JButton();
+        jTxtMoTa = new javax.swing.JTextArea();
         jBtnCapNhat = new javax.swing.JButton();
         jBtnChinhSua = new javax.swing.JButton();
         jTxtGiaTien = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTxtTinhTrang = new javax.swing.JTextField();
         bgLabel4 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JDialogXemChiTiet.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
         setIconImage(null);
         setMinimumSize(new java.awt.Dimension(179, 80));
+        setModal(true);
         setName("Form"); // NOI18N
+        setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel7.setName("jPanel7"); // NOI18N
@@ -85,20 +157,20 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jPanel8.setOpaque(false);
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
-        jLabelHinhPhong1.setIcon(resourceMap.getIcon("jLabelHinhPhong1.icon")); // NOI18N
-        jLabelHinhPhong1.setName("jLabelHinhPhong1"); // NOI18N
+        jLabelHinhPhong.setIcon(resourceMap.getIcon("jLabelHinhPhong.icon")); // NOI18N
+        jLabelHinhPhong.setName("jLabelHinhPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.gridheight = 5;
         gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 18);
-        jPanel8.add(jLabelHinhPhong1, gridBagConstraints);
+        jPanel8.add(jLabelHinhPhong, gridBagConstraints);
 
         jLabelGiaTien1.setText(resourceMap.getString("jLabelGiaTien1.text")); // NOI18N
         jLabelGiaTien1.setName("jLabelGiaTien1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jLabelGiaTien1, gridBagConstraints);
@@ -165,7 +237,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jLabel8.setName("jLabel8"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 3;
         gridBagConstraints.ipady = 1;
@@ -174,31 +246,19 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
         jScrollPane2.setName("jScrollPane2"); // NOI18N
 
-        jTxtMoTa1.setBackground(resourceMap.getColor("jTxtMoTa1.background")); // NOI18N
-        jTxtMoTa1.setColumns(20);
-        jTxtMoTa1.setEditable(false);
-        jTxtMoTa1.setRows(5);
-        jTxtMoTa1.setName("jTxtMoTa1"); // NOI18N
-        jScrollPane2.setViewportView(jTxtMoTa1);
+        jTxtMoTa.setBackground(resourceMap.getColor("jTxtMoTa.background")); // NOI18N
+        jTxtMoTa.setColumns(20);
+        jTxtMoTa.setEditable(false);
+        jTxtMoTa.setRows(3);
+        jTxtMoTa.setName("jTxtMoTa"); // NOI18N
+        jScrollPane2.setViewportView(jTxtMoTa);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jScrollPane2, gridBagConstraints);
-
-        jBtnThoat.setText(resourceMap.getString("jBtnThoat.text")); // NOI18N
-        jBtnThoat.setName("jBtnThoat"); // NOI18N
-        jBtnThoat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jBtnThoatMousePressed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
-        jPanel8.add(jBtnThoat, gridBagConstraints);
 
         jBtnCapNhat.setText(resourceMap.getString("jBtnCapNhat.text")); // NOI18N
         jBtnCapNhat.setEnabled(false);
@@ -209,8 +269,8 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnCapNhat, gridBagConstraints);
 
@@ -222,8 +282,8 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnChinhSua, gridBagConstraints);
 
@@ -233,7 +293,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jTxtGiaTien.setName("jTxtGiaTien"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jTxtGiaTien, gridBagConstraints);
@@ -245,6 +305,26 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
         jPanel8.add(jLabel1, gridBagConstraints);
+
+        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
+        jLabel3.setName("jLabel3"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel8.add(jLabel3, gridBagConstraints);
+
+        jTxtTinhTrang.setBackground(resourceMap.getColor("jTxtTinhTrang.background")); // NOI18N
+        jTxtTinhTrang.setEditable(false);
+        jTxtTinhTrang.setText(resourceMap.getString("jTxtTinhTrang.text")); // NOI18N
+        jTxtTinhTrang.setName("jTxtTinhTrang"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel8.add(jTxtTinhTrang, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -272,16 +352,56 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
     private void jBtnCapNhatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCapNhatMousePressed
         // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon thay doi hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+            Phong p = new Phong();
+
+            //p.setGia()
+
+            JOptionPane.showConfirmDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        {
+            //restore old value
+            int cost = phong.getGia() + phong.getIdLoaiPhong().getGia();
+            String strLoaiPhong = phong.getIdLoaiPhong().getTen();
+
+            this.jTxtGiaTien.setText("" + cost);
+            this.jTxtLau.setText("" + phong.getLau());
+            this.jTxtLoaiPhong.setText(strLoaiPhong);
+            this.jTxtMoTa.setText(phong.getMoTa());
+            this.jTxtSoPhong.setText("" + phong.getId());
+            this.jTxtTinhTrang.setText(phong.getIdTinhTrang().getTen());
+        }
+
+        //disable fields
+        this.jBtnCapNhat.setEnabled(false);
+
+        this.jTxtGiaTien.setEditable(false);
+        this.jTxtLau.setEditable(false);
+        this.jTxtLoaiPhong.setEditable(false);
+        this.jTxtMoTa.setEditable(false);
+        this.jTxtSoPhong.setEditable(false);
+        this.jTxtTinhTrang.setEditable(false);
     }//GEN-LAST:event_jBtnCapNhatMousePressed
 
     private void jBtnChinhSuaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnChinhSuaMousePressed
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+            //enable fields
+            this.jBtnCapNhat.setEnabled(true);
 
-    private void jBtnThoatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThoatMousePressed
-        // TODO add your handling code here:
-        this.setVisible(false);
-    }//GEN-LAST:event_jBtnThoatMousePressed
+            this.jTxtGiaTien.setEditable(true);
+            this.jTxtLau.setEditable(true);
+            this.jTxtLoaiPhong.setEditable(true);
+            this.jTxtMoTa.setEditable(true);
+            this.jTxtSoPhong.setEditable(true);
+            this.jTxtTinhTrang.setEditable(true);
+        }
+    }//GEN-LAST:event_jBtnChinhSuaMousePressed
 
     /**
     * @param args the command line arguments
@@ -304,22 +424,23 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     private javax.swing.JLabel bgLabel4;
     private javax.swing.JButton jBtnCapNhat;
     private javax.swing.JButton jBtnChinhSua;
-    private javax.swing.JButton jBtnThoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelGiaTien1;
-    private javax.swing.JLabel jLabelHinhPhong1;
+    private javax.swing.JLabel jLabelHinhPhong;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTxtGiaTien;
     private javax.swing.JTextField jTxtLau;
     private javax.swing.JTextField jTxtLoaiPhong;
-    private javax.swing.JTextArea jTxtMoTa1;
+    private javax.swing.JTextArea jTxtMoTa;
     private javax.swing.JTextField jTxtSoPhong;
+    private javax.swing.JTextField jTxtTinhTrang;
     // End of variables declaration//GEN-END:variables
 
 }

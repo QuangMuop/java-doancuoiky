@@ -31,9 +31,12 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     public JPanelXemPhong() {
         initComponents();
 
+        //jSplitPane1.getTopComponent().setSize(100, 5000);
+        //jSplitPane1.getBottomComponent().setSize(100, 20);
+
         //new cac doi tuong
-        phongController = new PhongController();        
-        
+        phongController = new PhongController();
+
         //lay ra lau cao nhat cua khach san
         maxFloor = phongController.getLauCaoNhat();
 
@@ -67,6 +70,11 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         bgLabel3 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new java.awt.CardLayout());
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
@@ -223,12 +231,18 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jBtnNextMousePressed
 
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formComponentShown
+
     private void jBtnPhongPress(MouseEvent evt) {
         JButton button = (JButton)evt.getComponent();
         if(button!=null)
         {
             Phong tmp = timPhongTheoId(Integer.parseInt(button.getName()));
-            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(tmp);
+            //JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(tmp);
+            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(null, true, tmp);
             xemChiTietFrm.setVisible(true);
         }
     }
@@ -364,3 +378,5 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     private PhongController phongController;
     private ArrayList<Phong> listPhong;
 }
+
+//class

@@ -17,7 +17,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,8,66,0,0,3,74"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,5,127,0,0,3,34"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -43,235 +43,205 @@
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="1"/>
-            <Property name="rows" type="int" value="1"/>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JSplitPane" name="jSplitPane1">
+            <Container class="javax.swing.JPanel" name="jPanel2">
               <Properties>
-                <Property name="orientation" type="int" value="0"/>
-                <Property name="name" type="java.lang.String" value="jSplitPane1" noResource="true"/>
+                <Property name="autoscrolls" type="boolean" value="true"/>
+                <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+                </Constraint>
+              </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JCheckBox" name="jCheckMaPhong">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" resourceKey="jLabel3.font"/>
-                    <Property name="foreground" type="java.awt.Color" resourceKey="jLabel3.foreground"/>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="icon" type="javax.swing.Icon" resourceKey="jLabel3.icon"/>
-                    <Property name="text" type="java.lang.String" resourceKey="jLabel3.text"/>
-                    <Property name="horizontalTextPosition" type="int" value="0"/>
-                    <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
+                    <Property name="background" type="java.awt.Color" resourceKey="jCheckMaPhong.background"/>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jCheckMaPhong.text"/>
+                    <Property name="name" type="java.lang.String" value="jCheckMaPhong" noResource="true"/>
+                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckMaPhongItemStateChanged"/>
+                  </Events>
                   <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                      <JSplitPaneConstraints position="left"/>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel1">
+                <Component class="javax.swing.JLabel" name="jLabelMaPhong">
                   <Properties>
-                    <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabelMaPhong.text"/>
+                    <Property name="name" type="java.lang.String" value="jLabelMaPhong" noResource="true"/>
                   </Properties>
                   <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                      <JSplitPaneConstraints position="right"/>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="3" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
                     </Constraint>
                   </Constraints>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                  <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel2">
-                      <Properties>
-                        <Property name="autoscrolls" type="boolean" value="true"/>
-                        <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
-                        <Property name="opaque" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
-                        </Constraint>
-                      </Constraints>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JCheckBox" name="jCheckMaPhong">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" resourceKey="jCheckMaPhong.background"/>
-                            <Property name="selected" type="boolean" value="true"/>
-                            <Property name="text" type="java.lang.String" resourceKey="jCheckMaPhong.text"/>
-                            <Property name="name" type="java.lang.String" value="jCheckMaPhong" noResource="true"/>
-                            <Property name="opaque" type="boolean" value="false"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckMaPhongItemStateChanged"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelMaPhong">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jLabelMaPhong.text"/>
-                            <Property name="name" type="java.lang.String" value="jLabelMaPhong" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckLoaiPhong">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jCheckLoaiPhong.text"/>
-                            <Property name="name" type="java.lang.String" value="jCheckLoaiPhong" noResource="true"/>
-                            <Property name="opaque" type="boolean" value="false"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckLoaiPhongItemStateChanged"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelLoaiPhong">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jLabelLoaiPhong.text"/>
-                            <Property name="enabled" type="boolean" value="false"/>
-                            <Property name="name" type="java.lang.String" value="jLabelLoaiPhong" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="3" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JComboBox" name="jCbLoaiPhong">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" resourceKey="jCbLoaiPhong.background"/>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                            <Property name="enabled" type="boolean" value="false"/>
-                            <Property name="name" type="java.lang.String" value="jCbLoaiPhong" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="5" gridY="1" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckTinhTrang">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jCheckTinhTrang.text"/>
-                            <Property name="name" type="java.lang.String" value="jCheckTinhTrang" noResource="true"/>
-                            <Property name="opaque" type="boolean" value="false"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckTinhTrangItemStateChanged"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="1" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelTinhTrang">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jLabelTinhTrang.text"/>
-                            <Property name="enabled" type="boolean" value="false"/>
-                            <Property name="name" type="java.lang.String" value="jLabelTinhTrang" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="3" gridY="2" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JComboBox" name="jCbTinhTrang">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" resourceKey="jCbLoaiPhong.background"/>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                            <Property name="enabled" type="boolean" value="false"/>
-                            <Property name="name" type="java.lang.String" value="jCbTinhTrang" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="5" gridY="2" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="jBtnTimKiem">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" resourceKey="jBtnTimKiem.text"/>
-                            <Property name="name" type="java.lang.String" value="jBtnTimKiem" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnTimKiemMousePressed"/>
-                          </Events>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="3" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="11" insetsLeft="8" insetsBottom="8" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="imgSearch">
-                          <Properties>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="icon" type="javax.swing.Icon" resourceKey="imgSearch.icon"/>
-                            <Property name="text" type="java.lang.String" resourceKey="imgSearch.text"/>
-                            <Property name="name" type="java.lang.String" value="imgSearch" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="3" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jTxtMaPhong">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" resourceKey="jTxtMaPhong.background"/>
-                            <Property name="columns" type="int" value="15"/>
-                            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                              <Format format="0" subtype="-1" type="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" resourceKey="jTxtMaPhong.text"/>
-                            <Property name="name" type="java.lang.String" value="jTxtMaPhong" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                              <GridBagConstraints gridX="5" gridY="0" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JLabel" name="bgLabel2">
-                      <Properties>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="icon" type="javax.swing.Icon" resourceKey="bgLabel2.icon"/>
-                        <Property name="text" type="java.lang.String" resourceKey="bgLabel2.text"/>
-                        <Property name="name" type="java.lang.String" value="bgLabel2" noResource="true"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
-                  </SubComponents>
-                </Container>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="jCheckLoaiPhong">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jCheckLoaiPhong.text"/>
+                    <Property name="name" type="java.lang.String" value="jCheckLoaiPhong" noResource="true"/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckLoaiPhongItemStateChanged"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="1" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelLoaiPhong">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabelLoaiPhong.text"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="jLabelLoaiPhong" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="3" gridY="2" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jCbLoaiPhong">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jCbLoaiPhong.background"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="jCbLoaiPhong" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="5" gridY="2" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="jCheckTinhTrang">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jCheckTinhTrang.text"/>
+                    <Property name="name" type="java.lang.String" value="jCheckTinhTrang" noResource="true"/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckTinhTrangItemStateChanged"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="1" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelTinhTrang">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabelTinhTrang.text"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="jLabelTinhTrang" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="3" gridY="3" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jCbTinhTrang">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jCbLoaiPhong.background"/>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="jCbTinhTrang" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="5" gridY="3" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JButton" name="jBtnTimKiem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" resourceKey="jBtnTimKiem.text"/>
+                    <Property name="name" type="java.lang.String" value="jBtnTimKiem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBtnTimKiemMousePressed"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="3" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="11" insetsLeft="8" insetsBottom="8" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="imgSearch">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="icon" type="javax.swing.Icon" resourceKey="imgSearch.icon"/>
+                    <Property name="text" type="java.lang.String" resourceKey="imgSearch.text"/>
+                    <Property name="name" type="java.lang.String" value="imgSearch" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="3" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JFormattedTextField" name="jTxtMaPhong">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jTxtMaPhong.background"/>
+                    <Property name="columns" type="int" value="15"/>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                      <Format format="0" subtype="-1" type="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" resourceKey="jTxtMaPhong.text"/>
+                    <Property name="name" type="java.lang.String" value="jTxtMaPhong" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="5" gridY="1" gridWidth="9" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="4" insetsLeft="8" insetsBottom="4" insetsRight="8" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" resourceKey="jLabel2.font"/>
+                    <Property name="foreground" type="java.awt.Color" resourceKey="jLabel2.foreground"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jLabel2.text"/>
+                    <Property name="name" type="java.lang.String" value="jLabel2" noResource="true"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                      <GridBagConstraints gridX="1" gridY="0" gridWidth="13" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="20" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="bgLabel2">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" resourceKey="bgLabel2.icon"/>
+                <Property name="text" type="java.lang.String" resourceKey="bgLabel2.text"/>
+                <Property name="name" type="java.lang.String" value="bgLabel2" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="1.0" weightY="1.0"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -311,7 +281,7 @@
                                   <Component id="jScrollPane1" min="-2" pref="536" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="273" max="32767" attributes="0"/>
+                          <EmptySpace pref="233" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

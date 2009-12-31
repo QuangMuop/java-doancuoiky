@@ -15,9 +15,13 @@ import BUS.PhongController;
 import DTO.LoaiPhong;
 import DTO.Phong;
 import DTO.TinhTrangPhong;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +33,12 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     /** Creates new form JPanelTimPhong */
     public JPanelTimPhong() {
         initComponents();
+
+        Dimension dimesion = new Dimension(100, 50);
+        jPaneTimPhong.getTopComponent().setSize(dimesion);
+
+        Dimension dimesion2 = new Dimension(100, 200);
+        jPaneTimPhong.getBottomComponent().setSize(dimesion2);
 
         phongController = new PhongController();
     }
@@ -45,9 +55,6 @@ public class JPanelTimPhong extends javax.swing.JPanel {
 
         jPaneTimPhong = new javax.swing.JSplitPane();
         jPanel4 = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jCheckMaPhong = new javax.swing.JCheckBox();
         jLabelMaPhong = new javax.swing.JLabel();
@@ -60,6 +67,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jBtnTimKiem = new javax.swing.JButton();
         imgSearch = new javax.swing.JLabel();
         jTxtMaPhong = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
         bgLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -80,29 +88,14 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jPaneTimPhong.setName("jPaneTimPhong"); // NOI18N
 
         jPanel4.setName("jPanel4"); // NOI18N
-        jPanel4.setLayout(new java.awt.GridLayout(1, 1));
-
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-        jSplitPane1.setName("jSplitPane1"); // NOI18N
-
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelTimPhong.class);
-        jLabel3.setFont(resourceMap.getFont("jLabel3.font")); // NOI18N
-        jLabel3.setForeground(resourceMap.getColor("jLabel3.foreground")); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(resourceMap.getIcon("jLabel3.icon")); // NOI18N
-        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel3.setName("jLabel3"); // NOI18N
-        jSplitPane1.setLeftComponent(jLabel3);
-
-        jPanel1.setName("jPanel1"); // NOI18N
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel4.setLayout(new java.awt.GridBagLayout());
 
         jPanel2.setAutoscrolls(true);
         jPanel2.setName("jPanel2"); // NOI18N
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelTimPhong.class);
         jCheckMaPhong.setBackground(resourceMap.getColor("jCheckMaPhong.background")); // NOI18N
         jCheckMaPhong.setSelected(true);
         jCheckMaPhong.setText(resourceMap.getString("jCheckMaPhong.text")); // NOI18N
@@ -115,7 +108,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jCheckMaPhong, gridBagConstraints);
 
@@ -123,7 +116,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jLabelMaPhong.setName("jLabelMaPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jLabelMaPhong, gridBagConstraints);
@@ -138,7 +131,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jCheckLoaiPhong, gridBagConstraints);
 
@@ -147,7 +140,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jLabelLoaiPhong.setName("jLabelLoaiPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jLabelLoaiPhong, gridBagConstraints);
@@ -157,7 +150,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jCbLoaiPhong.setName("jCbLoaiPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
@@ -173,7 +166,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jCheckTinhTrang, gridBagConstraints);
 
@@ -182,7 +175,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jLabelTinhTrang.setName("jLabelTinhTrang"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jLabelTinhTrang, gridBagConstraints);
@@ -192,7 +185,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jCbTinhTrang.setName("jCbTinhTrang"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
@@ -207,7 +200,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(11, 8, 8, 8);
         jPanel2.add(jBtnTimKiem, gridBagConstraints);
 
@@ -217,7 +210,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         imgSearch.setName("imgSearch"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 3;
         jPanel2.add(imgSearch, gridBagConstraints);
 
@@ -228,11 +221,22 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         jTxtMaPhong.setName("jTxtMaPhong"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel2.add(jTxtMaPhong, gridBagConstraints);
+
+        jLabel2.setFont(resourceMap.getFont("jLabel2.font")); // NOI18N
+        jLabel2.setForeground(resourceMap.getColor("jLabel2.foreground")); // NOI18N
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
+        jPanel2.add(jLabel2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -240,7 +244,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        jPanel1.add(jPanel2, gridBagConstraints);
+        jPanel4.add(jPanel2, gridBagConstraints);
 
         bgLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bgLabel2.setIcon(resourceMap.getIcon("bgLabel2.icon")); // NOI18N
@@ -252,11 +256,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        jPanel1.add(bgLabel2, gridBagConstraints);
-
-        jSplitPane1.setRightComponent(jPanel1);
-
-        jPanel4.add(jSplitPane1);
+        jPanel4.add(bgLabel2, gridBagConstraints);
 
         jPaneTimPhong.setLeftComponent(jPanel4);
 
@@ -328,7 +328,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,7 +412,16 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         int i;
 
         //get ds loai phong
-        lstLoaiPhong = phongController.getDSLoaiPhong();
+        WorkerGetListLoaiPhong worker = new WorkerGetListLoaiPhong();
+        worker.execute();
+        try {
+            lstLoaiPhong = worker.get();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JPanelTimPhong.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(JPanelTimPhong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //lstLoaiPhong = phongController.getDSLoaiPhong();
         if(lstLoaiPhong!=null)
         {
             jCbLoaiPhong.removeAllItems();
@@ -424,7 +433,16 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         }
 
         //get ds tinh trang phong
-        lstTinhTrangPhong = phongController.getDSTinhTrangPhong();
+        WorkerGetListTinhTrangPhong workerTinhTrangPhong = new WorkerGetListTinhTrangPhong();
+        workerTinhTrangPhong.execute();
+        try {
+            lstTinhTrangPhong = workerTinhTrangPhong.get();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JPanelTimPhong.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(JPanelTimPhong.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //lstTinhTrangPhong = phongController.getDSTinhTrangPhong();
         if(lstTinhTrangPhong!=null)
         {
             jCbTinhTrang.removeAllItems();
@@ -466,8 +484,8 @@ public class JPanelTimPhong extends javax.swing.JPanel {
             ArrayList<Phong> lstPhong = phongController.timPhong(id, idLoaiPhong, idTinhTrang);
             if(lstPhong!=null)
             {
-                DefaultTableModel model = (DefaultTableModel)jTableResult.getModel();
-                clearTableData();
+                String[] header = new String [] { "Ma phong", "Loai phong", "Don gia", "Tinh trang" };
+                DefaultTableModel model = new DefaultTableModel(header, lstPhong.size());
 
                 int i;
                 for(i=0;i<lstPhong.size();i++)
@@ -479,7 +497,9 @@ public class JPanelTimPhong extends javax.swing.JPanel {
                     arrObj[3] = lstPhong.get(i).getIdTinhTrang().getTen();
 
                     model.insertRow(i, arrObj);
-                }                
+                }
+
+                jTableResult.setModel(model);
             }
             else
             {
@@ -491,14 +511,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
             JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnTimKiemMousePressed
-
-    private void clearTableData() {
-        DefaultTableModel model = (DefaultTableModel)jTableResult.getModel();
-        int i;
-        for(i=0;i<model.getColumnCount();i++)
-            model.removeRow(i);
-    }
-
+    
     private TinhTrangPhong timTinhTrangPhongTheoTen(String ten)
     {
         int i;
@@ -536,18 +549,16 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckMaPhong;
     private javax.swing.JCheckBox jCheckTinhTrang;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLoaiPhong;
     private javax.swing.JLabel jLabelMaPhong;
     private javax.swing.JLabel jLabelTinhTrang;
     private javax.swing.JSplitPane jPaneTimPhong;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTable jTableResult;
     private javax.swing.JFormattedTextField jTxtMaPhong;
     // End of variables declaration//GEN-END:variables
@@ -557,47 +568,30 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     private ArrayList<TinhTrangPhong> lstTinhTrangPhong;
 }
 
-class MyTableModel extends AbstractTableModel {
-    private String[] columnNames = {"First Name",
-                                    "Last Name",
-                                    "Sport",
-                                    "# of Years",
-                                    "Vegetarian"};
-    private Object[][] data = {
-        {"Mary", "Campione",
-         "Snowboarding", new Integer(5), new Boolean(false)},
-        {"Alison", "Huml",
-         "Rowing", new Integer(3), new Boolean(true)},
-        {"Kathy", "Walrath",
-         "Knitting", new Integer(2), new Boolean(false)},
-        {"Sharon", "Zakhour",
-         "Speed reading", new Integer(20), new Boolean(true)},
-        {"Philip", "Milne",
-         "Pool", new Integer(10), new Boolean(false)},
-    };
+class WorkerGetListLoaiPhong extends SwingWorker<ArrayList<LoaiPhong>, Void>
+{
+    private PhongController phongController;
 
-    public int getColumnCount() {
-        return columnNames.length;
+    @Override
+    protected ArrayList<LoaiPhong> doInBackground() throws Exception {
+
+        phongController = new PhongController();
+        return phongController.getDSLoaiPhong();
+
     }
 
-    public int getRowCount() {
-        return data.length;
+}
+
+class WorkerGetListTinhTrangPhong extends SwingWorker<ArrayList<TinhTrangPhong>, Void>
+{
+    private PhongController phongController;
+
+    @Override
+    protected ArrayList<TinhTrangPhong> doInBackground() throws Exception {
+
+        phongController = new PhongController();
+        return phongController.getDSTinhTrangPhong();
+
     }
 
-    public String getColumnName(int col) {
-        return columnNames[col];
-    }
-
-    public Object getValueAt(int row, int col) {
-        return data[row][col];
-    }
-
-    /*
-     * Don't need to implement this method unless your table's
-     * data can change.
-     */
-    public void setValueAt(Object value, int row, int col) {
-        data[row][col] = value;
-        fireTableCellUpdated(row, col);
-    }
 }

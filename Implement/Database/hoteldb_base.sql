@@ -37,7 +37,7 @@ CREATE TABLE  `LOAI_KHACH_HANG` (
 
 -- Tao bang KHACH_HANG
 CREATE TABLE  `KHACH_HANG` (
-  `id` TEXT NOT NULL,
+  `id` NVARCHAR(15) NOT NULL,
   `ten` text NOT NULL,
   `gioi_tinh` text,
   `dia_chi` text NOT NULL,
@@ -62,7 +62,7 @@ ENGINE = InnoDB;
 -- Tao bang THUE_PHONG
 CREATE TABLE `THUE_PHONG` (
   `id_phong` INTEGER NOT NULL,
-  `id_khach_hang` INTEGER NOT NULL,
+  `id_khach_hang` NVARCHAR(15) NOT NULL,
   `ngay_thue` DATETIME NOT NULL,
   `ngay_tra` DATETIME,
   `tong_gia` INTEGER,
@@ -138,16 +138,16 @@ INSERT INTO `LOAI_KHACH_HANG`(`id`, `ten_loai_khach_hang`) VALUES (0, 'Trong Nuo
 
 -- KHACH_HANG
 INSERT INTO `KHACH_HANG`(`id`, `ten`, `gioi_tinh`, `dia_chi`, `dien_thoai`, `ngay_sinh`, `id_loai_khach_hang`) VALUES
-  (10, 'Ly Thuong Kiet', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-13', 1),
-  (1, 'Tran Quoc Tuan', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-24', 1),
-  (2, 'Phan Van Khai', 'Nam', 'Dia chi', 'Dien thoai', '1960-01-01', 1),
-  (3, 'Ho Chi Minh', 'Nam', 'Dia chi', 'Dien thoai', '1969-05-19', 1),
-  (4, 'Athur', 'Nam', 'Dia chi', 'Dien thoai', '0123-02-14', 0),
-  (5, 'Obama', 'Nam', 'Dia chi', 'Dien thoai', '1958-06-01', 0),
-  (6, 'Binladen', 'Nam', 'Dia chi', 'Dien thoai', '1957-03-08', 0),
-  (7, 'Nguyen Hoang Vu', 'Nam', 'Dia chi', 'Dien thoai', '1988-10-28', 1),
-  (8, 'Lam Chi Dinh', 'Nam', 'Dia chi', 'Dien thoai', '1970-01-09', 0),
-  (9, 'Mizore-chan', 'Nu', 'Dia chi', 'Dien thoai', '2007-01-01', 0);
+  ('10', 'Ly Thuong Kiet', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-13', 1),
+  ('1', 'Tran Quoc Tuan', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-24', 1),
+  ('2', 'Phan Van Khai', 'Nam', 'Dia chi', 'Dien thoai', '1960-01-01', 1),
+  ('3', 'Ho Chi Minh', 'Nam', 'Dia chi', 'Dien thoai', '1969-05-19', 1),
+  ('4', 'Athur', 'Nam', 'Dia chi', 'Dien thoai', '0123-02-14', 0),
+  ('5', 'Obama', 'Nam', 'Dia chi', 'Dien thoai', '1958-06-01', 0),
+  ('6', 'Binladen', 'Nam', 'Dia chi', 'Dien thoai', '1957-03-08', 0),
+  ('7', 'Nguyen Hoang Vu', 'Nam', 'Dia chi', 'Dien thoai', '1988-10-28', 1),
+  ('8', 'Lam Chi Dinh', 'Nam', 'Dia chi', 'Dien thoai', '1970-01-09', 0),
+  ('9', 'Mizore-chan', 'Nu', 'Dia chi', 'Dien thoai', '2007-01-01', 0);
 
 
 -- LOAI_THUE
@@ -197,11 +197,11 @@ INSERT INTO `PHONG`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_
 
 -- THUE_PHONG
 INSERT INTO `THUE_PHONG`(`id_phong`, `id_khach_hang`, `ngay_thue`, `ngay_tra`, `tong_gia`, `id_loai_thue`) VALUES
-  (1, 2, '2009-12-24', null, null, 1),
-  (2, 3, '2009-12-24', null, null, 1),
-  (3, 4, '2009-12-24', null, null, 1),
-  (3, 5, '2009-12-24', null, null, 1),
-  (3, 6, '2009-12-24', null, null, 1),
-  (4, 7, '2009-12-24', null, null, 1),
-  (5, 8, '2009-12-24', '2009-12-25', null, 1),
-  (6, 9, '2009-12-24', null, null, 1);
+  (1, '2', '2009-12-24', null, 0, 1),
+  (2, '3', '2009-12-24', null, 0, 1),
+  (3, '4', '2009-12-24', null, 0, 1),
+  (3, '5', '2009-12-24', null, 0, 1),
+  (3, '6', '2009-12-24', null, 0, 1),
+  (4, '7', '2009-12-24', null, 0, 1),
+  (5, '8', '2009-12-24', null, 0, 1),
+  (6, '9', '2009-12-24', null, 0, 1);

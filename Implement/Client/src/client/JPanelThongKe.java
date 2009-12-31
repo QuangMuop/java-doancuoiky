@@ -11,13 +11,14 @@
 
 package client;
 
-import DAO.Connector;
-import DAO.MySqlConnector;
-import DAO.MySqlKhachHangDAO;
-import java.sql.CallableStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import BUS.ThuePhongController;
+import DTO.ThuePhong;
+import Utils.MyDateTime;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +29,15 @@ public class JPanelThongKe extends javax.swing.JPanel {
     /** Creates new form JPanelThongKe */
     public JPanelThongKe() {
         initComponents();
+
+        Dimension dimesion = new Dimension(100, 50);
+        jSplitPane3.getTopComponent().setSize(dimesion);
+
+        Dimension dimesion2 = new Dimension(100, 200);
+        jSplitPane3.getBottomComponent().setSize(dimesion2);
+
+
+        thuePhongController = new ThuePhongController();
     }
 
     /** This method is called from within the constructor to
@@ -54,13 +64,19 @@ public class JPanelThongKe extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableResult = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         bgLabel4 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new java.awt.CardLayout());
 
+        jSplitPane3.setDividerSize(1);
         jSplitPane3.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitPane3.setName("jSplitPane3"); // NOI18N
 
@@ -69,6 +85,11 @@ public class JPanelThongKe extends javax.swing.JPanel {
 
         jPanel6.setName("jPanel6"); // NOI18N
         jPanel6.setOpaque(false);
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel6MousePressed(evt);
+            }
+        });
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelThongKe.class);
@@ -175,8 +196,8 @@ public class JPanelThongKe extends javax.swing.JPanel {
 
         jScrollPane2.setName("jScrollPane2"); // NOI18N
 
-        jTable2.setBackground(resourceMap.getColor("jTable2.background")); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableResult.setBackground(resourceMap.getColor("jTableResult.background")); // NOI18N
+        jTableResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -202,10 +223,9 @@ public class JPanelThongKe extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setName("jTable2"); // NOI18N
-        jTable2.setOpaque(false);
-        jTable2.setSelectionBackground(resourceMap.getColor("jTable2.selectionBackground")); // NOI18N
-        jScrollPane2.setViewportView(jTable2);
+        jTableResult.setName("jTableResult"); // NOI18N
+        jTableResult.setOpaque(false);
+        jScrollPane2.setViewportView(jTableResult);
 
         jLabel3.setFont(resourceMap.getFont("jLabel3.font")); // NOI18N
         jLabel3.setForeground(resourceMap.getColor("jLabel3.foreground")); // NOI18N
@@ -233,7 +253,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -262,10 +282,55 @@ public class JPanelThongKe extends javax.swing.JPanel {
 
     private void jBtnThongKeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThongKeMousePressed
         // TODO add your handling code here:
+        String sNam = jFTxtNam.getText();
+        String sThang = jFTxtThang.getText();
+        if(sNam.equals("") || sThang.equals(""))
+        {
+            return;
+        }
 
-        
+        int nam = Integer.parseInt(sNam);
+        int thang = Integer.parseInt(sThang);
+        lstThuePhong = thuePhongController.layDSThuePhong(nam, thang);
+        if(lstThuePhong!=null)
+        {
+            String[] header = new String [] {"Ma Phong", "Loai Phong", "Don gia", "So ngay muon", "Tong so tien" };
+            DefaultTableModel model = new DefaultTableModel(header, lstThuePhong.size());
+            
+            int i;
+            for(i=0;i<lstThuePhong.size();i++)
+            {
+                Object[] arrObj = new Object[5];
+                    arrObj[0] = lstThuePhong.get(i).getPhong().getId();
+                    arrObj[1] = lstThuePhong.get(i).getPhong().getIdLoaiPhong().getTen();
+                    arrObj[2] = lstThuePhong.get(i).getPhong().getIdLoaiPhong().getGia();
+                    //arrObj[3] = lstPlstThuePhong.get(i).getIdTinhTrang().getTen();
+
+                    model.insertRow(i, arrObj);
+            }
+            
+            jTableResult.setModel(model);                                               
+            
+        }
 
     }//GEN-LAST:event_jBtnThongKeMousePressed
+
+    private void jPanel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MousePressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jPanel6MousePressed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        Date now = MyDateTime.getNow();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(now);
+
+        jFTxtNam.setText("" + calendar.get(Calendar.YEAR));
+        jFTxtThang.setText("" + calendar.get(Calendar.MONTH));
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -285,7 +350,9 @@ public class JPanelThongKe extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableResult;
     // End of variables declaration//GEN-END:variables
 
+    private ThuePhongController thuePhongController;
+    private ArrayList<ThuePhong> lstThuePhong;
 }
