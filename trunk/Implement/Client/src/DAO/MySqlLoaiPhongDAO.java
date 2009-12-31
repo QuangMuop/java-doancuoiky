@@ -117,6 +117,9 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
         }
     }
 
+    /**
+     * chua code xong
+     * */
     public boolean updateLoaiPhongTheoId(LoaiPhong loaiPhong, int id) {
         Connector connector = new MySqlConnector();
         try {
@@ -127,7 +130,7 @@ public class MySqlLoaiPhongDAO implements ILoaiPhongDAO {
             CallableStatement statement = connector.getConnection().prepareCall(sql);
             statement.setString(1, loaiPhong.getTen());
             statement.setInt(2, loaiPhong.getGia());
-            statement.setInt(3, loaiPhong.getId());
+            statement.setInt(3, id);
 
             if(statement.executeUpdate()>0)
                 return true;

@@ -11,6 +11,13 @@
 
 package client;
 
+import BUS.KhachHangController;
+import BUS.PhongController;
+import DTO.LoaiKhachHang;
+import DTO.LoaiPhong;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author huy
@@ -20,7 +27,9 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     /** Creates new form JPanelCauHinh */
     public JPanelCauHinh() {
         initComponents();
-        //jTabbedPane1.addTab(TOOL_TIP_TEXT_KEY, null, this, TOOL_TIP_TEXT_KEY);
+
+        phongController = new PhongController();
+        khachController = new KhachHangController();
     }
 
     /** This method is called from within the constructor to
@@ -39,6 +48,18 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         bgLabel1 = new javax.swing.JLabel();
         jPanelNghiepVu = new javax.swing.JPanel();
         jMainPanelNghiepVu = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jCbLoaiPhong = new javax.swing.JComboBox();
+        jCbLoaiKhach = new javax.swing.JComboBox();
+        jBtnChinhSua = new javax.swing.JButton();
+        jBtnCapNhat = new javax.swing.JButton();
+        imgConfig = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTxtGiaPhong = new javax.swing.JFormattedTextField();
+        jTxtGiaKhach = new javax.swing.JFormattedTextField();
         bgLabel2 = new javax.swing.JLabel();
         bgLabel = new javax.swing.JLabel();
 
@@ -89,27 +110,179 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jTabbedPane1.addTab(resourceMap.getString("jPanelTabHeThong.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabHeThong.TabConstraints.tabIcon"), jPanelHeThong); // NOI18N
 
         jPanelNghiepVu.setName("jPanelTabNghiepVu"); // NOI18N
+        jPanelNghiepVu.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanelNghiepVuComponentShown(evt);
+            }
+        });
         jPanelNghiepVu.setLayout(new java.awt.GridBagLayout());
 
         jMainPanelNghiepVu.setName("jMainPanelNghiepVu"); // NOI18N
+        jMainPanelNghiepVu.setOpaque(false);
+        jMainPanelNghiepVu.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jMainPanelNghiepVuLayout = new javax.swing.GroupLayout(jMainPanelNghiepVu);
-        jMainPanelNghiepVu.setLayout(jMainPanelNghiepVuLayout);
-        jMainPanelNghiepVuLayout.setHorizontalGroup(
-            jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jMainPanelNghiepVuLayout.setVerticalGroup(
-            jMainPanelNghiepVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
+        jLabel1.setForeground(resourceMap.getColor("jLabel1.foreground")); // NOI18N
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        jMainPanelNghiepVu.add(jLabel1, gridBagConstraints);
 
-        jPanelNghiepVu.add(jMainPanelNghiepVu, new java.awt.GridBagConstraints());
+        jLabel2.setFont(resourceMap.getFont("jLabel2.font")); // NOI18N
+        jLabel2.setForeground(resourceMap.getColor("jLabel2.foreground")); // NOI18N
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setFont(resourceMap.getFont("jLabel3.font")); // NOI18N
+        jLabel3.setForeground(resourceMap.getColor("jLabel3.foreground")); // NOI18N
+        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
+        jLabel3.setName("jLabel3"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jLabel3, gridBagConstraints);
+
+        jCbLoaiPhong.setBackground(resourceMap.getColor("jTxtLoaiPhong.background")); // NOI18N
+        jCbLoaiPhong.setName("jCbLoaiPhong"); // NOI18N
+        jCbLoaiPhong.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbLoaiPhongItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jCbLoaiPhong, gridBagConstraints);
+
+        jCbLoaiKhach.setBackground(resourceMap.getColor("jTxtLoaiPhong.background")); // NOI18N
+        jCbLoaiKhach.setName("jCbLoaiKhach"); // NOI18N
+        jCbLoaiKhach.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbLoaiKhachItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jCbLoaiKhach, gridBagConstraints);
+
+        jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
+        jBtnChinhSua.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnChinhSua.setName("jBtnChinhSua"); // NOI18N
+        jBtnChinhSua.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnChinhSuaMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(21, 13, 10, 13);
+        jMainPanelNghiepVu.add(jBtnChinhSua, gridBagConstraints);
+
+        jBtnCapNhat.setText(resourceMap.getString("jBtnCapNhat.text")); // NOI18N
+        jBtnCapNhat.setEnabled(false);
+        jBtnCapNhat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnCapNhat.setName("jBtnCapNhat"); // NOI18N
+        jBtnCapNhat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnCapNhatMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(21, 10, 10, 10);
+        jMainPanelNghiepVu.add(jBtnCapNhat, gridBagConstraints);
+
+        imgConfig.setIcon(resourceMap.getIcon("imgConfig.icon")); // NOI18N
+        imgConfig.setText(resourceMap.getString("imgConfig.text")); // NOI18N
+        imgConfig.setName("imgConfig"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 31);
+        jMainPanelNghiepVu.add(imgConfig, gridBagConstraints);
+
+        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 0);
+        jMainPanelNghiepVu.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setText(resourceMap.getString("jLabel5.text")); // NOI18N
+        jLabel5.setName("jLabel5"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 3;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 0);
+        jMainPanelNghiepVu.add(jLabel5, gridBagConstraints);
+
+        jTxtGiaPhong.setBackground(resourceMap.getColor("jTxtGiaPhong.background")); // NOI18N
+        jTxtGiaPhong.setColumns(10);
+        jTxtGiaPhong.setEditable(false);
+        jTxtGiaPhong.setText(resourceMap.getString("jTxtGiaPhong.text")); // NOI18N
+        jTxtGiaPhong.setName("jTxtGiaPhong"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jTxtGiaPhong, gridBagConstraints);
+
+        jTxtGiaKhach.setBackground(resourceMap.getColor("jTxtGiaPhong.background")); // NOI18N
+        jTxtGiaKhach.setColumns(10);
+        jTxtGiaKhach.setEditable(false);
+        jTxtGiaKhach.setText(resourceMap.getString("jTxtGiaKhach.text")); // NOI18N
+        jTxtGiaKhach.setName("jTxtGiaKhach"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jTxtGiaKhach, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelNghiepVu.add(jMainPanelNghiepVu, gridBagConstraints);
 
         bgLabel2.setIcon(resourceMap.getIcon("bgLabel2.icon")); // NOI18N
         bgLabel2.setText(resourceMap.getString("bgLabel2.text")); // NOI18N
         bgLabel2.setName("bgLabel2"); // NOI18N
-        jPanelNghiepVu.add(bgLabel2, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelNghiepVu.add(bgLabel2, gridBagConstraints);
 
         jTabbedPane1.addTab(resourceMap.getString("jPanelTabNghiepVu.TabConstraints.tabTitle"), resourceMap.getIcon("jPanelTabNghiepVu.TabConstraints.tabIcon"), jPanelNghiepVu); // NOI18N
 
@@ -134,16 +307,154 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         add(bgLabel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBtnChinhSuaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMousePressed
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+
+            //set editable
+            this.jBtnCapNhat.setEnabled(true);
+            this.jTxtGiaKhach.setEditable(true);
+            this.jTxtGiaPhong.setEditable(true);
+
+        }
+
+    }//GEN-LAST:event_jBtnChinhSuaMousePressed
+
+    private void jBtnCapNhatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCapNhatMousePressed
+        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+
+
+            JOptionPane.showConfirmDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+            //disable fields
+            this.jBtnCapNhat.setEnabled(false);
+            this.jTxtGiaKhach.setEditable(false);
+            this.jTxtGiaPhong.setEditable(false);
+        }
+        else
+        {
+            //restore old values
+            initComboLoaiKhachHang();
+            initComboLoaiPhong();
+        }
+    }//GEN-LAST:event_jBtnCapNhatMousePressed
+
+    private void jCbLoaiPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiPhongItemStateChanged
+        // TODO add your handling code here:
+        if(jCbLoaiPhong.getItemCount()>0)
+        {
+            LoaiPhong loaiPhong = layLoaiPhongTheoTen(jCbLoaiPhong.getSelectedItem().toString());
+            jTxtGiaPhong.setText("" + loaiPhong.getGia());
+        }
+    }//GEN-LAST:event_jCbLoaiPhongItemStateChanged
+
+    private void jCbLoaiKhachItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiKhachItemStateChanged
+        // TODO add your handling code here:
+        if(jCbLoaiKhach.getItemCount()>0)
+        {
+            LoaiKhachHang loaiKhach = layLoaiKhachHangTheoTen(jCbLoaiKhach.getSelectedItem().toString());
+            jTxtGiaKhach.setText("" + loaiKhach.getGia());
+        }
+    }//GEN-LAST:event_jCbLoaiKhachItemStateChanged
+
+    private void jPanelNghiepVuComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelNghiepVuComponentShown
+        // TODO add your handling code here:
+        lstLoaiPhong = phongController.getDSLoaiPhong();
+        if(lstLoaiPhong!=null)
+        {
+            initComboLoaiPhong();
+        }
+
+        lstLoaiKhachHang = khachController.getDSLoaiKhachHang();
+        if(lstLoaiKhachHang!=null)
+        {
+            initComboLoaiKhachHang();
+        }
+    }//GEN-LAST:event_jPanelNghiepVuComponentShown
+
+    private void initComboLoaiPhong() {
+        jCbLoaiPhong.removeAllItems();
+
+        int i;
+        for(i=0;i<lstLoaiPhong.size();i++)
+        {
+            jCbLoaiPhong.addItem(lstLoaiPhong.get(i).getTen());
+        }
+
+        jCbLoaiPhong.setSelectedIndex(0);
+        jTxtGiaPhong.setText("" + lstLoaiPhong.get(0).getGia());
+    }
+
+    private void initComboLoaiKhachHang() {
+        jCbLoaiKhach.removeAllItems();
+
+        int i;
+        for(i=0;i<lstLoaiKhachHang.size();i++)
+        {
+            jCbLoaiKhach.addItem(lstLoaiKhachHang.get(i).getTen());
+        }
+
+        jCbLoaiKhach.setSelectedIndex(0);
+        jTxtGiaKhach.setText("" + lstLoaiKhachHang.get(0).getGia());
+    }
+
+    private LoaiKhachHang layLoaiKhachHangTheoTen(String ten)
+    {
+        int i;
+        for(i=0;i<lstLoaiKhachHang.size();i++)
+        {
+            if(lstLoaiKhachHang.get(i).getTen().equals(ten))
+            {
+                return lstLoaiKhachHang.get(i);
+            }
+        }
+        return null;
+    }
+
+    private LoaiPhong layLoaiPhongTheoTen(String ten)
+    {
+        int i;
+        for(i=0;i<lstLoaiPhong.size();i++)
+        {
+            if(lstLoaiPhong.get(i).getTen().equals(ten))
+            {
+                return lstLoaiPhong.get(i);
+            }
+        }
+        return null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel;
     private javax.swing.JLabel bgLabel1;
     private javax.swing.JLabel bgLabel2;
+    private javax.swing.JLabel imgConfig;
+    private javax.swing.JButton jBtnCapNhat;
+    private javax.swing.JButton jBtnChinhSua;
+    private javax.swing.JComboBox jCbLoaiKhach;
+    private javax.swing.JComboBox jCbLoaiPhong;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jMainPanelHeThong;
     private javax.swing.JPanel jMainPanelNghiepVu;
     private javax.swing.JPanel jPanelHeThong;
     private javax.swing.JPanel jPanelNghiepVu;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JFormattedTextField jTxtGiaKhach;
+    private javax.swing.JFormattedTextField jTxtGiaPhong;
     // End of variables declaration//GEN-END:variables
 
+    PhongController phongController;
+    KhachHangController khachController;
+    
+    ArrayList<LoaiPhong> lstLoaiPhong;
+    ArrayList<LoaiKhachHang> lstLoaiKhachHang;
 }

@@ -7,7 +7,6 @@ package BUS;
 
 import DAO.DAOFactory;
 import DAO.IThuePhongDAO;
-import DTO.KhachHang;
 import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
@@ -63,17 +62,12 @@ public class ThuePhongController {
      * neu hop le thi tra ve chuoi rong
      * */
     private String kiemTraNghiepVuThuePhong(ThuePhong thuePhong)
-    {
-        KhachHang khach = thuePhong.getKhachHang();
-        if(khach.getId().equals(""))
+    {   
+        //kiem tra danh sach khach hang
+        if(thuePhong.getLstKhachHang().size()==0)
         {
-            return "Vui long nhap vao CMND";
+            return "Phai nhap vao thong tin khach hang";
         }
-        if(khach.getTen().equals(""))
-        {
-            return "Vui long nhap ten khach hang";
-        }
-
 
         //ngay thue phai lon hon hoac bang ngay hien tai
         Date ngayThue = thuePhong.getNgayThue();
@@ -101,5 +95,13 @@ public class ThuePhongController {
     public int tinhTienThuePhong(Phong phong, int soNgayThue)
     {
         return phong.getIdLoaiPhong().getGia() * soNgayThue;
+    }
+
+    public ArrayList<ThuePhong> layDSThuePhong(int nam, int thang) {
+        return thuePhongDAO.getDSThuePhong(nam, thang);
+    }
+
+    public int tinhTienThuePhong(ThuePhong thuePhong, int soNgayThue) {
+        return thuePhong.getPhong().getIdLoaiPhong().getGia() * soNgayThue;
     }
 }

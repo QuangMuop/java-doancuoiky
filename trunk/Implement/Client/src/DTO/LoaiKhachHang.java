@@ -13,10 +13,16 @@ package DTO;
 public class LoaiKhachHang {
     int id;
     String ten;
+    int gia;
 
     public LoaiKhachHang()
     {
 
+    }
+
+    public int getGia()
+    {
+        return this.gia;
     }
 
     public int getId()
@@ -27,6 +33,11 @@ public class LoaiKhachHang {
     public String getTen()
     {
         return this.ten;
+    }
+
+    public void setGia(int gia)
+    {
+        this.gia = gia;
     }
 
     public void setId(int id)

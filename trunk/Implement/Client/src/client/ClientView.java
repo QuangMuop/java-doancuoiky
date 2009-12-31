@@ -5,6 +5,7 @@
 package client;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
@@ -24,9 +25,30 @@ public class ClientView extends FrameView {
 
     public ClientView(SingleFrameApplication app) {
         super(app);
-
+        
         initComponents();
 
+        app.getMainFrame().setSize(853, 684);
+        app.getMainFrame().setResizable(false);
+        //app.getMainFrame().pack();
+
+/*
+        //setsize for components
+        Dimension dimensionRight = new Dimension(686, 512);
+        jRightPanel.setSize(dimensionRight);
+        jRightPanel.setMaximumSize(dimensionRight);
+        jRightPanel.setMinimumSize(dimensionRight);
+
+        Dimension dimensionLeft = new Dimension(155, 512);
+        jLeftPanel.setSize(dimensionLeft);
+        jLeftPanel.setMaximumSize(dimensionLeft);
+        jLeftPanel.setMinimumSize(dimensionLeft);
+
+        Dimension dimensionTop = new Dimension(841, 107);
+        jTopPanel.setMaximumSize(dimensionTop);
+        jTopPanel.setMinimumSize(dimensionTop);
+        jTopPanel.setSize(dimensionTop);
+*/
         myInit();
                 
         // status bar initialization - message timeout, idle icon and busy animation, etc
@@ -482,6 +504,18 @@ public class ClientView extends FrameView {
     
     private void jToggleBtnXemPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMousePressed
         // TODO add your handling code here:
+        //CardLayout cl = (CardLayout)jRightPanel.getLayout();
+/*
+        int count = jRightPanel.getComponentCount();
+        if(count>0)
+        {
+            jRightPanel.remove(count -1);
+
+            JPanelXemPhong xemPhongPanel = new JPanelXemPhong();
+            xemPhongPanel.setName("JPanelXemPhong");
+            jRightPanel.add(xemPhongPanel,xemPhongPanel.getName());
+        }
+*/
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelXemPhong.getName());
     }//GEN-LAST:event_jToggleBtnXemPhongMousePressed

@@ -4,6 +4,7 @@
 
 package client;
 
+import Communication.SocketCommunication;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 
@@ -39,6 +40,10 @@ public class ClientApp extends SingleFrameApplication {
      * Main method launching the application.
      */
     public static void main(String[] args) {
+        //open socket server to listen
+        //SocketCommunication communication = new SocketCommunication(3600);
+        //communication.startCommunication();
+
         launch(ClientApp.class, args);
     }
 }

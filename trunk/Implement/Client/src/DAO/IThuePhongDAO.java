@@ -18,4 +18,5 @@ public interface IThuePhongDAO {
     public ThuePhong getThuePhong(KhachHang k, Phong p, Date ngay);
     public ArrayList<ThuePhong> getDSThuePhong();
     public ArrayList<LoaiThue> getDSLoaiThue();
+    public ArrayList<ThuePhong> getDSThuePhong(int nam, int thang);
 }

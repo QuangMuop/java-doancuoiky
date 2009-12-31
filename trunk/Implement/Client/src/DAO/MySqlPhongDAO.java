@@ -225,6 +225,39 @@ public class MySqlPhongDAO implements IPhongDAO {
         }
     }
 
+    public boolean updateTinhTrangPhongTheoId(int id, TinhTrangPhong tinhTrangPhong)
+    {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection("HOTELDB", "root", "root");
+
+            String sql = "update phong set id_tinh_trang = ? where id = ?;";
+
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+            statement.setInt(1, tinhTrangPhong.getId());
+            statement.setInt(2, id);
+
+            //execute query
+            if(statement.executeUpdate()>0)
+            {
+                statement.close();
+                return true;
+            }
+            else
+            {
+                statement.close();
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
+
     public boolean updatePhongTheoId(int id, Phong phong) {
         Connector connector = new MySqlConnector();
         try {
