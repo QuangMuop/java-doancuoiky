@@ -55,7 +55,7 @@ CREATE TABLE  `hoteldb`.`tham_so` (
   `gia_tri` text NOT NULL,
   `kich_hoat` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoD;
+) ENGINE=InnoDB;
 
 
 -- tao bang khach hang
@@ -95,10 +95,10 @@ CREATE TABLE  `hoteldb`.`phong` (
 -- tao bang chi tiet thue phong
 DROP TABLE IF EXISTS `hoteldb`.`chi_tiet_thue_phong`;
 CREATE TABLE  `hoteldb`.`chi_tiet_thue_phong` (
-  `id` VARCHAR(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(20) NOT NULL,
   `id_phong` INTEGER unsigned NOT NULL,
   `ngay_thue` date NOT NULL,
-  `ngay_tra` date NOT NULL,
+  `ngay_tra` date NOT NULL ,
   `tong_gia` INTEGER unsigned NOT NULL,
   `id_loai_thue` INTEGER unsigned NOT NULL,
   PRIMARY KEY (`id`),
@@ -108,10 +108,13 @@ CREATE TABLE  `hoteldb`.`chi_tiet_thue_phong` (
   CONSTRAINT `FK_chi_tiet_thue_phong_phong` FOREIGN KEY (`id_phong`) REFERENCES `phong` (`id`)
 ) ENGINE=InnoDB;
 
+ALTER TABLE `hoteldb`.`chi_tiet_thue_phong` MODIFY COLUMN `ngay_tra` DATE NOT NULL DEFAULT '0000-00-00';
+
+
 -- tao bang thue phong
 DROP TABLE IF EXISTS `hoteldb`.`thue_phong`;
 CREATE TABLE  `hoteldb`.`thue_phong` (
-  `id_chi_tiet_thue` VARCHAR(20) unsigned NOT NULL,
+  `id_chi_tiet_thue` VARCHAR(20) NOT NULL,
   `id_khach` varchar(15) NOT NULL,
   PRIMARY KEY (`id_chi_tiet_thue`,`id_khach`),
   KEY `FK_thue_phong_khach` (`id_khach`),
@@ -204,5 +207,3 @@ INSERT INTO `THUE_PHONG`(`id_chi_tiet_thue`, `id_khach`) VALUES
   (4, '7'),
   (5, '8'),
   (6, '9');
-
-
