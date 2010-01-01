@@ -152,7 +152,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jLabel3, gridBagConstraints);
 
-        jCbLoaiPhong.setBackground(resourceMap.getColor("jTxtLoaiPhong.background")); // NOI18N
         jCbLoaiPhong.setName("jCbLoaiPhong"); // NOI18N
         jCbLoaiPhong.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -166,7 +165,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jCbLoaiPhong, gridBagConstraints);
 
-        jCbLoaiKhach.setBackground(resourceMap.getColor("jTxtLoaiPhong.background")); // NOI18N
         jCbLoaiKhach.setName("jCbLoaiKhach"); // NOI18N
         jCbLoaiKhach.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
