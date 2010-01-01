@@ -45,8 +45,10 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
         
         khachController = new KhachHangController();
 
-        this.setSize(800, 500);
+        this.setTitle("Them khach hang");
+        this.setSize(600, 400);
         this.setDefaultCloseOperation(JDialogThemKhachHang.HIDE_ON_CLOSE);
+        
         //this.setLocationRelativeTo(parent);
         this.isValid = false;
     }
@@ -348,7 +350,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
 
             String error = khachController.kiemTraKhachHang(khach);
             if(!error.equals("")) {
-                JOptionPane.showConfirmDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
@@ -357,7 +359,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
                 this.setVisible(false);
             }
         } catch(Exception ex) {
-            JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
 }//GEN-LAST:event_jBtnThemKhachMousePressed
 

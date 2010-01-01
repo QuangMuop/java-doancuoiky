@@ -22,7 +22,7 @@ public class MySqlTinhTrangPhongDAO implements ITinhTrangPhongDAO {
     public ArrayList<TinhTrangPhong> getDSTinhTrangPhong() {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select distinct * from tinh_trang_phong order by id;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -54,7 +54,7 @@ public class MySqlTinhTrangPhongDAO implements ITinhTrangPhongDAO {
     public TinhTrangPhong getTinhTrangPhongTheoId(int id) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select * from tinh_trang_phong where id = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -86,7 +86,7 @@ public class MySqlTinhTrangPhongDAO implements ITinhTrangPhongDAO {
     public TinhTrangPhong getTinhTrangPhongTheoTen(String ten) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select * from tinh_trang_phong where ten like ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);

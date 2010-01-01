@@ -20,13 +20,16 @@ public abstract class Connector {
     protected String connectionStr = "";
     protected String driverStr = "";
     protected Connection connection;
+    protected String database = "";
+    protected String user = "";
+    protected String pass = "";
     
     public Connection getConnection()
     {
         return connection;
     }
 
-    public void openConnection(String database, String user, String pass)
+    public void openConnection()
     {
         try {
             // TODO code application logic here
