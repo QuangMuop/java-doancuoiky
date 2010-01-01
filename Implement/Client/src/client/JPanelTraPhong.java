@@ -510,13 +510,13 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             thuePhong.setTongGia(tongGia);
 
             if(thuePhongController.tiepNhanViecTraPhong(thuePhong))
-                JOptionPane.showConfirmDialog(this.getComponent(0),"Tra phong thanh cong!" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
             else
-                JOptionPane.showConfirmDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
         catch(Exception ex)
         {
-            JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnTraPhongMousePressed
 

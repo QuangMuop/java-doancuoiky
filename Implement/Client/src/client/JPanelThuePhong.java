@@ -304,8 +304,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jTableKhachHang.setToolTipText(resourceMap.getString("jTableKhachHang.toolTipText")); // NOI18N
         jTableKhachHang.setDoubleBuffered(true);
         jTableKhachHang.setFocusable(false);
+        jTableKhachHang.setGridColor(resourceMap.getColor("jTableKhachHang.gridColor")); // NOI18N
         jTableKhachHang.setName("jTableKhachHang"); // NOI18N
         jTableKhachHang.setOpaque(false);
+        jTableKhachHang.setSelectionBackground(resourceMap.getColor("jTableKhachHang.selectionBackground")); // NOI18N
         jScrollPane1.setViewportView(jTableKhachHang);
         jTableKhachHang.getColumnModel().getColumn(0).setResizable(false);
         jTableKhachHang.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title0")); // NOI18N
@@ -470,16 +472,16 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             String error = thuePhongController.tiepNhanViecThuePhong(thuePhong);
             if(error.equals(""))
             {
-                JOptionPane.showConfirmDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
             }
             else
             {
-                JOptionPane.showConfirmDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
             }
         }
         catch(Exception ex)
         {
-            JOptionPane.showConfirmDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThuePhongMousePressed
 
@@ -507,7 +509,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
         else
         {
-            JOptionPane.showConfirmDialog(this.getComponent(0),"Chu y: So nguoi thue toi da la " + SO_NGUOI_CU_TRU_TOI_DA + " nguoi!" , "Thong bao loi", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Chu y: So nguoi thue toi da la " + SO_NGUOI_CU_TRU_TOI_DA + " nguoi!" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThemKhachMousePressed
 

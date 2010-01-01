@@ -25,7 +25,7 @@ public class MySqlPhongDAO implements IPhongDAO {
     public Phong getPhongTheoId(int id) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select phong.*, tinh_trang_phong.ten , loai_phong.ten, loai_phong.gia from phong, tinh_trang_phong, loai_phong where phong.id_tinh_trang =  tinh_trang_phong.id and phong.id_loai_phong = loai_phong.id and phong.id = ?";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -80,7 +80,7 @@ public class MySqlPhongDAO implements IPhongDAO {
     {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select distinct lau from phong order by lau ";
             if(option == CompareOption.GiamDan)
@@ -115,7 +115,7 @@ public class MySqlPhongDAO implements IPhongDAO {
     public ArrayList<Phong> getDSPhongTheoLau(int floor) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select phong.*, tinh_trang_phong.ten , loai_phong.ten, loai_phong.gia from phong, tinh_trang_phong, loai_phong where phong.id_tinh_trang =  tinh_trang_phong.id and phong.id_loai_phong = loai_phong.id and phong.lau = ? order by id";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -173,7 +173,7 @@ public class MySqlPhongDAO implements IPhongDAO {
             MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
             TinhTrangPhong tinhTrangPhong = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("da thue");
 
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             if(tinhTrangPhong!=null)
             {
@@ -229,7 +229,7 @@ public class MySqlPhongDAO implements IPhongDAO {
     {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "update phong set id_tinh_trang = ? where id = ?;";
 
@@ -261,7 +261,7 @@ public class MySqlPhongDAO implements IPhongDAO {
     public boolean updatePhongTheoId(int id, Phong phong) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "update phong set lau = ?, gia = ?, id_tinh_trang = ?, id_loai_phong = ?, hinh_anh = ?, mo_ta = ? where id = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -327,7 +327,7 @@ public class MySqlPhongDAO implements IPhongDAO {
 
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
@@ -375,7 +375,7 @@ public class MySqlPhongDAO implements IPhongDAO {
             MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
             TinhTrangPhong tinhTrangPhong = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Con trong");
 
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select phong.*, loai_phong.ten, loai_phong.gia from phong, loai_phong where phong.id_loai_phong = loai_phong.id and phong.id_tinh_trang = ? order by id";
             CallableStatement statement = connector.getConnection().prepareCall(sql);

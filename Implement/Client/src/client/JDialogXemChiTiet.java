@@ -35,10 +35,12 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
+        this.setTitle("Xem chi tiet phong");
         this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
 
         this.phong = phong;
         this.setSize(500, 500);
+        this.pack();
 
         int cost = phong.getGia() + phong.getIdLoaiPhong().getGia();
         String strLoaiPhong = phong.getIdLoaiPhong().getTen();
@@ -359,7 +361,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
             //p.setGia()
 
-            JOptionPane.showConfirmDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {

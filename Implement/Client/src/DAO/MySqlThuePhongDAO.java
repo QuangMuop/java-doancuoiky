@@ -26,7 +26,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
     public ArrayList<LoaiThue> getDSLoaiThue() {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select distinct * from loai_thue;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -65,7 +65,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             khachHangDAO.insertKhachHang(tp.getLstKhachHang());
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             //them vao bang chi tiet thue phong
             String sql = "INSERT INTO CHI_TIET_THUE_PHONG(id, id_phong, ngay_thue, tong_gia, id_loai_thue) VALUES (?,?,?,?,?);";
@@ -126,7 +126,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         Connector connector = new MySqlConnector();
         try {
 
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
             String sql = "update chi_tiet_thue_phong set ngay_tra = ?, tong_gia = ? where id = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
@@ -159,7 +159,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
     {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
             String sql = "select * " +
                             "from chi_tiet_thue_phong, loai_thue " +
                             "where tong_gia = 0 and loai_thue.id = chi_tiet_thue_phong.id_loai_thue; ";
@@ -218,7 +218,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         Connector connector = new MySqlConnector();
         try {
 
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
             String sql = "select id_khach from thue_phong where thue_phong.id_chi_tiet_thue = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
             statement.setString(1, sChiTietThue);

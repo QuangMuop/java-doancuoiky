@@ -21,7 +21,7 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
     public KhachHang getKhachHangTheoId(String id) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select khach_hang.*, loai_khach_hang.ten_loai_khach_hang from khach_hang, loai_khach_hang where khach_hang.id_loai_khach_hang = loai_khach_hang.id and khach_hang.id like ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -60,7 +60,7 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
     public boolean insertKhachHang(KhachHang khachhang) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "insert into khach_hang (id,ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values(?,?,?,?,?,?,?);";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -104,7 +104,7 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
     public boolean insertKhachHang(ArrayList<KhachHang> lstKhachHang) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "insert into khach_hang (id,ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values ";
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

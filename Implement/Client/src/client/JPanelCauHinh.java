@@ -312,12 +312,10 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
-
             //set editable
             this.jBtnCapNhat.setEnabled(true);
             this.jTxtGiaKhach.setEditable(true);
             this.jTxtGiaPhong.setEditable(true);
-
         }
 
     }//GEN-LAST:event_jBtnChinhSuaMousePressed
@@ -329,7 +327,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         {
 
 
-            JOptionPane.showConfirmDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
 
             //disable fields
             this.jBtnCapNhat.setEnabled(false);

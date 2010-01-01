@@ -22,7 +22,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
     public ArrayList<LoaiKhachHang> getDSLoaiKhachHang() {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select distinct * from loai_khach_hang order by id;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -54,7 +54,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
     public LoaiKhachHang getLoaiKhachHangTheoTen(String ten) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select * from loai_khach_hang where ten_loai_khach_hang like ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -85,7 +85,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
     public LoaiKhachHang getLoaiKhachHangTheoId(int id) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "select * from loai_khach_hang where id = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
@@ -116,7 +116,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
     public boolean updateLoaiKhachHangTheoId(LoaiKhachHang loaiKhachHang, int id) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection("HOTELDB", "root", "root");
+            connector.openConnection();
 
             String sql = "update loai_khach_hang set ten_loai_khach_hang = ? where id = ?;";
 
