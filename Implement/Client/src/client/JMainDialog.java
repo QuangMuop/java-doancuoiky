@@ -1,119 +1,36 @@
 /*
- * ClientView.java
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*
+ * JMainDialog.java
+ *
+ * Created on Jan 2, 2010, 5:28:32 PM
  */
 
 package client;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import org.jdesktop.application.Action;
-import org.jdesktop.application.ResourceMap;
-import org.jdesktop.application.SingleFrameApplication;
-import org.jdesktop.application.FrameView;
-import org.jdesktop.application.TaskMonitor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
-import javax.swing.Icon;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 
 /**
- * The application's main frame.
+ *
+ * @author bin
  */
-public class ClientView extends FrameView {
+public class JMainDialog extends javax.swing.JDialog {
 
-    public ClientView(SingleFrameApplication app) {
-        super(app);
-        
+    /** Creates new form JMainDialog */
+    public JMainDialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
 
-        app.getMainFrame().setSize(853, 684);
-        app.getMainFrame().setResizable(false);
-        //app.getMainFrame().pack();
-
-/*
-        //setsize for components
-        Dimension dimensionRight = new Dimension(686, 512);
-        jRightPanel.setSize(dimensionRight);
-        jRightPanel.setMaximumSize(dimensionRight);
-        jRightPanel.setMinimumSize(dimensionRight);
-
-        Dimension dimensionLeft = new Dimension(155, 512);
-        jLeftPanel.setSize(dimensionLeft);
-        jLeftPanel.setMaximumSize(dimensionLeft);
-        jLeftPanel.setMinimumSize(dimensionLeft);
-
-        Dimension dimensionTop = new Dimension(841, 107);
-        jTopPanel.setMaximumSize(dimensionTop);
-        jTopPanel.setMinimumSize(dimensionTop);
-        jTopPanel.setSize(dimensionTop);
-*/
+        this.setSize(855, 685);
+        this.setDefaultCloseOperation(JMainDialog.DISPOSE_ON_CLOSE);
+        
         myInit();
-                
-        // status bar initialization - message timeout, idle icon and busy animation, etc
-        ResourceMap resourceMap = getResourceMap();
-        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
-        messageTimer = new Timer(messageTimeout, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                statusMessageLabel.setText("");
-            }
-        });
-        messageTimer.setRepeats(false);
-        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
-        for (int i = 0; i < busyIcons.length; i++) {
-            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
-        }
-        busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
-                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
-            }
-        });
-        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
-        statusAnimationLabel.setIcon(idleIcon);
-        progressBar.setVisible(false);
 
-        // connecting action tasks to status bar via TaskMonitor
-        TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
-        taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                String propertyName = evt.getPropertyName();
-                if ("started".equals(propertyName)) {
-                    if (!busyIconTimer.isRunning()) {
-                        statusAnimationLabel.setIcon(busyIcons[0]);
-                        busyIconIndex = 0;
-                        busyIconTimer.start();
-                    }
-                    progressBar.setVisible(true);
-                    progressBar.setIndeterminate(true);
-                } else if ("done".equals(propertyName)) {
-                    busyIconTimer.stop();
-                    statusAnimationLabel.setIcon(idleIcon);
-                    progressBar.setVisible(false);
-                    progressBar.setValue(0);
-                } else if ("message".equals(propertyName)) {
-                    String text = (String)(evt.getNewValue());
-                    statusMessageLabel.setText((text == null) ? "" : text);
-                    messageTimer.restart();
-                } else if ("progress".equals(propertyName)) {
-                    int value = (Integer)(evt.getNewValue());
-                    progressBar.setVisible(true);
-                    progressBar.setIndeterminate(false);
-                    progressBar.setValue(value);
-                }
-            }
-        });
-    }
-
-    @Action
-    public void showAboutBox() {
-        if (aboutBox == null) {
-            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
-            aboutBox = new ClientAboutBox(mainFrame);
-            aboutBox.setLocationRelativeTo(mainFrame);
-        }
-        ClientApp.getApplication().show(aboutBox);
+        //853 684
+        
     }
 
     /** This method is called from within the constructor to
@@ -126,22 +43,12 @@ public class ClientView extends FrameView {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        mainPanel = new javax.swing.JPanel();
-        menuBar = new javax.swing.JMenuBar();
-        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
-        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
-        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
-        statusPanel = new javax.swing.JPanel();
-        javax.swing.JSeparator statusPanelSeparator = new javax.swing.JSeparator();
-        statusMessageLabel = new javax.swing.JLabel();
-        statusAnimationLabel = new javax.swing.JLabel();
-        progressBar = new javax.swing.JProgressBar();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jSplitMainPane = new javax.swing.JSplitPane();
         jTopPanel = new javax.swing.JPanel();
-        jLabelLogo = new javax.swing.JLabel();
         jLabelTenKhachSan = new javax.swing.JLabel();
         jLabelThoiGian = new javax.swing.JLabel();
+        jLabelLogo = new javax.swing.JLabel();
         jSplitPane2 = new javax.swing.JSplitPane();
         jLeftPanel = new javax.swing.JPanel();
         jToggleBtnXemPhong = new javax.swing.JToggleButton();
@@ -154,93 +61,20 @@ public class ClientView extends FrameView {
         jToggleBtnHelp = new javax.swing.JToggleButton();
         jToggleBtnAbout = new javax.swing.JToggleButton();
         jRightPanel = new javax.swing.JPanel();
-        btnGroupMainController = new javax.swing.ButtonGroup();
 
-        mainPanel.setName("mainPanel"); // NOI18N
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 249, Short.MAX_VALUE)
-        );
-
-        menuBar.setName("menuBar"); // NOI18N
-
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(ClientView.class);
-        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
-        fileMenu.setName("fileMenu"); // NOI18N
-
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getActionMap(ClientView.class, this);
-        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
-        exitMenuItem.setName("exitMenuItem"); // NOI18N
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
-        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
-        helpMenu.setName("helpMenu"); // NOI18N
-
-        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
-        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        statusPanel.setName("statusPanel"); // NOI18N
-
-        statusPanelSeparator.setName("statusPanelSeparator"); // NOI18N
-
-        statusMessageLabel.setName("statusMessageLabel"); // NOI18N
-
-        statusAnimationLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        statusAnimationLabel.setName("statusAnimationLabel"); // NOI18N
-
-        progressBar.setName("progressBar"); // NOI18N
-
-        javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
-        statusPanel.setLayout(statusPanelLayout);
-        statusPanelLayout.setHorizontalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
-            .addGroup(statusPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
-                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusAnimationLabel)
-                .addContainerGap())
-        );
-        statusPanelLayout.setVerticalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusPanelLayout.createSequentialGroup()
-                .addComponent(statusPanelSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusMessageLabel)
-                    .addComponent(statusAnimationLabel)
-                    .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3))
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JMainDialog.class);
+        setTitle(resourceMap.getString("Form.title")); // NOI18N
+        setName("Form"); // NOI18N
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         jSplitMainPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitMainPane.setDoubleBuffered(true);
         jSplitMainPane.setName("jSplitMainPane"); // NOI18N
 
         jTopPanel.setName("jTopPanel"); // NOI18N
-
-        jLabelLogo.setIcon(resourceMap.getIcon("jLabelLogo.icon")); // NOI18N
-        jLabelLogo.setText(resourceMap.getString("jLabelLogo.text")); // NOI18N
-        jLabelLogo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, resourceMap.getColor("jLabelLogo.border.highlightOuterColor"), resourceMap.getColor("jLabelLogo.border.highlightInnerColor"), resourceMap.getColor("jLabelLogo.border.shadowOuterColor"), resourceMap.getColor("jLabelLogo.border.shadowInnerColor"))); // NOI18N
-        jLabelLogo.setDisabledIcon(resourceMap.getIcon("jLabelLogo.disabledIcon")); // NOI18N
-        jLabelLogo.setDoubleBuffered(true);
-        jLabelLogo.setEnabled(false);
-        jLabelLogo.setName("jLabelLogo"); // NOI18N
+        jTopPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabelTenKhachSan.setBackground(resourceMap.getColor("jLabelTenKhachSan.background")); // NOI18N
         jLabelTenKhachSan.setFont(resourceMap.getFont("jLabelTenKhachSan.font")); // NOI18N
@@ -248,34 +82,32 @@ public class ClientView extends FrameView {
         jLabelTenKhachSan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTenKhachSan.setText(resourceMap.getString("jLabelTenKhachSan.text")); // NOI18N
         jLabelTenKhachSan.setName("jLabelTenKhachSan"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jTopPanel.add(jLabelTenKhachSan, gridBagConstraints);
 
         jLabelThoiGian.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelThoiGian.setText(resourceMap.getString("jLabelThoiGian.text")); // NOI18N
         jLabelThoiGian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabelThoiGian.setName("jLabelThoiGian"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        jTopPanel.add(jLabelThoiGian, gridBagConstraints);
 
-        javax.swing.GroupLayout jTopPanelLayout = new javax.swing.GroupLayout(jTopPanel);
-        jTopPanel.setLayout(jTopPanelLayout);
-        jTopPanelLayout.setHorizontalGroup(
-            jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTopPanelLayout.createSequentialGroup()
-                .addComponent(jLabelLogo)
-                .addGap(134, 134, 134)
-                .addComponent(jLabelTenKhachSan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelThoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jTopPanelLayout.setVerticalGroup(
-            jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTopPanelLayout.createSequentialGroup()
-                .addGroup(jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelLogo)
-                    .addComponent(jLabelThoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTenKhachSan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabelLogo.setIcon(resourceMap.getIcon("jLabelLogo.icon")); // NOI18N
+        jLabelLogo.setText(resourceMap.getString("jLabelLogo.text")); // NOI18N
+        jLabelLogo.setName("jLabelLogo"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jTopPanel.add(jLabelLogo, gridBagConstraints);
 
         jSplitMainPane.setLeftComponent(jTopPanel);
 
@@ -285,7 +117,7 @@ public class ClientView extends FrameView {
         jLeftPanel.setName("jLeftPanel"); // NOI18N
         jLeftPanel.setLayout(new java.awt.GridBagLayout());
 
-        btnGroupMainController.add(jToggleBtnXemPhong);
+        buttonGroup1.add(jToggleBtnXemPhong);
         jToggleBtnXemPhong.setFont(resourceMap.getFont("jToggleBtnXemPhong.font")); // NOI18N
         jToggleBtnXemPhong.setIcon(resourceMap.getIcon("jToggleBtnXemPhong.icon")); // NOI18N
         jToggleBtnXemPhong.setSelected(true);
@@ -308,10 +140,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnXemPhong, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnTimPhong);
+        buttonGroup1.add(jToggleBtnTimPhong);
         jToggleBtnTimPhong.setFont(resourceMap.getFont("jToggleBtnTimPhong.font")); // NOI18N
         jToggleBtnTimPhong.setIcon(resourceMap.getIcon("jToggleBtnTimPhong.icon")); // NOI18N
         jToggleBtnTimPhong.setText(resourceMap.getString("jToggleBtnTimPhong.text")); // NOI18N
@@ -333,10 +165,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnTimPhong, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnThuePhong);
+        buttonGroup1.add(jToggleBtnThuePhong);
         jToggleBtnThuePhong.setFont(resourceMap.getFont("jToggleBtnThuePhong.font")); // NOI18N
         jToggleBtnThuePhong.setIcon(resourceMap.getIcon("jToggleBtnThuePhong.icon")); // NOI18N
         jToggleBtnThuePhong.setText(resourceMap.getString("jToggleBtnThuePhong.text")); // NOI18N
@@ -358,10 +190,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnThuePhong, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnTraPhong);
+        buttonGroup1.add(jToggleBtnTraPhong);
         jToggleBtnTraPhong.setFont(resourceMap.getFont("jToggleBtnTraPhong.font")); // NOI18N
         jToggleBtnTraPhong.setIcon(resourceMap.getIcon("jToggleBtnTraPhong.icon")); // NOI18N
         jToggleBtnTraPhong.setText(resourceMap.getString("jToggleBtnTraPhong.text")); // NOI18N
@@ -383,10 +215,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnTraPhong, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnThongKe);
+        buttonGroup1.add(jToggleBtnThongKe);
         jToggleBtnThongKe.setFont(resourceMap.getFont("jToggleBtnThongKe.font")); // NOI18N
         jToggleBtnThongKe.setIcon(resourceMap.getIcon("jToggleBtnThongKe.icon")); // NOI18N
         jToggleBtnThongKe.setText(resourceMap.getString("jToggleBtnThongKe.text")); // NOI18N
@@ -408,10 +240,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnThongKe, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnSubmitXML);
+        buttonGroup1.add(jToggleBtnSubmitXML);
         jToggleBtnSubmitXML.setFont(resourceMap.getFont("jToggleBtnSubmitXML.font")); // NOI18N
         jToggleBtnSubmitXML.setIcon(resourceMap.getIcon("jToggleBtnSubmitXML.icon")); // NOI18N
         jToggleBtnSubmitXML.setText(resourceMap.getString("jToggleBtnSubmitXML.text")); // NOI18N
@@ -433,10 +265,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnSubmitXML, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnCauHinh);
+        buttonGroup1.add(jToggleBtnCauHinh);
         jToggleBtnCauHinh.setFont(resourceMap.getFont("jToggleBtnCauHinh.font")); // NOI18N
         jToggleBtnCauHinh.setIcon(resourceMap.getIcon("jToggleBtnCauHinh.icon")); // NOI18N
         jToggleBtnCauHinh.setText(resourceMap.getString("jToggleBtnCauHinh.text")); // NOI18N
@@ -458,10 +290,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnCauHinh, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnHelp);
+        buttonGroup1.add(jToggleBtnHelp);
         jToggleBtnHelp.setFont(resourceMap.getFont("jToggleBtnHelp.font")); // NOI18N
         jToggleBtnHelp.setIcon(resourceMap.getIcon("jToggleBtnHelp.icon")); // NOI18N
         jToggleBtnHelp.setText(resourceMap.getString("jToggleBtnHelp.text")); // NOI18N
@@ -483,10 +315,10 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnHelp, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnAbout);
+        buttonGroup1.add(jToggleBtnAbout);
         jToggleBtnAbout.setFont(resourceMap.getFont("jToggleBtnAbout.font")); // NOI18N
         jToggleBtnAbout.setIcon(resourceMap.getIcon("jToggleBtnAbout.icon")); // NOI18N
         jToggleBtnAbout.setText(resourceMap.getString("jToggleBtnAbout.text")); // NOI18N
@@ -508,7 +340,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jLeftPanel.add(jToggleBtnAbout, gridBagConstraints);
 
         jSplitPane2.setLeftComponent(jLeftPanel);
@@ -519,10 +351,11 @@ public class ClientView extends FrameView {
 
         jSplitMainPane.setBottomComponent(jSplitPane2);
 
-        setComponent(jSplitMainPane);
-        setStatusBar(statusPanel);
+        getContentPane().add(jSplitMainPane, "card2");
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jToggleBtnXemPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMousePressed
         // TODO add your handling code here:
         //CardLayout cl = (CardLayout)jRightPanel.getLayout();
@@ -536,64 +369,80 @@ public class ClientView extends FrameView {
             xemPhongPanel.setName("JPanelXemPhong");
             jRightPanel.add(xemPhongPanel,xemPhongPanel.getName());
         }
-*/
+ */
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelXemPhong.getName());
-    }//GEN-LAST:event_jToggleBtnXemPhongMousePressed
+}//GEN-LAST:event_jToggleBtnXemPhongMousePressed
 
     private void jToggleBtnTimPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTimPhongMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelTimPhong.getName());
-    }//GEN-LAST:event_jToggleBtnTimPhongMousePressed
+}//GEN-LAST:event_jToggleBtnTimPhongMousePressed
 
     private void jToggleBtnThuePhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThuePhongMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelThuePhong.getName());
-    }//GEN-LAST:event_jToggleBtnThuePhongMousePressed
+}//GEN-LAST:event_jToggleBtnThuePhongMousePressed
 
     private void jToggleBtnTraPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnTraPhongMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelTraPhong.getName());
-    }//GEN-LAST:event_jToggleBtnTraPhongMousePressed
+}//GEN-LAST:event_jToggleBtnTraPhongMousePressed
 
     private void jToggleBtnThongKeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnThongKeMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelThongKe.getName());
-    }//GEN-LAST:event_jToggleBtnThongKeMousePressed
+}//GEN-LAST:event_jToggleBtnThongKeMousePressed
 
     private void jToggleBtnSubmitXMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnSubmitXMLMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelSubmitXML.getName());
-    }//GEN-LAST:event_jToggleBtnSubmitXMLMousePressed
+}//GEN-LAST:event_jToggleBtnSubmitXMLMousePressed
 
     private void jToggleBtnCauHinhMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnCauHinhMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelCauhinh.getName());
-    }//GEN-LAST:event_jToggleBtnCauHinhMousePressed
+}//GEN-LAST:event_jToggleBtnCauHinhMousePressed
 
     private void jToggleBtnHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnHelpMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleBtnHelpMousePressed
+}//GEN-LAST:event_jToggleBtnHelpMousePressed
 
     private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
         // TODO add your handling code here:
-//        if (aboutBox == null) {
-//            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
-//            aboutBox = new ClientAboutBox(mainFrame);
-//            aboutBox.setLocationRelativeTo(mainFrame);
-//        }
-//        ClientApp.getApplication().show(aboutBox);
-    }//GEN-LAST:event_jToggleBtnAboutMousePressed
+        //        if (aboutBox == null) {
+        //            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
+        //            aboutBox = new ClientAboutBox(mainFrame);
+        //            aboutBox.setLocationRelativeTo(mainFrame);
+        //        }
+        //        ClientApp.getApplication().show(aboutBox);
+}//GEN-LAST:event_jToggleBtnAboutMousePressed
 
-    //click on button Xem phong
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                JMainDialog dialog = new JMainDialog(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup btnGroupMainController;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTenKhachSan;
     private javax.swing.JLabel jLabelThoiGian;
@@ -611,31 +460,17 @@ public class ClientView extends FrameView {
     private javax.swing.JToggleButton jToggleBtnTraPhong;
     private javax.swing.JToggleButton jToggleBtnXemPhong;
     private javax.swing.JPanel jTopPanel;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JProgressBar progressBar;
-    private javax.swing.JLabel statusAnimationLabel;
-    private javax.swing.JLabel statusMessageLabel;
-    private javax.swing.JPanel statusPanel;
     // End of variables declaration//GEN-END:variables
 
-    private final Timer messageTimer;
-    private final Timer busyIconTimer;
-    private final Icon idleIcon;
-    private final Icon[] busyIcons = new Icon[15];
-    private int busyIconIndex = 0;
-
-    private JDialog aboutBox;
-    
     //panels
     private JPanelCauHinh panelCauhinh;
     private JPanelSubmitXML panelSubmitXML;
     private JPanelThongKe panelThongKe;
     private JPanelThuePhong panelThuePhong;
     private JPanelTimPhong panelTimPhong;
-    private JPanelTraPhong panelTraPhong;    
+    private JPanelTraPhong panelTraPhong;
     private JPanelXemPhong panelXemPhong;
-    
+
     private void myInit() {
         //init panels
         panelCauhinh = new JPanelCauHinh();
@@ -660,7 +495,7 @@ public class ClientView extends FrameView {
         panelXemPhong.setName("panelXemPhong");
 
         //load and paint default panel
-        jRightPanel.add(panelXemPhong,panelXemPhong.getName()); 
+        jRightPanel.add(panelXemPhong,panelXemPhong.getName());
         jRightPanel.add(panelThuePhong,panelThuePhong.getName());
         jRightPanel.add(panelCauhinh,panelCauhinh.getName());
         jRightPanel.add(panelSubmitXML,panelSubmitXML.getName());

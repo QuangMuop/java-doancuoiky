@@ -32,6 +32,7 @@ public class SocketCommunication extends Thread {
         this.port = port;             
     }
 
+    @Override
     public void run() {
         try
         {

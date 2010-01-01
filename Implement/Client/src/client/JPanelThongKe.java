@@ -132,7 +132,6 @@ public class JPanelThongKe extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
         jPanel10.add(jBtnThongKe, gridBagConstraints);
 
-        imgThongKe2.setIcon(null);
         imgThongKe2.setName("imgThongKe2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -235,7 +234,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
         jPanel9.add(jPanel10, gridBagConstraints);
 
         bgLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bgLabel2.setIcon(null);
+        bgLabel2.setIcon(resourceMap.getIcon("bgLabel2.icon")); // NOI18N
         bgLabel2.setName("bgLabel2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
