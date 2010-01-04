@@ -1,16 +1,16 @@
-﻿CREATE DATABASE IF NOT EXISTS `HOTELDB`;
+﻿CREATE DATABASE IF NOT EXISTS `hoteldb`;
 
-USE `HOTELDB`;
+USE `hoteldb`;
 
 -- Drop all tables
-DROP TABLE IF EXISTS `THUE_PHONG`;
-DROP TABLE IF EXISTS `THAM_SO`;
-DROP TABLE IF EXISTS `PHONG`;
-DROP TABLE IF EXISTS `TINH_TRANG_PHONG`;
-DROP TABLE IF EXISTS `LOAI_PHONG`;
-DROP TABLE IF EXISTS `KHACH_HANG`;
-DROP TABLE IF EXISTS `LOAI_THUE`;
-DROP TABLE IF EXISTS `LOAI_KHACH_HANG`;
+DROP TABLE IF EXISTS `thue_phong`;
+DROP TABLE IF EXISTS `tham_so`;
+DROP TABLE IF EXISTS `tinh_trang_phong`;
+DROP TABLE IF EXISTS `loai_phong`;
+DROP TABLE IF EXISTS `khach_hang`;
+DROP TABLE IF EXISTS `loai_thue`;
+DROP TABLE IF EXISTS `loai_khach_hang`;
+DROP TABLE IF EXISTS `phong`;
 
 -- tao bang loai khach hang
 DROP TABLE IF EXISTS `hoteldb`.`loai_khach_hang`;
@@ -74,7 +74,7 @@ CREATE TABLE  `hoteldb`.`khach_hang` (
 ) ENGINE=InnoDB;
 
 
--- Tao bang PHONG
+-- Tao bang phong
 DROP TABLE IF EXISTS `hoteldb`.`phong`;
 CREATE TABLE  `hoteldb`.`phong` (
   `id` INTEGER unsigned NOT NULL AUTO_INCREMENT,
@@ -124,13 +124,13 @@ CREATE TABLE  `hoteldb`.`thue_phong` (
 
 
 -- Insert data
--- LOAI_KHACH_HANG
-INSERT INTO `LOAI_KHACH_HANG`(`id`, `ten_loai_khach_hang`) VALUES (0, 'Trong Nuoc'),
+-- loai_khach_hang
+INSERT INTO `loai_khach_hang`(`id`, `ten_loai_khach_hang`) VALUES (0, 'Trong Nuoc'),
                                                                   (1, 'Nuoc Ngoai');
 
 
--- KHACH_HANG
-INSERT INTO `KHACH_HANG`(`id`, `ten`, `gioi_tinh`, `dia_chi`, `dien_thoai`, `ngay_sinh`, `id_loai_khach_hang`) VALUES
+-- khach_hang
+INSERT INTO `khach_hang`(`id`, `ten`, `gioi_tinh`, `dia_chi`, `dien_thoai`, `ngay_sinh`, `id_loai_khach_hang`) VALUES
   ('10', 'Ly Thuong Kiet', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-13', 1),
   ('1', 'Tran Quoc Tuan', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-24', 1),
   ('2', 'Phan Van Khai', 'Nam', 'Dia chi', 'Dien thoai', '1960-01-01', 1),
@@ -143,28 +143,28 @@ INSERT INTO `KHACH_HANG`(`id`, `ten`, `gioi_tinh`, `dia_chi`, `dien_thoai`, `nga
   ('9', 'Mizore-chan', 'Nu', 'Dia chi', 'Dien thoai', '2007-01-01', 0);
 
 
--- LOAI_THUE
-INSERT INTO `LOAI_THUE`(`id`, `loai`) VALUES
+-- loai_thue
+INSERT INTO `loai_thue`(`id`, `loai`) VALUES
   (0, 'Dat phong'),
   (1, 'Thue phong');
 
 
 
--- TINH_TRANG_PHONG
-INSERT INTO `TINH_TRANG_PHONG`(`id`, `ten`) VALUES
+-- tinh_trang_phong
+INSERT INTO `tinh_trang_phong`(`id`, `ten`) VALUES
   (0, 'Con trong'),
   (1, 'Da thue');
 
 
--- LOAI_PHONG
-INSERT INTO `LOAI_PHONG`(`id`, `ten`, `gia`) VALUES
+-- loai_phong
+INSERT INTO `loai_phong`(`id`, `ten`, `gia`) VALUES
   (0, 'VIP', 500000),
   (1, 'Hang trung', 400000),
   (2, 'Hang thuong', 350000);
 
 
--- PHONG
-INSERT INTO `PHONG`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_anh`, `mo_ta`) VALUES
+-- phong
+INSERT INTO `phong`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_anh`, `mo_ta`) VALUES
   (1,1, null, 0, 0, '', ''),
   (2,1, null, 0, 0, '', ''),
   (3,1, null, 0, 0, '', ''),
@@ -188,8 +188,8 @@ INSERT INTO `PHONG`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_
   (21,3, null, 0, 2, '', '');
 
 
--- THUE_PHONG
-INSERT INTO `CHI_TIET_THUE_PHONG`(`id`,`id_phong`,`ngay_thue`,`tong_gia`,`id_loai_thue`) VALUES
+-- thue_phong
+INSERT INTO `chi_tiet_thue_phong`(`id`,`id_phong`,`ngay_thue`,`tong_gia`,`id_loai_thue`) VALUES
   (1,1,'2009-1-1',0,1),
   (2,2,'2009-1-1',0,1),
   (3,3,'2009-1-1',0,1),
@@ -198,7 +198,7 @@ INSERT INTO `CHI_TIET_THUE_PHONG`(`id`,`id_phong`,`ngay_thue`,`tong_gia`,`id_loa
   (6,6,'2009-1-1',0,1);
 
 
-INSERT INTO `THUE_PHONG`(`id_chi_tiet_thue`, `id_khach`) VALUES
+INSERT INTO `thue_phong`(`id_chi_tiet_thue`, `id_khach`) VALUES
   (1, '2'),
   (1, '3'),
   (1, '4'),
