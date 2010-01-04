@@ -41,4 +41,9 @@ public class MySqlDAOFactory extends DAOFactory {
     public ILoaiPhongDAO getLoaiPhongDAO() {
         return new MySqlLoaiPhongDAO();
     }
+
+    @Override
+    public IThamSoDAO getThamSoDAO() {
+        return new MySqlThamSoDAO();
+    }
 }

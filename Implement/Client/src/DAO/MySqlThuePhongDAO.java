@@ -178,12 +178,13 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             {
                 thuePhong = new ThuePhong();
                 thuePhong.setNgayThue(rs.getDate("ngay_thue"));
-                thuePhong.setNgayTra(rs.getDate("ngay_tra"));
+                //thuePhong.setNgayTra(rs.getDate("ngay_tra"));
                 thuePhong.setTongGia(rs.getInt("tong_gia"));
                 thuePhong.setId(rs.getString("id"));
 
                 phong = phongDAO.getPhongTheoId(rs.getInt("id_phong"));
-                thuePhong.setPhong(phong);
+                if(phong!=null)
+                    thuePhong.setPhong(phong);
 
                 loaiThue = new LoaiThue();
                 loaiThue.setId(rs.getInt("loai_thue.id"));

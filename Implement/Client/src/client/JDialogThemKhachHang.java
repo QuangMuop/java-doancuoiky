@@ -47,6 +47,8 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
 
         this.setTitle("Them khach hang");
         this.setSize(600, 400);
+        this.setLocationRelativeTo(parent);
+
         this.setDefaultCloseOperation(JDialogThemKhachHang.HIDE_ON_CLOSE);
         
         //this.setLocationRelativeTo(parent);

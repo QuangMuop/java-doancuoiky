@@ -188,6 +188,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jBtnCapNhat">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnCapNhat.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnCapNhat.text"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jBtnCapNhat" noResource="true"/>
@@ -203,6 +204,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnChinhSua">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnChinhSua.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnChinhSua.text"/>
                 <Property name="name" type="java.lang.String" value="jBtnChinhSua" noResource="true"/>
               </Properties>

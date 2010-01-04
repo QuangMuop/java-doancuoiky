@@ -11,7 +11,6 @@
 
 package client;
 
-import BUS.PhongController;
 import BUS.ThuePhongController;
 import DTO.KhachHang;
 import DTO.Phong;
@@ -119,6 +118,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jPanel2.add(jLabel41, gridBagConstraints);
 
         jCbMaPhong.setBackground(resourceMap.getColor("jCbMaPhong.background")); // NOI18N
+        jCbMaPhong.setMaximumRowCount(100);
         jCbMaPhong.setName("jCbMaPhong"); // NOI18N
         jCbMaPhong.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -334,6 +334,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jPanel2.add(imgThanhToan, gridBagConstraints);
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 350));
 
         jTableKhachHang.setBackground(resourceMap.getColor("jTableKhachHang.background")); // NOI18N
         jTableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
@@ -405,12 +406,12 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         //lay ds phong dang thue
-        //lstThuePhong = thuePhongController.layDSThuePhong();
-        //if(lstThuePhong!=null)
-        //{
-          //  initComboBoxMaPhong();
-           // hienThiThongTinThuePhong(lstThuePhong.get(0));
-        //}
+//        lstThuePhong = thuePhongController.layDSThuePhong();
+//        if(lstThuePhong!=null)
+//        {
+//            initComboBoxMaPhong();
+//            hienThiThongTinThuePhong(lstThuePhong.get(0));
+//        }
 
         WorkerTraPhong worker = new WorkerTraPhong();
         worker.execute();
@@ -472,12 +473,13 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     }
 
     private void initComboBoxMaPhong() {
-        jCbMaPhong.removeAllItems();
 
+        jCbMaPhong.removeAllItems();
         int i;
         for(i=0;i<lstThuePhong.size();i++)
         {
-            jCbMaPhong.addItem(lstThuePhong.get(i).getPhong().getId());
+            Phong phong = lstThuePhong.get(i).getPhong();
+            jCbMaPhong.addItem(phong.getId());
         }
     }
 

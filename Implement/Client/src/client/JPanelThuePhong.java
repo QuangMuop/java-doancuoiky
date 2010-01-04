@@ -25,6 +25,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
@@ -34,12 +35,15 @@ import javax.swing.table.DefaultTableModel;
  * @author huy
  */
 public class JPanelThuePhong extends javax.swing.JPanel {
+    private JFrame mainFrame;
     private int SO_NGUOI_CU_TRU_TOI_DA = 3;
 
     /** Creates new form JPanelThuePhong */
-    public JPanelThuePhong() {
+    public JPanelThuePhong(JFrame parent) {
         initComponents();        
         
+        this.mainFrame = parent;
+
         thuePhongController = new ThuePhongController();        
 
         thuePhong = new ThuePhong();
@@ -429,12 +433,12 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
         int i;
         for(i=0;i<lstPhong.size();i++)
-            {
-                jCbMaPhong.addItem(lstPhong.get(i).getId());                
-            }
-            
-            jCbMaPhong.setSelectedIndex(0);
-            hienThiThongTinPhong(lstPhong.get(0));
+        {
+            jCbMaPhong.addItem(lstPhong.get(i).getId());
+        }
+
+        jCbMaPhong.setSelectedIndex(0);
+        hienThiThongTinPhong(lstPhong.get(0));
     }
 
     private void hienThiThongTinPhong(Phong phong)
@@ -498,7 +502,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(thuePhong.getLstKhachHang().size()<SO_NGUOI_CU_TRU_TOI_DA)
         {
-            JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(null, true);
+            JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(mainFrame, true);
             themKhachDlg.setVisible(true);
 
             if(themKhachDlg.IsValid())

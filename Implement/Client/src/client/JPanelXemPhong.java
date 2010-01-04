@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -26,13 +27,15 @@ import javax.swing.JLabel;
  * @author huy
  */
 public class JPanelXemPhong extends javax.swing.JPanel {
-    
+    private JFrame mainFrame;
     /** Creates new form JPanelXemPhong */
-    public JPanelXemPhong() {
+    public JPanelXemPhong(JFrame parent) {
         initComponents();
 
-        //jSplitPane1.getTopComponent().setSize(100, 5000);
-        //jSplitPane1.getBottomComponent().setSize(100, 20);
+        this.mainFrame = parent;
+
+        jSplitPane1.getTopComponent().setSize(686, 5000);
+        jSplitPane1.getBottomComponent().setSize(686, 20);
 
         //new cac doi tuong
         phongController = new PhongController();
@@ -242,7 +245,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         {
             Phong tmp = timPhongTheoId(Integer.parseInt(button.getName()));
             //JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(tmp);
-            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(null, true, tmp);
+            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(mainFrame, true, tmp);
             xemChiTietFrm.setVisible(true);
         }
     }
