@@ -12,6 +12,7 @@ public abstract class DAOFactory {
     public abstract ILoaiKhachHangDAO getLoaiKhachHangDAO();
     public abstract ITinhTrangPhongDAO getTinhTrangPhongDAO();
     public abstract ILoaiPhongDAO getLoaiPhongDAO();
+    public abstract IThamSoDAO getThamSoDAO();
     public abstract Connector getConnector();
 
     public static DAOFactory getInstance()

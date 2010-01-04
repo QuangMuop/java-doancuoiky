@@ -12,6 +12,7 @@
 package client;
 
 import DTO.Phong;
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -39,8 +40,10 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
 
         this.phong = phong;
-        this.setSize(500, 500);
-        this.pack();
+
+        this.setSize(500, 600);
+        this.setLocationRelativeTo(parent);
+        
 
         int cost = phong.getGia() + phong.getIdLoaiPhong().getGia();
         String strLoaiPhong = phong.getIdLoaiPhong().getTen();
@@ -262,6 +265,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jScrollPane2, gridBagConstraints);
 
+        jBtnCapNhat.setBackground(resourceMap.getColor("jBtnCapNhat.background")); // NOI18N
         jBtnCapNhat.setText(resourceMap.getString("jBtnCapNhat.text")); // NOI18N
         jBtnCapNhat.setEnabled(false);
         jBtnCapNhat.setName("jBtnCapNhat"); // NOI18N
@@ -276,6 +280,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
         jPanel8.add(jBtnCapNhat, gridBagConstraints);
 
+        jBtnChinhSua.setBackground(resourceMap.getColor("jBtnChinhSua.background")); // NOI18N
         jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
         jBtnChinhSua.setName("jBtnChinhSua"); // NOI18N
         jBtnChinhSua.addMouseListener(new java.awt.event.MouseAdapter() {

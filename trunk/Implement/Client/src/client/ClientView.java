@@ -28,11 +28,9 @@ public class ClientView extends FrameView {
         
         initComponents();
 
-        app.getMainFrame().setSize(853, 684);
-        app.getMainFrame().setResizable(false);
-        //app.getMainFrame().pack();
+        this.getFrame().setPreferredSize(new Dimension(853, 684));
+        this.getFrame().setResizable(false);
 
-/*
         //setsize for components
         Dimension dimensionRight = new Dimension(686, 512);
         jRightPanel.setSize(dimensionRight);
@@ -48,7 +46,7 @@ public class ClientView extends FrameView {
         jTopPanel.setMaximumSize(dimensionTop);
         jTopPanel.setMinimumSize(dimensionTop);
         jTopPanel.setSize(dimensionTop);
-*/
+
         myInit();
                 
         // status bar initialization - message timeout, idle icon and busy animation, etc
@@ -647,7 +645,7 @@ public class ClientView extends FrameView {
         panelThongKe = new JPanelThongKe();
         panelThongKe.setName("panelThongKe");
 
-        panelThuePhong = new JPanelThuePhong();
+        panelThuePhong = new JPanelThuePhong(this.getFrame());
         panelThuePhong.setName("panelThuePhong");
 
         panelTimPhong = new JPanelTimPhong();
@@ -656,7 +654,7 @@ public class ClientView extends FrameView {
         panelTraPhong = new JPanelTraPhong();
         panelTraPhong.setName("panelTraPhong");
 
-        panelXemPhong = new JPanelXemPhong();
+        panelXemPhong = new JPanelXemPhong(this.getFrame());
         panelXemPhong.setName("panelXemPhong");
 
         //load and paint default panel
