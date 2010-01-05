@@ -33,4 +33,10 @@ public class TinhTrangPhong {
     {
         this.ten = ten;
     }
+
+    public void clone(TinhTrangPhong tinhTrang)
+    {
+        this.id = tinhTrang.getId();
+        this.ten = tinhTrang.getTen();
+    }
 }

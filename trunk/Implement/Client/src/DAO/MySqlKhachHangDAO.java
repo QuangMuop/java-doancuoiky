@@ -23,7 +23,7 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
         try {
             connector.openConnection();
 
-            String sql = "select khach_hang.*, loai_khach_hang.ten_loai_khach_hang from khach_hang, loai_khach_hang where khach_hang.id_loai_khach_hang = loai_khach_hang.id and khach_hang.id like ?;";
+            String sql = "select * from khach_hang, loai_khach_hang where khach_hang.id_loai_khach_hang = loai_khach_hang.id and khach_hang.id = ?;";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
             statement.setString(1, id);
 
@@ -42,7 +42,8 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
 
                 loaiKhachHang = new LoaiKhachHang();
                 loaiKhachHang.setId(rs.getInt("id_loai_khach_hang"));
-                loaiKhachHang.setTen("loai_khach_hang.ten");
+                loaiKhachHang.setTen(rs.getString("ten_loai_khach_hang"));
+                loaiKhachHang.setGia(rs.getInt("don_gia"));
 
                 khach.setIdLoaiKhachHang(loaiKhachHang);
             }

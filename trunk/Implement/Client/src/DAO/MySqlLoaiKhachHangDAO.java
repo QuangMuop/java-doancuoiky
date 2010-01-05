@@ -35,7 +35,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
                 loaiKhachHang = new LoaiKhachHang();
                 loaiKhachHang.setId(rs.getInt("id"));
                 loaiKhachHang.setTen(rs.getString("ten_loai_khach_hang"));
-
+                loaiKhachHang.setGia(rs.getInt("don_gia"));
                 lst.add(loaiKhachHang);
             }
 
@@ -68,6 +68,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
                 loaiKhachHang = new LoaiKhachHang();
                 loaiKhachHang.setId(rs.getInt("id"));
                 loaiKhachHang.setTen(rs.getString("ten_loai_khach_hang"));
+                loaiKhachHang.setGia(rs.getInt("don_gia"));
             }
 
             statement.close();
@@ -99,6 +100,7 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
                 loaiKhachHang = new LoaiKhachHang();
                 loaiKhachHang.setId(rs.getInt("id"));
                 loaiKhachHang.setTen(rs.getString("ten_loai_khach_hang"));
+                loaiKhachHang.setGia(rs.getInt("don_gia"));
             }
 
             statement.close();
@@ -118,11 +120,12 @@ public class MySqlLoaiKhachHangDAO implements ILoaiKhachHangDAO {
         try {
             connector.openConnection();
 
-            String sql = "update loai_khach_hang set ten_loai_khach_hang = ? where id = ?;";
+            String sql = "update loai_khach_hang set ten_loai_khach_hang = ?, don_gia = ? where id = ?;";
 
             CallableStatement statement = connector.getConnection().prepareCall(sql);
             statement.setString(1, loaiKhachHang.getTen());
-            statement.setInt(2, id);
+            statement.setInt(2, loaiKhachHang.getGia());
+            statement.setInt(3, id);
 
             if(statement.executeUpdate()>0)
                 return true;

@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
@@ -55,7 +56,6 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jCbMaPhong = new javax.swing.JComboBox();
         jLabel42 = new javax.swing.JLabel();
         jLabelLoaiPhong = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
@@ -79,6 +79,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         imgThanhToan = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableKhachHang = new javax.swing.JTable();
+        jCbMaPhong = new javax.swing.JComboBox();
         bgLabel1 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -116,21 +117,6 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 45);
         jPanel2.add(jLabel41, gridBagConstraints);
-
-        jCbMaPhong.setBackground(resourceMap.getColor("jCbMaPhong.background")); // NOI18N
-        jCbMaPhong.setMaximumRowCount(100);
-        jCbMaPhong.setName("jCbMaPhong"); // NOI18N
-        jCbMaPhong.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCbMaPhongItemStateChanged(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
-        jPanel2.add(jCbMaPhong, gridBagConstraints);
 
         jLabel42.setText(resourceMap.getString("jLabel42.text")); // NOI18N
         jLabel42.setName("jLabel42"); // NOI18N
@@ -385,6 +371,21 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
+        jCbMaPhong.setBackground(resourceMap.getColor("jCbMaPhong.background")); // NOI18N
+        jCbMaPhong.setToolTipText(resourceMap.getString("jCbMaPhong.toolTipText")); // NOI18N
+        jCbMaPhong.setName("jCbMaPhong"); // NOI18N
+        jCbMaPhong.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbMaPhongItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        jPanel2.add(jCbMaPhong, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel8.add(jPanel2, gridBagConstraints);
@@ -405,14 +406,11 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        //lay ds phong dang thue
-//        lstThuePhong = thuePhongController.layDSThuePhong();
-//        if(lstThuePhong!=null)
-//        {
-//            initComboBoxMaPhong();
-//            hienThiThongTinThuePhong(lstThuePhong.get(0));
-//        }
+        initData();
+    }//GEN-LAST:event_formComponentShown
 
+    private void initData()
+    {
         WorkerTraPhong worker = new WorkerTraPhong();
         worker.execute();
 
@@ -424,49 +422,61 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             Logger.getLogger(JPanelTraPhong.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if(lstThuePhong!=null)
+        if(lstThuePhong!=null && lstThuePhong.size()>0)
         {
             initComboBoxMaPhong();
             hienThiThongTinThuePhong(lstThuePhong.get(0));
         }
-    }//GEN-LAST:event_formComponentShown
+    }
 
     private void hienThiThongTinThuePhong(ThuePhong thuePhong) {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 
         Phong phong = thuePhong.getPhong();
-        jLabelDonGia.setText("" + phong.getIdLoaiPhong().getGia());
-        jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());            
+        int gia = phong.getIdLoaiPhong().getGia() + phong.getGia();
+        jLabelDonGia.setText("" + gia);
         
+        jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());                   
+
         Date ngayTra = calendar.getTime();
         jLabelNgayTra.setText(sdf.format(ngayTra));
         
         Date ngayThue = thuePhong.getNgayThue();
         jLabelNgayThue.setText(sdf.format(ngayThue));
-        
+                
         int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
         jLabelSoNgayThue.setText("" + soNgayThue);        
-        jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(phong, soNgayThue));
+
+        jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(phong, soNgayThue));       
 
         //hien thi thong tin tren table
         ArrayList<KhachHang> arrKhach = thuePhong.getLstKhachHang();
         int i;
         String[] header = new String[] { "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia" };
-        DefaultTableModel model = new DefaultTableModel(header, arrKhach.size());
+        DefaultTableModel model = new DefaultTableModel(header, 0);
         for(i=0;i<arrKhach.size();i++)
         {
-            KhachHang khach = new KhachHang();
+            KhachHang khach = arrKhach.get(i);
 
             Object[] arr = new Object[7];
 
             arr[0] = khach.getTen();
-            arr[1] = sdf.format(khach.getNgaySinh());
+
+            Date ngaySinh = khach.getNgaySinh();
+            if(ngaySinh!=null)
+                arr[1] = sdf.format(ngaySinh);
+            else
+                arr[1] = "";
+
             arr[2] = khach.getGioiTinh();
             arr[3] = khach.getDiaChi();
             arr[4] = khach.getDienThoai();
             arr[5] = khach.getIdLoaiKhachHang().getTen();
             arr[6] = khach.getIdLoaiKhachHang().getGia();
+
+            model.addRow(arr);
+
         }
 
         jTableKhachHang.setModel(model);
@@ -474,13 +484,15 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
     private void initComboBoxMaPhong() {
 
-        jCbMaPhong.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
         int i;
         for(i=0;i<lstThuePhong.size();i++)
         {
-            Phong phong = lstThuePhong.get(i).getPhong();
-            jCbMaPhong.addItem(phong.getId());
+            Phong phong = lstThuePhong.get(i).getPhong();            
+            model.addElement(phong.getId());
         }
+        jCbMaPhong.setModel(model);
     }
 
     private ThuePhong timThuePhongTheoMaPhong(int id)
@@ -512,9 +524,14 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             thuePhong.setTongGia(tongGia);
 
             if(thuePhongController.tiepNhanViecTraPhong(thuePhong))
+            {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                initData();
+            }
             else
+            {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            }
         }
         catch(Exception ex)
         {
@@ -524,12 +541,11 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
     private void jCbMaPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbMaPhongItemStateChanged
         // TODO add your handling code here:
-        if(jCbMaPhong.getItemCount()>0)
-        {
+        if(jCbMaPhong.getItemCount()>0) {
             ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
             hienThiThongTinThuePhong(thuePhong);
         }
-    }//GEN-LAST:event_jCbMaPhongItemStateChanged
+}//GEN-LAST:event_jCbMaPhongItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -579,4 +595,5 @@ class WorkerTraPhong extends SwingWorker<ArrayList<ThuePhong>, Void>
         thuePhongController = new ThuePhongController();
         return thuePhongController.layDSThuePhong();
     }
+
 }

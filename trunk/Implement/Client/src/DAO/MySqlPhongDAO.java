@@ -274,7 +274,7 @@ public class MySqlPhongDAO implements IPhongDAO {
             statement.setInt(7, phong.getId());
 
             //execute query
-            if(statement.executeUpdate(sql)>0)
+            if(statement.executeUpdate()>0)
             {
                 statement.close();
                 return true;

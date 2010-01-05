@@ -80,4 +80,19 @@ public class PhongController {
     public ArrayList<Phong> getDSPhongChuaThue() {
         return phongDAO.getDSPhongConTrong();
     }
+
+    public boolean capNhatLoaiPhong(LoaiPhong loaiPhong) {
+        return loaiPhongDAO.updateLoaiPhongTheoId(loaiPhong, loaiPhong.getId());
+    }
+
+    public String kiemTraNghiepVuPhong(Phong phong)
+    {
+        if(phong.getGia()<0)
+            return "Gia tien cua phong khong duoc am";
+        if(phong.getId()<0)
+            return "So phong khong duoc am";
+        if(phong.getLau()<0)
+            return "Lau khong duoc am";
+        return "";
+    }
 }

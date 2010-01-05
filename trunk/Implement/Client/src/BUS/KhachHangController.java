@@ -49,4 +49,9 @@ public class KhachHangController {
         }
         return "";
     }
+
+    public boolean capNhatLoaiKhachHang(LoaiKhachHang loaiKhachHang)
+    {
+        return loaiKhachDAO.updateLoaiKhachHangTheoId(loaiKhachHang, loaiKhachHang.getId());
+    }
 }

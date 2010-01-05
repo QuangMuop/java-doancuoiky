@@ -44,4 +44,11 @@ public class LoaiPhong{
     {
         return this.ten;
     }
+
+    public void clone(LoaiPhong loaiPhong)
+    {
+        this.gia = loaiPhong.getGia();
+        this.id = loaiPhong.getId();
+        this.ten = loaiPhong.getTen();
+    }
 }

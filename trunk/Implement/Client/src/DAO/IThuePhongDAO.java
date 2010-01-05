@@ -17,6 +17,6 @@ public interface IThuePhongDAO {
     public boolean updateThuePhong(ThuePhong tp);
     public ThuePhong getThuePhong(KhachHang k, Phong p, Date ngay);
     public ArrayList<ThuePhong> getDSThuePhong();
-    public ArrayList<LoaiThue> getDSLoaiThue();
-    public ArrayList<ThuePhong> getDSThuePhong(int nam, int thang);
+    public ArrayList<LoaiThue> getDSLoaiThue();    
+    public ArrayList<ThuePhong> getDSThuePhong(int tuThang, int denThang, int nam);
 }
