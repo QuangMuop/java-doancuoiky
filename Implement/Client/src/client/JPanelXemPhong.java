@@ -28,6 +28,10 @@ import javax.swing.JLabel;
  */
 public class JPanelXemPhong extends javax.swing.JPanel {
     private JFrame mainFrame;
+    private int currentFloor;
+    private ImageIcon iconPhongDaThue;
+    private ImageIcon iconPhongConTrong;
+
     /** Creates new form JPanelXemPhong */
     public JPanelXemPhong(JFrame parent) {
         initComponents();
@@ -43,10 +47,20 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         //lay ra lau cao nhat cua khach san
         maxFloor = phongController.getLauCaoNhat();
 
+        //set icon for button
+        ClassLoader cldr = this.getClass().getClassLoader();
+        java.net.URL imageURL;
+        imageURL = cldr.getResource("client/resources/RoomAvailable.png");
+        this.iconPhongConTrong = new ImageIcon(imageURL);
+        
+        imageURL = cldr.getResource("client/resources/RoomNotAvailable.png");
+        this.iconPhongDaThue = new ImageIcon(imageURL);
+
         //lay ra danh sach nhung phong hien co trong lau 1 va ve len panel
         if(maxFloor>0)
         {
             repaintFloor(1);
+            currentFloor = 1;
         }
     }
 
@@ -206,6 +220,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             }
 
             repaintFloor(num);
+            currentFloor = num;
             
             jLabelPageNumber.setText("" + num);
         }
@@ -229,7 +244,8 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             }
 
             repaintFloor(num);
-            
+            currentFloor = num;
+
             jLabelPageNumber.setText("" + num);
         }
     }//GEN-LAST:event_jBtnNextMousePressed
@@ -243,11 +259,27 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         JButton button = (JButton)evt.getComponent();
         if(button!=null)
         {
-            Phong tmp = timPhongTheoId(Integer.parseInt(button.getName()));
-            //JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(tmp);
-            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(mainFrame, true, tmp);
+            //Phong tmp = timPhongTheoId(Integer.parseInt(button.getName()));
+            int indexPhong = timIndexPhongTrongArr(Integer.parseInt(button.getName()));
+            JDialogXemChiTiet xemChiTietFrm = new JDialogXemChiTiet(mainFrame, true, this.listPhong.get(indexPhong));
             xemChiTietFrm.setVisible(true);
+            //cap nhat lai phong moi
+            //this.listPhong.get(indexPhong).clone(xemChiTietFrm.getPhong());
+            repaintFloor(currentFloor);
+            this.repaint();
         }
+    }
+
+    private int timIndexPhongTrongArr(int id)
+    {
+        int i;
+        for(i=0;i<listPhong.size();i++)
+        {
+            Phong tmp = listPhong.get(i);
+            if(tmp.getId() == id)
+                return i;
+        }
+        return -1;
     }
 
     private Phong timPhongTheoId(int id)
@@ -284,22 +316,15 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             button.setName("" + phong.getId());
 
             //set icon for button
-            ClassLoader cldr = this.getClass().getClassLoader();
-            java.net.URL imageURL;
             if(phong.getIdTinhTrang().getTen().equals("Con trong"))
             {
-                imageURL = cldr.getResource("client/resources/RoomAvailable.png");
+                button.setIcon(iconPhongConTrong);
                 button.setToolTipText("Phong con trong");
             }
             else
             {
-                imageURL = cldr.getResource("client/resources/RoomNotAvailable.png");
+                button.setIcon(iconPhongDaThue);
                 button.setToolTipText("Phong da co nguoi");
-            }
-            ImageIcon icon = new ImageIcon(imageURL);
-            if(icon!=null)
-            {
-                button.setIcon(icon);
             }
 
             //set event listener for button
@@ -381,5 +406,3 @@ public class JPanelXemPhong extends javax.swing.JPanel {
     private PhongController phongController;
     private ArrayList<Phong> listPhong;
 }
-
-//class

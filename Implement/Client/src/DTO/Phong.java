@@ -80,5 +80,16 @@ public class Phong {
 
     public void setIdLoaiPhong(LoaiPhong idLoaiPhong) {
         this.idLoaiPhong = idLoaiPhong;
-    }    
+    }
+
+    public void clone(Phong phong)
+    {
+        this.gia = phong.getGia();
+        this.hinhAnh = phong.getHinhAnh();
+        this.id = phong.getId();
+        this.idLoaiPhong.clone(phong.getIdLoaiPhong());
+        this.idTinhTrang.clone(phong.getIdTinhTrang());
+        this.lau = phong.getLau();
+        this.moTa = phong.getMoTa();
+    }
 }

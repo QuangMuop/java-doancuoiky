@@ -104,15 +104,7 @@ public class ClientView extends FrameView {
         });
     }
 
-    @Action
-    public void showAboutBox() {
-        if (aboutBox == null) {
-            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
-            aboutBox = new ClientAboutBox(mainFrame);
-            aboutBox.setLocationRelativeTo(mainFrame);
-        }
-        ClientApp.getApplication().show(aboutBox);
-    }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -523,18 +515,6 @@ public class ClientView extends FrameView {
     
     private void jToggleBtnXemPhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnXemPhongMousePressed
         // TODO add your handling code here:
-        //CardLayout cl = (CardLayout)jRightPanel.getLayout();
-/*
-        int count = jRightPanel.getComponentCount();
-        if(count>0)
-        {
-            jRightPanel.remove(count -1);
-
-            JPanelXemPhong xemPhongPanel = new JPanelXemPhong();
-            xemPhongPanel.setName("JPanelXemPhong");
-            jRightPanel.add(xemPhongPanel,xemPhongPanel.getName());
-        }
-*/
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelXemPhong.getName());
     }//GEN-LAST:event_jToggleBtnXemPhongMousePressed
@@ -581,12 +561,15 @@ public class ClientView extends FrameView {
 
     private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
         // TODO add your handling code here:
-//        if (aboutBox == null) {
-//            JFrame mainFrame = ClientApp.getApplication().getMainFrame();
-//            aboutBox = new ClientAboutBox(mainFrame);
-//            aboutBox.setLocationRelativeTo(mainFrame);
-//        }
-//        ClientApp.getApplication().show(aboutBox);
+        jToggleBtnAbout.setSelected(true);
+        if (aboutBox == null) {
+            aboutBox = new ClientAboutBox(this.getFrame(),true);
+            aboutBox.setVisible(true);
+        }
+        else
+        {
+            aboutBox.setVisible(true);
+        }
     }//GEN-LAST:event_jToggleBtnAboutMousePressed
 
     //click on button Xem phong

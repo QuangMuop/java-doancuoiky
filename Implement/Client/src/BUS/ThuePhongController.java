@@ -97,8 +97,8 @@ public class ThuePhongController {
         return phong.getIdLoaiPhong().getGia() * soNgayThue;
     }
 
-    public ArrayList<ThuePhong> layDSThuePhong(int nam, int thang) {
-        return thuePhongDAO.getDSThuePhong(nam, thang);
+    public ArrayList<ThuePhong> layDSThuePhong(int tuThang, int denThang, int nam) {
+        return thuePhongDAO.getDSThuePhong(tuThang, denThang, nam);
     }
 
     public int tinhTienThuePhong(ThuePhong thuePhong, int soNgayThue) {

@@ -44,8 +44,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         
         this.mainFrame = parent;
 
-        thuePhongController = new ThuePhongController();        
-
+        thuePhongController = new ThuePhongController();       
         thuePhong = new ThuePhong();
     }
 
@@ -81,6 +80,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableKhachHang = new javax.swing.JTable();
         jBtnThemKhach = new javax.swing.JButton();
+        jBtnXoaKhach = new javax.swing.JButton();
         bgLabel3 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -199,11 +199,11 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 7;
-        gridBagConstraints.insets = new java.awt.Insets(22, 100, 1, 100);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 10);
         jPanel2.add(jBtnThuePhong, gridBagConstraints);
 
         jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
@@ -312,6 +312,11 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jTableKhachHang.setName("jTableKhachHang"); // NOI18N
         jTableKhachHang.setOpaque(false);
         jTableKhachHang.setSelectionBackground(resourceMap.getColor("jTableKhachHang.selectionBackground")); // NOI18N
+        jTableKhachHang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTableKhachHangKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableKhachHang);
         jTableKhachHang.getColumnModel().getColumn(0).setResizable(false);
         jTableKhachHang.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("jTableKhachHang.columnModel.title0")); // NOI18N
@@ -331,7 +336,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
@@ -343,11 +348,25 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 10);
+        jPanel2.add(jBtnThemKhach, gridBagConstraints);
+
+        jBtnXoaKhach.setText(resourceMap.getString("jBtnXoaKhach.text")); // NOI18N
+        jBtnXoaKhach.setName("jBtnXoaKhach"); // NOI18N
+        jBtnXoaKhach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jBtnXoaKhachMousePressed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(22, 12, 0, 0);
-        jPanel2.add(jBtnThemKhach, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 10);
+        jPanel2.add(jBtnXoaKhach, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -377,6 +396,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         //lay danh sach phong chua thue va add vao combobox
         WorkerGetListPhong workerPhong = new WorkerGetListPhong();
         workerPhong.execute();
+
+        //remove old data on table
+        clearTableData();
+
         try {
             lstPhong = workerPhong.get();
         } catch (InterruptedException ex) {
@@ -386,7 +409,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
 
         //lstPhong = phongController.getDSPhongChuaThue();
-        if(lstPhong!=null)
+        if(lstPhong!=null && lstPhong.size()>0)
         {
             initComboBoxMaPhong();
         }
@@ -403,7 +426,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             Logger.getLogger(JPanelThuePhong.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if(lstLoaiThue!=null)
+        if(lstLoaiThue!=null && lstLoaiThue.size()>0)
         {
             initComboBoxLoaiThue();
         }
@@ -444,7 +467,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private void hienThiThongTinPhong(Phong phong)
     {
         this.jLabelLoaiPhong.setText(phong.getIdLoaiPhong().getTen());
-        this.jLabelGiaTien.setText("" + phong.getGia());
+        int giaTien = phong.getGia() + phong.getIdLoaiPhong().getGia();
+        this.jLabelGiaTien.setText("" + giaTien);
         this.lLabelLau.setText("" + phong.getLau());
     }
 
@@ -509,6 +533,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             {
                 thuePhong.addKhachHang(themKhachDlg.getKhachHang());
                 updateTableKhachHang();
+                this.jBtnXoaKhach.setEnabled(true);
             }
         }
         else
@@ -517,13 +542,41 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jBtnThemKhachMousePressed
 
+    private void jTableKhachHangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableKhachHangKeyReleased
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTableKhachHangKeyReleased
+
+    private void jBtnXoaKhachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXoaKhachMousePressed
+        // TODO add your handling code here:
+        int index = jTableKhachHang.getSelectedRow();
+        if(index!=-1)
+        {
+            ArrayList<KhachHang> arr = thuePhong.getLstKhachHang();
+            arr.remove(index);
+            updateTableKhachHang();
+            if(arr.size()==0)
+                jBtnXoaKhach.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnXoaKhachMousePressed
+
+    private void clearTableData()
+    {
+        String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
+        DefaultTableModel model = new DefaultTableModel(header, 4);
+
+        jTableKhachHang.setModel(model);
+
+        jTableKhachHang.getSelectedRow();
+    }
+
     private void updateTableKhachHang()
     {
         //update table khach hang
         ArrayList<KhachHang> arr = thuePhong.getLstKhachHang();
 
         String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
-        DefaultTableModel model = new DefaultTableModel(header, arr.size());
+        DefaultTableModel model = new DefaultTableModel(header, 0);
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -578,6 +631,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private javax.swing.JLabel imgRoom;
     private javax.swing.JButton jBtnThemKhach;
     private javax.swing.JButton jBtnThuePhong;
+    private javax.swing.JButton jBtnXoaKhach;
     private javax.swing.JComboBox jCbLoaiThue;
     private javax.swing.JComboBox jCbMaPhong;
     private javax.swing.JLabel jLabel1;
@@ -604,6 +658,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private ArrayList<Phong> lstPhong;
     private ArrayList<LoaiThue> lstLoaiThue;
     private ThuePhong thuePhong;
+
 }
 
 class WorkerGetListPhong extends SwingWorker<ArrayList<Phong>, Void>

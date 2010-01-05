@@ -8,10 +8,11 @@ import org.jdesktop.application.Action;
 
 public class ClientAboutBox extends javax.swing.JDialog {
 
-    public ClientAboutBox(java.awt.Frame parent) {
-        super(parent);
+    public ClientAboutBox(java.awt.Frame parent, boolean isModal) {
+        super(parent, isModal);
         initComponents();
         getRootPane().setDefaultButton(closeButton);
+        this.setLocationRelativeTo(parent);
     }
 
     @Action public void closeAboutBox() {
