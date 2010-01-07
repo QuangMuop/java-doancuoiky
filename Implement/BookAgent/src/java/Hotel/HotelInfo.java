@@ -1,6 +1,7 @@
 
 package Hotel;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -8,6 +9,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 
 /**
@@ -28,18 +31,34 @@ public class HotelInfo {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
         return address;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getDescription() {
         return description;
     }
 
+    public void serDescription(String description) {
+        this.description = description;
+    }
+    
     public int getNumberOfRooms() {
         return numberOfRooms;
     }
@@ -115,5 +134,35 @@ public class HotelInfo {
 
     static public HotelInfo load(Element xmlNode) {
         return new HotelInfo(xmlNode);
+    }
+
+    /**
+     * Static function to get free id for new hotel
+     * @return id, max id of all ids are exist
+     */
+    static public int getHotelFreeId() {
+        int id = -1;
+
+
+        try {
+            Document dom = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("");
+            NodeList lstHotels = dom.getDocumentElement().getElementsByTagName("KhachSan");
+            for (int i = 0; i < lstHotels.getLength(); i++) {
+                int hid = Integer.parseInt(((Element) lstHotels.item(i)).getAttribute("id"));
+                if (id < hid) {
+                    id = hid;
+                }
+            }
+            // id = max id
+            id++;
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(HotelInfo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(HotelInfo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(HotelInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return id;
     }
 }

@@ -33,19 +33,21 @@ import org.xml.sax.SAXException;
  * @author hvu
  */
 @WebService()
-public class NewWebService {
+public class AgentService {
 
     /**
-     * Web service operation
+     * Web service addNewHotel
      */
     @WebMethod(operationName = "operation")
-    public Boolean operation(@WebParam(name = "hotel")
+    public Boolean addNewHotel(@WebParam(name = "hotel")
     final HotelInfo hotel) {
         try {
             //TODO write your implementation code here:
             // read from file
             Document dom = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("");
             dom.normalize();
+            int hid = HotelInfo.getHotelFreeId();
+            hotel.setId(hid);
             dom.getDocumentElement().appendChild(hotel.toXMLNode());
 
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -53,18 +55,17 @@ public class NewWebService {
             StreamResult res = new StreamResult(new File(""));
 
             transformer.transform(src, res);
-        } catch (TransformerException ex) {
-            Logger.getLogger(NewWebService.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(NewWebService.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(NewWebService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch (ParserConfigurationException ex) {
-            Logger.getLogger(NewWebService.class.getName()).log(Level.SEVERE, null, ex);
+        catch (TransformerException ex) {
+            Logger.getLogger(AgentService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(AgentService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AgentService.class.getName()).log(Level.SEVERE, null, ex);
+        }        catch (ParserConfigurationException ex) {
+            Logger.getLogger(AgentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return true;
     }
 
-    
 }

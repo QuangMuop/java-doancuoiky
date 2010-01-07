@@ -16,7 +16,7 @@
         <servlet-class>Agent.BookController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewWebService</servlet-name>
+        <servlet-name>AgentService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
         </servlet>
@@ -33,8 +33,8 @@
         <url-pattern>/book</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewWebService</servlet-name>
-        <url-pattern>/NewWebService</url-pattern>
+        <servlet-name>AgentService</servlet-name>
+        <url-pattern>/AgentService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
