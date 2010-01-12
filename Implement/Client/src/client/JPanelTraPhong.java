@@ -383,7 +383,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
         jPanel2.add(jCbMaPhong, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -427,6 +427,10 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             initComboBoxMaPhong();
             hienThiThongTinThuePhong(lstThuePhong.get(0));
         }
+        else
+        {
+            clearData();
+        }
     }
 
     private void hienThiThongTinThuePhong(ThuePhong thuePhong) {
@@ -445,16 +449,44 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         Date ngayThue = thuePhong.getNgayThue();
         jLabelNgayThue.setText(sdf.format(ngayThue));
                 
-        int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra);
+        int soNgayThue = MyDateTime.SubDate(ngayThue, ngayTra) + 1;
         jLabelSoNgayThue.setText("" + soNgayThue);        
 
-        jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(phong, soNgayThue));       
+        jLabelTongTien.setText("" + thuePhongController.tinhTienThuePhong(thuePhong, soNgayThue));
 
         //hien thi thong tin tren table
         ArrayList<KhachHang> arrKhach = thuePhong.getLstKhachHang();
+        fillTableKhachHang(arrKhach);
+    }
+
+    private void fillTableKhachHang(ArrayList<KhachHang> arrKhach)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        jTableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
+            header,0
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        DefaultTableModel model = (DefaultTableModel) jTableKhachHang.getModel();
+
         int i;
-        String[] header = new String[] { "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia" };
-        DefaultTableModel model = new DefaultTableModel(header, 0);
         for(i=0;i<arrKhach.size();i++)
         {
             KhachHang khach = arrKhach.get(i);
@@ -478,8 +510,6 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             model.addRow(arr);
 
         }
-
-        jTableKhachHang.setModel(model);
     }
 
     private void initComboBoxMaPhong() {
@@ -493,6 +523,25 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             model.addElement(phong.getId());
         }
         jCbMaPhong.setModel(model);
+    }
+
+    private void clearData()
+    {
+        //clear data in combobox
+        DefaultComboBoxModel model = new DefaultComboBoxModel();        
+        jCbMaPhong.setModel(model);
+        
+        //clear data in jtable
+        DefaultTableModel tableModel = new DefaultTableModel(header, 0);
+        jTableKhachHang.setModel(tableModel);
+        
+        //clear all info
+        jLabelTongTien.setText("");
+        jLabelDonGia.setText("");
+        jLabelLoaiPhong.setText("");
+        jLabelNgayThue.setText("");
+        jLabelSoNgayThue.setText("");
+        jLabelSoNguoiCuTru.setText("");        
     }
 
     private ThuePhong timThuePhongTheoMaPhong(int id)
@@ -531,6 +580,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             else
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                initData();
             }
         }
         catch(Exception ex)
@@ -580,10 +630,10 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private javax.swing.JTable jTableKhachHang;
     // End of variables declaration//GEN-END:variables
 
+    String[] header = new String[] { "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia" };
+
     private ArrayList<ThuePhong> lstThuePhong;
-    
     private ThuePhongController thuePhongController;
-    
 }
 
 class WorkerTraPhong extends SwingWorker<ArrayList<ThuePhong>, Void>

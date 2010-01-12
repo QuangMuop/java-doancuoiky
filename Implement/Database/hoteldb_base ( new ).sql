@@ -1,4 +1,4 @@
-﻿CREATE DATABASE IF NOT EXISTS `hoteldb`;
+CREATE DATABASE IF NOT EXISTS `hoteldb`;
 
 USE `hoteldb`;
 
@@ -15,8 +15,9 @@ DROP TABLE IF EXISTS `phong`;
 -- tao bang loai khach hang
 DROP TABLE IF EXISTS `hoteldb`.`loai_khach_hang`;
 CREATE TABLE  `hoteldb`.`loai_khach_hang` (
-  `id` INTEGER unsigned NOT NULL,
+  `id` Integer unsigned NOT NULL,
   `ten_loai_khach_hang` text NOT NULL,
+  `don_gia` integer unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 

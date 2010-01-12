@@ -38,8 +38,17 @@ public class JPanelXemPhong extends javax.swing.JPanel {
 
         this.mainFrame = parent;
 
-        jSplitPane1.getTopComponent().setSize(686, 5000);
-        jSplitPane1.getBottomComponent().setSize(686, 20);
+        //set icon for button
+        ClassLoader cldr = this.getClass().getClassLoader();
+        java.net.URL imageURL;
+        imageURL = cldr.getResource("client/resources/RoomAvailable.png");
+        this.iconPhongConTrong = new ImageIcon(imageURL);
+
+        imageURL = cldr.getResource("client/resources/RoomNotAvailable.png");
+        this.iconPhongDaThue = new ImageIcon(imageURL);
+
+        jSplitPane1.getTopComponent().setSize(686, 500);
+        jSplitPane1.getBottomComponent().setSize(686, 100);
 
         //new cac doi tuong
         phongController = new PhongController();
@@ -47,19 +56,9 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         //lay ra lau cao nhat cua khach san
         maxFloor = phongController.getLauCaoNhat();
 
-        //set icon for button
-        ClassLoader cldr = this.getClass().getClassLoader();
-        java.net.URL imageURL;
-        imageURL = cldr.getResource("client/resources/RoomAvailable.png");
-        this.iconPhongConTrong = new ImageIcon(imageURL);
-        
-        imageURL = cldr.getResource("client/resources/RoomNotAvailable.png");
-        this.iconPhongDaThue = new ImageIcon(imageURL);
-
         //lay ra danh sach nhung phong hien co trong lau 1 va ve len panel
         if(maxFloor>0)
         {
-            repaintFloor(1);
             currentFloor = 1;
         }
     }
@@ -252,6 +251,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
+        repaintFloor(currentFloor);
         
     }//GEN-LAST:event_formComponentShown
 
@@ -385,6 +385,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             jPanelView.add(label, cLabel);
         }
 
+        jPanelView.validate();
         this.repaint();
     }
 

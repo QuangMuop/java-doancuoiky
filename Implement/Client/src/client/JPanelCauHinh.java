@@ -20,6 +20,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -130,10 +131,12 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
         jLabel1.setFont(resourceMap.getFont("jLabel1.font")); // NOI18N
         jLabel1.setForeground(resourceMap.getColor("jLabel1.foreground")); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jMainPanelNghiepVu.add(jLabel1, gridBagConstraints);
 
@@ -288,9 +291,16 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.Integer.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTableLoaiPhong.setEnabled(false);
@@ -326,7 +336,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -496,12 +506,90 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         }
 
         if(lstLoaiKhachHang!=null)
+        {
             initComboLoaiKhachHang();
+            initTableLoaiKhachHang();
+        }
 
         if(lstLoaiPhong!=null)
+        {
             initComboLoaiPhong();
+            initTableLoaiPhong();
+        }
 
     }//GEN-LAST:event_formComponentShown
+
+    private String[] headerLoaiKhachHang = new String [] {"Loai Khach Hang", "Don Gia" };
+    private void initTableLoaiKhachHang()
+    {
+        jTableLoaiKhachHang.setModel(new javax.swing.table.DefaultTableModel(
+            headerLoaiKhachHang,0
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        DefaultTableModel model = (DefaultTableModel) jTableLoaiKhachHang.getModel();
+        
+        int i;
+        for(i=0;i<lstLoaiKhachHang.size();i++)
+        {
+            Object[] arr = new Object[2];
+            
+            arr[0] = lstLoaiKhachHang.get(i).getTen();
+            arr[1] = lstLoaiKhachHang.get(i).getGia();
+            
+            model.addRow(arr);
+        }
+        
+        jTableLoaiKhachHang.setEnabled(false);
+    }
+    
+    private String[] headerLoaiPhong = new String [] {"Loai Phong", "Don Gia" };
+    private void initTableLoaiPhong()
+    {
+        jTableLoaiPhong.setModel(new javax.swing.table.DefaultTableModel(
+            headerLoaiPhong,0
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+        DefaultTableModel model = (DefaultTableModel) jTableLoaiPhong.getModel();
+        
+        int i;
+        for(i=0;i<lstLoaiPhong.size();i++)
+        {
+            Object[] arr = new Object[2];
+            
+            arr[0] = lstLoaiPhong.get(i).getTen();
+            arr[1] = lstLoaiPhong.get(i).getGia();
+            
+            model.addRow(arr);
+        }
+        
+        jTableLoaiPhong.setEnabled(false);
+    }
 
     private void initComboLoaiPhong() {
         jCbLoaiPhong.removeAllItems();

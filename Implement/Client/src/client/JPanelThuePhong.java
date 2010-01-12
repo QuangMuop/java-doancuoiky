@@ -434,6 +434,9 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         jTxtNgayThue.setText(sdf.format(cal.getTime()));
+
+        this.thuePhong = null;
+        thuePhong = new ThuePhong();
     }
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -511,6 +514,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             else
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                initData();
             }
         }
         catch(Exception ex)
@@ -532,7 +536,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(thuePhong.getLstKhachHang().size()<SO_NGUOI_CU_TRU_TOI_DA)
         {
-            JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(mainFrame, true);
+            JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(thuePhong.getLstKhachHang(), mainFrame, true);
             themKhachDlg.setVisible(true);
 
             if(themKhachDlg.IsValid())
@@ -567,8 +571,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     }//GEN-LAST:event_jBtnXoaKhachMousePressed
 
     private void clearTableData()
-    {
-        String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
+    {       
         DefaultTableModel model = new DefaultTableModel(header, 4);
 
         jTableKhachHang.setModel(model);
@@ -579,12 +582,32 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private void updateTableKhachHang()
     {
         //update table khach hang
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
         ArrayList<KhachHang> arr = thuePhong.getLstKhachHang();
 
-        String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
-        DefaultTableModel model = new DefaultTableModel(header, 0);
+        jTableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
+            header,0
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        DefaultTableModel model = (DefaultTableModel) jTableKhachHang.getModel();
 
         int i;
         for(i=0;i<arr.size();i++)
@@ -601,8 +624,6 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
             model.addRow(arrObj);
         }
-
-        jTableKhachHang.setModel(model);
     }
 
     private LoaiThue layLoaiThueTheoTen(String ten)
@@ -665,6 +686,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private ArrayList<LoaiThue> lstLoaiThue;
     private ThuePhong thuePhong;
 
+    String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
 }
 
 class WorkerGetListPhong extends SwingWorker<ArrayList<Phong>, Void>

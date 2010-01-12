@@ -461,6 +461,46 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     
     private void hienThiDanhSachPhong(ArrayList<Phong> lst)
     {
+        jTableResult.setModel(new javax.swing.table.DefaultTableModel(
+            headerTable,0
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        DefaultTableModel model = (DefaultTableModel) jTableResult.getModel();
+
+        int i;
+        for(i=0;i<lst.size();i++)
+        {
+            Object[] arr = new Object[4];
+
+            Phong phong = lst.get(i);
+            arr[0] = phong.getId();
+            arr[1] = phong.getIdLoaiPhong().getTen();
+            arr[2] = phong.getIdLoaiPhong().getGia() + phong.getGia();
+            arr[3] = phong.getIdTinhTrang().getTen();
+
+            model.addRow(arr);
+        }
+
+        //jTableResult.setModel(model);
+
+        /*
         DefaultTableModel model = new DefaultTableModel(headerTable, 0);
         
         int i;
@@ -476,8 +516,10 @@ public class JPanelTimPhong extends javax.swing.JPanel {
             
             model.addRow(arr);
         }
-        
+
         jTableResult.setModel(model);
+          */
+
     }
 
     private TinhTrangPhong timTinhTrangPhongTheoTen(String ten)

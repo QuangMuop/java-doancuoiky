@@ -7,6 +7,7 @@ package BUS;
 
 import DAO.DAOFactory;
 import DAO.IThuePhongDAO;
+import DTO.KhachHang;
 import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
@@ -91,17 +92,14 @@ public class ThuePhongController {
     {
         return thuePhongDAO.getDSThuePhong();
     }
-
-    public int tinhTienThuePhong(Phong phong, int soNgayThue)
-    {
-        return phong.getIdLoaiPhong().getGia() * soNgayThue;
-    }
-
+    
     public ArrayList<ThuePhong> layDSThuePhong(int tuThang, int denThang, int nam) {
         return thuePhongDAO.getDSThuePhong(tuThang, denThang, nam);
     }
 
     public int tinhTienThuePhong(ThuePhong thuePhong, int soNgayThue) {
-        return thuePhong.getPhong().getIdLoaiPhong().getGia() * soNgayThue;
+        Phong phong = thuePhong.getPhong();
+        int gia = (phong.getGia() + phong.getIdLoaiPhong().getGia())*(soNgayThue+1);
+        return gia;
     }
 }
