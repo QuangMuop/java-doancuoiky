@@ -39,7 +39,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
     }
 
     /** Creates new form JDialogThemKhachHang */
-    public JDialogThemKhachHang(java.awt.Frame parent, boolean modal) {
+    public JDialogThemKhachHang(ArrayList<KhachHang> arrKhach, java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
@@ -53,6 +53,8 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
         
         //this.setLocationRelativeTo(parent);
         this.isValid = false;
+
+        this.lstKhach = arrKhach;
     }
 
     /** This method is called from within the constructor to
@@ -327,6 +329,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
     private void jBtnThemKhachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThemKhachMousePressed
         // TODO add your handling code here:
         try {
+
             //lay thong tin khach hang
             KhachHang khach = new KhachHang();
 
@@ -356,6 +359,16 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
             }
             else
             {
+                int i;
+                for(i=0;i<lstKhach.size();i++)
+                {
+                    if(lstKhach.get(i).getId().equals(khach.getId()))
+                    {
+                        JOptionPane.showMessageDialog(this.getComponent(0),"Khach hang da ton tai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                }
+
                 this.khachHang = khach;
                 this.isValid = true;
                 this.setVisible(false);
@@ -413,6 +426,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
     /**
     * @param args the command line arguments
     */
+    /*
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -426,6 +440,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
             }
         });
     }
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel3;
@@ -453,6 +468,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
 
     private KhachHangController khachController;
     private ArrayList<LoaiKhachHang> lstLoaiKhachHang;
+    private ArrayList<KhachHang> lstKhach;
     private KhachHang khachHang;
     private boolean isValid;
 }
