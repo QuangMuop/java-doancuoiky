@@ -390,9 +390,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         add(jPanel7, "card3");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        // TODO add your handling code here:
-                
+    private void initData()
+    {
         //lay danh sach phong chua thue va add vao combobox
         WorkerGetListPhong workerPhong = new WorkerGetListPhong();
         workerPhong.execute();
@@ -435,7 +434,13 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         jTxtNgayThue.setText(sdf.format(cal.getTime()));
+    }
 
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+
+        initData();
+        
     }//GEN-LAST:event_formComponentShown
 
     private void initComboBoxLoaiThue()
@@ -501,6 +506,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             if(error.equals(""))
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                initData();
             }
             else
             {
