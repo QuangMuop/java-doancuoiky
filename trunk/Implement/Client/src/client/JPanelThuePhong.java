@@ -12,10 +12,12 @@
 package client;
 
 import BUS.PhongController;
+import BUS.ThamSoController;
 import BUS.ThuePhongController;
 import DTO.KhachHang;
 import DTO.LoaiThue;
 import DTO.Phong;
+import DTO.ThamSo;
 import DTO.ThuePhong;
 import Utils.MyDateTime;
 import java.text.SimpleDateFormat;
@@ -25,6 +27,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -36,15 +39,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JPanelThuePhong extends javax.swing.JPanel {
     private JFrame mainFrame;
-    private int SO_NGUOI_CU_TRU_TOI_DA = 3;
 
+    private int SoKhachHangToiDa ;
+    private int TienDatCocKhiThue;
+
+    private ThamSoController thamSoController;
     /** Creates new form JPanelThuePhong */
     public JPanelThuePhong(JFrame parent) {
         initComponents();        
         
         this.mainFrame = parent;
 
-        thuePhongController = new ThuePhongController();       
+        thamSoController = new ThamSoController();
+        thuePhongController = new ThuePhongController();
+
         thuePhong = new ThuePhong();
     }
 
@@ -81,6 +89,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jTableKhachHang = new javax.swing.JTable();
         jBtnThemKhach = new javax.swing.JButton();
         jBtnXoaKhach = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jlabelTienDatCoc = new javax.swing.JLabel();
         bgLabel3 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -174,18 +184,19 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel42.setName("jLabel42"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 28, 2, 37);
         jPanel2.add(jLabel42, gridBagConstraints);
 
         jTxtNgayThue.setBackground(resourceMap.getColor("jTxtNgayThue.background")); // NOI18N
+        jTxtNgayThue.setEditable(false);
         jTxtNgayThue.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         jTxtNgayThue.setToolTipText(resourceMap.getString("jTxtNgayThue.toolTipText")); // NOI18N
         jTxtNgayThue.setName("jTxtNgayThue"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel2.add(jTxtNgayThue, gridBagConstraints);
@@ -250,16 +261,21 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jLabel2.setName("jLabel2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 28, 2, 16);
         jPanel2.add(jLabel2, gridBagConstraints);
 
         jCbLoaiThue.setBackground(resourceMap.getColor("jCbLoaiThue.background")); // NOI18N
         jCbLoaiThue.setName("jCbLoaiThue"); // NOI18N
+        jCbLoaiThue.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCbLoaiThueItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel2.add(jCbLoaiThue, gridBagConstraints);
@@ -368,6 +384,24 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 10);
         jPanel2.add(jBtnXoaKhach, gridBagConstraints);
 
+        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 28, 2, 0);
+        jPanel2.add(jLabel4, gridBagConstraints);
+
+        jlabelTienDatCoc.setText(resourceMap.getString("jlabelTienDatCoc.text")); // NOI18N
+        jlabelTienDatCoc.setName("jlabelTienDatCoc"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
+        jPanel2.add(jlabelTienDatCoc, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -395,6 +429,18 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         //lay danh sach phong chua thue va add vao combobox
         WorkerGetListPhong workerPhong = new WorkerGetListPhong();
         workerPhong.execute();
+
+        ThamSo thamSo = thamSoController.layThamSo("SoKhachHangToiDa");
+        if(thamSo!=null && thamSo.isUse())
+            this.SoKhachHangToiDa = thamSo.getValue();
+        else
+            this.SoKhachHangToiDa = -1;
+        
+        thamSo = thamSoController.layThamSo("TienDatCocKhiThue");
+        if(thamSo!=null && thamSo.isUse())
+            this.TienDatCocKhiThue = thamSo.getValue();
+        else
+            this.TienDatCocKhiThue = -1;
 
         //remove old data on table
         clearTableData();
@@ -435,38 +481,50 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         jTxtNgayThue.setText(sdf.format(cal.getTime()));
 
+        this.jlabelTienDatCoc.setText("" + this.TienDatCocKhiThue);
+
         this.thuePhong = null;
         thuePhong = new ThuePhong();
     }
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-
         initData();
         
     }//GEN-LAST:event_formComponentShown
 
     private void initComboBoxLoaiThue()
     {
-        jCbLoaiThue.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
 
         int i;
         //add item to combobox
         for(i=0;i<lstLoaiThue.size();i++)
         {
-            jCbLoaiThue.addItem(lstLoaiThue.get(i).getLoai());
+            model.addElement(lstLoaiThue.get(i).getLoai());
         }
+
+        jCbLoaiThue.setModel(model);
+
+        if(lstLoaiThue.get(0).getLoai().toLowerCase().equals("dat phong"))
+        {
+            this.jTxtNgayThue.setEditable(true);
+        }
+        else
+            this.jTxtNgayThue.setEditable(false);
     }
     
     private void initComboBoxMaPhong()
     {
-        jCbMaPhong.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
 
         int i;
         for(i=0;i<lstPhong.size();i++)
         {
-            jCbMaPhong.addItem(lstPhong.get(i).getId());
+            model.addElement(lstPhong.get(i).getId());
         }
+
+        jCbMaPhong.setModel(model);
 
         jCbMaPhong.setSelectedIndex(0);
         hienThiThongTinPhong(lstPhong.get(0));
@@ -503,7 +561,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
             thuePhong.setPhong(layPhongTheoId(Integer.parseInt(jCbMaPhong.getSelectedItem().toString())));
 
-            thuePhong.setTongGia(0);
+            if(this.TienDatCocKhiThue == -1)
+                thuePhong.setTongGia(0);
+            else
+                thuePhong.setTongGia(this.TienDatCocKhiThue);
 
             String error = thuePhongController.tiepNhanViecThuePhong(thuePhong);
             if(error.equals(""))
@@ -534,7 +595,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
     private void jBtnThemKhachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThemKhachMousePressed
         // TODO add your handling code here:
-        if(thuePhong.getLstKhachHang().size()<SO_NGUOI_CU_TRU_TOI_DA)
+
+        if(this.SoKhachHangToiDa == -1 || thuePhong.getLstKhachHang().size()<this.SoKhachHangToiDa)
         {
             JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(thuePhong.getLstKhachHang(), mainFrame, true);
             themKhachDlg.setVisible(true);
@@ -548,7 +610,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
         else
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),"Chu y: So nguoi thue toi da la " + SO_NGUOI_CU_TRU_TOI_DA + " nguoi!" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Chu y: So nguoi thue toi da la " + this.SoKhachHangToiDa + " nguoi!" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThemKhachMousePressed
 
@@ -569,6 +631,19 @@ public class JPanelThuePhong extends javax.swing.JPanel {
                 jBtnXoaKhach.setEnabled(false);
         }
     }//GEN-LAST:event_jBtnXoaKhachMousePressed
+
+    private void jCbLoaiThueItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiThueItemStateChanged
+        // TODO add your handling code here:
+        LoaiThue loaiThue = layLoaiThueTheoTen(jCbLoaiThue.getSelectedItem().toString());
+        if(loaiThue.getLoai().toLowerCase().equals("dat phong"))
+        {
+            this.jTxtNgayThue.setEditable(true);
+        }
+        else
+        {
+            this.jTxtNgayThue.setEditable(false);
+        }
+    }//GEN-LAST:event_jCbLoaiThueItemStateChanged
 
     private void clearTableData()
     {       
@@ -668,6 +743,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabelGiaTien;
@@ -677,6 +753,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableKhachHang;
     private javax.swing.JFormattedTextField jTxtNgayThue;
+    private javax.swing.JLabel jlabelTienDatCoc;
     private javax.swing.JLabel lLabelLau;
     // End of variables declaration//GEN-END:variables
     
