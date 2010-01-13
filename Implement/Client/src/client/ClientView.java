@@ -195,11 +195,11 @@ public class ClientView extends FrameView {
         statusPanel.setLayout(statusPanelLayout);
         statusPanelLayout.setHorizontalGroup(
             statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 564, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -251,7 +251,7 @@ public class ClientView extends FrameView {
                 .addComponent(jLabelLogo)
                 .addGap(134, 134, 134)
                 .addComponent(jLabelTenKhachSan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabelThoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jTopPanelLayout.setVerticalGroup(
@@ -277,7 +277,6 @@ public class ClientView extends FrameView {
         btnGroupMainController.add(jToggleBtnXemPhong);
         jToggleBtnXemPhong.setFont(resourceMap.getFont("jToggleBtnXemPhong.font")); // NOI18N
         jToggleBtnXemPhong.setIcon(resourceMap.getIcon("jToggleBtnXemPhong.icon")); // NOI18N
-        jToggleBtnXemPhong.setSelected(true);
         jToggleBtnXemPhong.setText(resourceMap.getString("jToggleBtnXemPhong.text")); // NOI18N
         jToggleBtnXemPhong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleBtnXemPhong.setIconTextGap(0);
@@ -292,7 +291,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -317,7 +316,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -342,7 +341,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -367,7 +366,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -392,7 +391,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -417,7 +416,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -442,7 +441,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -467,7 +466,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -478,6 +477,7 @@ public class ClientView extends FrameView {
         btnGroupMainController.add(jToggleBtnAbout);
         jToggleBtnAbout.setFont(resourceMap.getFont("jToggleBtnAbout.font")); // NOI18N
         jToggleBtnAbout.setIcon(resourceMap.getIcon("jToggleBtnAbout.icon")); // NOI18N
+        jToggleBtnAbout.setSelected(true);
         jToggleBtnAbout.setText(resourceMap.getString("jToggleBtnAbout.text")); // NOI18N
         jToggleBtnAbout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleBtnAbout.setIconTextGap(0);
@@ -492,7 +492,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -560,15 +560,8 @@ public class ClientView extends FrameView {
 
     private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
         // TODO add your handling code here:
-        jToggleBtnAbout.setSelected(true);
-        if (aboutBox == null) {
-            aboutBox = new ClientAboutBox(this.getFrame(),true);
-            aboutBox.setVisible(true);
-        }
-        else
-        {
-            aboutBox.setVisible(true);
-        }
+        CardLayout cl = (CardLayout)jRightPanel.getLayout();
+        cl.show(jRightPanel, panelIntro.getName());
     }//GEN-LAST:event_jToggleBtnAboutMousePressed
 
     //click on button Xem phong
@@ -615,9 +608,13 @@ public class ClientView extends FrameView {
     private JPanelTimPhong panelTimPhong;
     private JPanelTraPhong panelTraPhong;    
     private JPanelXemPhong panelXemPhong;
-    
+    private JPanelIntro panelIntro;
+
     private void myInit() {
         //init panels
+        panelIntro = new JPanelIntro();
+        panelIntro.setName("panelIntro");
+
         panelCauhinh = new JPanelCauHinh();
         panelCauhinh.setName("panelCauhinh");
 
@@ -640,6 +637,7 @@ public class ClientView extends FrameView {
         panelXemPhong.setName("panelXemPhong");
 
         //load and paint default panel
+        jRightPanel.add(panelIntro,panelIntro.getName());
         jRightPanel.add(panelXemPhong,panelXemPhong.getName()); 
         jRightPanel.add(panelThuePhong,panelThuePhong.getName());
         jRightPanel.add(panelCauhinh,panelCauhinh.getName());

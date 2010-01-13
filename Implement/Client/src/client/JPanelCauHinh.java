@@ -12,8 +12,10 @@
 package client;
 
 import BUS.KhachHangController;
+import BUS.KhachSanController;
 import BUS.PhongController;
 import BUS.ThamSoController;
+import DTO.KhachSan;
 import DTO.LoaiKhachHang;
 import DTO.LoaiPhong;
 import DTO.ThamSo;
@@ -40,6 +42,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         phongController = new PhongController();
         khachController = new KhachHangController();
         thamSoController = new ThamSoController();
+        khachSanController = new KhachSanController();
     }
 
     /** This method is called from within the constructor to
@@ -55,6 +58,21 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelHeThong = new javax.swing.JPanel();
         jMainPanelHeThong = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jtxtTen = new javax.swing.JTextField();
+        jTxtDiaChi = new javax.swing.JTextField();
+        jTxtEmail = new javax.swing.JTextField();
+        jTxtWebsite = new javax.swing.JTextField();
+        jFtxtDienThoai = new javax.swing.JFormattedTextField();
+        jFtxtFax = new javax.swing.JFormattedTextField();
+        jBtnLuu = new javax.swing.JButton();
+        jBtnSua = new javax.swing.JButton();
         bgLabel1 = new javax.swing.JLabel();
         jPanelNghiepVu = new javax.swing.JPanel();
         jMainPanelNghiepVu = new javax.swing.JPanel();
@@ -98,17 +116,170 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
         jMainPanelHeThong.setName("jMainPanelHeThong"); // NOI18N
         jMainPanelHeThong.setOpaque(false);
+        jMainPanelHeThong.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout jMainPanelHeThongLayout = new javax.swing.GroupLayout(jMainPanelHeThong);
-        jMainPanelHeThong.setLayout(jMainPanelHeThongLayout);
-        jMainPanelHeThongLayout.setHorizontalGroup(
-            jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        jMainPanelHeThongLayout.setVerticalGroup(
-            jMainPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelCauHinh.class);
+        jLabel16.setFont(resourceMap.getFont("jLabel16.font")); // NOI18N
+        jLabel16.setForeground(resourceMap.getColor("jLabel16.foreground")); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText(resourceMap.getString("jLabel16.text")); // NOI18N
+        jLabel16.setName("jLabel16"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 20, 5);
+        jMainPanelHeThong.add(jLabel16, gridBagConstraints);
+
+        jLabel9.setText(resourceMap.getString("jLabel9.text")); // NOI18N
+        jLabel9.setName("jLabel9"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel9, gridBagConstraints);
+
+        jLabel10.setText(resourceMap.getString("jLabel10.text")); // NOI18N
+        jLabel10.setName("jLabel10"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel10, gridBagConstraints);
+
+        jLabel11.setText(resourceMap.getString("jLabel11.text")); // NOI18N
+        jLabel11.setName("jLabel11"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel11, gridBagConstraints);
+
+        jLabel12.setText(resourceMap.getString("jLabel12.text")); // NOI18N
+        jLabel12.setName("jLabel12"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel12, gridBagConstraints);
+
+        jLabel13.setText(resourceMap.getString("jLabel13.text")); // NOI18N
+        jLabel13.setName("jLabel13"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel13, gridBagConstraints);
+
+        jLabel14.setText(resourceMap.getString("jLabel14.text")); // NOI18N
+        jLabel14.setName("jLabel14"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jMainPanelHeThong.add(jLabel14, gridBagConstraints);
+
+        jtxtTen.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
+        jtxtTen.setEditable(false);
+        jtxtTen.setText(resourceMap.getString("jtxtTen.text")); // NOI18N
+        jtxtTen.setName("jtxtTen"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jtxtTen, gridBagConstraints);
+
+        jTxtDiaChi.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
+        jTxtDiaChi.setEditable(false);
+        jTxtDiaChi.setText(resourceMap.getString("jTxtDiaChi.text")); // NOI18N
+        jTxtDiaChi.setName("jTxtDiaChi"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jTxtDiaChi, gridBagConstraints);
+
+        jTxtEmail.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
+        jTxtEmail.setEditable(false);
+        jTxtEmail.setText(resourceMap.getString("jTxtEmail.text")); // NOI18N
+        jTxtEmail.setName("jTxtEmail"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jTxtEmail, gridBagConstraints);
+
+        jTxtWebsite.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
+        jTxtWebsite.setEditable(false);
+        jTxtWebsite.setText(resourceMap.getString("jTxtWebsite.text")); // NOI18N
+        jTxtWebsite.setName("jTxtWebsite"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jTxtWebsite, gridBagConstraints);
+
+        jFtxtDienThoai.setBackground(resourceMap.getColor("jFtxtDienThoai.background")); // NOI18N
+        jFtxtDienThoai.setEditable(false);
+        jFtxtDienThoai.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFtxtDienThoai.setText(resourceMap.getString("jFtxtDienThoai.text")); // NOI18N
+        jFtxtDienThoai.setName("jFtxtDienThoai"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jFtxtDienThoai, gridBagConstraints);
+
+        jFtxtFax.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
+        jFtxtFax.setEditable(false);
+        jFtxtFax.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFtxtFax.setText(resourceMap.getString("jFtxtFax.text")); // NOI18N
+        jFtxtFax.setName("jFtxtFax"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
+        jMainPanelHeThong.add(jFtxtFax, gridBagConstraints);
+
+        jBtnLuu.setText(resourceMap.getString("jBtnLuu.text")); // NOI18N
+        jBtnLuu.setEnabled(false);
+        jBtnLuu.setName("jBtnLuu"); // NOI18N
+        jBtnLuu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jBtnLuuMouseReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 5, 0);
+        jMainPanelHeThong.add(jBtnLuu, gridBagConstraints);
+
+        jBtnSua.setText(resourceMap.getString("jBtnSua.text")); // NOI18N
+        jBtnSua.setName("jBtnSua"); // NOI18N
+        jBtnSua.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jBtnSuaMouseReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(20, 60, 5, 60);
+        jMainPanelHeThong.add(jBtnSua, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -119,7 +290,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jPanelHeThong.add(jMainPanelHeThong, gridBagConstraints);
 
         bgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelCauHinh.class);
         bgLabel1.setIcon(resourceMap.getIcon("bgLabel1.icon")); // NOI18N
         bgLabel1.setText(resourceMap.getString("bgLabel1.text")); // NOI18N
         bgLabel1.setName("bgLabel1"); // NOI18N
@@ -595,6 +765,13 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         WorkerGetListThamSo workerGetThamSo = new WorkerGetListThamSo();
         workerGetThamSo.run();
 
+
+        khachSan = khachSanController.layKhachSan();
+        if(khachSan!=null)
+        {
+            hienThiThongTinKhachSan(khachSan);
+        }
+
         try {
             lstLoaiKhachHang = workerGetLoaiKhach.get();
         } catch (InterruptedException ex) {
@@ -646,6 +823,81 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             jCheckThamSo.setSelected(thamSo.isUse());
         }
     }//GEN-LAST:event_jcbThamSoItemStateChanged
+
+    private void hienThiThongTinKhachSan(KhachSan khachSan)
+    {
+        this.jtxtTen.setText(khachSan.getTen());
+        this.jTxtWebsite.setText(khachSan.getWebsite());
+        this.jTxtEmail.setText(khachSan.getEmail());
+        this.jTxtDiaChi.setText(khachSan.getDiaChi());
+        this.jFtxtDienThoai.setText(khachSan.getDienThoai());
+        this.jFtxtFax.setText(khachSan.getFax());        
+    }
+
+    private void jBtnLuuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnLuuMouseReleased
+        // TODO add your handling code here:
+        if(!this.jBtnLuu.isEnabled())
+            return;
+
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+            KhachSan tmp = new KhachSan();
+            tmp.setId(khachSan.getId());
+            tmp.setDiaChi(this.jTxtDiaChi.getText());
+            tmp.setDienThoai(this.jFtxtDienThoai.getText());
+            tmp.setEmail(this.jTxtEmail.getText());
+            tmp.setFax(this.jFtxtFax.getText());
+            tmp.setWebsite(this.jTxtWebsite.getText());
+            tmp.setTen(this.jtxtTen.getText());
+
+            if(khachSanController.capNhatKhachSan(tmp))
+            {
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+           }
+            else
+            {
+                 JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật thông tin khách sạn thất bại" , "Thông báo", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+        {
+            hienThiThongTinKhachSan(khachSan);
+        }
+
+
+        this.jBtnLuu.setEnabled(false);
+        this.jtxtTen.setEditable(false);
+        this.jTxtWebsite.setEditable(false);
+        this.jTxtEmail.setEditable(false);
+        this.jTxtDiaChi.setEditable(false);
+        this.jFtxtDienThoai.setEditable(false);
+        this.jFtxtFax.setEditable(false);
+
+        this.jBtnSua.setEnabled(true);
+
+    }//GEN-LAST:event_jBtnLuuMouseReleased
+
+    private void jBtnSuaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnSuaMouseReleased
+        // TODO add your handling code here:
+        if(!this.jBtnSua.isEnabled())
+            return;
+
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+            //set editable
+            this.jBtnLuu.setEnabled(true);
+            this.jtxtTen.setEditable(true);
+            this.jTxtWebsite.setEditable(true);
+            this.jTxtEmail.setEditable(true);
+            this.jTxtDiaChi.setEditable(true);
+            this.jFtxtDienThoai.setEditable(true);
+            this.jFtxtFax.setEditable(true);
+
+            this.jBtnSua.setEnabled(false);
+        }
+    }//GEN-LAST:event_jBtnSuaMouseReleased
 
 
     private String[] headerLoaiKhachHang = new String [] {"Loai Khach Hang", "Don Gia" };
@@ -813,16 +1065,27 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private javax.swing.JLabel imgConfig;
     private javax.swing.JButton jBtnCapNhat;
     private javax.swing.JButton jBtnChinhSua;
+    private javax.swing.JButton jBtnLuu;
+    private javax.swing.JButton jBtnSua;
     private javax.swing.JComboBox jCbLoaiKhach;
     private javax.swing.JComboBox jCbLoaiPhong;
     private javax.swing.JCheckBox jCheckThamSo;
+    private javax.swing.JFormattedTextField jFtxtDienThoai;
+    private javax.swing.JFormattedTextField jFtxtFax;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jMainPanelHeThong;
     private javax.swing.JPanel jMainPanelNghiepVu;
     private javax.swing.JPanel jPanelHeThong;
@@ -832,20 +1095,26 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableLoaiKhachHang;
     private javax.swing.JTable jTableLoaiPhong;
+    private javax.swing.JTextField jTxtDiaChi;
+    private javax.swing.JTextField jTxtEmail;
     private javax.swing.JFormattedTextField jTxtGiaKhach;
     private javax.swing.JFormattedTextField jTxtGiaPhong;
     private javax.swing.JFormattedTextField jTxtGiaTriThamSo;
+    private javax.swing.JTextField jTxtWebsite;
     private javax.swing.JComboBox jcbThamSo;
+    private javax.swing.JTextField jtxtTen;
     // End of variables declaration//GEN-END:variables
 
     PhongController phongController;
     KhachHangController khachController;
     ThamSoController thamSoController;
+    KhachSanController khachSanController;
     
     ArrayList<LoaiPhong> lstLoaiPhong;
     ArrayList<LoaiKhachHang> lstLoaiKhachHang;
     ArrayList<ThamSo> lstThamSo;
 
+    private KhachSan khachSan;
 }
 class WorkerGetListThamSo extends SwingWorker<ArrayList<ThamSo>, Void>
 {

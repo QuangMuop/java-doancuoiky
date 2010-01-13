@@ -46,4 +46,9 @@ public class MySqlDAOFactory extends DAOFactory {
     public IThamSoDAO getThamSoDAO() {
         return new MySqlThamSoDAO();
     }
+
+    @Override
+    public IKhachSanDAO getKhachSanDAO() {
+        return new MySqlKhachSanDAO();
+    }
 }

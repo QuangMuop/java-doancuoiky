@@ -123,8 +123,21 @@ CREATE TABLE  `hoteldb`.`thue_phong` (
   CONSTRAINT `FK_thue_phong_chi_tiet_thue` FOREIGN KEY (`id_chi_tiet_thue`) REFERENCES `chi_tiet_thue_phong` (`id`)
 ) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS `hoteldb`.`khach_san`;
+CREATE TABLE  `hoteldb`.`khach_san` (
+  `id` integer unsigned NOT NULL,
+  `Ten` text NOT NULL,
+  `dia_chi` text NOT NULL,
+  `dien_thoai` text NOT NULL,
+  `fax` text NOT NULL,
+  `email` text NOT NULL,
+  `website` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
 
 -- Insert data
+insert into khach_san values (1,'Khach san Huy Tuong','551/6 Le Quang Dinh P1 Go Vap HCM','0908957105','123456789','tuonghuy09@gmail.com','www.google.com');
+
 -- loai_khach_hang
 INSERT INTO `loai_khach_hang`(`id`, `ten_loai_khach_hang`) VALUES (0, 'Trong Nuoc'),
                                                                   (1, 'Nuoc Ngoai');
