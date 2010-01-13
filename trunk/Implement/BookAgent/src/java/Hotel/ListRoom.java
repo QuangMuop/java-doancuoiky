@@ -89,4 +89,8 @@ public class ListRoom {
             }
         }
     }
+
+    public int size() {
+        return this.rooms.size();
+    }
 }

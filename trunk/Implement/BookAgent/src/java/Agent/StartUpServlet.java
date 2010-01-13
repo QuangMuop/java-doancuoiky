@@ -5,7 +5,9 @@
 
 package Agent;
 
+import Hotel.Hotel;
 import Hotel.ListHotel;
+import Hotel.ListRoom;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +21,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class StartUpServlet extends HttpServlet {
 
+    private HotelModel hotelModel;
+    private RoomModel roomModel;
     public static String path;
-    public static ListHotel listHotels;
+    public static ListHotel LIST_HOTELS;
+    public static Hotel CURRENT_HOTEL;
+    public static ListRoom LIST_ROOMS;
+    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -33,9 +40,11 @@ public class StartUpServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            path = getServletContext().getRealPath("/");
+            // setup global variable on startup
+            //-----
             HotelModel model = new HotelModel();
-            listHotels = model.getHotels();
+            LIST_HOTELS = model.getListHotel();
+            
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         } finally { 
             out.close();

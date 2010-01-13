@@ -3,7 +3,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@page session="true" %>
-<%@page import="Agent.HotelController, Hotel.RoomInfo, java.util.*" %>
+<%@page import="Agent.*, Hotel.*, java.util.*" %>
 
 
 <html>
@@ -18,21 +18,19 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Số người tối đa</th>
-                    <th>Tình trạng</th>
+                    <th>Gia</th>
                     <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
         <%
-        List<RoomInfo> rooms = (List<RoomInfo>) request.getAttribute("rooms");
+        List<Room> rooms = (List<Room>) request.getAttribute("rooms");
         for (int i = 0; i < rooms.size(); i++) {
-            RoomInfo room = rooms.get(i);
+            Room room = rooms.get(i);
         %>
                 <tr>
                     <td><%= room.getId() %></td>
-                    <td><%= (room.getMaxPeople() == 0)? 4 : room.getMaxPeople() %></td>
-                    <td><%= (room.isCanStay())? "Trống" : "Không trống" %></td>
+                    <td><%= room.getCost() %></td>
                     <td>url</td>
                 </tr>
         <% } %>

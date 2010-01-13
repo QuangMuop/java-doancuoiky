@@ -1,15 +1,8 @@
 
 package Hotel;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 
 /**
@@ -120,5 +113,21 @@ public class Hotel {
 
     static public Hotel load(Element elem) {
         return new Hotel(elem);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Hotel) {
+            Hotel hotel = (Hotel) obj;
+            return this.id == hotel.id;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + this.id;
+        return hash;
     }
 }
