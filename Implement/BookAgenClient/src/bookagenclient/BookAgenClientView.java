@@ -300,6 +300,7 @@ public class BookAgenClientView extends FrameView {
         HotelRegisterService service = new HotelRegisterService();
         HotelRegister port = service.getHotelRegisterPort();
         String result = port.submit(hotel, lstRooms);
+        // show message box to confirm client
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

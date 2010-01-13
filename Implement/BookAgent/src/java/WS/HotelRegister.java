@@ -73,7 +73,9 @@ public class HotelRegister {
             // save
             hotels.addHotel(newHotel);
             hotels.save(Configuration.HOTELS_PATH);
-            
+
+            // neu thanh cong thi return id cua khach san duoc add
+            return String.valueOf(id);
         } catch (TransformerConfigurationException ex) {
             Logger.getLogger(HotelRegister.class.getName()).log(Level.SEVERE, null, ex);
             return ex.getMessage();
@@ -93,8 +95,5 @@ public class HotelRegister {
             Logger.getLogger(HotelRegister.class.getName()).log(Level.SEVERE, null, ex);
             return ex.getMessage();
         }
-
-        return "Hotel added";
     }
-
 }

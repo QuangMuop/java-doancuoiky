@@ -1,11 +1,12 @@
 <%@page session="true" %>
-<%@page import="Hotel.HotelInfo, Agent.HotelModel, Agent.StartUpServlet, java.util.*" %>
+<%@page import="Hotel.*, Agent.*, java.util.*" %>
+<jsp:useBean id="hotelModel" scope="application" class="Agent.HotelModel" />
 
 <div class="left-panel">
     <%
-    List<HotelInfo> hotels = StartUpServlet.listHotels;
-    for (int i = 0; i < hotels.size(); i++ ) {
-        HotelInfo h = hotels.get(i);
+    ListHotel listHotel = hotelModel.getListHotel();
+    for (int i = 0; i < listHotel.size(); i++) {
+        Hotel h = listHotel.getHotels().get(i);
     %>
     <ul>
         <li>

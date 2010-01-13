@@ -94,4 +94,8 @@ public class ListHotel {
             }
         }
     }
+
+    public int size() {
+        return this.hotels.size();
+    }
 }

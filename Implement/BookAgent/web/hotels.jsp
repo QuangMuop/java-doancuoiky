@@ -9,7 +9,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@page session="true" %>
-<%@page import="Hotel.HotelInfo, Agent.HotelModel, Agent.StartUpServlet, java.util.*" %>
+<%@page import="Hotel.*, Agent.*, Agent.*, java.util.*" %>
 
 
 <html>
@@ -21,7 +21,7 @@
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
         <%
-            HotelInfo hotel = (HotelInfo) request.getAttribute("hotel");
+            Hotel hotel = (Hotel) request.getAttribute("hotel");
             if (hotel != null) { %>
         <div class="main-panel">
             &nbsp;
@@ -34,15 +34,15 @@
                     </tr>
                     <tr>
                         <td>Địa chỉ</td>
-                        <td><%= hotel.getDescription() %></td>
-                    </tr>
-                    <tr>
-                        <td>Mô tả</td>
                         <td><%= hotel.getAddress() %></td>
                     </tr>
                     <tr>
+                        <td>Mô tả</td>
+                        <td><%= hotel.getDetail() %></td>
+                    </tr>
+                    <tr>
                         <td>Số phòng</td>
-                        <td><%= hotel.getNumberOfRooms() %></td>
+                        <td><%= hotel.getRoom() %></td>
                     </tr>
                 </tbody>
             </table>

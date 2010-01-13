@@ -5,7 +5,6 @@
 
 package Agent;
 
-import Hotel.Hotel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,16 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hvu
  */
-public class HotelController extends HttpServlet {
-    HotelModel hotelModel = new HotelModel();
-
-    private enum ACTION_CODE {
-        GET_HOTEL_INFO,
-        GET_HOTELS,
-        GET_ROOMS,
-        INVALID
-    }
-
+public class RoomController extends HttpServlet {
+   
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -38,28 +29,17 @@ public class HotelController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         try {
-            String action = request.getParameter("action");
-            int hid;
-
-            switch (mapActionCode(action)) {
-                case GET_HOTELS:
-                    break;
-                case GET_HOTEL_INFO:
-                    hid = Integer.parseInt(request.getParameter("hid"));
-                    request.setAttribute("hotel", getHotelInfo(hid));
-                    getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
-                    break;
-                case GET_ROOMS:
-//                    hid = Integer.parseInt(request.getParameter("hid"));
-//                    getAllRooms = (request.getParameter("all").equals("1"));
-//                    request.setAttribute("rooms", getRooms(hid, getAllRooms));
-//                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
-                    break;
-                case INVALID:
-                    break;
-            }
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet RoomController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet RoomController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            */
         } finally { 
             out.close();
         }
@@ -101,24 +81,4 @@ public class HotelController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private ACTION_CODE mapActionCode(String action) {
-        if (action.equals("get-hotels")) {
-            return ACTION_CODE.GET_HOTELS;
-        }
-        else if (action.equals("get-hotel-info")) {
-            return ACTION_CODE.GET_HOTEL_INFO;
-        }
-        else if (action.equals("get-rooms")) {
-            return ACTION_CODE.GET_ROOMS;
-        }
-        return ACTION_CODE.INVALID;
-    }
-
-    private Hotel getHotelInfo(int hid) {
-        return hotelModel.getHotelById(hid);
-    }
-
-//    private List<Room> getRooms(int hid, boolean getAllRooms) {
-//        return model.getRooms(hid, getAllRooms);
-//    }
 }
