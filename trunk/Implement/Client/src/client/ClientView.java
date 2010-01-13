@@ -6,7 +6,6 @@ package client;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
@@ -16,7 +15,6 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 
 /**
  * The application's main frame.
@@ -47,6 +45,7 @@ public class ClientView extends FrameView {
         jTopPanel.setMinimumSize(dimensionTop);
         jTopPanel.setSize(dimensionTop);
 
+        
         myInit();
                 
         // status bar initialization - message timeout, idle icon and busy animation, etc

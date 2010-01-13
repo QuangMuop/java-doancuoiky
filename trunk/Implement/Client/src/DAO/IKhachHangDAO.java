@@ -12,4 +12,5 @@ public interface IKhachHangDAO {
     public KhachHang getKhachHangTheoId(String id);
     public boolean insertKhachHang(KhachHang k);
     public boolean insertKhachHang(ArrayList<KhachHang> lstKhachHang);
+    public boolean checkKhachHangDaTonTai(String id);
 }
