@@ -5,10 +5,9 @@
 
 package Agent;
 
-import Hotel.HotelInfo;
+import Hotel.ListHotel;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 public class StartUpServlet extends HttpServlet {
 
     public static String path;
-    public static List<HotelInfo> listHotels;
+    public static ListHotel listHotels;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request

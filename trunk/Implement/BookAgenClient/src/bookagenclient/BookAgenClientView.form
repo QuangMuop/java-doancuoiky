@@ -23,12 +23,14 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jTextFieldRooms" alignment="0" max="32767" attributes="1"/>
                       <Component id="jTextFieldDescription" alignment="0" max="32767" attributes="1"/>
                       <Component id="jTextFieldAddress" alignment="0" max="32767" attributes="1"/>
-                      <Component id="jTextFieldName" alignment="0" min="-2" pref="224" max="-2" attributes="1"/>
+                      <Component id="jTextFieldName" alignment="0" pref="224" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace pref="203" max="32767" attributes="0"/>
               </Group>
@@ -52,7 +54,12 @@
                       <Component id="jTextFieldDescription" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="174" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldRooms" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="143" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCancel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -74,6 +81,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCancel">
           <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="org.jdesktop.application.Application" id="quit" methodName="quit"/>
+            </Property>
             <Property name="text" type="java.lang.String" resourceKey="jButtonCancel.text"/>
             <Property name="name" type="java.lang.String" value="jButtonCancel" noResource="true"/>
           </Properties>
@@ -112,6 +122,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" resourceKey="jLabel3.text"/>
             <Property name="name" type="java.lang.String" value="jLabel3" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldRooms">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jTextFieldRooms.text"/>
+            <Property name="name" type="java.lang.String" value="jTextFieldRooms" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jLabel4.text"/>
+            <Property name="name" type="java.lang.String" value="jLabel4" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
