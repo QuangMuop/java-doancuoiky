@@ -110,13 +110,23 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
             String sql = "insert into khach_hang (id,ten, gioi_tinh, dia_chi, dien_thoai, ngay_sinh, id_loai_khach_hang) values ";
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+            boolean hasNewMember = false;
+
             int i;
             for(i=0;i<lstKhachHang.size();i++)
             {
-                KhachHang khach = lstKhachHang.get(i);
-                String tmpSql = "('" + khach.getId() + "','" + khach.getTen() + "','" + khach.getGioiTinh() + "','" + khach.getDiaChi() + "','" + khach.getDienThoai() + "','" + sdf.format(khach.getNgaySinh()) + "'," + khach.getIdLoaiKhachHang().getId() + "),";
-                sql += tmpSql;
+                if(!checkKhachHangDaTonTai(lstKhachHang.get(i).getId()))
+                {
+                    hasNewMember = true;
+
+                    KhachHang khach = lstKhachHang.get(i);
+                    String tmpSql = "('" + khach.getId() + "','" + khach.getTen() + "','" + khach.getGioiTinh() + "','" + khach.getDiaChi() + "','" + khach.getDienThoai() + "','" + sdf.format(khach.getNgaySinh()) + "'," + khach.getIdLoaiKhachHang().getId() + "),";
+                    sql += tmpSql;
+                }
             }
+
+            if(!hasNewMember)
+                return true;
 
             sql = sql.substring(0, sql.length()-1);
             sql += ";";
@@ -134,6 +144,27 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
                 statement.close();
                 return false;
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlKhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
+
+    public boolean checkKhachHangDaTonTai(String id) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection();
+
+            String sql = "select id from khach_hang where id = ?;";
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+            statement.setString(1, id);
+
+            ResultSet rs = statement.executeQuery();
+            return rs.next();
         } catch (SQLException ex) {
             Logger.getLogger(MySqlKhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
