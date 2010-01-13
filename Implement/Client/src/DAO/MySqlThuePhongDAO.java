@@ -10,7 +10,6 @@ import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
 import DTO.TinhTrangPhong;
-import java.util.Date;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,10 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySqlThuePhongDAO implements IThuePhongDAO {    
-    public ThuePhong getThuePhong(KhachHang k, Phong p, Date ngay) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    
     public ArrayList<LoaiThue> getDSLoaiThue() {
         Connector connector = new MySqlConnector();
         try {
@@ -177,7 +173,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             connector.openConnection();
             String sql = "select * " +
                             "from chi_tiet_thue_phong, loai_thue " +
-                            "where tong_gia = 0 and loai_thue.id = chi_tiet_thue_phong.id_loai_thue; ";
+                            "where ngay_tra = '0000-00-00' and loai_thue.id = chi_tiet_thue_phong.id_loai_thue; ";
 
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
@@ -192,8 +188,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             while(rs.next())
             {
                 thuePhong = new ThuePhong();
-                thuePhong.setNgayThue(rs.getDate("ngay_thue"));
-                //thuePhong.setNgayTra(rs.getDate("ngay_tra"));
+                thuePhong.setNgayThue(rs.getDate("ngay_thue"));                
                 thuePhong.setTongGia(rs.getInt("tong_gia"));
                 thuePhong.setId(rs.getString("id"));
 
@@ -259,57 +254,42 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         }
     }
 
-    public ArrayList<ThuePhong> getDSThuePhong(int tuThang, int denThang, int nam) {
+    public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam) {
         Connector connector = new MySqlConnector();
         try {
             connector.openConnection();
-            String sql = "select * " +
-                            "from chi_tiet_thue_phong, loai_thue " +
-                            "where tong_gia = 0 and loai_thue.id = chi_tiet_thue_phong.id_loai_thue; ";
+            /*
+            String sql = "select *, case when ngay_tra = '0000-00-00' then sum(TO_DAYS(?) - TO_DAYS(ngay_thue) + 1) " +
+                                        "when ngay_tra <> '0000-00-00' and month(ngay_thue) >= ? and month(ngay_thue) <= ? and year(ngay_thue) = ? then sum(TO_DAYS(ngay_tra) - TO_DAYS(ngay_thue) + 1) end " +
+                                        "from chi_tiet_thue_phong "+
+                                        "group by id_phong;";
+            */
+
+            String sql = "select phong.id, loai_phong.ten, loai_phong.gia, " +
+                                "sum(TO_DAYS(ngay_tra) - TO_DAYS(ngay_thue) + 1) as `SoNgayThue`, " +
+                                "sum(tong_gia) as `TongGiaTien` " +
+                        "from chi_tiet_thue_phong, loai_phong, phong " +
+                        "where month(ngay_thue) >= ? and month(ngay_thue) <= ? and year(ngay_thue) = ? " +
+                                "and month(ngay_tra) >= ? and month(ngay_tra) <= ? and year(ngay_tra) = ? " +
+                                "and phong.id = chi_tiet_thue_phong.id_phong and phong.id_loai_phong = loai_phong.id " +
+                        "group by id_phong;";
 
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
+            statement.setInt(1, tuThang);
+            statement.setInt(2, denThang);
+            statement.setInt(3, nam);
+            statement.setInt(4, tuThang);
+            statement.setInt(5, denThang);
+            statement.setInt(6, nam);
+
             ResultSet rs = statement.executeQuery();
-            ArrayList<ThuePhong> lstThuePhong = new ArrayList<ThuePhong>();
-            ThuePhong thuePhong = null;
 
-            Phong phong = null;
-            MySqlPhongDAO phongDAO = new MySqlPhongDAO();
-
-            LoaiThue loaiThue = null;
-            while(rs.next())
-            {
-                thuePhong = new ThuePhong();
-                thuePhong.setNgayThue(rs.getDate("ngay_thue"));
-                //thuePhong.setNgayTra(rs.getDate("ngay_tra"));
-                thuePhong.setTongGia(rs.getInt("tong_gia"));
-                thuePhong.setId(rs.getString("id"));
-
-                phong = phongDAO.getPhongTheoId(rs.getInt("id_phong"));
-                if(phong!=null)
-                    thuePhong.setPhong(phong);
-
-                loaiThue = new LoaiThue();
-                loaiThue.setId(rs.getInt("loai_thue.id"));
-                loaiThue.setLoai(rs.getString("loai_thue.loai"));
-                thuePhong.setIdLoaiThue(loaiThue);
-
-                //query khach
-                thuePhong.setLstKhachHang(getDSKhachHangThuePhong(rs.getString("id")));
-
-                lstThuePhong.add(thuePhong);
-            }
-
-            statement.close();
-            return lstThuePhong;
+            return rs;
 
         } catch (SQLException ex) {
             Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
-        }
-        finally
-        {
-            connector.closeConnection();
         }
     }
 }

@@ -286,6 +286,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
         jBtnChinhSua.setName("jBtnChinhSua"); // NOI18N
         jBtnChinhSua.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnChinhSuaMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jBtnChinhSuaMousePressed(evt);
             }
@@ -432,6 +435,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
     private void jBtnChinhSuaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMousePressed
         // TODO add your handling code here:
+        if(!jBtnChinhSua.isEnabled())
+            return;
+
         int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION) {
             //enable fields
@@ -443,6 +449,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             this.jTxtMoTa.setEditable(true);
             this.jTxtSoPhong.setEditable(true);
             this.jCbTinhTrang.setEnabled(true);
+
+            //disable button chinh sua
+            this.jBtnChinhSua.setEnabled(false);
         }
     }//GEN-LAST:event_jBtnChinhSuaMousePressed
 
@@ -525,6 +534,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
     private void jBtnCapNhatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCapNhatMousePressed
         // TODO add your handling code here:
+        if(!jBtnCapNhat.isEnabled())
+            return;
+
         int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION) {
             String err = CapNhatPhong();
@@ -538,7 +550,6 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),err , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
             }
-
         } else {
             //restore old value
             hienThiThongTinPhong(this.phong);
@@ -553,6 +564,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         this.jTxtMoTa.setEditable(false);
         this.jTxtSoPhong.setEditable(false);
         this.jCbTinhTrang.setEnabled(false);
+
+        //enable button chinh sua
+        this.jBtnChinhSua.setEnabled(true);
 }//GEN-LAST:event_jBtnCapNhatMousePressed
 
     private void jBtnThoatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThoatMousePressed
@@ -595,6 +609,11 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         // TODO add your handling code here:
         capNhatHinhPhong(this.jCbLoaiPhong.getSelectedItem().toString());
     }//GEN-LAST:event_jCbLoaiPhongItemStateChanged
+
+    private void jBtnChinhSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jBtnChinhSuaMouseClicked
 
     /**
     * @param args the command line arguments

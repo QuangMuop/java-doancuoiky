@@ -456,6 +456,9 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
         //hien thi thong tin tren table
         ArrayList<KhachHang> arrKhach = thuePhong.getLstKhachHang();
+
+        jLabelSoNguoiCuTru.setText("" + arrKhach.size());
+
         fillTableKhachHang(arrKhach);
     }
 
@@ -645,5 +648,4 @@ class WorkerTraPhong extends SwingWorker<ArrayList<ThuePhong>, Void>
         thuePhongController = new ThuePhongController();
         return thuePhongController.layDSThuePhong();
     }
-
 }

@@ -14,10 +14,13 @@ package client;
 import BUS.ThuePhongController;
 import DTO.ThuePhong;
 import Utils.MyDateTime;
-import java.awt.Dimension;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -302,16 +305,15 @@ public class JPanelThongKe extends javax.swing.JPanel {
         int tuThang = Integer.parseInt(jCbTuThang.getSelectedItem().toString());
         int denThang = Integer.parseInt(jCbDenThang.getSelectedItem().toString());
 
-        lstThuePhong = thuePhongController.layDSThuePhong(tuThang, denThang, nam);
-        if(lstThuePhong!=null&&lstThuePhong.size()>0)
-        {
-            hienThiKetQua(lstThuePhong);
-        }
+        thongKe = thuePhongController.thongKeThuePhong(tuThang, denThang, nam);
+        if(thongKe!=null)
+            hienThiKetQua();
         else
         {
-            JOptionPane.showMessageDialog(this.getComponent(0), "Khong tim thay ket qua!", "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0), "Khong tim thay ket qua!", "Thong bao", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
     }//GEN-LAST:event_jBtnThongKeMousePressed
 
     private void jCbTuThangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbTuThangItemStateChanged
@@ -320,20 +322,57 @@ public class JPanelThongKe extends javax.swing.JPanel {
         initComboBoxDenThang(tuThang);
     }//GEN-LAST:event_jCbTuThangItemStateChanged
 
-    private void hienThiKetQua(ArrayList<ThuePhong> arr)
+    private void hienThiKetQua()
     {
         //  "Ma phong", "Loai phong", "Don gia", "Tong so ngay muon", "Tong so tien"
-        DefaultTableModel model = new DefaultTableModel(headerTable, 0);
-        
-        int i;
-        for(i=0;i<arr.size();i++)
-        {
-            ThuePhong thuePhong = arr.get(i);
-            
-            //thuePhong.g
-        }
-        
-        jTablePhong.setModel(model);
+        jTablePhong.setModel(new javax.swing.table.DefaultTableModel(
+            headerTable,0
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        DefaultTableModel model = (DefaultTableModel) jTablePhong.getModel();
+
+        try {
+            if(thongKe.next())
+            {
+                do {
+                    Object[] arr = new Object[5];
+
+                    arr[0] = thongKe.getInt("id");
+                    arr[1] = thongKe.getString("ten");
+                    arr[2] = thongKe.getInt("gia");
+                    arr[3] = thongKe.getInt("SoNgayThue");
+                    arr[4] = thongKe.getInt("TongGiaTien");
+
+                    model.addRow(arr);
+                }
+                while (thongKe.next());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this.getComponent(0), "Khong tim thay ket qua!", "Thong bao", JOptionPane.ERROR_MESSAGE);
+            }
+            thongKe.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JPanelThongKe.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 
     private void initComboBoxDenThang(int tuThang)
@@ -366,6 +405,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
 
     private ThuePhongController thuePhongController;
     private ArrayList<ThuePhong> lstThuePhong;
+    private ResultSet thongKe;
     private String[] headerTable = new String [] {
                 "Ma phong", "Loai phong", "Don gia", "Tong so ngay muon", "Tong so tien"
             };

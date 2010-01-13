@@ -13,14 +13,19 @@ package client;
 
 import BUS.KhachHangController;
 import BUS.PhongController;
+import BUS.ThamSoController;
 import DTO.LoaiKhachHang;
 import DTO.LoaiPhong;
+import DTO.ThamSo;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -34,6 +39,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
         phongController = new PhongController();
         khachController = new KhachHangController();
+        thamSoController = new ThamSoController();
     }
 
     /** This method is called from within the constructor to
@@ -68,6 +74,11 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jTableLoaiPhong = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableLoaiKhachHang = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        jcbThamSo = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        jTxtGiaTriThamSo = new javax.swing.JFormattedTextField();
+        jCheckThamSo = new javax.swing.JCheckBox();
         bgLabel2 = new javax.swing.JLabel();
         bgLabel = new javax.swing.JLabel();
 
@@ -135,7 +146,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jMainPanelNghiepVu.add(jLabel1, gridBagConstraints);
@@ -157,11 +168,12 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jLabel3.setName("jLabel3"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jLabel3, gridBagConstraints);
 
+        jCbLoaiPhong.setBackground(resourceMap.getColor("jCbLoaiKhach.background")); // NOI18N
         jCbLoaiPhong.setName("jCbLoaiPhong"); // NOI18N
         jCbLoaiPhong.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -175,6 +187,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jCbLoaiPhong, gridBagConstraints);
 
+        jCbLoaiKhach.setBackground(resourceMap.getColor("jCbLoaiKhach.background")); // NOI18N
         jCbLoaiKhach.setName("jCbLoaiKhach"); // NOI18N
         jCbLoaiKhach.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -198,7 +211,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(21, 13, 10, 13);
         jMainPanelNghiepVu.add(jBtnChinhSua, gridBagConstraints);
@@ -214,7 +227,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(21, 10, 10, 10);
         jMainPanelNghiepVu.add(jBtnCapNhat, gridBagConstraints);
@@ -315,7 +328,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jMainPanelNghiepVu.add(jScrollPane1, gridBagConstraints);
 
@@ -354,9 +367,65 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jMainPanelNghiepVu.add(jScrollPane2, gridBagConstraints);
+
+        jLabel6.setFont(resourceMap.getFont("jLabel6.font")); // NOI18N
+        jLabel6.setForeground(resourceMap.getColor("jLabel6.foreground")); // NOI18N
+        jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
+        jLabel6.setName("jLabel6"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jLabel6, gridBagConstraints);
+
+        jcbThamSo.setBackground(resourceMap.getColor("jcbThamSo.background")); // NOI18N
+        jcbThamSo.setName("jcbThamSo"); // NOI18N
+        jcbThamSo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbThamSoItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jcbThamSo, gridBagConstraints);
+
+        jLabel7.setText(resourceMap.getString("jLabel7.text")); // NOI18N
+        jLabel7.setName("jLabel7"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jMainPanelNghiepVu.add(jLabel7, gridBagConstraints);
+
+        jTxtGiaTriThamSo.setBackground(resourceMap.getColor("jTxtGiaTriThamSo.background")); // NOI18N
+        jTxtGiaTriThamSo.setEditable(false);
+        jTxtGiaTriThamSo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jTxtGiaTriThamSo.setName("jTxtGiaTriThamSo"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jTxtGiaTriThamSo, gridBagConstraints);
+
+        jCheckThamSo.setText(resourceMap.getString("jCheckThamSo.text")); // NOI18N
+        jCheckThamSo.setEnabled(false);
+        jCheckThamSo.setName("jCheckThamSo"); // NOI18N
+        jCheckThamSo.setOpaque(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jMainPanelNghiepVu.add(jCheckThamSo, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -402,6 +471,9 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
     private void jBtnChinhSuaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMousePressed
         // TODO add your handling code here:
+        if(!this.jBtnChinhSua.isEnabled())
+            return;
+
         int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
@@ -409,11 +481,18 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             this.jBtnCapNhat.setEnabled(true);
             this.jTxtGiaKhach.setEditable(true);
             this.jTxtGiaPhong.setEditable(true);
+            this.jTxtGiaTriThamSo.setEditable(true);
+            this.jCheckThamSo.setEnabled(true);
+
+            this.jBtnChinhSua.setEnabled(false);
         }
     }//GEN-LAST:event_jBtnChinhSuaMousePressed
 
     private void jBtnCapNhatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnCapNhatMousePressed
         // TODO add your handling code here:
+        if(!this.jBtnCapNhat.isEnabled())
+            return;
+
         int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
@@ -434,13 +513,26 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             }
             
             int giaPhong = Integer.parseInt(s);
-            
+
+            s = jTxtGiaTriThamSo.getText();
+            if(s.equals(""))
+            {
+                JOptionPane.showMessageDialog(this.getComponent(0), "Nhap vao gia tri tham so!","Thong bao", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int giaTriThamSo = Integer.parseInt(s);
+
             LoaiKhachHang loaiKhachHang = layLoaiKhachHangTheoTen(jCbLoaiKhach.getSelectedItem().toString());
             loaiKhachHang.setGia(giaKhach);
             
             LoaiPhong loaiPhong = layLoaiPhongTheoTen(jCbLoaiPhong.getSelectedItem().toString());
             loaiPhong.setGia(giaPhong);
             
+            ThamSo thamSo = layThamSoTheoTen(jcbThamSo.getSelectedItem().toString());
+            thamSo.setValue(giaTriThamSo);
+            thamSo.setUse(jCheckThamSo.isSelected());
+
             if(!phongController.capNhatLoaiPhong(loaiPhong))
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat gia tien phong that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);                
@@ -449,6 +541,11 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat gia tien khach hang that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);
             }else
+                if(!thamSoController.capNhatThamSo(thamSo))
+                {
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat tham so" + thamSo.getName() + "that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);
+                }
+                else
                 JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
         }
         else
@@ -456,12 +553,17 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             //restore old values
             initComboLoaiKhachHang();
             initComboLoaiPhong();
+            initComboThamSo();
         }
         
         //disable fields
         this.jBtnCapNhat.setEnabled(false);
         this.jTxtGiaKhach.setEditable(false);
         this.jTxtGiaPhong.setEditable(false);
+        this.jTxtGiaTriThamSo.setEditable(false);
+        this.jCheckThamSo.setEnabled(false);
+
+        this.jBtnChinhSua.setEnabled(true);
     }//GEN-LAST:event_jBtnCapNhatMousePressed
 
     private void jCbLoaiPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiPhongItemStateChanged
@@ -490,6 +592,9 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         WorkerGetListLoaiPhong workerGetLoaiPhong = new WorkerGetListLoaiPhong();
         workerGetLoaiPhong.run();
 
+        WorkerGetListThamSo workerGetThamSo = new WorkerGetListThamSo();
+        workerGetThamSo.run();
+
         try {
             lstLoaiKhachHang = workerGetLoaiKhach.get();
         } catch (InterruptedException ex) {
@@ -497,8 +602,17 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         } catch (ExecutionException ex) {
             Logger.getLogger(JPanelCauHinh.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         try {
             lstLoaiPhong = workerGetLoaiPhong.get();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JPanelCauHinh.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(JPanelCauHinh.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            lstThamSo = workerGetThamSo.get();
         } catch (InterruptedException ex) {
             Logger.getLogger(JPanelCauHinh.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {
@@ -517,7 +631,22 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             initTableLoaiPhong();
         }
 
+        if(lstThamSo!=null)
+        {
+            initComboThamSo();
+        }
     }//GEN-LAST:event_formComponentShown
+
+    private void jcbThamSoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbThamSoItemStateChanged
+        // TODO add your handling code here:
+        if(jcbThamSo.getItemCount()>0)
+        {
+            ThamSo thamSo = layThamSoTheoTen(jcbThamSo.getSelectedItem().toString());
+            jTxtGiaTriThamSo.setText("" + thamSo.getValue());
+            jCheckThamSo.setSelected(thamSo.isUse());
+        }
+    }//GEN-LAST:event_jcbThamSoItemStateChanged
+
 
     private String[] headerLoaiKhachHang = new String [] {"Loai Khach Hang", "Don Gia" };
     private void initTableLoaiKhachHang()
@@ -592,29 +721,50 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     }
 
     private void initComboLoaiPhong() {
-        jCbLoaiPhong.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
 
         int i;
         for(i=0;i<lstLoaiPhong.size();i++)
         {
-            jCbLoaiPhong.addItem(lstLoaiPhong.get(i).getTen());
+            model.addElement(lstLoaiPhong.get(i).getTen());
         }
+
+        jCbLoaiPhong.setModel(model);
 
         jCbLoaiPhong.setSelectedIndex(0);
         jTxtGiaPhong.setText("" + lstLoaiPhong.get(0).getGia());
     }
 
     private void initComboLoaiKhachHang() {
-        jCbLoaiKhach.removeAllItems();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
 
         int i;
         for(i=0;i<lstLoaiKhachHang.size();i++)
         {
-            jCbLoaiKhach.addItem(lstLoaiKhachHang.get(i).getTen());
+            model.addElement(lstLoaiKhachHang.get(i).getTen());
         }
+
+        jCbLoaiKhach.setModel(model);
 
         jCbLoaiKhach.setSelectedIndex(0);
         jTxtGiaKhach.setText("" + lstLoaiKhachHang.get(0).getGia());
+    }
+
+    private void initComboThamSo() {
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
+        int i;
+        for(i=0;i<lstThamSo.size();i++)
+        {
+            model.addElement(lstThamSo.get(i).getName());            
+        }
+
+        jcbThamSo.setModel(model);
+        
+        jcbThamSo.setSelectedIndex(0);
+        ThamSo ts = lstThamSo.get(0);
+        jTxtGiaTriThamSo.setText("" + ts.getValue());
+        jCheckThamSo.setSelected(ts.isUse());
     }
 
     private LoaiKhachHang layLoaiKhachHangTheoTen(String ten)
@@ -625,6 +775,19 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             if(lstLoaiKhachHang.get(i).getTen().equals(ten))
             {
                 return lstLoaiKhachHang.get(i);
+            }
+        }
+        return null;
+    }
+
+    private ThamSo layThamSoTheoTen(String tenThamSo)
+    {
+        int i;
+        for(i=0;i<lstThamSo.size();i++)
+        {
+            if(lstThamSo.get(i).getName().equals(tenThamSo))
+            {
+                return lstThamSo.get(i);
             }
         }
         return null;
@@ -652,11 +815,14 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private javax.swing.JButton jBtnChinhSua;
     private javax.swing.JComboBox jCbLoaiKhach;
     private javax.swing.JComboBox jCbLoaiPhong;
+    private javax.swing.JCheckBox jCheckThamSo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jMainPanelHeThong;
     private javax.swing.JPanel jMainPanelNghiepVu;
     private javax.swing.JPanel jPanelHeThong;
@@ -668,11 +834,27 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private javax.swing.JTable jTableLoaiPhong;
     private javax.swing.JFormattedTextField jTxtGiaKhach;
     private javax.swing.JFormattedTextField jTxtGiaPhong;
+    private javax.swing.JFormattedTextField jTxtGiaTriThamSo;
+    private javax.swing.JComboBox jcbThamSo;
     // End of variables declaration//GEN-END:variables
 
     PhongController phongController;
     KhachHangController khachController;
+    ThamSoController thamSoController;
     
     ArrayList<LoaiPhong> lstLoaiPhong;
     ArrayList<LoaiKhachHang> lstLoaiKhachHang;
+    ArrayList<ThamSo> lstThamSo;
+
+}
+class WorkerGetListThamSo extends SwingWorker<ArrayList<ThamSo>, Void>
+{
+    private ThamSoController thamSoController;
+    @Override
+    protected ArrayList<ThamSo> doInBackground() throws Exception {
+
+        thamSoController = new ThamSoController();
+        return thamSoController.layDSThamSo();
+    }
+
 }

@@ -5,18 +5,15 @@
 
 package DAO;
 
-import DTO.KhachHang;
 import DTO.LoaiThue;
-import DTO.Phong;
 import DTO.ThuePhong;
+import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 
 public interface IThuePhongDAO {
     public boolean insertThuePhong(ThuePhong tp);
-    public boolean updateThuePhong(ThuePhong tp);
-    public ThuePhong getThuePhong(KhachHang k, Phong p, Date ngay);
+    public boolean updateThuePhong(ThuePhong tp);    
     public ArrayList<ThuePhong> getDSThuePhong();
-    public ArrayList<LoaiThue> getDSLoaiThue();    
-    public ArrayList<ThuePhong> getDSThuePhong(int tuThang, int denThang, int nam);
+    public ArrayList<LoaiThue> getDSLoaiThue();        
+    public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam);
 }

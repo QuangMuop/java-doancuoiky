@@ -7,10 +7,10 @@ package BUS;
 
 import DAO.DAOFactory;
 import DAO.IThuePhongDAO;
-import DTO.KhachHang;
 import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -92,9 +92,10 @@ public class ThuePhongController {
     {
         return thuePhongDAO.getDSThuePhong();
     }
-    
-    public ArrayList<ThuePhong> layDSThuePhong(int tuThang, int denThang, int nam) {
-        return thuePhongDAO.getDSThuePhong(tuThang, denThang, nam);
+
+    public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam)
+    {
+        return thuePhongDAO.thongKeThuePhong(tuThang, denThang, nam);
     }
 
     public int tinhTienThuePhong(ThuePhong thuePhong, int soNgayThue) {
