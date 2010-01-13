@@ -9,20 +9,24 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@page session="true" %>
-<%@page import="Hotel.*, Agent.*, Agent.*, java.util.*" %>
+<%@page import="Hotel.Hotel, Agent.*, Agent.*, java.util.*" %>
+
 
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Khach san</title>
     </head>
     <body>
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
         <%
             Hotel hotel = (Hotel) request.getAttribute("hotel");
-            if (hotel != null) { %>
+
+            if (hotel != null) {
+                //currentHotel = hotel;
+        %>
         <div class="main-panel">
             &nbsp;
 
@@ -49,10 +53,8 @@
         </div>
         
         <br />
-        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>&all=0">Xem phòng trống</a>|
-        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>&all=1">Xem phòng</a>|
-        <a href="book?action=book-nav&hid=<%= hotel.getId() %>">Đặt phòng</a>|
-        <a href="book?action=unbook-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
+        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>">Xem phòng</a>|
+        <a href="room?action=unbook-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
         <% } %>
         <jsp:include page="template/footer.jsp" />
     </body>

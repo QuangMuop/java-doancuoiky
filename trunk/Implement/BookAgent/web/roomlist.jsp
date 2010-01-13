@@ -24,14 +24,15 @@
             </thead>
             <tbody>
         <%
-        List<Room> rooms = (List<Room>) request.getAttribute("rooms");
-        for (int i = 0; i < rooms.size(); i++) {
-            Room room = rooms.get(i);
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        ListRoom listRoom = hotel.getListRoom();
+        for (int i = 0; i < listRoom.size(); i++) {
+            Room room = listRoom.getRooms().get(i);
         %>
                 <tr>
                     <td><%= room.getId() %></td>
                     <td><%= room.getCost() %></td>
-                    <td>url</td>
+                    <td><a href="room?action=book&hid=<%= hotel.getId() %>&rid=<%= room.getId() %>">Dat cho</a></td>
                 </tr>
         <% } %>
             </tbody>

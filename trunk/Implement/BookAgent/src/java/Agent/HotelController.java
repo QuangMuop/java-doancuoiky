@@ -52,10 +52,9 @@ public class HotelController extends HttpServlet {
                     getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
                     break;
                 case GET_ROOMS:
-//                    hid = Integer.parseInt(request.getParameter("hid"));
-//                    getAllRooms = (request.getParameter("all").equals("1"));
-//                    request.setAttribute("rooms", getRooms(hid, getAllRooms));
-//                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
+                    hid = Integer.parseInt(request.getParameter("hid"));
+                    request.setAttribute("hotel", getHotelInfo(hid));
+                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
                     break;
                 case INVALID:
                     break;
@@ -117,8 +116,4 @@ public class HotelController extends HttpServlet {
     private Hotel getHotelInfo(int hid) {
         return hotelModel.getHotelById(hid);
     }
-
-//    private List<Room> getRooms(int hid, boolean getAllRooms) {
-//        return model.getRooms(hid, getAllRooms);
-//    }
 }
