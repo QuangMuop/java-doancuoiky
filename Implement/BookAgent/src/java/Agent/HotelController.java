@@ -5,8 +5,8 @@
 
 package Agent;
 
-import Hotel.HotelInfo;
-import Hotel.RoomInfo;
+import Hotel.Hotel;
+import Hotel.Room;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -55,10 +55,10 @@ public class HotelController extends HttpServlet {
                     getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
                     break;
                 case GET_ROOMS:
-                    hid = Integer.parseInt(request.getParameter("hid"));
-                    getAllRooms = (request.getParameter("all").equals("1"));
-                    request.setAttribute("rooms", getRooms(hid, getAllRooms));
-                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
+//                    hid = Integer.parseInt(request.getParameter("hid"));
+//                    getAllRooms = (request.getParameter("all").equals("1"));
+//                    request.setAttribute("rooms", getRooms(hid, getAllRooms));
+//                    getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
                     break;
                 case INVALID:
                     break;
@@ -117,11 +117,11 @@ public class HotelController extends HttpServlet {
         return ACTION_CODE.INVALID;
     }
 
-    private HotelInfo getHotelInfo(int hid) {
+    private Hotel getHotelInfo(int hid) {
         return model.getHotelById(hid);
     }
 
-    private List<RoomInfo> getRooms(int hid, boolean getAllRooms) {
-        return model.getRooms(hid, getAllRooms);
-    }
+//    private List<Room> getRooms(int hid, boolean getAllRooms) {
+//        return model.getRooms(hid, getAllRooms);
+//    }
 }

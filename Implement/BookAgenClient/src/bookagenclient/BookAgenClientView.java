@@ -11,10 +11,16 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import ws.HotelDTO;
+import ws.HotelRegister;
+import ws.HotelRegisterService;
+import ws.RoomDTO;
 
 /**
  * The application's main frame.
@@ -109,6 +115,8 @@ public class BookAgenClientView extends FrameView {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jTextFieldRooms = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -128,6 +136,7 @@ public class BookAgenClientView extends FrameView {
         jButtonSubmit.setText(resourceMap.getString("jButtonSubmit.text")); // NOI18N
         jButtonSubmit.setName("jButtonSubmit"); // NOI18N
 
+        jButtonCancel.setAction(actionMap.get("quit")); // NOI18N
         jButtonCancel.setText(resourceMap.getString("jButtonCancel.text")); // NOI18N
         jButtonCancel.setName("jButtonCancel"); // NOI18N
 
@@ -149,6 +158,12 @@ public class BookAgenClientView extends FrameView {
         jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
         jLabel3.setName("jLabel3"); // NOI18N
 
+        jTextFieldRooms.setText(resourceMap.getString("jTextFieldRooms.text")); // NOI18N
+        jTextFieldRooms.setName("jTextFieldRooms"); // NOI18N
+
+        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -164,12 +179,14 @@ public class BookAgenClientView extends FrameView {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldRooms, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldDescription, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
@@ -187,7 +204,11 @@ public class BookAgenClientView extends FrameView {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldRooms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSubmit)
                     .addComponent(jButtonCancel))
@@ -258,7 +279,27 @@ public class BookAgenClientView extends FrameView {
 
     @Action
     public void submitHotel() {
+        String name = jTextFieldName.getText();
+        String address = jTextFieldAddress.getText();
+        String detail = jTextFieldDescription.getText();
+        int rooms = Integer.parseInt(jTextFieldRooms.getText());
 
+        HotelDTO hotel = new HotelDTO();
+
+        hotel.setName(name);
+        hotel.setAddress(address);
+        hotel.setDetail(detail);
+        hotel.setRoom(rooms);
+
+        List<RoomDTO> lstRooms = new ArrayList<RoomDTO>();
+        RoomDTO room = new RoomDTO();
+        room.setId("01");
+        room.setCost(10000);
+        lstRooms.add(room);
+
+        HotelRegisterService service = new HotelRegisterService();
+        HotelRegister port = service.getHotelRegisterPort();
+        String result = port.submit(hotel, lstRooms);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -267,9 +308,11 @@ public class BookAgenClientView extends FrameView {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextFieldAddress;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldRooms;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;

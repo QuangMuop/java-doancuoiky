@@ -11,22 +11,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-AgentService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/AgentService"/>
-        <property name="wsdl-AgentService" location="xml-resources/web-service-references/AgentService/wsdl/localhost_8084/BookAgent/AgentService.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AgentService" destdir="${build.generated.dir}/jax-wsCache/AgentService" wsdl="${wsdl-AgentService}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/BookAgent/AgentService?wsdl" xnocompile="true">
-            <depends file="${wsdl-AgentService}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/AgentService"/>
+    <target name="wsimport-client-HotelRegister" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/HotelRegister"/>
+        <property name="wsdl-HotelRegister" location="xml-resources/web-service-references/HotelRegister/wsdl/localhost_8084/BookAgent/HotelRegister.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/HotelRegister" destdir="${build.generated.dir}/jax-wsCache/HotelRegister" wsdl="${wsdl-HotelRegister}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/BookAgent/HotelRegister?wsdl" xnocompile="true">
+            <depends file="${wsdl-HotelRegister}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/HotelRegister"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/AgentService">
+            <fileset dir="${build.generated.dir}/jax-wsCache/HotelRegister">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-AgentService" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/AgentService"/>
+    <target name="wsimport-client-clean-HotelRegister" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/HotelRegister"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-AgentService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-HotelRegister"/>
 </project>
