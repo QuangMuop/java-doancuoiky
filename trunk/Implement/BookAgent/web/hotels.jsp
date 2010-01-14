@@ -54,7 +54,7 @@
         
         <br />
         <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>">Xem phòng</a>|
-        <a href="room?action=unbook-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
+        <a href="room?action=cancel-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
         <% } %>
         <jsp:include page="template/footer.jsp" />
     </body>

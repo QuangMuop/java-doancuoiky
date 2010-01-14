@@ -12,10 +12,6 @@
         <servlet-class>Agent.StartUpServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookController</servlet-name>
-        <servlet-class>Agent.BookController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>HotelRegister</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -31,10 +27,6 @@
     <servlet-mapping>
         <servlet-name>StartUpServlet</servlet-name>
         <url-pattern>/startup</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookController</servlet-name>
-        <url-pattern>/book</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HotelRegister</servlet-name>

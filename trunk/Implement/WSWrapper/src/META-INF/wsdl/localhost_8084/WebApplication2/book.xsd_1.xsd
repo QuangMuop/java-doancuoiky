@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.4-b01-. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="book" type="tns:book"></xs:element>
+
+<xs:element name="bookResponse" type="tns:bookResponse"></xs:element>
+
+<xs:complexType name="book">
+<xs:sequence>
+<xs:element name="room" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customer" type="tns:khachHangDTO" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="khachHangDTO">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="age" type="xs:int"></xs:element>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

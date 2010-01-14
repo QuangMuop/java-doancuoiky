@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-book" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/book"/>
+        <property name="wsdl-book" location="xml-resources/web-service-references/book/wsdl/localhost_8084/WebService1/book.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/book" destdir="${build.generated.dir}/jax-wsCache/book" wsdl="${wsdl-book}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/WebService1/book?wsdl" xnocompile="true">
+            <depends file="${wsdl-book}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/book"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/book">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-book" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/book"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/WebService1"/>
+    </target>
+    <target name="wsimport-client-book_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/book_1"/>
+        <property name="wsdl-book_1" location="xml-resources/web-service-references/book_1/wsdl/localhost_8084/WebApplication2/book.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/book_1" destdir="${build.generated.dir}/jax-wsCache/book_1" wsdl="${wsdl-book_1}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/WebApplication2/book?wsdl" xnocompile="true">
+            <depends file="${wsdl-book_1}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/book_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/book_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-book_1" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/book_1"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/WebApplication2"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-book, wsimport-client-book_1"/>
+</project>

@@ -11,13 +11,23 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import wrapper.Customer;
+import wrapper.WSWrapper;
 
 /**
  *
  * @author hvu
  */
 public class RoomController extends HttpServlet {
-   
+    
+    public enum ACTION_CODE {
+        BOOK_NAVIGATE,
+        UNBOOK_NAVIGATE,
+        BOOK,
+        UNBOOK,
+        INVALID
+    }
+
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -30,17 +40,35 @@ public class RoomController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RoomController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RoomController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            */
-        } finally { 
+            String action = request.getParameter("action");
+            switch (mapActionCode(action)) {
+                case BOOK:
+                    int hid = Integer.parseInt(request.getParameter("hid"));
+                    String rid = request.getParameter("rid");
+                    Customer customer = new Customer();
+                    customer.setName(request.getParameter("name"));
+                    customer.setAge(Integer.parseInt(request.getParameter("age")));
+                    customer.setAddress(request.getParameter("address"));
+                    if (WSWrapper.booking(hid, rid, customer)) {
+                        request.setAttribute("result", "dang ky thanh cong");
+                    }
+                    else {
+                        request.setAttribute("result", "dang ky khong thanh cong");
+                    }
+                    getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+                    break;
+                case BOOK_NAVIGATE:
+                    getServletContext().getRequestDispatcher("/customer.jsp").forward(request, response);
+                    break;
+                case UNBOOK:
+                    out.print("unbook at " + request.getParameter("hid"));
+                    break;
+                case UNBOOK_NAVIGATE:
+                    getServletContext().getRequestDispatcher("/unbook.jsp").forward(request, response);
+                    break;
+            }
+        }
+        finally {
             out.close();
         }
     } 
@@ -81,4 +109,19 @@ public class RoomController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private ACTION_CODE mapActionCode(String action) {
+        if (action.equals("book-nav")) {
+            return ACTION_CODE.BOOK_NAVIGATE;
+        }
+        else if (action.equals("cancel-nav")) {
+            return ACTION_CODE.UNBOOK_NAVIGATE;
+        }
+        else if (action.equals("book")) {
+            return ACTION_CODE.BOOK;
+        }
+        else if (action.equals("cancel")) {
+            return ACTION_CODE.UNBOOK;
+        }
+        return ACTION_CODE.INVALID;
+    }
 }

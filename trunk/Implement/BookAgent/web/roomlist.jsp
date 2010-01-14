@@ -32,7 +32,7 @@
                 <tr>
                     <td><%= room.getId() %></td>
                     <td><%= room.getCost() %></td>
-                    <td><a href="room?action=book&hid=<%= hotel.getId() %>&rid=<%= room.getId() %>">Dat cho</a></td>
+                    <td><a href="room?action=book-nav&hid=<%= hotel.getId() %>&rid=<%= room.getId() %>">Dat cho</a></td>
                 </tr>
         <% } %>
             </tbody>
