@@ -41,11 +41,11 @@ public class KhachHangController {
 
         if(khach.getId().equals(""))
         {
-            return "Vui long nhap vao CMND khach hang";
+            return "Vui lòng nhập vào CMND khách hàng";
         }
         if(khach.getTen().equals(""))
         {
-            return "Vui long nhap ten khach hang";
+            return "Vui lòng nhập tên khách hàng";
         }
         return "";
     }

@@ -45,7 +45,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
         
         khachController = new KhachHangController();
 
-        this.setTitle("Them khach hang");
+        this.setTitle("Thêm khách hàng");
         this.setSize(600, 400);
         this.setLocationRelativeTo(parent);
 
@@ -355,7 +355,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
 
             String error = khachController.kiemTraKhachHang(khach);
             if(!error.equals("")) {
-                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
@@ -364,7 +364,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
                 {
                     if(lstKhach.get(i).getId().equals(khach.getId()))
                     {
-                        JOptionPane.showMessageDialog(this.getComponent(0),"Khach hang da ton tai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this.getComponent(0),"Khách hàng đã tồn tại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 }
@@ -374,7 +374,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
                 this.setVisible(false);
             }
         } catch(Exception ex) {
-            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thông Báo", JOptionPane.ERROR_MESSAGE);
         }
 }//GEN-LAST:event_jBtnThemKhachMousePressed
 
@@ -422,25 +422,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
         }
         return null;
     }
-
-    /**
-    * @param args the command line arguments
-    */
-    /*
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JDialogThemKhachHang dialog = new JDialogThemKhachHang(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-     */
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel3;

@@ -10,6 +10,7 @@ import DAO.IThuePhongDAO;
 import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
+import Utils.MyDateTime;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -64,7 +65,7 @@ public class ThuePhongController {
         //kiem tra danh sach khach hang
         if(thuePhong.getLstKhachHang().size()==0)
         {
-            return "Phai nhap vao thong tin khach hang";
+            return "Phải nhập vào thông tin khách hàng";
         }
 
         //ngay thue phai lon hon hoac bang ngay hien tai
@@ -72,9 +73,9 @@ public class ThuePhongController {
 
         Calendar calendar = Calendar.getInstance();
         Date ngayHienTai = calendar.getTime();
-        if(ngayThue.after(ngayHienTai))
+        if(MyDateTime.SubDate(ngayThue, ngayHienTai)>0)
         {
-            return "Ngay thue phai sau ngay hien tai!";
+            return "Ngày thuê phải sau ngày hiện tại";
         }
 
         return "";

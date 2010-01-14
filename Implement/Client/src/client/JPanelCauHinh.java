@@ -19,6 +19,7 @@ import DTO.KhachSan;
 import DTO.LoaiKhachHang;
 import DTO.LoaiPhong;
 import DTO.ThamSo;
+import java.lang.Void;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -659,13 +660,23 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jCbLoaiKhachItemStateChanged
 
+    private SwingWorker<ArrayList<LoaiPhong>,Void> workerGetDSLoaiPhong = new SwingWorker<ArrayList<LoaiPhong>,Void>() {
+
+        private PhongController phongController;
+
+        @Override
+        protected ArrayList<LoaiPhong> doInBackground() throws Exception {
+            phongController = new PhongController();
+            return phongController.getDSLoaiPhong();
+        }
+    };
+
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         WorkerGetListLoaiKhachHang workerGetLoaiKhach = new WorkerGetListLoaiKhachHang();
         workerGetLoaiKhach.run();
-
-        WorkerGetListLoaiPhong workerGetLoaiPhong = new WorkerGetListLoaiPhong();
-        workerGetLoaiPhong.run();
+        
+        workerGetDSLoaiPhong.run();
 
         WorkerGetListThamSo workerGetThamSo = new WorkerGetListThamSo();
         workerGetThamSo.run();
@@ -686,7 +697,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         }
 
         try {
-            lstLoaiPhong = workerGetLoaiPhong.get();
+            lstLoaiPhong = workerGetDSLoaiPhong.get();
         } catch (InterruptedException ex) {
             Logger.getLogger(JPanelCauHinh.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {

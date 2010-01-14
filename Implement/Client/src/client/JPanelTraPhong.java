@@ -80,6 +80,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableKhachHang = new javax.swing.JTable();
         jCbMaPhong = new javax.swing.JComboBox();
+        jBtnHuyDatPhong = new javax.swing.JButton();
         bgLabel1 = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -115,7 +116,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 45);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel41, gridBagConstraints);
 
         jLabel42.setText(resourceMap.getString("jLabel42.text")); // NOI18N
@@ -124,7 +125,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 40);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel42, gridBagConstraints);
 
         jLabelLoaiPhong.setText(resourceMap.getString("jLabelLoaiPhong.text")); // NOI18N
@@ -133,7 +134,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelLoaiPhong, gridBagConstraints);
 
         jLabel44.setText(resourceMap.getString("jLabel44.text")); // NOI18N
@@ -142,7 +143,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 56);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel44, gridBagConstraints);
 
         jLabelDonGia.setText(resourceMap.getString("jLabelDonGia.text")); // NOI18N
@@ -151,7 +152,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelDonGia, gridBagConstraints);
 
         jLabel46.setText(resourceMap.getString("jLabel46.text")); // NOI18N
@@ -160,7 +161,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 42);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel46, gridBagConstraints);
 
         jLabelNgayThue.setText(resourceMap.getString("jLabelNgayThue.text")); // NOI18N
@@ -169,7 +170,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelNgayThue, gridBagConstraints);
 
         jLabel48.setText(resourceMap.getString("jLabel48.text")); // NOI18N
@@ -178,7 +179,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 50);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel48, gridBagConstraints);
 
         jLabelNgayTra.setText(resourceMap.getString("jLabelNgayTra.text")); // NOI18N
@@ -187,7 +188,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelNgayTra, gridBagConstraints);
 
         jLabel50.setText(resourceMap.getString("jLabel50.text")); // NOI18N
@@ -196,7 +197,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 28);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel50, gridBagConstraints);
 
         jLabelSoNgayThue.setText(resourceMap.getString("jLabelSoNgayThue.text")); // NOI18N
@@ -205,7 +206,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelSoNgayThue, gridBagConstraints);
 
         jLabel52.setText(resourceMap.getString("jLabel52.text")); // NOI18N
@@ -214,7 +215,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 20);
+        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 65);
         jPanel2.add(jLabel52, gridBagConstraints);
 
         jLabelSoNguoiCuTru.setText(resourceMap.getString("jLabelSoNguoiCuTru.text")); // NOI18N
@@ -223,7 +224,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelSoNguoiCuTru, gridBagConstraints);
 
         jLabel54.setFont(resourceMap.getFont("jLabel54.font")); // NOI18N
@@ -263,7 +264,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelTongTien, gridBagConstraints);
 
         jBtnTraPhong.setText(resourceMap.getString("jBtnTraPhong.text")); // NOI18N
@@ -276,9 +277,8 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(13, 135, 2, 134);
+        gridBagConstraints.insets = new java.awt.Insets(13, 50, 2, 50);
         jPanel2.add(jBtnTraPhong, gridBagConstraints);
 
         jLabel75.setFont(resourceMap.getFont("jLabel75.font")); // NOI18N
@@ -383,8 +383,23 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(2, 20, 2, 0);
+        gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jCbMaPhong, gridBagConstraints);
+
+        jBtnHuyDatPhong.setText(resourceMap.getString("jBtnHuyDatPhong.text")); // NOI18N
+        jBtnHuyDatPhong.setEnabled(false);
+        jBtnHuyDatPhong.setName("jBtnHuyDatPhong"); // NOI18N
+        jBtnHuyDatPhong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jBtnHuyDatPhongMouseReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(13, 50, 2, 50);
+        jPanel2.add(jBtnHuyDatPhong, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -426,6 +441,16 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         {
             initComboBoxMaPhong();
             hienThiThongTinThuePhong(lstThuePhong.get(0));
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            if(sdf.format(lstThuePhong.get(0).getNgayThue()).equals(sdf.format(MyDateTime.getNow())))
+            {
+                jBtnHuyDatPhong.setEnabled(true);
+            }
+            else
+            {
+                jBtnHuyDatPhong.setEnabled(false);
+            }
         }
         else
         {
@@ -597,8 +622,41 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         if(jCbMaPhong.getItemCount()>0) {
             ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
             hienThiThongTinThuePhong(thuePhong);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            if(sdf.format(thuePhong.getNgayThue()).equals(sdf.format(MyDateTime.getNow())))
+            {
+                jBtnHuyDatPhong.setEnabled(true);
+            }
+            else
+            {
+                jBtnHuyDatPhong.setEnabled(false);
+            }
         }
 }//GEN-LAST:event_jCbMaPhongItemStateChanged
+
+    private void jBtnHuyDatPhongMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnHuyDatPhongMouseReleased
+        // TODO add your handling code here:
+        if(!jBtnHuyDatPhong.isEnabled())
+            return;
+
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0), "Bạn có muốn hủy đặt phòng không","Thông Báo",JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(result == JOptionPane.OK_OPTION)
+        {
+            ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+            if(thuePhongController.huyDatPhong(thuePhong.getId()))
+            {
+                JOptionPane.showMessageDialog(this.getComponent(0),"Hủy đặt phòng thành công" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
+                initData();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this.getComponent(0),"Hủy đặt phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
+                initData();
+            }
+        }
+    }//GEN-LAST:event_jBtnHuyDatPhongMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -606,6 +664,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private javax.swing.JLabel imgNguoiThue;
     private javax.swing.JLabel imgPhong;
     private javax.swing.JLabel imgThanhToan;
+    private javax.swing.JButton jBtnHuyDatPhong;
     private javax.swing.JButton jBtnTraPhong;
     private javax.swing.JComboBox jCbMaPhong;
     private javax.swing.JLabel jLabel39;
