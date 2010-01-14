@@ -19,7 +19,6 @@ import DTO.KhachSan;
 import DTO.LoaiKhachHang;
 import DTO.LoaiPhong;
 import DTO.ThamSo;
-import java.lang.Void;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;

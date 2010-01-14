@@ -23,6 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -50,6 +51,17 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         initComponents();
     }
 
+    private SwingWorker<ArrayList<LoaiPhong>,Void> workerGetDSLoaiPhong = new SwingWorker<ArrayList<LoaiPhong>,Void>() {
+
+        private PhongController phongController;
+
+        @Override
+        protected ArrayList<LoaiPhong> doInBackground() throws Exception {
+            phongController = new PhongController();
+            return phongController.getDSLoaiPhong();
+        }
+    };
+
     public JDialogXemChiTiet(java.awt.Frame parent, boolean modal, Phong phong) {
         super(parent, modal);
         initComponents();
@@ -63,8 +75,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         phongTmp = new Phong();
         phongController = new PhongController();
 
-        WorkerGetListLoaiPhong workerLoaiPhong = new WorkerGetListLoaiPhong();
-        workerLoaiPhong.run();
+        workerGetDSLoaiPhong.run();
         
         WorkerGetListTinhTrangPhong workerTinhTrangPhong = new WorkerGetListTinhTrangPhong();
         workerTinhTrangPhong.run();
@@ -81,9 +92,8 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         imageURL = cldr.getResource("client/resources/PhongHangThuong.png");
         this.iconPhongThuong = new ImageIcon(imageURL);
 
-
         try {
-            this.lstLoaiPhong = workerLoaiPhong.get();
+            this.lstLoaiPhong = workerGetDSLoaiPhong.get();
         } catch (InterruptedException ex) {
             Logger.getLogger(JDialogXemChiTiet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {
