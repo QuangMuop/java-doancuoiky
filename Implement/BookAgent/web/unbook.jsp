@@ -19,7 +19,7 @@
     <body>
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
-        <form name="form" action="book">
+        <form name="form" action="room">
             <input type="hidden" name="action" value="unbook" />
             <input type="hidden" name="hid" value="<%= request.getParameter("hid") %>" />
             <label for="tbValidationCode">Mã xác nhận: </label>

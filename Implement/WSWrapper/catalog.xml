@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8084/WebService1/book?wsdl" uri="xml-resources/web-service-references/book/wsdl/localhost_8084/WebService1/book.wsdl"/>
+    <system systemId="http://localhost:8084/WebService1/book?xsd=1" uri="xml-resources/web-service-references/book/wsdl/localhost_8084/WebService1/book.xsd_1.xsd"/>
+    <system systemId="http://localhost:8084/WebApplication2/book?wsdl" uri="xml-resources/web-service-references/book_1/wsdl/localhost_8084/WebApplication2/book.wsdl"/>
+    <system systemId="http://localhost:8084/WebApplication2/book?xsd=1" uri="xml-resources/web-service-references/book_1/wsdl/localhost_8084/WebApplication2/book.xsd_1.xsd"/>
+</catalog>
+
+
