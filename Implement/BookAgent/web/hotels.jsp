@@ -30,22 +30,22 @@
         <div class="main-panel">
             &nbsp;
 
-            <table border="1" width="800px">
+            <table border="0" width="800px">
                 <tbody>
                     <tr>
-                        <td width="70px">Tên</td>
+                        <td width="70px">Tên:</td>
                         <td><%= hotel.getName() %></td>
                     </tr>
                     <tr>
-                        <td>Địa chỉ</td>
+                        <td>Địa chỉ:</td>
                         <td><%= hotel.getAddress() %></td>
                     </tr>
                     <tr>
-                        <td>Mô tả</td>
+                        <td>Mô tả:</td>
                         <td><%= hotel.getDetail() %></td>
                     </tr>
                     <tr>
-                        <td>Số phòng</td>
+                        <td>Số phòng:</td>
                         <td><%= hotel.getRoom() %></td>
                     </tr>
                 </tbody>

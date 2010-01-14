@@ -5,14 +5,15 @@
 
 package Agent;
 
+import Common.Utility;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import wrapper.Customer;
 import wrapper.WSWrapper;
+import ws.KhachHangDTO;
 
 /**
  *
@@ -42,27 +43,45 @@ public class RoomController extends HttpServlet {
         try {
             String action = request.getParameter("action");
             switch (mapActionCode(action)) {
+                
                 case BOOK:
                     int hid = Integer.parseInt(request.getParameter("hid"));
                     String rid = request.getParameter("rid");
-                    Customer customer = new Customer();
-                    customer.setName(request.getParameter("name"));
-                    customer.setAge(Integer.parseInt(request.getParameter("age")));
-                    customer.setAddress(request.getParameter("address"));
-                    if (WSWrapper.booking(hid, rid, customer)) {
-                        request.setAttribute("result", "dang ky thanh cong");
+                    KhachHangDTO khachHangDto = new KhachHangDTO();
+                    khachHangDto.setName(request.getParameter("name"));
+                    khachHangDto.setAge(Integer.parseInt(request.getParameter("birth")));
+                    khachHangDto.setId(request.getParameter("cmnd"));
+                    String result = "Thao tác không thành công.";
+                    String validation = null;
+                    String date = Utility.now("dd/MM/yyyy");
+                    if ((validation = WSWrapper.bookRoom(hid, rid, khachHangDto, date)) != null) {
+                        result = "Đặt chỗ thành công. Mã số xác nhận của bạn là <b>" + validation + "</b>";
                     }
                     else {
                         request.setAttribute("result", "dang ky khong thanh cong");
                     }
+                    request.setAttribute("result", result);
                     getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
                     break;
+                    
                 case BOOK_NAVIGATE:
                     getServletContext().getRequestDispatcher("/customer.jsp").forward(request, response);
                     break;
+                    
                 case UNBOOK:
-                    out.print("unbook at " + request.getParameter("hid"));
+                    hid = Integer.parseInt(request.getParameter("hid"));
+                    validation = request.getParameter("validation");
+                    result = "Thao tác không thành công.";
+                    if (WSWrapper.cancelBookRoom(hid, validation)) {
+                        result = "Thao tác thành công.";
+                    }
+                    else {
+                        result = "Thao tác không thành công. Do mã xác nhận không hợp lệ.";
+                    }
+                    request.setAttribute("result", result);
+                    getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
                     break;
+                    
                 case UNBOOK_NAVIGATE:
                     getServletContext().getRequestDispatcher("/unbook.jsp").forward(request, response);
                     break;

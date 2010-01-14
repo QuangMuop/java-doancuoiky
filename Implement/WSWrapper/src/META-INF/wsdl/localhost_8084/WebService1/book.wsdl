@@ -10,15 +10,72 @@
 <message name="bookResponse">
 <part name="parameters" element="tns:bookResponse"></part>
 </message>
+<message name="cancelBookRoom">
+<part name="parameters" element="tns:cancelBookRoom"></part>
+</message>
+<message name="cancelBookRoomResponse">
+<part name="parameters" element="tns:cancelBookRoomResponse"></part>
+</message>
+<message name="getListRoom">
+<part name="parameters" element="tns:getListRoom"></part>
+</message>
+<message name="getListRoomResponse">
+<part name="parameters" element="tns:getListRoomResponse"></part>
+</message>
+<message name="bookRoom">
+<part name="parameters" element="tns:bookRoom"></part>
+</message>
+<message name="bookRoomResponse">
+<part name="parameters" element="tns:bookRoomResponse"></part>
+</message>
 <portType name="book">
 <operation name="book">
 <input message="tns:book"></input>
 <output message="tns:bookResponse"></output>
 </operation>
+<operation name="cancelBookRoom">
+<input message="tns:cancelBookRoom"></input>
+<output message="tns:cancelBookRoomResponse"></output>
+</operation>
+<operation name="getListRoom">
+<input message="tns:getListRoom"></input>
+<output message="tns:getListRoomResponse"></output>
+</operation>
+<operation name="bookRoom">
+<input message="tns:bookRoom"></input>
+<output message="tns:bookRoomResponse"></output>
+</operation>
 </portType>
 <binding name="bookPortBinding" type="tns:book">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
 <operation name="book">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="cancelBookRoom">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="getListRoom">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="bookRoom">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>

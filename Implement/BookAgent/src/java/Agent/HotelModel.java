@@ -4,13 +4,16 @@ package Agent;
 import Common.Configuration;
 import Hotel.Hotel;
 import Hotel.ListHotel;
+import Hotel.Room;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+import wrapper.WSWrapper;
 
 /**
  *
@@ -53,6 +56,17 @@ public class HotelModel {
     public Hotel getHotelById(int hid) {
         if (hid < 0 || hid >= this.listHotel.getHotels().size()) {
             throw new IndexOutOfBoundsException("Hotel index");
+        }
+        // update list room
+        List<ws.RoomDTO> listRoomDto = WSWrapper.updateListRoom(hid);
+        List<Room> rooms = this.listHotel.getHotels().get(hid).getListRoom().getRooms();
+        rooms.clear();
+        for (int i = 0; i < listRoomDto.size(); i++) {
+            Room room = new Room();
+            room.setId(listRoomDto.get(i).getId());
+            room.setCost(listRoomDto.get(i).getCost());
+            room.setStay(listRoomDto.get(i).isCanStay());
+            rooms.add(room);
         }
         return this.listHotel.getHotels().get(hid);
     }

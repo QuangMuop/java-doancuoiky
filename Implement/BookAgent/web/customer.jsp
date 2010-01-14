@@ -1,12 +1,7 @@
-<%-- 
-    Document   : customer
-    Created on : Jan 14, 2010, 8:51:28 AM
-    Author     : hvu
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="Hotel.*" %>
 
 <html>
     <head>
@@ -16,29 +11,40 @@
     <body>
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
+        <% 
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        if (hotel == null) { %>
+            <p>Bạn phải chọn khách sạn để có thể đăng ký đặt phòng được.</p>
+        <%
+        }
+        else {
+        %>
         <form action="room">
-            <table border="1">
+            <table border="0">
                 <tbody>
                     <tr>
                         <td>Ten:</td>
                         <td><input type="text" name="name" value="" /></td>
                     </tr>
                     <tr>
-                        <td>Tuoi:</td>
-                        <td><input type="text" name="age" value="" /></td>
+                        <td>Ngay sinh (dd/mm/yyyy):</td>
+                        <td><input type="text" name="birth" value="" /></td>
                     </tr>
                     <tr>
-                        <td>Dia chi:</td>
-                        <td><input type="text" name="address" value="" /></td>
+                        <td>CMND:</td>
+                        <td><input type="text" name="cmnd" value="" /></td>
                     </tr>
                 </tbody>
             </table>
 
-            <input type="hidden" name="hid" value="<%= request.getParameter("hid") %>" />
+            <input type="hidden" name="hid" value="<%= hotel.getId() %>" />
             <input type="hidden" name="rid" value="<%= request.getParameter("rid") %>" />
             <input type="hidden" name="action" value="book" />
-            <input type="submit" value="Submit" name="submit" />
+            <input type="submit" value="Chấp nhận" name="submit" />
         </form>
+        <%
+        }
+        %>
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>
