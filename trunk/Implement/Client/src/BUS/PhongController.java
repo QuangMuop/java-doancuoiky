@@ -41,6 +41,11 @@ public class PhongController {
         return phongDAO.getDSPhongTheoLau(floor);
     }
 
+    public ArrayList<Phong> getDSPhong()
+    {
+        return phongDAO.getDSPhong();
+    }
+
     public boolean updatePhong(Phong phong)
     {
         return phongDAO.updatePhongTheoId(phong.getId(), phong);

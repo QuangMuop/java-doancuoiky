@@ -16,6 +16,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -115,5 +116,46 @@ public class book {
     String securityCode) {
         ThuePhongController thuePhongController = new ThuePhongController();
         return thuePhongController.huyDatPhong(securityCode);
+    }
+
+    /**
+     * Tra ve tat ca phong
+     * tra ve null neu khong co
+     */
+    @WebMethod(operationName = "getListRoom")
+    public ws.RoomDTO[] getListRoom() {
+        //TODO write your implementation code here:
+        PhongController phongController = new PhongController();
+        ArrayList<Phong> arrPhong = phongController.getDSPhong();
+        if(arrPhong!=null)
+        {
+            RoomDTO[] arrRoomDTO = new RoomDTO[arrPhong.size()];
+
+            int i;
+            for(i=0;i<arrPhong.size();i++)
+            {
+                RoomDTO roomDTO = new RoomDTO();
+                Phong phong = arrPhong.get(i);
+
+                roomDTO.setId("" + phong.getId());
+                roomDTO.setDetail(phong.getMoTa());
+                roomDTO.setCost(phong.getGia() + phong.getIdLoaiPhong().getGia());
+
+                if(phong.getIdTinhTrang().getTen().toLowerCase().equals("con trong"))
+                {
+                    roomDTO.setCanStay(true);
+                }
+                else
+                {
+                    roomDTO.setCanStay(false);
+                }
+
+                arrRoomDTO[i] = roomDTO;
+            }
+
+            return arrRoomDTO;
+        }
+        else
+            return null;
     }
 }

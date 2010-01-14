@@ -12,6 +12,28 @@ package ws;
 public class RoomDTO {
     private String id;
     private int cost;
+    boolean canStay;
+    String detail;
+
+    public String getDetail()
+    {
+        return this.detail;
+    }
+
+    public void setDetail(String detail)
+    {
+        this.detail = detail;
+    }
+
+    public void setCanStay(boolean canStay)
+    {
+        this.canStay = canStay;
+    }
+
+    public boolean getCanStay()
+    {
+        return this.canStay;
+    }
 
     public String getId() {
         return this.id;
