@@ -421,4 +421,60 @@ public class MySqlPhongDAO implements IPhongDAO {
             connector.closeConnection();
         }
     }
+
+    public ArrayList<Phong> getDSPhong() {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection();
+
+            String sql = "select phong.*, tinh_trang_phong.ten , loai_phong.ten, loai_phong.gia " +
+                    "from phong, tinh_trang_phong, loai_phong " +
+                    "where phong.id_tinh_trang =  tinh_trang_phong.id and phong.id_loai_phong = loai_phong.id " +
+                    "order by id";
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+
+            //execute query
+            ResultSet rs = statement.executeQuery();
+
+            ArrayList<Phong> lstPhong = new ArrayList<Phong>();
+            Phong phong;
+            TinhTrangPhong tinhTrangPhong;
+            LoaiPhong loaiPhong;
+
+            while(rs.next())
+            {
+                 phong = new Phong();
+                 phong.setId(rs.getInt("id"));
+                 phong.setLau(rs.getInt("lau"));
+                 phong.setGia(rs.getInt("gia"));
+
+                 tinhTrangPhong = new TinhTrangPhong();
+                 tinhTrangPhong.setId(rs.getInt("id_tinh_trang"));
+                 tinhTrangPhong.setTen(rs.getString("tinh_trang_phong.ten"));
+                 phong.setIdTinhTrang(tinhTrangPhong);
+
+                 loaiPhong = new LoaiPhong();
+                 loaiPhong.setGia(rs.getInt("loai_phong.gia"));
+                 loaiPhong.setId(rs.getInt("id_loai_phong"));
+                 loaiPhong.setTen(rs.getString("loai_phong.ten"));
+                 phong.setIdLoaiPhong(loaiPhong);
+
+                 phong.setHinhAnh(rs.getString("hinh_anh"));
+                 phong.setMoTa(rs.getString("mo_ta"));
+
+                lstPhong.add(phong);
+            }
+
+            statement.close();
+            return lstPhong;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
 }

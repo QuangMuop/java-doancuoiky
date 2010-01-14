@@ -19,4 +19,5 @@ public interface IPhongDAO {
     public ArrayList<Phong> getDSPhongDangThue();
     public ArrayList<Phong> getDSPhongConTrong();
     public boolean updateTinhTrangPhongTheoId(int id, TinhTrangPhong tinhTrangPhong);
+    public ArrayList<Phong> getDSPhong();
 }
