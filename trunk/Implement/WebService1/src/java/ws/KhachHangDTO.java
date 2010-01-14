@@ -7,7 +7,7 @@ package ws;
  */
 public class KhachHangDTO {
     String name;
-    int age;
+    String birthDay;
     String id;
 
     public String getName() {
@@ -18,8 +18,8 @@ public class KhachHangDTO {
         return this.id;
     }
 
-    public int getAge() {
-        return this.age;
+    public String getBirthDay() {
+        return this.birthDay;
     }
 
     public void setName(String name) {
@@ -30,7 +30,7 @@ public class KhachHangDTO {
         this.id = id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 }
