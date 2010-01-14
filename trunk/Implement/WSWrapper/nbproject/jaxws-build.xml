@@ -28,22 +28,5 @@
         <delete dir="${build.generated.dir}/jax-wsCache/book"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/WebService1"/>
     </target>
-    <target name="wsimport-client-book_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/book_1"/>
-        <property name="wsdl-book_1" location="xml-resources/web-service-references/book_1/wsdl/localhost_8084/WebApplication2/book.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/book_1" destdir="${build.generated.dir}/jax-wsCache/book_1" wsdl="${wsdl-book_1}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/WebApplication2/book?wsdl" xnocompile="true">
-            <depends file="${wsdl-book_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/book_1"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/book_1">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-book_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/book_1"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/WebApplication2"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-book, wsimport-client-book_1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-book"/>
 </project>

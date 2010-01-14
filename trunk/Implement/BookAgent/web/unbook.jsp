@@ -9,6 +9,7 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@page session="true" %>
+<%@page import="Hotel.*" %>
 
 
 <html>
@@ -19,13 +20,23 @@
     <body>
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
+        <% 
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        if (hotel == null) {%>
+            <p>Bạn cần chọn một khách sạn mới có thể hủy đặt chỗ.</p>
+        <%}
+        else {
+        %>
         <form name="form" action="room">
-            <input type="hidden" name="action" value="unbook" />
-            <input type="hidden" name="hid" value="<%= request.getParameter("hid") %>" />
-            <label for="tbValidationCode">Mã xác nhận: </label>
-            <input type="text" name="tbValidationCode" value="" size="200px" />
-            <input type="submit" value="OK" name="btnUnbook" />
+            <input type="hidden" name="action" value="cancel" />
+            <input type="hidden" name="hid" value="<%= hotel.getId() %>" />
+            <label for="validation">Mã xác nhận: </label> <br />
+            <input type="text" name="validation" value="" size="50px" /> <br />
+            <input type="submit" value="Chấp nhận" />
         </form>
+        <%
+        }
+        %>
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>

@@ -4,10 +4,23 @@
 
 <xs:element name="bookResponse" type="tns:bookResponse"></xs:element>
 
-<xs:complexType name="book">
+<xs:element name="bookRoom" type="tns:bookRoom"></xs:element>
+
+<xs:element name="bookRoomResponse" type="tns:bookRoomResponse"></xs:element>
+
+<xs:element name="cancelBookRoom" type="tns:cancelBookRoom"></xs:element>
+
+<xs:element name="cancelBookRoomResponse" type="tns:cancelBookRoomResponse"></xs:element>
+
+<xs:element name="getListRoom" type="tns:getListRoom"></xs:element>
+
+<xs:element name="getListRoomResponse" type="tns:getListRoomResponse"></xs:element>
+
+<xs:complexType name="bookRoom">
 <xs:sequence>
-<xs:element name="room" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="customer" type="tns:khachHangDTO" minOccurs="0"></xs:element>
+<xs:element name="soPhong" type="xs:int"></xs:element>
+<xs:element name="khach" type="tns:khachHangDTO" minOccurs="0"></xs:element>
+<xs:element name="ngayDat" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -16,6 +29,50 @@
 <xs:element name="age" type="xs:int"></xs:element>
 <xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookRoomResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookRoom">
+<xs:sequence>
+<xs:element name="securityCode" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelBookRoomResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListRoom">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListRoomResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:roomDTO" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="roomDTO">
+<xs:sequence>
+<xs:element name="canStay" type="xs:boolean"></xs:element>
+<xs:element name="cost" type="xs:int"></xs:element>
+<xs:element name="detail" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="id" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="book">
+<xs:sequence>
+<xs:element name="room" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customer" type="tns:khachHangDTO" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 

@@ -14,6 +14,15 @@
     <body>
         <jsp:include page="template/header.jsp" />
         <jsp:include page="template/left-panel.jsp" />
+        <%
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        if (hotel == null) {
+        %>
+        <p>Bạn phải chọn khách sạn để xem danh sách phòng.</p>
+        <%
+        }
+        else {
+        %>
         <table border="1">
             <thead>
                 <tr>
@@ -24,7 +33,6 @@
             </thead>
             <tbody>
         <%
-        Hotel hotel = (Hotel) request.getAttribute("hotel");
         ListRoom listRoom = hotel.getListRoom();
         for (int i = 0; i < listRoom.size(); i++) {
             Room room = listRoom.getRooms().get(i);
@@ -32,7 +40,17 @@
                 <tr>
                     <td><%= room.getId() %></td>
                     <td><%= room.getCost() %></td>
-                    <td><a href="room?action=book-nav&hid=<%= hotel.getId() %>&rid=<%= room.getId() %>">Dat cho</a></td>
+                    <td>
+                        <% if (room.getStay()) {%>
+                        <a href="room?action=book-nav&hid=<%= hotel.getId() %>&rid=<%= room.getId() %>">Dat cho</a>
+                        <%
+                        }
+                        else {%>
+                        <p>X</p>
+                        <%
+                        }
+                        %>
+                    </td>
                 </tr>
         <% } %>
             </tbody>

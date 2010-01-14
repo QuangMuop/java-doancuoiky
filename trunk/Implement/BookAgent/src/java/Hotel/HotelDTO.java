@@ -2,7 +2,7 @@
 package Hotel;
 
 /**
- *
+ * Class HotelDTO dung de chuyen giao khi su dung web service cua BookAgent
  * @author hvu
  */
 public class HotelDTO {

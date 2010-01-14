@@ -25,9 +25,6 @@
             - Nguyễn Hoàng Vũ<br />
             - Nguyễn Xuân Tường Huy<br />
         </p>
-        Testing:
-        <br />
-        :<a href="hotels?action=get-rooms&hid=0&all=1">Get rooms</a>
         <jsp:include page="template/footer.jsp" />
     </body>
 </html>

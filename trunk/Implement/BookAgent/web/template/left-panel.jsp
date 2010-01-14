@@ -2,6 +2,7 @@
 <%@page import="Hotel.*, Agent.*, java.util.*" %>
 <jsp:useBean id="hotelModel" scope="application" class="Agent.HotelModel" />
 
+
 <div class="left-panel">
     <%
     ListHotel listHotel = hotelModel.getListHotel();
