@@ -301,7 +301,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
 
         //lay danh sach cac phong co trong lau
         listPhong = phongController.getDSPhongTheoLau(numFloor);
-
+        
         //add new buttons and labels
         int n = listPhong.size();
         int i;
