@@ -54,7 +54,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        this.setTitle("Xem chi tiet phong");
+        this.setTitle("Xem chi tiết phòng");
         this.setDefaultCloseOperation(JDialogXemChiTiet.DISPOSE_ON_CLOSE);
         this.setSize(500, 600);
         this.setLocationRelativeTo(parent);
@@ -438,7 +438,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         if(!jBtnChinhSua.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn sửa hay không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION) {
             //enable fields
             this.jBtnCapNhat.setEnabled(true);
@@ -537,18 +537,18 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         if(!jBtnCapNhat.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn lưu những thay đổi không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION) {
             String err = CapNhatPhong();
             if(err.equals(""))
             {
                 phong = phongTmp;
-                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật phòng thành công!" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
                 hienThiThongTinPhong(phong);
             }
             else
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),err , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),err , "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             //restore old value
@@ -573,18 +573,18 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(this.jBtnCapNhat.isEnabled())
         {
-            int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn lưu những thay đổi không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(result == JOptionPane.OK_OPTION) {
                 String err = CapNhatPhong();
                 if(err.equals(""))
                 {
                     phong = phongTmp;
-                    JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật phòng thành công!" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
                     hienThiThongTinPhong(phong);
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),err , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),err , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -623,6 +623,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             public void run() {
                 JDialogXemChiTiet dialog = new JDialogXemChiTiet(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }

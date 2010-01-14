@@ -12,11 +12,9 @@
 package client;
 
 import BUS.ThuePhongController;
-import DTO.ThuePhong;
 import Utils.MyDateTime;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
@@ -173,7 +171,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Ma phong", "Loai phong", "Don gia", "Tong so ngay muon", "Tong so tien"
+                "Mã Phòng", "Loại Phòng", "Đơn Giá", "Tổng Số Ngày Mượn", "Tổng Số Tiền"
             }
         ) {
             Class[] types = new Class [] {
@@ -291,14 +289,14 @@ public class JPanelThongKe extends javax.swing.JPanel {
         String sNam = jFTxtNam.getText();
         if(sNam.equals(""))
         {
-            JOptionPane.showMessageDialog(this.getComponent(0), "Hay nhap vao nam!", "Thong bao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0), "Hãy nhập vào năm!", "Thông Báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         int nam = Integer.parseInt(sNam);
         if(nam<0)
         {
-            JOptionPane.showMessageDialog(this.getComponent(0), "Du lieu nhap khong hop le!", "Thong bao", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0), "Dữ liệu nhập không hợp lệ!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -310,7 +308,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
             hienThiKetQua();
         else
         {
-            JOptionPane.showMessageDialog(this.getComponent(0), "Khong tim thay ket qua!", "Thong bao", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0), "Không tìm thấy kết quả!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
@@ -366,7 +364,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
             }
             else
             {
-                JOptionPane.showMessageDialog(this.getComponent(0), "Khong tim thay ket qua!", "Thong bao", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0), "Không tìm thấy kết quả!", "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }
             thongKe.close();
 
@@ -403,10 +401,9 @@ public class JPanelThongKe extends javax.swing.JPanel {
     private javax.swing.JTable jTablePhong;
     // End of variables declaration//GEN-END:variables
 
-    private ThuePhongController thuePhongController;
-    private ArrayList<ThuePhong> lstThuePhong;
+    private ThuePhongController thuePhongController;    
     private ResultSet thongKe;
     private String[] headerTable = new String [] {
-                "Ma phong", "Loai phong", "Don gia", "Tong so ngay muon", "Tong so tien"
+                "Mã Phòng", "Loại Phòng", "Đơn Giá", "Tổng Số Ngày Mượn", "Tổng Số Tiền"
             };
 }

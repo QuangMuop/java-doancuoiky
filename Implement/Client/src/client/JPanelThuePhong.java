@@ -303,7 +303,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Ten khach hang", "Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"
+                "Tên Khách Hàng", "Ngày Sinh", "CMND", "Giới Tính", "Địa Chỉ", "Điện Thoại", "Loại Khách Hàng"
             }
         ) {
             Class[] types = new Class [] {
@@ -572,23 +572,23 @@ public class JPanelThuePhong extends javax.swing.JPanel {
                 String secutiryCode = thuePhongController.tiepNhanViecThuePhong(thuePhong);
                 if(secutiryCode.equals(""))
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),error , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                     initData();                    
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Thuê phòng thành công!" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
                     initData();
                 }
             }
             else
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);                
+                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thông Báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThuePhongMousePressed
 
@@ -618,7 +618,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
         else
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),"Chu y: So nguoi thue toi da la " + this.SoKhachHangToiDa + " nguoi!" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Chú  ý: Số người thuê tối đa là " + this.SoKhachHangToiDa + " người!" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThemKhachMousePressed
 
@@ -771,7 +771,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private ArrayList<LoaiThue> lstLoaiThue;
     private ThuePhong thuePhong;
 
-    String[] header = new String[] {"Ten khach hang","Ngay sinh", "CMND", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang"};
+    String[] header = new String[] {"Tên Khách Hàng","Ngày Sinh", "CMND", "Giới Tính", "Địa Chỉ", "Điện Thoại", "Loại Khách Hàng"};
 }
 
 class WorkerGetListPhong extends SwingWorker<ArrayList<Phong>, Void>

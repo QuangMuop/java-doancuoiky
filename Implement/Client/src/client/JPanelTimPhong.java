@@ -256,7 +256,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Ma phong", "Loai phong", "Don gia", "Tinh trang"
+                "Mã Phòng", "Loại Phòng", "Đơn Giá", "Tình Trạng"
             }
         ) {
             Class[] types = new Class [] {
@@ -403,13 +403,13 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(!jCheckLoaiPhong.isSelected() && !jCheckMaPhong.isSelected() && !jCheckTinhTrang.isSelected())
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),"Hay nhap vao dieu kien tim kiem!", "Thong bao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Hãy nhập vào điều kiện tìm kiếm!", "Thông Báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         if(jCheckMaPhong.isSelected() && jTxtMaPhong.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),"Hay nhap vao ma phong can tim!", "Thong bao", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Hãy nhập vào mã phòng cần tìm!", "Thông Báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -434,7 +434,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
                 idPhong = Integer.parseInt(s);
                 if(idPhong<0)
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),"Ma phong nhap sai!", "Thong bao", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Mã phòng nhập sai!", "Thông Báo", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
             }
@@ -446,7 +446,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         {
             if(lst.size()==0)
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Khong tim thay ket qua", "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Không tìm thấy kết quả", "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
 
                 //clear table data
                 DefaultTableModel model = new DefaultTableModel(headerTable, 0);
@@ -497,29 +497,6 @@ public class JPanelTimPhong extends javax.swing.JPanel {
 
             model.addRow(arr);
         }
-
-        //jTableResult.setModel(model);
-
-        /*
-        DefaultTableModel model = new DefaultTableModel(headerTable, 0);
-        
-        int i;
-        for(i=0;i<lst.size();i++)
-        {
-            Object[] arr = new Object[4];
-            
-            Phong phong = lst.get(i);
-            arr[0] = phong.getId();
-            arr[1] = phong.getIdLoaiPhong().getTen();
-            arr[2] = phong.getIdLoaiPhong().getGia() + phong.getGia();
-            arr[3] = phong.getIdTinhTrang().getTen();
-            
-            model.addRow(arr);
-        }
-
-        jTableResult.setModel(model);
-          */
-
     }
 
     private TinhTrangPhong timTinhTrangPhongTheoTen(String ten)
@@ -573,7 +550,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
     private ArrayList<LoaiPhong> lstLoaiPhong;
     private ArrayList<TinhTrangPhong> lstTinhTrangPhong;
     private String[] headerTable = new String [] {
-                "Ma phong", "Loai phong", "Don gia", "Tinh trang"
+                "Mã Phòng", "Loại Phòng", "Đơn Giá", "Tình Trạng"
             };
 }
 

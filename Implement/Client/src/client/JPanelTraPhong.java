@@ -331,7 +331,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia"
+                "Tên Khách Hàng", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Điện Thoại", "Loại Khách Hàng", "Đơn Giá"
             }
         ) {
             Class[] types = new Class [] {
@@ -577,18 +577,18 @@ public class JPanelTraPhong extends javax.swing.JPanel {
 
             if(thuePhongController.tiepNhanViecTraPhong(thuePhong))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Trả phòng thành công!" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
                 initData();
             }
             else
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Tra phong that bai" , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Trả phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                 initData();
             }
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thông Báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnTraPhongMousePressed
 
@@ -633,7 +633,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
     private javax.swing.JTable jTableKhachHang;
     // End of variables declaration//GEN-END:variables
 
-    String[] header = new String[] { "Ten khach hang", "Ngay sinh", "Gioi tinh", "Dia chi", "Dien thoai", "Loai khach hang", "Don gia" };
+    String[] header = new String[] { "Tên Khách Hàng", "Ngày Sinh", "Giới Tính", "Địa Chỉ", "Điện Thoại", "Loại Khách Hàng", "Đơn Giá" };
 
     private ArrayList<ThuePhong> lstThuePhong;
     private ThuePhongController thuePhongController;

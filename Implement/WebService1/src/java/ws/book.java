@@ -16,6 +16,8 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -55,57 +57,6 @@ public class book {
             }
         }
         return false;
-    }
-
-    /**
-     * su dung de dat phong online.
-     * soPhong: id cua phong can dat
-     * khach: thong tin khach hang dat phong
-     * ngayDat: ngay dat phong (neu truyen vao null thi se lay ngay hien tai)
-     * tra ve ma so xac nhan su dung cho viec huy dat phong sau nay
-     * neu xay ra loi thi se tra ve chuoi rong
-     */
-    @WebMethod(operationName = "bookRoom")
-    public String bookRoom(@WebParam(name = "soPhong")
-    int soPhong, @WebParam(name = "khach")
-    KhachHangDTO khach, @WebParam(name = "ngayDat")
-    Date ngayDat) {
-        //TODO write your implementation code here:
-        //kiem tra phong co ton tai hay khong
-        PhongController phongController = new PhongController();
-        Phong phong = phongController.getPhongTheoId(soPhong);
-        if(phong==null || phong.getIdTinhTrang().getTen().toLowerCase().equals("da thue"))
-        {
-            //neu phong can dat khong ton tai hoac phong da co nguoi
-            return "";
-        }
-
-        if(ngayDat == null)
-        {
-            ngayDat = MyDateTime.getNow();
-        }
-
-        ThuePhongController thuePhongController = new ThuePhongController();
-        LoaiThue loaiThue = thuePhongController.layLoaiThueTheoTen("Dat phong");
-
-        KhachHang myKhachDTO = new KhachHang();
-        myKhachDTO.setId(khach.getId());
-        myKhachDTO.setTen(khach.getName());
-        
-        ThuePhong thuePhong = new ThuePhong();
-        thuePhong.setIdLoaiThue(loaiThue);
-        thuePhong.addKhachHang(myKhachDTO);
-        thuePhong.setNgayThue(ngayDat);
-        thuePhong.setPhong(phong);
-        thuePhong.setTongGia(0);
-
-        String error = thuePhongController.kiemTraNghiepVuThuePhong(thuePhong);
-        if(error.equals(""))
-        {
-            return thuePhongController.tiepNhanViecThuePhong(thuePhong);
-        }
-        else
-            return "";
     }
 
     /**
@@ -157,5 +108,68 @@ public class book {
         }
         else
             return null;
+    }
+
+    /**
+     * su dung de dat phong online.
+     * soPhong: id cua phong can dat
+     * khach: thong tin khach hang dat phong
+     * ngayDat: ngay dat phong (neu truyen vao "" thi se lay ngay hien tai)
+     * tra ve ma so xac nhan su dung cho viec huy dat phong sau nay
+     * neu xay ra loi thi se tra ve chuoi rong
+     */
+    @WebMethod(operationName = "bookRoom")
+    public String bookRoom(@WebParam(name = "soPhong")
+    int soPhong, @WebParam(name = "khach")
+    KhachHangDTO khach, @WebParam(name = "ngayDat")
+    String ngayDat) {
+        //TODO write your implementation code here:
+
+        //kiem tra phong co ton tai hay khong
+        PhongController phongController = new PhongController();
+        Phong phong = phongController.getPhongTheoId(soPhong);
+        if(phong==null || phong.getIdTinhTrang().getTen().toLowerCase().equals("da thue"))
+        {
+            //neu phong can dat khong ton tai hoac phong da co nguoi
+            return "";
+        }
+
+        Date ngayDatPhong = null;
+        if(ngayDat.equals(""))
+        {
+            ngayDatPhong = MyDateTime.getNow();
+        }
+        else
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                ngayDatPhong = sdf.parse(ngayDat);
+            } catch (ParseException ex) {
+                Logger.getLogger(book.class.getName()).log(Level.SEVERE, null, ex);
+                return "";
+            }
+        }
+
+        ThuePhongController thuePhongController = new ThuePhongController();
+        LoaiThue loaiThue = thuePhongController.layLoaiThueTheoTen("Dat phong");
+
+        KhachHang myKhachDTO = new KhachHang();
+        myKhachDTO.setId(khach.getId());
+        myKhachDTO.setTen(khach.getName());
+
+        ThuePhong thuePhong = new ThuePhong();
+        thuePhong.setIdLoaiThue(loaiThue);
+        thuePhong.addKhachHang(myKhachDTO);
+        thuePhong.setNgayThue(ngayDatPhong);
+        thuePhong.setPhong(phong);
+        thuePhong.setTongGia(0);
+
+        String error = thuePhongController.kiemTraNghiepVuThuePhong(thuePhong);
+        if(error.equals(""))
+        {
+            return thuePhongController.tiepNhanViecThuePhong(thuePhong);
+        }
+        else
+            return "";
     }
 }
