@@ -263,14 +263,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
     public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam) {
         Connector connector = new MySqlConnector();
         try {
-            connector.openConnection();
-            /*
-            String sql = "select *, case when ngay_tra = '0000-00-00' then sum(TO_DAYS(?) - TO_DAYS(ngay_thue) + 1) " +
-                                        "when ngay_tra <> '0000-00-00' and month(ngay_thue) >= ? and month(ngay_thue) <= ? and year(ngay_thue) = ? then sum(TO_DAYS(ngay_tra) - TO_DAYS(ngay_thue) + 1) end " +
-                                        "from chi_tiet_thue_phong "+
-                                        "group by id_phong;";
-            */
-
+            connector.openConnection();            
             String sql = "select phong.id, loai_phong.ten, loai_phong.gia, " +
                                 "sum(TO_DAYS(ngay_tra) - TO_DAYS(ngay_thue) + 1) as `SoNgayThue`, " +
                                 "sum(tong_gia) as `TongGiaTien` " +
@@ -347,7 +340,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
                 statement.close();
 
                 //lay id phong
-                sql = "select id_phong form chi_tiet_thue_phong where id = ?";
+                sql = "select id_phong from chi_tiet_thue_phong where id = ?";
                 statement = connector.getConnection().prepareCall(sql);
                 statement.setString(1, secutiryCode);
 

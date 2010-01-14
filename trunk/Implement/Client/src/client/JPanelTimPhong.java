@@ -563,9 +563,7 @@ class WorkerGetListLoaiPhong extends SwingWorker<ArrayList<LoaiPhong>, Void>
 
         phongController = new PhongController();
         return phongController.getDSLoaiPhong();
-
     }
-
 }
 
 class WorkerGetListTinhTrangPhong extends SwingWorker<ArrayList<TinhTrangPhong>, Void>

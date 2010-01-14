@@ -98,11 +98,11 @@ public class PhongController {
     public String kiemTraNghiepVuPhong(Phong phong)
     {
         if(phong.getGia()<0)
-            return "Gia tien cua phong khong duoc am";
+            return "Giá tiền của phòng không được âm";
         if(phong.getId()<0)
-            return "So phong khong duoc am";
+            return "Số phòng không được âm";
         if(phong.getLau()<0)
-            return "Lau khong duoc am";
+            return "Số lầu không được âm";
         return "";
     }
 }
