@@ -58,7 +58,10 @@ public class HotelModel {
             throw new IndexOutOfBoundsException("Hotel index");
         }
         // update list room
+        try
+        {
         List<ws.RoomDTO> listRoomDto = WSWrapper.updateListRoom(hid);
+
         List<Room> rooms = this.listHotel.getHotels().get(hid).getListRoom().getRooms();
         rooms.clear();
         for (int i = 0; i < listRoomDto.size(); i++) {
@@ -67,6 +70,10 @@ public class HotelModel {
             room.setCost(listRoomDto.get(i).getCost());
             room.setStay(listRoomDto.get(i).isCanStay());
             rooms.add(room);
+        }
+        }
+        catch(Exception ex) 
+        {
         }
         return this.listHotel.getHotels().get(hid);
     }

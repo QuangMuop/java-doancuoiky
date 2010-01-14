@@ -49,7 +49,7 @@ public class WSWrapper {
         return false;
     }
 
-    static public List<RoomDTO> updateListRoom(int hid) {
+    static public List<RoomDTO> updateListRoom(int hid) throws Exception {
         switch (hid) {
             case 0:
                 WebService1.BookService service = new WebService1.BookService();
