@@ -72,6 +72,11 @@ public class PhongController {
         return tinhTrangPhongDAO.getDSTinhTrangPhong();
     }
 
+    public TinhTrangPhong getTinhTrangPhongTheoTen(String ten)
+    {
+        return tinhTrangPhongDAO.getTinhTrangPhongTheoTen(ten);
+    }
+
     public ArrayList<Phong> timPhong(int id, int loaiPhong, int tinhTrang)
     {
         return phongDAO.getDSPhongTheoDK(id, loaiPhong, tinhTrang);

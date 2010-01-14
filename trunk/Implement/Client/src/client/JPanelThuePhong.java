@@ -566,16 +566,24 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             else
                 thuePhong.setTongGia(this.TienDatCocKhiThue);
 
-            String error = thuePhongController.tiepNhanViecThuePhong(thuePhong);
+            String error = thuePhongController.kiemTraNghiepVuThuePhong(thuePhong);
             if(error.equals(""))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
-                initData();
+                String secutiryCode = thuePhongController.tiepNhanViecThuePhong(thuePhong);
+                if(secutiryCode.equals(""))
+                {
+                    JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
+                    initData();                    
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Thue phong thanh cong!" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                    initData();
+                }
             }
             else
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);
-                initData();
+                JOptionPane.showMessageDialog(this.getComponent(0),error , "Thong bao loi", JOptionPane.ERROR_MESSAGE);                
             }
         }
         catch(Exception ex)

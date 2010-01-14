@@ -29,22 +29,14 @@ public class ThuePhongController {
 
     /**
      * ham de thue phong
-     * neu khong xay ra loi thi tra ve chuoi rong
+     * tra ve ma so xac nhan viec thue phong thanh cong
+     * neu xay ra loi thi tra ve chuoi rong
      * */
     public String tiepNhanViecThuePhong(ThuePhong thuePhong)
     {
         try
         {
-            String error = kiemTraNghiepVuThuePhong(thuePhong);
-            if(error.equals(""))
-            {
-                if(thuePhongDAO.insertThuePhong(thuePhong))
-                    return "";
-                else
-                    return "Thue phong that bai";
-            }
-            else
-                return error;
+            return thuePhongDAO.insertThuePhong(thuePhong);
         }
         catch(Exception ex)
         {
@@ -57,12 +49,17 @@ public class ThuePhongController {
         return thuePhongDAO.updateThuePhong(thuePhong);
     }
 
+    public boolean huyDatPhong(String secutiryCode)
+    {
+        return thuePhongDAO.deleteThuePhong(secutiryCode);
+    }
+
     /**
      * ham de kiem tra nhung rang buoc nghiep vu khi thue phong
      * tra ve String hien thi loi xay ra
      * neu hop le thi tra ve chuoi rong
      * */
-    private String kiemTraNghiepVuThuePhong(ThuePhong thuePhong)
+    public String kiemTraNghiepVuThuePhong(ThuePhong thuePhong)
     {   
         //kiem tra danh sach khach hang
         if(thuePhong.getLstKhachHang().size()==0)
@@ -86,6 +83,11 @@ public class ThuePhongController {
     public ArrayList<LoaiThue> layDSLoaiThue()
     {
         return thuePhongDAO.getDSLoaiThue();
+    }
+
+    public LoaiThue layLoaiThueTheoTen(String ten)
+    {
+        return thuePhongDAO.getLoaiThueTheoTen(ten);
     }
 
     public ArrayList<ThuePhong> layDSThuePhong()

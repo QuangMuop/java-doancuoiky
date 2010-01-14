@@ -11,9 +11,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public interface IThuePhongDAO {
-    public boolean insertThuePhong(ThuePhong tp);
+    public String insertThuePhong(ThuePhong tp);
     public boolean updateThuePhong(ThuePhong tp);    
     public ArrayList<ThuePhong> getDSThuePhong();
-    public ArrayList<LoaiThue> getDSLoaiThue();        
+    public ArrayList<LoaiThue> getDSLoaiThue();
+    public LoaiThue getLoaiThueTheoTen(String ten);
     public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam);
+    public boolean deleteThuePhong(String secutiryCode);
 }
