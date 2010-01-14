@@ -319,12 +319,12 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             if(phong.getIdTinhTrang().getTen().equals("Con trong"))
             {
                 button.setIcon(iconPhongConTrong);
-                button.setToolTipText("Phong con trong");
+                button.setToolTipText("Phòng còn trống");
             }
             else
             {
                 button.setIcon(iconPhongDaThue);
-                button.setToolTipText("Phong da co nguoi");
+                button.setToolTipText("Phòng đã có người");
             }
 
             //set event listener for button

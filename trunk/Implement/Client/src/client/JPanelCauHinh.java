@@ -26,7 +26,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
-import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -88,10 +87,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jTxtGiaPhong = new javax.swing.JFormattedTextField();
         jTxtGiaKhach = new javax.swing.JFormattedTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableLoaiPhong = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableLoaiKhachHang = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jcbThamSo = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
@@ -184,7 +179,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jMainPanelHeThong.add(jLabel14, gridBagConstraints);
 
-        jtxtTen.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jtxtTen.setEditable(false);
         jtxtTen.setText(resourceMap.getString("jtxtTen.text")); // NOI18N
         jtxtTen.setName("jtxtTen"); // NOI18N
@@ -195,7 +189,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jtxtTen, gridBagConstraints);
 
-        jTxtDiaChi.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jTxtDiaChi.setEditable(false);
         jTxtDiaChi.setText(resourceMap.getString("jTxtDiaChi.text")); // NOI18N
         jTxtDiaChi.setName("jTxtDiaChi"); // NOI18N
@@ -206,7 +199,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jTxtDiaChi, gridBagConstraints);
 
-        jTxtEmail.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jTxtEmail.setEditable(false);
         jTxtEmail.setText(resourceMap.getString("jTxtEmail.text")); // NOI18N
         jTxtEmail.setName("jTxtEmail"); // NOI18N
@@ -217,7 +209,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jTxtEmail, gridBagConstraints);
 
-        jTxtWebsite.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jTxtWebsite.setEditable(false);
         jTxtWebsite.setText(resourceMap.getString("jTxtWebsite.text")); // NOI18N
         jTxtWebsite.setName("jTxtWebsite"); // NOI18N
@@ -240,7 +231,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jFtxtDienThoai, gridBagConstraints);
 
-        jFtxtFax.setBackground(resourceMap.getColor("jFormattedTextField1.background")); // NOI18N
         jFtxtFax.setEditable(false);
         jFtxtFax.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFtxtFax.setText(resourceMap.getString("jFtxtFax.text")); // NOI18N
@@ -456,91 +446,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jTxtGiaKhach, gridBagConstraints);
 
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(23, 80));
-        jScrollPane1.setName("jScrollPane1"); // NOI18N
-
-        jTableLoaiPhong.setBackground(resourceMap.getColor("jTableLoaiPhong.background")); // NOI18N
-        jTableLoaiPhong.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Loai Phong", "Don Gia"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableLoaiPhong.setEnabled(false);
-        jTableLoaiPhong.setFocusable(false);
-        jTableLoaiPhong.setGridColor(resourceMap.getColor("jTableLoaiPhong.gridColor")); // NOI18N
-        jTableLoaiPhong.setName("jTableLoaiPhong"); // NOI18N
-        jTableLoaiPhong.setPreferredSize(new java.awt.Dimension(150, 100));
-        jScrollPane1.setViewportView(jTableLoaiPhong);
-        jTableLoaiPhong.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("jTableLoaiPhong.columnModel.title0")); // NOI18N
-        jTableLoaiPhong.getColumnModel().getColumn(1).setHeaderValue(resourceMap.getString("jTableLoaiPhong.columnModel.title1")); // NOI18N
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jMainPanelNghiepVu.add(jScrollPane1, gridBagConstraints);
-
-        jScrollPane2.setMinimumSize(new java.awt.Dimension(23, 80));
-        jScrollPane2.setName("jScrollPane2"); // NOI18N
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(452, 80));
-
-        jTableLoaiKhachHang.setBackground(resourceMap.getColor("jTableLoaiPhong.background")); // NOI18N
-        jTableLoaiKhachHang.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Loai Khach Hang", "Don Gia"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableLoaiKhachHang.setEnabled(false);
-        jTableLoaiKhachHang.setFocusable(false);
-        jTableLoaiKhachHang.setGridColor(resourceMap.getColor("jTableLoaiPhong.gridColor")); // NOI18N
-        jTableLoaiKhachHang.setName("jTableLoaiKhachHang"); // NOI18N
-        jScrollPane2.setViewportView(jTableLoaiKhachHang);
-        jTableLoaiKhachHang.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("jTableLoaiKhachHang.columnModel.title0")); // NOI18N
-        jTableLoaiKhachHang.getColumnModel().getColumn(1).setHeaderValue(resourceMap.getString("jTableLoaiKhachHang.columnModel.title1")); // NOI18N
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jMainPanelNghiepVu.add(jScrollPane2, gridBagConstraints);
-
         jLabel6.setFont(resourceMap.getFont("jLabel6.font")); // NOI18N
         jLabel6.setForeground(resourceMap.getColor("jLabel6.foreground")); // NOI18N
         jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
@@ -644,7 +549,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         if(!this.jBtnChinhSua.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn sửa hay không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
             //set editable
@@ -663,13 +568,13 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         if(!this.jBtnCapNhat.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn lưu những thay đổi không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
             String s = jTxtGiaKhach.getText();
             if(s.equals(""))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0), "Nhap vao don gia khach hang!","Thong bao", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0), "Nhập vào đơn giá khách hàng!","Thông Báo", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -678,7 +583,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             s = jTxtGiaPhong.getText();
             if(s.equals(""))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0), "Nhap vao don gia phong!","Thong bao", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0), "Nhập vào đơn giá phòng!","Thông Báo", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             
@@ -687,7 +592,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             s = jTxtGiaTriThamSo.getText();
             if(s.equals(""))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0), "Nhap vao gia tri tham so!","Thong bao", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0), "Nhập vào giá trị tham số!","Thông Báo", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -705,18 +610,18 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
             if(!phongController.capNhatLoaiPhong(loaiPhong))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat gia tien phong that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);                
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật gía tiền phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }else            
             if(!khachController.capNhatLoaiKhachHang(loaiKhachHang))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat gia tien khach hang that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật gía tiền khách hàng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
             }else
                 if(!thamSoController.capNhatThamSo(thamSo))
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat tham so" + thamSo.getName() + "that bai" , "Thong bao", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật tham số" + thamSo.getName() + "thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                 }
                 else
-                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật thành công" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
@@ -839,7 +744,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         if(!this.jBtnLuu.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon luu nhung thay doi khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn lưu những thay đổi không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
             KhachSan tmp = new KhachSan();
@@ -853,7 +758,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
 
             if(khachSanController.capNhatKhachSan(tmp))
             {
-                JOptionPane.showMessageDialog(this.getComponent(0),"Cap nhat thanh cong" , "Thong bao", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.getComponent(0),"Cập nhật thành công" , "Thông Báo", JOptionPane.INFORMATION_MESSAGE);
            }
             else
             {
@@ -883,7 +788,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         if(!this.jBtnSua.isEnabled())
             return;
 
-        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Ban co muon sua hay khong?" , "Thong bao", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this.getComponent(0),"Bạn có muốn sửa không?" , "Thông Báo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(result == JOptionPane.OK_OPTION)
         {
             //set editable
@@ -903,6 +808,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private String[] headerLoaiKhachHang = new String [] {"Loai Khach Hang", "Don Gia" };
     private void initTableLoaiKhachHang()
     {
+        /*
         jTableLoaiKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             headerLoaiKhachHang,0
         ) {
@@ -930,11 +836,13 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         }
         
         jTableLoaiKhachHang.setEnabled(false);
+         */
     }
     
     private String[] headerLoaiPhong = new String [] {"Loai Phong", "Don Gia" };
     private void initTableLoaiPhong()
     {
+        /*
         jTableLoaiPhong.setModel(new javax.swing.table.DefaultTableModel(
             headerLoaiPhong,0
         ) {
@@ -970,6 +878,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         }
         
         jTableLoaiPhong.setEnabled(false);
+         */
     }
 
     private void initComboLoaiPhong() {
@@ -1090,11 +999,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
     private javax.swing.JPanel jMainPanelNghiepVu;
     private javax.swing.JPanel jPanelHeThong;
     private javax.swing.JPanel jPanelNghiepVu;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTableLoaiKhachHang;
-    private javax.swing.JTable jTableLoaiPhong;
     private javax.swing.JTextField jTxtDiaChi;
     private javax.swing.JTextField jTxtEmail;
     private javax.swing.JFormattedTextField jTxtGiaKhach;
