@@ -157,6 +157,14 @@ public class book {
         myKhachDTO.setId(khach.getId());
         myKhachDTO.setTen(khach.getName());
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            myKhachDTO.setNgaySinh(sdf.parse(khach.getBirthDay()));
+        } catch (ParseException ex) {
+            Logger.getLogger(book.class.getName()).log(Level.SEVERE, null, ex);
+            return "";
+        }
+
         ThuePhong thuePhong = new ThuePhong();
         thuePhong.setIdLoaiThue(loaiThue);
         thuePhong.addKhachHang(myKhachDTO);
@@ -171,5 +179,32 @@ public class book {
         }
         else
             return "";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getListIdRoomAvailable")
+    public java.lang.Integer[] getListIdRoomAvailable() {
+        //TODO write your implementation code here:
+
+        PhongController phongController = new PhongController();
+        ArrayList<Phong> lstPhong = phongController.getDSPhongChuaThue();
+
+        Integer[] arrId = null;
+
+        if(lstPhong!=null)
+        {
+            arrId = new Integer[lstPhong.size()];
+            int i;
+            for(i=0;i<lstPhong.size();i++)
+            {
+                arrId[i] = lstPhong.get(i).getId();
+            }
+
+            return arrId;
+        }
+        else
+            return null;
     }
 }
