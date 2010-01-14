@@ -276,8 +276,7 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     private void jBtnXemHinhAnhMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXemHinhAnhMousePressed
         // TODO add your handling code here:
-        JFrameShowImage slideShow = new JFrameShowImage();
-        slideShow.setVisible(true);
+        
     }//GEN-LAST:event_jBtnXemHinhAnhMousePressed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
