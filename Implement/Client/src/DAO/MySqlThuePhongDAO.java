@@ -54,7 +54,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         }
     }
 
-    public boolean insertThuePhong(ThuePhong tp) {
+    public String insertThuePhong(ThuePhong tp) {
         Connector connector = new MySqlConnector();
         try {
             //them khach hang vao DB
@@ -68,19 +68,25 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             String sql = "INSERT INTO CHI_TIET_THUE_PHONG(id, id_phong, ngay_thue, tong_gia, id_loai_thue) VALUES (?,?,?,?,?);";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
-            String sIdPhong = "" + tp.getPhong().getId();
-            SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            sIdPhong += formatIdChiTietThue.format(tp.getNgayThue());
+            String sIdChiTietThue = "" + tp.getPhong().getId();
+            //SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyyMMddhhmmss");
 
-            statement.setString(1, sIdPhong);
+            String sNgayThue = formatIdChiTietThue.format(tp.getNgayThue());
+
+            sIdChiTietThue += sNgayThue;
+
+            statement.setString(1, sIdChiTietThue);
             statement.setInt(2, tp.getPhong().getId());
             statement.setString(3, sdf.format(tp.getNgayThue()));
             statement.setInt(4, 0);
             statement.setInt(5, tp.getIdLoaiThue().getId());
 
-            statement.executeUpdate();
-            statement.close();
-
+            if(!(statement.executeUpdate()>0))
+            {
+                statement.close();
+                return "";
+            }
             //them vao bang thue phong
             sql = "INSERT INTO THUE_PHONG(id_chi_tiet_thue, id_khach) VALUES ";
 
@@ -90,7 +96,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             {
                 KhachHang khach = lstKhach.get(i);
 
-                String tmpSql = "('" + sIdPhong + "','" + khach.getId() + "'),";
+                String tmpSql = "('" + sIdChiTietThue + "','" + khach.getId() + "'),";
                 sql += tmpSql;
             }
 
@@ -109,16 +115,16 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
 
                 TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Da thue");
                 phongDAO.updateTinhTrangPhongTheoId(tp.getPhong().getId(), tinhTrang);
-                return true;
+                return sIdChiTietThue;
             }
             else
             {
                 statement.close();
-                return false;
+                return "";
             }
         } catch (SQLException ex) {
             Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return "";
         }
         finally
         {
@@ -290,6 +296,99 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         } catch (SQLException ex) {
             Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
+        }
+    }
+
+    public LoaiThue getLoaiThueTheoTen(String ten) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection();
+
+            String sql = "select from loai_thue where loai = ?;";
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+
+            statement.setString(1, ten);
+
+            ResultSet rs = statement.executeQuery();
+
+            LoaiThue loaiThue = null;
+            while(rs.next())
+            {
+                loaiThue = new LoaiThue();
+                loaiThue.setId(rs.getInt("id"));
+                loaiThue.setLoai(rs.getString("loai"));
+
+            }
+
+            statement.close();
+
+            return loaiThue;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
+
+    public boolean deleteThuePhong(String secutiryCode) {
+        Connector connector = new MySqlConnector();
+        try {
+            connector.openConnection();
+            String sql = "delete from thue_phong where id_chi_tiet_thue = ?;";
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+
+            statement.setString(1, secutiryCode);
+
+            if(statement.executeUpdate()>0)
+            {
+                statement.close();
+
+                //lay id phong
+                sql = "select id_phong form chi_tiet_thue_phong where id = ?";
+                statement = connector.getConnection().prepareCall(sql);
+                statement.setString(1, secutiryCode);
+
+                int idPhong = -1;
+                ResultSet rs = statement.executeQuery();
+                while(rs.next())
+                {
+                    idPhong = rs.getInt("id_phong");
+                }
+                if(idPhong == -1)
+                    return false;
+
+                //cap nhat lai thong tin tinh trang phong
+                MySqlPhongDAO phongDAO = new MySqlPhongDAO();
+                MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
+
+                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Con trong");
+                phongDAO.updateTinhTrangPhongTheoId(idPhong, tinhTrang);
+                statement.close();
+
+                //xoa chi tiet thue phong
+                sql = "delete from chi_tiet_thue_phong where id = ?;";
+                statement = connector.getConnection().prepareCall(sql);
+                statement.setString(1, secutiryCode);
+                if(statement.executeUpdate()>0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                statement.close();
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
         }
     }
 }
