@@ -541,7 +541,13 @@ public class ClientView extends FrameView {
     private void jToggleBtnHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnHelpMousePressed
         try {
             // TODO add your handling code here:
-            Desktop.getDesktop().open(new File("E:/Help/Report.chm"));
+            /*
+            ClassLoader cldr = this.getClass().getClassLoader();
+            java.net.URL url;
+            url = cldr.getResource();
+              */
+            
+            Desktop.getDesktop().open(new File("./Client/Document.chm"));
         } catch (IOException ex) {
             Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
         }
