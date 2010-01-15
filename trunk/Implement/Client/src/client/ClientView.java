@@ -43,10 +43,10 @@ public class ClientView extends FrameView {
         jLeftPanel.setMaximumSize(dimensionLeft);
         jLeftPanel.setMinimumSize(dimensionLeft);
 
-        Dimension dimensionTop = new Dimension(841, 107);
-        jTopPanel.setMaximumSize(dimensionTop);
-        jTopPanel.setMinimumSize(dimensionTop);
-        jTopPanel.setSize(dimensionTop);
+        //Dimension dimensionTop = new Dimension(841, 107);
+        //jTopPanel.setMaximumSize(dimensionTop);
+        //jTopPanel.setMinimumSize(dimensionTop);
+        //jTopPanel.setSize(dimensionTop);
 
         
         myInit();
@@ -130,10 +130,6 @@ public class ClientView extends FrameView {
         statusAnimationLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
         jSplitMainPane = new javax.swing.JSplitPane();
-        jTopPanel = new javax.swing.JPanel();
-        jLabelLogo = new javax.swing.JLabel();
-        jLabelTenKhachSan = new javax.swing.JLabel();
-        jLabelThoiGian = new javax.swing.JLabel();
         jSplitPane2 = new javax.swing.JSplitPane();
         jLeftPanel = new javax.swing.JPanel();
         jToggleBtnXemPhong = new javax.swing.JToggleButton();
@@ -223,53 +219,6 @@ public class ClientView extends FrameView {
         jSplitMainPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitMainPane.setDoubleBuffered(true);
         jSplitMainPane.setName("jSplitMainPane"); // NOI18N
-
-        jTopPanel.setName("jTopPanel"); // NOI18N
-
-        jLabelLogo.setIcon(resourceMap.getIcon("jLabelLogo.icon")); // NOI18N
-        jLabelLogo.setText(resourceMap.getString("jLabelLogo.text")); // NOI18N
-        jLabelLogo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, resourceMap.getColor("jLabelLogo.border.highlightOuterColor"), resourceMap.getColor("jLabelLogo.border.highlightInnerColor"), resourceMap.getColor("jLabelLogo.border.shadowOuterColor"), resourceMap.getColor("jLabelLogo.border.shadowInnerColor"))); // NOI18N
-        jLabelLogo.setDisabledIcon(resourceMap.getIcon("jLabelLogo.disabledIcon")); // NOI18N
-        jLabelLogo.setDoubleBuffered(true);
-        jLabelLogo.setEnabled(false);
-        jLabelLogo.setName("jLabelLogo"); // NOI18N
-
-        jLabelTenKhachSan.setBackground(resourceMap.getColor("jLabelTenKhachSan.background")); // NOI18N
-        jLabelTenKhachSan.setFont(resourceMap.getFont("jLabelTenKhachSan.font")); // NOI18N
-        jLabelTenKhachSan.setForeground(resourceMap.getColor("jLabelTenKhachSan.foreground")); // NOI18N
-        jLabelTenKhachSan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTenKhachSan.setText(resourceMap.getString("jLabelTenKhachSan.text")); // NOI18N
-        jLabelTenKhachSan.setName("jLabelTenKhachSan"); // NOI18N
-
-        jLabelThoiGian.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelThoiGian.setText(resourceMap.getString("jLabelThoiGian.text")); // NOI18N
-        jLabelThoiGian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelThoiGian.setName("jLabelThoiGian"); // NOI18N
-
-        javax.swing.GroupLayout jTopPanelLayout = new javax.swing.GroupLayout(jTopPanel);
-        jTopPanel.setLayout(jTopPanelLayout);
-        jTopPanelLayout.setHorizontalGroup(
-            jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTopPanelLayout.createSequentialGroup()
-                .addComponent(jLabelLogo)
-                .addGap(134, 134, 134)
-                .addComponent(jLabelTenKhachSan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(jLabelThoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jTopPanelLayout.setVerticalGroup(
-            jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jTopPanelLayout.createSequentialGroup()
-                .addGroup(jTopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelLogo)
-                    .addComponent(jLabelThoiGian, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jTopPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTenKhachSan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jSplitMainPane.setLeftComponent(jTopPanel);
 
         jSplitPane2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jSplitPane2.setName("jSplitPane2"); // NOI18N
@@ -600,9 +549,6 @@ public class ClientView extends FrameView {
     //click on button Xem phong
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupMainController;
-    private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelTenKhachSan;
-    private javax.swing.JLabel jLabelThoiGian;
     private javax.swing.JPanel jLeftPanel;
     private javax.swing.JPanel jRightPanel;
     private javax.swing.JSplitPane jSplitMainPane;
@@ -616,7 +562,6 @@ public class ClientView extends FrameView {
     private javax.swing.JToggleButton jToggleBtnTimPhong;
     private javax.swing.JToggleButton jToggleBtnTraPhong;
     private javax.swing.JToggleButton jToggleBtnXemPhong;
-    private javax.swing.JPanel jTopPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
