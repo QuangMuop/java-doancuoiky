@@ -41,22 +41,28 @@ public class HotelController extends HttpServlet {
 
         try {
             String action = request.getParameter("action");
-            int hid;
+            int hid = Integer.parseInt(request.getParameter("hid"));
+
 
             switch (mapActionCode(action)) {
                 case GET_HOTELS:
                     break;
+
                 case GET_HOTEL_INFO:
-                    hid = Integer.parseInt(request.getParameter("hid"));
+                    
                     request.setAttribute("hotel", getHotelInfo(hid));
                     getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
                     break;
+
                 case GET_ROOMS:
+
                     hid = Integer.parseInt(request.getParameter("hid"));
                     request.setAttribute("hotel", getHotelInfo(hid));
                     getServletContext().getRequestDispatcher("/roomlist.jsp").forward(request, response);
                     break;
+
                 case INVALID:
+                    
                     break;
             }
         } finally { 
