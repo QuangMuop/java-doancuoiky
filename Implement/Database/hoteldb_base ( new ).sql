@@ -5,12 +5,14 @@ USE `hoteldb`;
 -- Drop all tables
 DROP TABLE IF EXISTS `thue_phong`;
 DROP TABLE IF EXISTS `tham_so`;
+DROP TABLE IF EXISTS `chi_tiet_thue_phong`;
+DROP TABLE IF EXISTS `phong`;
 DROP TABLE IF EXISTS `tinh_trang_phong`;
-DROP TABLE IF EXISTS `loai_phong`;
 DROP TABLE IF EXISTS `khach_hang`;
+DROP TABLE IF EXISTS `loai_phong`;
 DROP TABLE IF EXISTS `loai_thue`;
 DROP TABLE IF EXISTS `loai_khach_hang`;
-DROP TABLE IF EXISTS `phong`;
+DROP TABLE IF EXISTS `khach_san`;
 
 -- tao bang loai khach hang
 DROP TABLE IF EXISTS `hoteldb`.`loai_khach_hang`;
