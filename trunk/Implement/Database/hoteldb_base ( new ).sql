@@ -165,8 +165,8 @@ INSERT INTO `loai_phong`(`id`, `ten`, `gia`) VALUES
 
 
 insert into tham_so (`id`,`ten`,`kieu_du_lieu`,`gia_tri`,`kich_hoat`) values (1,'SoKhachHangToiDa','int','3',true),
-                                                                            (2,'TienDatCocKhiThue','int','10000',true);
-										(3,'TuoiToiThieu','int',16,true);
+                                                                            (2,'TienDatCocKhiThue','int','10000',true),
+										                                                        (3,'TuoiToiThieu','int',16,true);
 
 -- phong
 INSERT INTO `phong`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_anh`, `mo_ta`) VALUES
@@ -191,4 +191,3 @@ INSERT INTO `phong`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_
   (19,3, null, 0, 2, '', ''),
   (20,3, null, 0, 2, '', ''),
   (21,3, null, 0, 2, '', '');
-
