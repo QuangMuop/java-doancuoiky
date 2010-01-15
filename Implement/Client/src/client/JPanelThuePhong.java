@@ -457,6 +457,13 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         if(lstPhong!=null && lstPhong.size()>0)
         {
             initComboBoxMaPhong();
+            this.jBtnThuePhong.setEnabled(true);
+            this.jBtnThemKhach.setEnabled(true);
+        }
+        else
+        {
+            this.jBtnThuePhong.setEnabled(false);
+            this.jBtnThemKhach.setEnabled(false);
         }
 
         //lay loai thue va add vao combobox
@@ -541,7 +548,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private void jBtnThuePhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThuePhongMousePressed
         // TODO add your handling code here:
         try
-        {            
+        {
+            if(!this.jBtnThuePhong.isEnabled())
+                return;
+
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");            
 
             thuePhong.setIdLoaiThue(layLoaiThueTheoTen(jCbLoaiThue.getSelectedItem().toString()));
@@ -629,6 +639,9 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
     private void jBtnXoaKhachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXoaKhachMousePressed
         // TODO add your handling code here:
+        if(!this.jBtnXoaKhach.isEnabled())
+            return;
+
         int index = jTableKhachHang.getSelectedRow();
         if(index!=-1)
         {

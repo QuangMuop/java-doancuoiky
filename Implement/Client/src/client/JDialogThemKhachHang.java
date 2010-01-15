@@ -346,7 +346,7 @@ public class JDialogThemKhachHang extends javax.swing.JDialog {
             }
             else
             {
-                khach.setNgaySinh(sdf.parse("1/1/0001"));
+                khach.setNgaySinh(null);
             }
 
             khach.setTen(jTxtTenKhach.getText());
