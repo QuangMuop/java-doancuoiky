@@ -68,7 +68,7 @@ CREATE TABLE  `hoteldb`.`khach_hang` (
   `dia_chi` text,
   `dien_thoai` text,
   `ngay_sinh` datetime DEFAULT NULL,
-  `id_loai_khach_hang` int(10) unsigned NOT NULL,
+  `id_loai_khach_hang` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `FK_khach_hang_Loai_khach_hang` (`id_loai_khach_hang`),
   CONSTRAINT `FK_khach_hang_Loai_khach_hang` FOREIGN KEY (`id_loai_khach_hang`) REFERENCES `loai_khach_hang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
