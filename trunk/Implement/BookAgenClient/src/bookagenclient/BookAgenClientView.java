@@ -117,6 +117,14 @@ public class BookAgenClientView extends FrameView {
         jLabel3 = new javax.swing.JLabel();
         jTextFieldRooms = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListRoom = new javax.swing.JList();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldRoomId = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldRoomPrice = new javax.swing.JTextField();
+        jButtonAdd = new javax.swing.JButton();
+        jButtonRemove = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -164,6 +172,31 @@ public class BookAgenClientView extends FrameView {
         jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
         jLabel4.setName("jLabel4"); // NOI18N
 
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jListRoom.setName("jListRoom"); // NOI18N
+        jScrollPane1.setViewportView(jListRoom);
+
+        jLabel5.setText(resourceMap.getString("jLabel5.text")); // NOI18N
+        jLabel5.setName("jLabel5"); // NOI18N
+
+        jTextFieldRoomId.setText(resourceMap.getString("jTextFieldRoomId.text")); // NOI18N
+        jTextFieldRoomId.setName("jTextFieldRoomId"); // NOI18N
+
+        jLabel6.setText(resourceMap.getString("jLabel6.text")); // NOI18N
+        jLabel6.setName("jLabel6"); // NOI18N
+
+        jTextFieldRoomPrice.setText(resourceMap.getString("jTextFieldRoomPrice.text")); // NOI18N
+        jTextFieldRoomPrice.setName("jTextFieldRoomPrice"); // NOI18N
+
+        jButtonAdd.setAction(actionMap.get("addRoom")); // NOI18N
+        jButtonAdd.setText(resourceMap.getString("jButtonAdd.text")); // NOI18N
+        jButtonAdd.setName("jButtonAdd"); // NOI18N
+
+        jButtonRemove.setAction(actionMap.get("removeRoom")); // NOI18N
+        jButtonRemove.setText(resourceMap.getString("jButtonRemove.text")); // NOI18N
+        jButtonRemove.setName("jButtonRemove"); // NOI18N
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -171,11 +204,11 @@ public class BookAgenClientView extends FrameView {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap(381, Short.MAX_VALUE)
                 .addComponent(jButtonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(38, 38, 38)
                 .addComponent(jButtonCancel)
-                .addGap(34, 34, 34))
+                .addGap(35, 35, 35))
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(43, 43, 43)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -186,33 +219,64 @@ public class BookAgenClientView extends FrameView {
                     .addComponent(jTextFieldRooms, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldDescription, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
-                .addContainerGap(203, Short.MAX_VALUE))
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(228, Short.MAX_VALUE))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldRoomPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(jTextFieldRoomId, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(42, 42, 42)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRooms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSubmit)
-                    .addComponent(jButtonCancel))
-                .addGap(22, 22, 22))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldRooms, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonSubmit)
+                            .addComponent(jButtonCancel)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextFieldRoomId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAdd))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextFieldRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonRemove))))
+                .addContainerGap())
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -291,28 +355,67 @@ public class BookAgenClientView extends FrameView {
         hotel.setDetail(detail);
         hotel.setRoom(rooms);
 
-        List<RoomDTO> lstRooms = new ArrayList<RoomDTO>();
-        RoomDTO room = new RoomDTO();
-        room.setId("01");
-        room.setCost(10000);
-        lstRooms.add(room);
-
         HotelRegisterService service = new HotelRegisterService();
         HotelRegister port = service.getHotelRegisterPort();
-        String result = port.submit(hotel, lstRooms);
+        String result = port.submit(hotel, this.listRooms);
         // show message box to confirm client
+        statusMessageLabel.setText(result);
+    }
+
+    @Action
+    public void addRoom() {
+        String id = jTextFieldRoomId.getText();
+        String cost = jTextFieldRoomPrice.getText();
+        if (!id.isEmpty() && !cost.isEmpty()) {
+            RoomDTO room = new RoomDTO();
+            room.setId(jTextFieldRoomId.getText());
+            try {
+                room.setCost(Integer.parseInt(jTextFieldRoomPrice.getText()));
+                listRooms.add(room);
+                populateList();
+            }
+            catch (NumberFormatException ex) {
+                statusMessageLabel.setText("Giá phòng không hợp lệ");
+            }
+            
+        }
+        else {
+            statusMessageLabel.setText("Thao tác không hợp lệ");
+        }
+    }
+
+    @Action
+    public void removeRoom() {
+        RoomDTO room = (RoomDTO) jListRoom.getSelectedValue();
+
+        if (room != null) {
+            listRooms.remove(room);
+            populateList();
+        }
+    }
+
+    private void populateList() {
+        jListRoom.setListData(this.listRooms.toArray());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonCancel;
+    private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JList jListRoom;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldAddress;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldRoomId;
+    private javax.swing.JTextField jTextFieldRoomPrice;
     private javax.swing.JTextField jTextFieldRooms;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
@@ -329,4 +432,5 @@ public class BookAgenClientView extends FrameView {
     private int busyIconIndex = 0;
 
     private JDialog aboutBox;
+    List<RoomDTO> listRooms = new ArrayList<RoomDTO>();
 }
