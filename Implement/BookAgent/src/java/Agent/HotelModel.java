@@ -14,6 +14,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import wrapper.WSWrapper;
+import ws.KhachHangDTO;
 
 /**
  *
@@ -58,8 +59,24 @@ public class HotelModel {
             throw new IndexOutOfBoundsException("Hotel index");
         }
         // update list room
-        //List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
-        return this.listHotel.getHotels().get(hid);
+        KhachHangDTO dto= new KhachHangDTO();
+        dto.setId("1324");
+        dto.setName("ajfhksad");
+        dto.setBirthDay("01/01/1988");
+        WSWrapper.bookRoom(hid, "10", null, "15/01/2010");
+        List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
+        Hotel hotel = this.listHotel.getHotels().get(hid);
+        List<Room> rooms = hotel.getListRoom().getRooms();
+        for (int i = 0; i < rooms.size(); i++) {
+            rooms.get(i).setStay(false);
+            for (int j = 0; j < lst.size(); j++) {
+                if (rooms.get(i).getId().equals(String.valueOf(lst.get(j)))) {
+                    rooms.get(i).setStay(true);
+                    break;
+                }
+            }
+        }
+        return hotel;
     }
 
     public ListHotel getListHotel() {

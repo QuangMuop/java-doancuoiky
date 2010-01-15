@@ -25,13 +25,13 @@ div.wrapper {
 div.left-panel {
     float:left;
     width:20%;
-    height:600px;
+    height:400px;
 }
 
 div.main-panel {
     float:left;
     width:80%;
-    height:600px;
+    height:400px;
 }
 
 div.footer, header {
@@ -41,10 +41,9 @@ div.footer, header {
 }
 
 table {
-    background: 1px;
+    border: 1px gray;
     padding: 5px;
 }
-
 
 div.menu {
     text-align:center;
