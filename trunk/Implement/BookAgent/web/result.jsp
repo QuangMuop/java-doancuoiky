@@ -12,10 +12,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Kết quả</title>
+        <link rel="stylesheet" type="text/css" href="img/stdtheme.css" />
     </head>
     <body>
-        <jsp:include page="template/header.jsp" />
-        Kết quả: <%= request.getAttribute("result") %>
-        <jsp:include page="template/footer.jsp" />
+        <div class="wrapper">
+            <jsp:include page="template/header.jsp" />
+            <div class="body">
+            <jsp:include page="template/left-panel.jsp" />
+            <div class="main-panel">
+            Kết quả: <%= request.getAttribute("result") %>
+            </div>
+            </div>
+            <jsp:include page="template/footer.jsp" />
+        </div>
     </body>
 </html>

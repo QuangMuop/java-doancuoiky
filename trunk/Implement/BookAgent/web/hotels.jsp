@@ -16,46 +16,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Khach san</title>
+        <title>Khách sạn</title>
+        <link rel="stylesheet" type="text/css" href="img/stdtheme.css" />
     </head>
     <body>
-        <jsp:include page="template/header.jsp" />
-        <jsp:include page="template/left-panel.jsp" />
-        <%
-            Hotel hotel = (Hotel) request.getAttribute("hotel");
-
-            if (hotel != null) {
-                //currentHotel = hotel;
-        %>
-        <div class="main-panel">
-            &nbsp;
-
-            <table border="0" width="800px">
-                <tbody>
-                    <tr>
-                        <td width="70px">Tên:</td>
-                        <td><%= hotel.getName() %></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td><%= hotel.getAddress() %></td>
-                    </tr>
-                    <tr>
-                        <td>Mô tả:</td>
-                        <td><%= hotel.getDetail() %></td>
-                    </tr>
-                    <tr>
-                        <td>Số phòng:</td>
-                        <td><%= hotel.getRoom() %></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="wrapper">
+            <jsp:include page="template/header.jsp" />
+            <div class="body">
+            <jsp:include page="template/left-panel.jsp" />
+            <div class="main-panel">
+                <%
+                Hotel hotel = (Hotel) request.getAttribute("hotel");
+                if (hotel != null) {
+                %>
+                <table border="0" width="800px">
+                    <tbody>
+                        <tr>
+                            <td width="70px">Tên:</td>
+                            <td><%= hotel.getName() %></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td><%= hotel.getAddress() %></td>
+                        </tr>
+                        <tr>
+                            <td>Mô tả:</td>
+                            <td><%= hotel.getDetail() %></td>
+                        </tr>
+                        <tr>
+                            <td>Số phòng:</td>
+                            <td><%= hotel.getRoom() %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <br />
+            <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>">Xem phòng</a>|
+            <a href="room?action=cancel-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
+            <% 
+            }
+            %>
+            </div>
+            </div>
+            <jsp:include page="template/footer.jsp" />
         </div>
-        
-        <br />
-        <a href="hotels?action=get-rooms&hid=<%= hotel.getId() %>">Xem phòng</a>|
-        <a href="room?action=cancel-nav&hid=<%= hotel.getId() %>">Hủy đặt phòng</a>
-        <% } %>
-        <jsp:include page="template/footer.jsp" />
     </body>
 </html>

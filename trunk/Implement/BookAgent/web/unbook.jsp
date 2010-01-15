@@ -16,27 +16,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Trả phòng</title>
+        <link rel="stylesheet" type="text/css" href="img/stdtheme.css" />
     </head>
     <body>
-        <jsp:include page="template/header.jsp" />
-        <jsp:include page="template/left-panel.jsp" />
-        <% 
-        Hotel hotel = (Hotel) request.getAttribute("hotel");
-        if (hotel == null) {%>
-            <p>Bạn cần chọn một khách sạn mới có thể hủy đặt chỗ.</p>
-        <%}
-        else {
-        %>
-        <form name="form" action="room">
-            <input type="hidden" name="action" value="cancel" />
-            <input type="hidden" name="hid" value="<%= hotel.getId() %>" />
-            <label for="validation">Mã xác nhận: </label> <br />
-            <input type="text" name="validation" value="" size="50px" /> <br />
-            <input type="submit" value="Chấp nhận" />
-        </form>
-        <%
-        }
-        %>
-        <jsp:include page="template/footer.jsp" />
+        <div class="wrapper">
+            <jsp:include page="template/header.jsp" />
+            <div class="body">
+            <jsp:include page="template/left-panel.jsp" />
+            <div class="main-panel">
+                <%
+                Hotel hotel = (Hotel) request.getAttribute("hotel");
+                if (hotel == null) {%>
+                    <p>Bạn cần chọn một khách sạn mới có thể hủy đặt chỗ.</p>
+                <%}
+                else {
+                %>
+                <form name="form" action="room">
+                    <input type="hidden" name="action" value="cancel" />
+                    <input type="hidden" name="hid" value="<%= hotel.getId() %>" />
+                    <label for="validation">Mã xác nhận: </label> <br />
+                    <input type="text" name="validation" value="" size="50px" /> <br />
+                    <input type="submit" value="Chấp nhận" />
+                </form>
+                <%
+                }
+                %>
+            </div>
+            </div>
+            <jsp:include page="template/footer.jsp" />
+        </div>
     </body>
 </html>
