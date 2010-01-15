@@ -6,7 +6,6 @@
 package Agent;
 
 import Common.Utility;
-import Hotel.Hotel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -51,14 +50,16 @@ public class RoomController extends HttpServlet {
                 case BOOK:
                     
                     String rid = request.getParameter("rid");
+
                     KhachHangDTO khachHangDto = new KhachHangDTO();
                     khachHangDto.setName(request.getParameter("name"));
                     khachHangDto.setId(request.getParameter("cmnd"));
                     khachHangDto.setBirthDay(request.getParameter("birth"));
+
                     String result = "Thao tác không thành công.";
                     String validation = null;
-                    String date = Utility.now("dd/MM/yyyy");
-                    if ((validation = WSWrapper.bookRoom(hid, rid, khachHangDto, date)) != null) {
+
+                    if ((validation = model.bookRoom(hid, rid, khachHangDto)) != null) {
                         result = "Đặt chỗ thành công. Mã số xác nhận của bạn là <b>" + validation + "</b>";
                     }
                     else {
@@ -78,7 +79,7 @@ public class RoomController extends HttpServlet {
                     validation = request.getParameter("validation");
                     result = "Thao tác không thành công.";
                     if (WSWrapper.cancelBookRoom(hid, validation)) {
-                        result = "Thao tác thành công.";
+                        result = "Đặt phòng với mã số " + validation + " đã được hủy.";
                     }
                     else {
                         result = "Thao tác không thành công. Do mã xác nhận không hợp lệ.";

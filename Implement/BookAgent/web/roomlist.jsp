@@ -20,42 +20,42 @@
                 <jsp:include page="template/left-panel.jsp" />
                 <div class="main-panel">
                     <%
-            Hotel hotel = (Hotel) request.getAttribute("hotel");
-            if (hotel == null) {
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        if (hotel == null) {
                     %>
                     <p>Bạn phải chọn khách sạn để xem danh sách phòng.</p>
                     <%                } else {
                     %>
-                    <table border="1">
+                    <table border="1" width="60%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Gia</th>
+                                <th width="10%">ID</th>
+                                <th width="60%">Gia</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             <%
-                                ListRoom listRoom = hotel.getListRoom();
-                                for (int i = 0; i < listRoom.size(); i++) {
-                                    Room room = listRoom.getRooms().get(i);
+                ListRoom listRoom = hotel.getListRoom();
+                for (int i = 0; i < listRoom.size(); i++) {
+                    Room room = listRoom.getRooms().get(i);
                             %>
                             <tr>
                                 <td><%= room.getId()%></td>
                                 <td><%= room.getCost()%></td>
                                 <td>
                                     <% if (room.getStay()) {%>
-                                    <a href="room?action=book-nav&hid=<%= hotel.getId()%>&rid=<%= room.getId()%>">Dat cho</a>
+                                    <a href="room?action=book-nav&hid=<%= hotel.getId()%>&rid=<%= room.getId()%>">Đặt</a>
                                     <%
  } else {%>
-                                    <p>X</p>
+                                    Hết chỗ
                                     <%                    }
                                     %>
                                 </td>
                             </tr>
                             <%
-                        }
-                    }
+            }
+        }
                             %>
                         </tbody>
                     </table>

@@ -2,6 +2,7 @@
 package Agent;
 
 import Common.Configuration;
+import Common.Utility;
 import Hotel.Hotel;
 import Hotel.ListHotel;
 import Hotel.Room;
@@ -59,11 +60,6 @@ public class HotelModel {
             throw new IndexOutOfBoundsException("Hotel index");
         }
         // update list room
-//        KhachHangDTO dto= new KhachHangDTO();
-//        dto.setId("1324");
-//        dto.setName("ajfhksad");
-//        dto.setBirthDay("01/01/1988");
-//        WSWrapper.bookRoom(hid, "10", null, "15/01/2010");
         List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
         Hotel hotel = this.listHotel.getHotels().get(hid);
         List<Room> rooms = hotel.getListRoom().getRooms();
@@ -77,6 +73,10 @@ public class HotelModel {
             }
         }
         return hotel;
+    }
+
+    public String bookRoom(int hid, String rid, KhachHangDTO dto) {
+        return WSWrapper.bookRoom(hid, rid, dto, Utility.now("dd/MM/yyyy"));
     }
 
     public ListHotel getListHotel() {
