@@ -25,13 +25,11 @@ div.wrapper {
 div.left-panel {
     float:left;
     width:20%;
-    height:400px;
 }
 
 div.main-panel {
     float:left;
     width:80%;
-    height:400px;
 }
 
 div.footer {
@@ -50,7 +48,6 @@ div.footer {
 
 table {
     border: 1px gray;
-    padding: 5px;
 }
 
 div.menu {

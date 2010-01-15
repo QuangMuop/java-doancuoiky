@@ -26,8 +26,8 @@
                 <jsp:include page="template/left-panel.jsp" />
                 <div class="main-panel">
                     <%
-            Hotel hotel = (Hotel) request.getAttribute("hotel");
-            if (hotel != null) {
+        Hotel hotel = (Hotel) request.getAttribute("hotel");
+        if (hotel != null) {
                     %>
                     <table border="0" width="800px">
                         <tbody>
@@ -43,17 +43,13 @@
                                 <td>Mô tả:</td>
                                 <td><%= hotel.getDetail()%></td>
                             </tr>
-                            <tr>
-                                <td>Số phòng:</td>
-                                <td><%= hotel.getRoom()%></td>
-                            </tr>
                         </tbody>
                     </table>
                     <br />
                     <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>">Xem phòng</a>|
                     <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
                     <%
-                }
+        }
                     %>
                 </div>
             </div>
