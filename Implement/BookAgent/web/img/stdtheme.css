@@ -34,8 +34,16 @@ div.main-panel {
     height:400px;
 }
 
-div.footer, header {
+div.footer {
+    clear:both;
     text-align:center;
+    position:relative;
+    float:none;
+}
+
+div.footer {
+    clear:both;
+    text-align:right;
     position:relative;
     float:none;
 }
