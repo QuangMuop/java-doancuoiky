@@ -110,7 +110,7 @@ public class Book {
         //TODO write your implementation code here:
         //kiem tra phong co ton tai hay khong
 
-            Connector connector = new MySqlConnector();
+        Connector connector = new MySqlConnector();
 
         DataOutputStream dos = null;
         try {
@@ -132,7 +132,7 @@ public class Book {
             ResultSet rs = statement.executeQuery();
 
             boolean hasValue = false;
-            int idPhong;
+            int idPhong = -1;
             while(rs.next())
             {
                  hasValue = true;
@@ -143,18 +143,17 @@ public class Book {
             //neu khong tim duoc phong tra ve chuoi rong
             if(!hasValue)
                 return "";
+            
+            dos.writeChars("Get duoc phong:" + idPhong + "\n");
 
-            connector.closeConnection();
-
-            dos.writeChars("Get duoc phong:" + soPhong + "\n");
-
-            /////////////////////////////
+            /////////////kiem tra khach hang////////////////
             dos.writeChars("Kiem tra khach hang da ton tai hay chua" + "\n");
-            connector = new MySqlConnector();
-
-            connector.openConnection();
+            
 
             sql = "select id from khach_hang where id = ?;";
+
+            dos.writeChars("lenh sql: " + sql + khach.getId() + "\n");
+
             statement = connector.getConnection().prepareCall(sql);
             statement.setString(1, khach.getId());
 
@@ -163,17 +162,12 @@ public class Book {
             if(rs.next())
             {
                 dos.writeChars("Khang hang da ton tai" + "\n");
-                connector.closeConnection();
+                statement.close();
             }
             else
             {
                 dos.writeChars("Khach hang chua ton tai -> them khach hang" + "\n");
-                connector.closeConnection();
-
-                connector = new MySqlConnector();
-
-                connector.openConnection();
-
+                
                 sql = "insert into khach_hang (id,ten) values (?,?);";
                 statement = connector.getConnection().prepareCall(sql);
 
@@ -196,12 +190,9 @@ public class Book {
             }
 
             dos.writeChars("Bat dau them vao bang chi tiet thue phong" + "\n");
-
-            connector = new MySqlConnector();
-
+            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            connector.openConnection();
-
+           
             //them vao bang chi tiet thue phong
             sql = "INSERT INTO CHI_TIET_THUE_PHONG(id, id_phong, ngay_thue, tong_gia, id_loai_thue) VALUES (?,?,?,?,?);";
             statement = connector.getConnection().prepareCall(sql);
@@ -241,9 +232,7 @@ public class Book {
                 statement.close();
             }
 
-
-            connector = new MySqlConnector();
-
+           
             //them vao bang thue phong
             dos.writeChars("Them vao bang thue phong" + "\n");
 
@@ -259,9 +248,6 @@ public class Book {
                 statement.close();
 
                 //cap nhat lai thong tin tinh trang phong
-                connector = new MySqlConnector();
-        
-                connector.openConnection();
 
                 dos.writeChars("Cap nhat tinh trang phong" + "\n");
                 sql = "update phong set id_tinh_trang = ? where id = ?;";
@@ -377,6 +363,7 @@ public class Book {
             catch (IOException ex) {
                 Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
             }
+            connector.closeConnection();
         }
     }
 
@@ -385,7 +372,7 @@ public class Book {
      */
     @WebMethod(operationName = "cancelBookRoom")
     public Boolean cancelBookRoom(@WebParam(name = "securityCode")
-    String securityCode) {
+    String securityCode) throws IOException {
         //TODO write your implementation code here:
 //        DataOutputStream dos = null;
 //        try {
@@ -412,6 +399,91 @@ public class Book {
 //                Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 //        }
-        return true;
+
+        DataOutputStream dos = null;
+        Connector connector = new MySqlConnector();
+        try {
+            dos = new DataOutputStream(new FileOutputStream(new File(".\\log.txt")));
+            dos.writeChars("--> cancelBook" + "\n");
+
+            connector.openConnection();
+
+            dos.writeChars("xoa chi tiet thue phong " + "\n");
+            String sql = "delete from thue_phong where id_chi_tiet_thue = ?;";
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+            statement.setString(1, securityCode);
+            if(statement.executeUpdate()>0)
+            {
+                dos.writeChars("xoa chi tiet thue phong thanh cong" + "\n");
+                statement.close();
+
+                dos.writeChars("lay id phong duoc thue" + "\n");
+
+                sql = "select id_phong from chi_tiet_thue_phong where id = ?";
+                statement = connector.getConnection().prepareCall(sql);
+                statement.setString(1, securityCode);
+
+                int idPhong = -1;
+                ResultSet rs = statement.executeQuery();
+                while(rs.next())
+                {
+                    idPhong = rs.getInt("id_phong");
+                    dos.writeChars("id phong:" + idPhong + "\n");
+                }
+                if(idPhong == -1)
+                    return false;
+
+
+                dos.writeChars("Cap nhat tinh trang phong" + "\n");
+                sql = "update phong set id_tinh_trang = ? where id = ?;";
+
+                statement = connector.getConnection().prepareCall(sql);
+                statement.setInt(1, 0);
+                statement.setInt(2, idPhong);
+
+                //execute query
+                if(statement.executeUpdate()>0)
+                {
+                    dos.writeChars("Cap nhat tinh trang phong thanh cong" + "\n");
+                    statement.close();
+                }
+                else
+                {
+                    dos.writeChars("Cap nhat tinh trang phong that bai" + "\n");
+                    statement.close();
+                    return false;
+                }
+
+                dos.writeChars("Xoa chi tiet thue phong" + "\n");
+                //xoa chi tiet thue phong
+                sql = "delete from chi_tiet_thue_phong where id = ?;";
+                statement = connector.getConnection().prepareCall(sql);
+                statement.setString(1, securityCode);
+                if(statement.executeUpdate()>0)
+                {
+                    dos.writeChars("Xoa chi tiet thue phong thanh cong" + "\n");
+                    return true;
+                }
+                else
+                {
+                    dos.writeChars("Xoa chi tiet thue phong that bai" + "\n");
+                    return false;
+                }
+            }
+            else
+            {
+                dos.writeChars("xoa chi tiet thue phong that bai" + "\n");
+                statement.close();
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+        
     }
 }
