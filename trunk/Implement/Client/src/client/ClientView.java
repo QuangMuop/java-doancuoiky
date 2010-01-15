@@ -34,7 +34,7 @@ public class ClientView extends FrameView {
         
         initComponents();
 
-        this.getFrame().setPreferredSize(new Dimension(853, 684));
+        this.getFrame().setPreferredSize(new Dimension(853, 590));
         this.getFrame().setResizable(false);
 
         //setsize for components
@@ -434,7 +434,6 @@ public class ClientView extends FrameView {
         btnGroupMainController.add(jToggleBtnIntro);
         jToggleBtnIntro.setFont(resourceMap.getFont("jToggleBtnIntro.font")); // NOI18N
         jToggleBtnIntro.setIcon(resourceMap.getIcon("jToggleBtnIntro.icon")); // NOI18N
-        jToggleBtnIntro.setSelected(true);
         jToggleBtnIntro.setText(resourceMap.getString("jToggleBtnIntro.text")); // NOI18N
         jToggleBtnIntro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleBtnIntro.setIconTextGap(0);
@@ -465,7 +464,7 @@ public class ClientView extends FrameView {
 
         jSplitMainPane.setBottomComponent(jSplitPane2);
 
-        setComponent(jSplitMainPane);
+        setComponent(jSplitPane2);
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
     
