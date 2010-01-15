@@ -93,7 +93,6 @@ public class JPanelIntro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jBtnXemHinhAnh = new javax.swing.JButton();
         jLabelImg = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -240,20 +239,6 @@ public class JPanelIntro extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel7, gridBagConstraints);
 
-        jBtnXemHinhAnh.setText(resourceMap.getString("jBtnXemHinhAnh.text")); // NOI18N
-        jBtnXemHinhAnh.setName("jBtnXemHinhAnh"); // NOI18N
-        jBtnXemHinhAnh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jBtnXemHinhAnhMousePressed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(jBtnXemHinhAnh, gridBagConstraints);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -274,11 +259,6 @@ public class JPanelIntro extends javax.swing.JPanel {
         add(jLabelImg, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtnXemHinhAnhMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXemHinhAnhMousePressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jBtnXemHinhAnhMousePressed
-
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
 
@@ -286,7 +266,6 @@ public class JPanelIntro extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnXemHinhAnh;
     private javax.swing.JLabel jImgKhachSan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

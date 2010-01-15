@@ -306,29 +306,29 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="jToggleBtnSubmitXML">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnAbout">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
-                    <Property name="font" type="java.awt.Font" resourceKey="jToggleBtnSubmitXML.font"/>
-                    <Property name="icon" type="javax.swing.Icon" resourceKey="jToggleBtnSubmitXML.icon"/>
-                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnSubmitXML.text"/>
+                    <Property name="font" type="java.awt.Font" resourceKey="jToggleBtnAbout.font"/>
+                    <Property name="icon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.icon"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnAbout.text"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" value="0"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="null"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="jToggleBtnSubmitXML" noResource="true"/>
-                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnSubmitXML.pressedIcon"/>
-                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnSubmitXML.selectedIcon"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnAbout" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.selectedIcon"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnSubmitXMLMousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnAboutMousePressed"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                      <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
+                      <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -354,7 +354,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                      <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
+                      <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -380,30 +380,30 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                      <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
+                      <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="5" ipadY="5" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="10" weightX="1.0" weightY="1.0"/>
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JToggleButton" name="jToggleBtnAbout">
+                <Component class="javax.swing.JToggleButton" name="jToggleBtnIntro">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
-                    <Property name="font" type="java.awt.Font" resourceKey="jToggleBtnAbout.font"/>
-                    <Property name="icon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.icon"/>
+                    <Property name="font" type="java.awt.Font" resourceKey="jToggleBtnIntro.font"/>
+                    <Property name="icon" type="javax.swing.Icon" resourceKey="jToggleBtnIntro.icon"/>
                     <Property name="selected" type="boolean" value="true"/>
-                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnAbout.text"/>
+                    <Property name="text" type="java.lang.String" resourceKey="jToggleBtnIntro.text"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="iconTextGap" type="int" value="0"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="null"/>
                     </Property>
-                    <Property name="name" type="java.lang.String" value="jToggleBtnAbout" noResource="true"/>
-                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.pressedIcon"/>
-                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnAbout.selectedIcon"/>
+                    <Property name="name" type="java.lang.String" value="jToggleBtnIntro" noResource="true"/>
+                    <Property name="pressedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnIntro.pressedIcon"/>
+                    <Property name="selectedIcon" type="javax.swing.Icon" resourceKey="jToggleBtnIntro.selectedIcon"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnAboutMousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleBtnIntroMousePressed"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

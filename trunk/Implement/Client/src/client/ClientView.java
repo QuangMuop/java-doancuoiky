@@ -7,13 +7,18 @@ package client;
 import BUS.PhongController;
 import DTO.Phong;
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.awt.Dimension;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jdesktop.application.ResourceMap;
 import org.jdesktop.application.SingleFrameApplication;
 import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.Timer;
 import javax.swing.Icon;
@@ -137,10 +142,10 @@ public class ClientView extends FrameView {
         jToggleBtnThuePhong = new javax.swing.JToggleButton();
         jToggleBtnTraPhong = new javax.swing.JToggleButton();
         jToggleBtnThongKe = new javax.swing.JToggleButton();
-        jToggleBtnSubmitXML = new javax.swing.JToggleButton();
+        jToggleBtnAbout = new javax.swing.JToggleButton();
         jToggleBtnCauHinh = new javax.swing.JToggleButton();
         jToggleBtnHelp = new javax.swing.JToggleButton();
-        jToggleBtnAbout = new javax.swing.JToggleButton();
+        jToggleBtnIntro = new javax.swing.JToggleButton();
         jRightPanel = new javax.swing.JPanel();
         btnGroupMainController = new javax.swing.ButtonGroup();
 
@@ -351,30 +356,30 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnThongKe, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnSubmitXML);
-        jToggleBtnSubmitXML.setFont(resourceMap.getFont("jToggleBtnSubmitXML.font")); // NOI18N
-        jToggleBtnSubmitXML.setIcon(resourceMap.getIcon("jToggleBtnSubmitXML.icon")); // NOI18N
-        jToggleBtnSubmitXML.setText(resourceMap.getString("jToggleBtnSubmitXML.text")); // NOI18N
-        jToggleBtnSubmitXML.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jToggleBtnSubmitXML.setIconTextGap(0);
-        jToggleBtnSubmitXML.setMargin(null);
-        jToggleBtnSubmitXML.setName("jToggleBtnSubmitXML"); // NOI18N
-        jToggleBtnSubmitXML.setPressedIcon(resourceMap.getIcon("jToggleBtnSubmitXML.pressedIcon")); // NOI18N
-        jToggleBtnSubmitXML.setSelectedIcon(resourceMap.getIcon("jToggleBtnSubmitXML.selectedIcon")); // NOI18N
-        jToggleBtnSubmitXML.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnAbout);
+        jToggleBtnAbout.setFont(resourceMap.getFont("jToggleBtnAbout.font")); // NOI18N
+        jToggleBtnAbout.setIcon(resourceMap.getIcon("jToggleBtnAbout.icon")); // NOI18N
+        jToggleBtnAbout.setText(resourceMap.getString("jToggleBtnAbout.text")); // NOI18N
+        jToggleBtnAbout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnAbout.setIconTextGap(0);
+        jToggleBtnAbout.setMargin(null);
+        jToggleBtnAbout.setName("jToggleBtnAbout"); // NOI18N
+        jToggleBtnAbout.setPressedIcon(resourceMap.getIcon("jToggleBtnAbout.pressedIcon")); // NOI18N
+        jToggleBtnAbout.setSelectedIcon(resourceMap.getIcon("jToggleBtnAbout.selectedIcon")); // NOI18N
+        jToggleBtnAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jToggleBtnSubmitXMLMousePressed(evt);
+                jToggleBtnAboutMousePressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jLeftPanel.add(jToggleBtnSubmitXML, gridBagConstraints);
+        jLeftPanel.add(jToggleBtnAbout, gridBagConstraints);
 
         btnGroupMainController.add(jToggleBtnCauHinh);
         jToggleBtnCauHinh.setFont(resourceMap.getFont("jToggleBtnCauHinh.font")); // NOI18N
@@ -393,7 +398,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -418,7 +423,7 @@ public class ClientView extends FrameView {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.weightx = 1.0;
@@ -426,20 +431,20 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnHelp, gridBagConstraints);
 
-        btnGroupMainController.add(jToggleBtnAbout);
-        jToggleBtnAbout.setFont(resourceMap.getFont("jToggleBtnAbout.font")); // NOI18N
-        jToggleBtnAbout.setIcon(resourceMap.getIcon("jToggleBtnAbout.icon")); // NOI18N
-        jToggleBtnAbout.setSelected(true);
-        jToggleBtnAbout.setText(resourceMap.getString("jToggleBtnAbout.text")); // NOI18N
-        jToggleBtnAbout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jToggleBtnAbout.setIconTextGap(0);
-        jToggleBtnAbout.setMargin(null);
-        jToggleBtnAbout.setName("jToggleBtnAbout"); // NOI18N
-        jToggleBtnAbout.setPressedIcon(resourceMap.getIcon("jToggleBtnAbout.pressedIcon")); // NOI18N
-        jToggleBtnAbout.setSelectedIcon(resourceMap.getIcon("jToggleBtnAbout.selectedIcon")); // NOI18N
-        jToggleBtnAbout.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGroupMainController.add(jToggleBtnIntro);
+        jToggleBtnIntro.setFont(resourceMap.getFont("jToggleBtnIntro.font")); // NOI18N
+        jToggleBtnIntro.setIcon(resourceMap.getIcon("jToggleBtnIntro.icon")); // NOI18N
+        jToggleBtnIntro.setSelected(true);
+        jToggleBtnIntro.setText(resourceMap.getString("jToggleBtnIntro.text")); // NOI18N
+        jToggleBtnIntro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleBtnIntro.setIconTextGap(0);
+        jToggleBtnIntro.setMargin(null);
+        jToggleBtnIntro.setName("jToggleBtnIntro"); // NOI18N
+        jToggleBtnIntro.setPressedIcon(resourceMap.getIcon("jToggleBtnIntro.pressedIcon")); // NOI18N
+        jToggleBtnIntro.setSelectedIcon(resourceMap.getIcon("jToggleBtnIntro.selectedIcon")); // NOI18N
+        jToggleBtnIntro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jToggleBtnAboutMousePressed(evt);
+                jToggleBtnIntroMousePressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -450,7 +455,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jLeftPanel.add(jToggleBtnAbout, gridBagConstraints);
+        jLeftPanel.add(jToggleBtnIntro, gridBagConstraints);
 
         jSplitPane2.setLeftComponent(jLeftPanel);
 
@@ -494,11 +499,15 @@ public class ClientView extends FrameView {
         cl.show(jRightPanel, panelThongKe.getName());
     }//GEN-LAST:event_jToggleBtnThongKeMousePressed
 
-    private void jToggleBtnSubmitXMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnSubmitXMLMousePressed
+    private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
         // TODO add your handling code here:
-        CardLayout cl = (CardLayout)jRightPanel.getLayout();
-        cl.show(jRightPanel, panelSubmitXML.getName());
-    }//GEN-LAST:event_jToggleBtnSubmitXMLMousePressed
+        jToggleBtnAbout.setSelected(true);
+        if(aboutBox == null)
+        {
+            aboutBox = new ClientAboutBox(null, true);
+        }
+        aboutBox.setVisible(true);
+    }//GEN-LAST:event_jToggleBtnAboutMousePressed
 
     private void jToggleBtnCauHinhMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnCauHinhMousePressed
         // TODO add your handling code here:
@@ -530,21 +539,20 @@ public class ClientView extends FrameView {
     }
 
     private void jToggleBtnHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnHelpMousePressed
-        // TODO add your handling code here:
-
-        Integer[] arr = getListIdRoomAvailable();
-        if(arr!=null)
-        {
-
+        try {
+            // TODO add your handling code here:
+            Desktop.getDesktop().open(new File("E:/Help/Report.chm"));
+        } catch (IOException ex) {
+            Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jToggleBtnHelpMousePressed
 
-    private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed
+    private void jToggleBtnIntroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnIntroMousePressed
         // TODO add your handling code here:
         CardLayout cl = (CardLayout)jRightPanel.getLayout();
         cl.show(jRightPanel, panelIntro.getName());
-    }//GEN-LAST:event_jToggleBtnAboutMousePressed
+    }//GEN-LAST:event_jToggleBtnIntroMousePressed
 
     //click on button Xem phong
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -556,7 +564,7 @@ public class ClientView extends FrameView {
     private javax.swing.JToggleButton jToggleBtnAbout;
     private javax.swing.JToggleButton jToggleBtnCauHinh;
     private javax.swing.JToggleButton jToggleBtnHelp;
-    private javax.swing.JToggleButton jToggleBtnSubmitXML;
+    private javax.swing.JToggleButton jToggleBtnIntro;
     private javax.swing.JToggleButton jToggleBtnThongKe;
     private javax.swing.JToggleButton jToggleBtnThuePhong;
     private javax.swing.JToggleButton jToggleBtnTimPhong;
@@ -579,8 +587,7 @@ public class ClientView extends FrameView {
     private JDialog aboutBox;
     
     //panels
-    private JPanelCauHinh panelCauhinh;
-    private JPanelSubmitXML panelSubmitXML;
+    private JPanelCauHinh panelCauhinh;    
     private JPanelThongKe panelThongKe;
     private JPanelThuePhong panelThuePhong;
     private JPanelTimPhong panelTimPhong;
@@ -595,10 +602,7 @@ public class ClientView extends FrameView {
 
         panelCauhinh = new JPanelCauHinh();
         panelCauhinh.setName("panelCauhinh");
-
-        panelSubmitXML = new JPanelSubmitXML();
-        panelSubmitXML.setName("panelSubmitXML");
-
+      
         panelThongKe = new JPanelThongKe();
         panelThongKe.setName("panelThongKe");
 
@@ -618,8 +622,7 @@ public class ClientView extends FrameView {
         jRightPanel.add(panelIntro,panelIntro.getName());
         jRightPanel.add(panelXemPhong,panelXemPhong.getName()); 
         jRightPanel.add(panelThuePhong,panelThuePhong.getName());
-        jRightPanel.add(panelCauhinh,panelCauhinh.getName());
-        jRightPanel.add(panelSubmitXML,panelSubmitXML.getName());
+        jRightPanel.add(panelCauhinh,panelCauhinh.getName());        
         jRightPanel.add(panelThongKe,panelThongKe.getName());
         jRightPanel.add(panelTimPhong,panelTimPhong.getName());
         jRightPanel.add(panelTraPhong,panelTraPhong.getName());

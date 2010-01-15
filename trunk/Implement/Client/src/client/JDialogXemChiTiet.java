@@ -457,8 +457,9 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
             this.jTxtLau.setEditable(true);
             this.jCbLoaiPhong.setEnabled(true);
             this.jTxtMoTa.setEditable(true);
-            this.jTxtSoPhong.setEditable(true);
+            
             this.jCbTinhTrang.setEnabled(true);
+
 
             //disable button chinh sua
             this.jBtnChinhSua.setEnabled(false);
