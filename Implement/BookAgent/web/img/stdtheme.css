@@ -1,0 +1,53 @@
+/* 
+    Document   : stdtheme
+    Created on : Jan 15, 2010, 8:53:11 AM
+    Author     : hvu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+div.wrapper {
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+div.left-panel {
+    float:left;
+    width:20%;
+    height:600px;
+}
+
+div.main-panel {
+    float:left;
+    width:80%;
+    height:600px;
+}
+
+div.footer, header {
+    text-align:center;
+    position:relative;
+    float:none;
+}
+
+table {
+    background: 1px;
+    padding: 5px;
+}
+
+
+div.menu {
+    text-align:center;
+    font:bold medium sans-serif;
+    background-color: #ffb05b;
+}

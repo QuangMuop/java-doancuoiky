@@ -1,5 +1,7 @@
 <div class="header">
-    LOGO
+    <center>
+        <a href="index.jsp"><img src="img/hotel-banner.jpg" alt="Homepage" /></a>
+    </center>
 </div>
 <div class="menu">
     <a href="hotels.jsp" class="mainMenuItem">Hotels</a> |
