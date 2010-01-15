@@ -49,10 +49,10 @@ public class KhachHangController {
     }
 
     public String kiemTraKhachHang(KhachHang khach)
-    {        
-        if( MyDateTime.SubDate(khach.getNgaySinh(), MyDateTime.getNow())<TuoiToiThieu)
+    {
+        if(khach.getNgaySinh()==null)
         {
-            return "Khách hàng chưa đủ tuổi để thuê khách sạn";
+            return "Vui lòng nhập vào ngày sinh của khách hàng";
         }
         if(khach.getId().equals(""))
         {
@@ -61,6 +61,11 @@ public class KhachHangController {
         if(khach.getTen().equals(""))
         {
             return "Vui lòng nhập tên khách hàng";
+        }
+        if(TuoiToiThieu!=-1)
+        {
+            if((MyDateTime.getYear(MyDateTime.getNow()) - MyDateTime.getYear(khach.getNgaySinh())) <16)
+                return "Tuổi tối thiểu để thuê khách sạn là " + TuoiToiThieu;
         }
         return "";
     }

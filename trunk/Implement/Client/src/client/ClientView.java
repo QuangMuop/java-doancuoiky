@@ -4,6 +4,8 @@
 
 package client;
 
+import BUS.PhongController;
+import DTO.Phong;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import org.jdesktop.application.ResourceMap;
@@ -12,6 +14,7 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
@@ -554,8 +557,38 @@ public class ClientView extends FrameView {
         cl.show(jRightPanel, panelCauhinh.getName());
     }//GEN-LAST:event_jToggleBtnCauHinhMousePressed
 
+    public java.lang.Integer[] getListIdRoomAvailable() {
+        //TODO write your implementation code here:
+
+        PhongController phongController = new PhongController();
+        ArrayList<Phong> lstPhong = phongController.getDSPhongChuaThue();
+
+        Integer[] arrId = null;
+
+        if(lstPhong!=null)
+        {
+            arrId = new Integer[lstPhong.size()];
+            int i;
+            for(i=0;i<lstPhong.size();i++)
+            {
+                arrId[i] = lstPhong.get(i).getId();
+            }
+
+            return arrId;
+        }
+        else
+            return null;
+    }
+
     private void jToggleBtnHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnHelpMousePressed
         // TODO add your handling code here:
+
+        Integer[] arr = getListIdRoomAvailable();
+        if(arr!=null)
+        {
+
+        }
+
     }//GEN-LAST:event_jToggleBtnHelpMousePressed
 
     private void jToggleBtnAboutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnAboutMousePressed

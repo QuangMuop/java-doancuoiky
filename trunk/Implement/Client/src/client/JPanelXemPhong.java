@@ -282,18 +282,6 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         return -1;
     }
 
-    private Phong timPhongTheoId(int id)
-    {
-        int i;
-        for(i=0;i<listPhong.size();i++)
-        {
-            Phong tmp = listPhong.get(i);
-            if(tmp.getId() == id)
-                return tmp;
-        }
-        return null;
-    }
-
     public void repaintFloor(int numFloor)
     {
         //remove old buttons and labels

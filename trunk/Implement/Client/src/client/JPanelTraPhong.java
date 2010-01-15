@@ -451,9 +451,12 @@ public class JPanelTraPhong extends javax.swing.JPanel {
             {
                 jBtnHuyDatPhong.setEnabled(false);
             }
+            jBtnTraPhong.setEnabled(true);
         }
         else
         {
+            jBtnTraPhong.setEnabled(false);
+            jBtnHuyDatPhong.setEnabled(false);
             clearData();
         }
     }
@@ -587,6 +590,9 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         // TODO add your handling code here:
         try
         {
+            if(!this.jBtnTraPhong.isEnabled())
+                return;
+
             ThuePhong thuePhong = timThuePhongTheoMaPhong(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
 
             Calendar calendar = Calendar.getInstance();
