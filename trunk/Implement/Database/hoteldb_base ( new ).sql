@@ -138,26 +138,11 @@ CREATE TABLE  `hoteldb`.`khach_san` (
 ) ENGINE=InnoDB;
 
 -- Insert data
-insert into khach_san values (1,'Khach san Huy Tuong','551/6 Le Quang Dinh P1 Go Vap HCM','0908957105','123456789','tuonghuy09@gmail.com','www.google.com');
+insert into khach_san values (1,'Khach san Rex','551/6 Le Quang Dinh P1 Go Vap HCM','0908957105','123456789','rex@gmail.com','www.google.com');
 
 -- loai_khach_hang
 INSERT INTO `loai_khach_hang`(`id`, `ten_loai_khach_hang`) VALUES (0, 'Trong Nuoc'),
                                                                   (1, 'Nuoc Ngoai');
-
-
--- khach_hang
-INSERT INTO `khach_hang`(`id`, `ten`, `gioi_tinh`, `dia_chi`, `dien_thoai`, `ngay_sinh`, `id_loai_khach_hang`) VALUES
-  ('10', 'Ly Thuong Kiet', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-13', 1),
-  ('1', 'Tran Quoc Tuan', 'Nam', 'Dia chi', 'Dien thoai', '1234-12-24', 1),
-  ('2', 'Phan Van Khai', 'Nam', 'Dia chi', 'Dien thoai', '1960-01-01', 1),
-  ('3', 'Ho Chi Minh', 'Nam', 'Dia chi', 'Dien thoai', '1969-05-19', 1),
-  ('4', 'Athur', 'Nam', 'Dia chi', 'Dien thoai', '0123-02-14', 0),
-  ('5', 'Obama', 'Nam', 'Dia chi', 'Dien thoai', '1958-06-01', 0),
-  ('6', 'Binladen', 'Nam', 'Dia chi', 'Dien thoai', '1957-03-08', 0),
-  ('7', 'Nguyen Hoang Vu', 'Nam', 'Dia chi', 'Dien thoai', '1988-10-28', 1),
-  ('8', 'Lam Chi Dinh', 'Nam', 'Dia chi', 'Dien thoai', '1970-01-09', 0),
-  ('9', 'Mizore-chan', 'Nu', 'Dia chi', 'Dien thoai', '2007-01-01', 0);
-
 
 -- loai_thue
 INSERT INTO `loai_thue`(`id`, `loai`) VALUES
@@ -181,48 +166,29 @@ INSERT INTO `loai_phong`(`id`, `ten`, `gia`) VALUES
 
 insert into tham_so (`id`,`ten`,`kieu_du_lieu`,`gia_tri`,`kich_hoat`) values (1,'SoKhachHangToiDa','int','3',true),
                                                                             (2,'TienDatCocKhiThue','int','10000',true);
+										(3,'TuoiToiThieu','int',16,true);
 
 -- phong
 INSERT INTO `phong`(`id`, `lau`, `gia`, `id_tinh_trang`, `id_loai_phong`, `hinh_anh`, `mo_ta`) VALUES
   (1,1, null, 0, 0, '', ''),
   (2,1, null, 0, 0, '', ''),
   (3,1, null, 0, 0, '', ''),
-  (4,1, null, 1, 0, '', ''),
-  (5,1, null, 1, 0, '', ''),
+  (4,1, null, 0, 0, '', ''),
+  (5,1, null, 0, 0, '', ''),
   (6,1, null, 0, 1, '', ''),
   (7,2, null, 0, 1, '', ''),
-  (8,2, null, 1, 1, '', ''),
-  (9,2, null, 1, 1, '', ''),
+  (8,2, null, 0, 1, '', ''),
+  (9,2, null, 0, 1, '', ''),
   (10,2, null, 0, 1, '', ''),
   (11,2, null, 0, 1, '', ''),
   (12,2, null, 0, 1, '', ''),
   (13,2, null, 0, 1, '', ''),
   (14,2, null, 0, 1, '', ''),
-  (15,3, null, 1, 1, '', ''),
-  (16,3, null, 1, 2, '', ''),
-  (17,3, null, 1, 2, '', ''),
-  (18,3, null, 1, 2, '', ''),
-  (19,3, null, 1, 2, '', ''),
+  (15,3, null, 0, 1, '', ''),
+  (16,3, null, 0, 2, '', ''),
+  (17,3, null, 0, 2, '', ''),
+  (18,3, null, 0, 2, '', ''),
+  (19,3, null, 0, 2, '', ''),
   (20,3, null, 0, 2, '', ''),
   (21,3, null, 0, 2, '', '');
 
-
--- thue_phong
-INSERT INTO `chi_tiet_thue_phong`(`id`,`id_phong`,`ngay_thue`,`tong_gia`,`id_loai_thue`) VALUES
-  (1,1,'2009-1-1',0,1),
-  (2,2,'2009-1-1',0,1),
-  (3,3,'2009-1-1',0,1),
-  (4,4,'2009-1-1',0,1),
-  (5,5,'2009-1-1',0,1),
-  (6,6,'2009-1-1',0,1);
-
-
-INSERT INTO `thue_phong`(`id_chi_tiet_thue`, `id_khach`) VALUES
-  (1, '2'),
-  (1, '3'),
-  (1, '4'),
-  (2, '5'),
-  (3, '6'),
-  (4, '7'),
-  (5, '8'),
-  (6, '9');
