@@ -7,6 +7,7 @@ package DAO;
 
 import DTO.LoaiThue;
 import DTO.ThuePhong;
+import java.io.DataOutputStream;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -18,4 +19,6 @@ public interface IThuePhongDAO {
     public LoaiThue getLoaiThueTheoTen(String ten);
     public ResultSet thongKeThuePhong(int tuThang, int denThang, int nam);
     public boolean deleteThuePhong(String secutiryCode);
+
+    public String insertThuePhong(ThuePhong thuePhong, DataOutputStream dos);
 }

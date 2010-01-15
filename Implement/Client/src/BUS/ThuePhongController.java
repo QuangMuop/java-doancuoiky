@@ -11,6 +11,7 @@ import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
 import Utils.MyDateTime;
+import java.io.DataOutputStream;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -105,5 +106,16 @@ public class ThuePhongController {
         Phong phong = thuePhong.getPhong();
         int gia = (phong.getGia() + phong.getIdLoaiPhong().getGia())*(soNgayThue+1);
         return gia;
+    }
+
+    public String tiepNhanViecThuePhong(ThuePhong thuePhong, DataOutputStream dos) {
+        try
+        {
+            return thuePhongDAO.insertThuePhong(thuePhong,dos);
+        }
+        catch(Exception ex)
+        {
+            return ex.getMessage();
+        }
     }
 }
