@@ -6,6 +6,7 @@
 package Agent;
 
 import Common.Utility;
+import Hotel.Hotel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -42,15 +43,18 @@ public class RoomController extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String action = request.getParameter("action");
+            int hid = Integer.parseInt(request.getParameter("hid"));
+            HotelModel model = new HotelModel();
+            request.setAttribute("hotel", model.getHotelById(hid));
             switch (mapActionCode(action)) {
                 
                 case BOOK:
-                    int hid = Integer.parseInt(request.getParameter("hid"));
+                    
                     String rid = request.getParameter("rid");
                     KhachHangDTO khachHangDto = new KhachHangDTO();
                     khachHangDto.setName(request.getParameter("name"));
-                    khachHangDto.setAge(Integer.parseInt(request.getParameter("birth")));
                     khachHangDto.setId(request.getParameter("cmnd"));
+                    khachHangDto.setBirthDay(request.getParameter("birth"));
                     String result = "Thao tác không thành công.";
                     String validation = null;
                     String date = Utility.now("dd/MM/yyyy");
@@ -65,11 +69,12 @@ public class RoomController extends HttpServlet {
                     break;
                     
                 case BOOK_NAVIGATE:
+                    
                     getServletContext().getRequestDispatcher("/customer.jsp").forward(request, response);
                     break;
                     
                 case UNBOOK:
-                    hid = Integer.parseInt(request.getParameter("hid"));
+                    
                     validation = request.getParameter("validation");
                     result = "Thao tác không thành công.";
                     if (WSWrapper.cancelBookRoom(hid, validation)) {
@@ -83,6 +88,7 @@ public class RoomController extends HttpServlet {
                     break;
                     
                 case UNBOOK_NAVIGATE:
+                    
                     getServletContext().getRequestDispatcher("/unbook.jsp").forward(request, response);
                     break;
             }
@@ -143,4 +149,9 @@ public class RoomController extends HttpServlet {
         }
         return ACTION_CODE.INVALID;
     }
+//
+//    private Hotel getHotelInfo(int hid) {
+//        HotelModel model = new
+//        return hotelModel.getHotelById(hid);
+//    }
 }

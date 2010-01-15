@@ -18,6 +18,7 @@
     </head>
     <body>
         <jsp:include page="template/header.jsp" />
+        <jsp:include page="template/left-panel.jsp" />
         <p>
             Chương trình: Đặt vé qua mạng cho khách sạn. <br />
             Ngôn ngữ: Jsp, Xml<br />
