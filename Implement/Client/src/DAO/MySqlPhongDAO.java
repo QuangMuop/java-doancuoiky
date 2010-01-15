@@ -477,4 +477,51 @@ public class MySqlPhongDAO implements IPhongDAO {
             connector.closeConnection();
         }
     }
+
+    public Integer[] getListIdPhongConTrong()
+    {
+        Connector connector = new MySqlConnector();
+        try {
+
+
+            connector.openConnection();
+
+            String sql = "select id from phong where phong.id_tinh_trang = 0 order by id;";
+
+
+            CallableStatement statement = connector.getConnection().prepareCall(sql);
+
+
+            //execute query
+            ResultSet rs = statement.executeQuery();
+
+            ArrayList lstId = new ArrayList();
+
+
+            while(rs.next())
+            {
+                 lstId.add(rs.getInt("id"));
+            }
+
+            statement.close();
+
+            Integer[] arrInt = new Integer[lstId.size()];
+            int i;
+            for(i=0;i<lstId.size();i++)
+            {
+                arrInt[i] = (Integer)lstId.get(i);
+            }
+
+            return arrInt;
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(MySqlPhongDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        finally
+        {
+            connector.closeConnection();
+        }
+    }
 }

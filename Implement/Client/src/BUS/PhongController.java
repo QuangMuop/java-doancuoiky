@@ -91,6 +91,10 @@ public class PhongController {
         return phongDAO.getDSPhongConTrong();
     }
 
+    public Integer[] getListIdPhongChuaThue() {
+        return phongDAO.getListIdPhongConTrong();
+    }
+
     public boolean capNhatLoaiPhong(LoaiPhong loaiPhong) {
         return loaiPhongDAO.updateLoaiPhongTheoId(loaiPhong, loaiPhong.getId());
     }
