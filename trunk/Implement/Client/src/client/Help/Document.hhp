@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Document.chm
+Contents file=Document.hhc
+Index file=Document.hhk
+Binary Index=Yes
+Full-text search=Yes
+Language=0x0409
+Title=Document
+Error log file=Errlog.txt
+Default Window=main
+
+[WINDOWS]
+main="Document","Document.hhc","Document.hhk","~htm\Help.htm","",,,,,0x41520,240,0x184E,[262,184,762,584],,,,0,0,0,0
+
+[FILES]
+~htm\Help.htm
