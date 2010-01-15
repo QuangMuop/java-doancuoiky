@@ -168,12 +168,13 @@ public class Book {
             {
                 dos.writeChars("Khach hang chua ton tai -> them khach hang" + "\n");
                 
-                sql = "insert into khach_hang (id,ten) values (?,?);";
+                sql = "insert into khach_hang (id,ten) values ('" + khach.getId() + "','" + khach.getName() + "');";
                 statement = connector.getConnection().prepareCall(sql);
 
-                statement.setString(1, khach.getId());
-                statement.setString(2, khach.getName());
-
+                dos.writeChars("sql" + sql + "\n");
+                //chay di build ko
+                //build chu
+                //khoan :D roi :D  ZZZ j the
                 //execute query
                 if(statement.executeUpdate()>0)
                 {

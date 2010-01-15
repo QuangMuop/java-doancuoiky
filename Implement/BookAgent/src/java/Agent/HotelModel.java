@@ -59,11 +59,11 @@ public class HotelModel {
             throw new IndexOutOfBoundsException("Hotel index");
         }
         // update list room
-        KhachHangDTO dto= new KhachHangDTO();
-        dto.setId("1324");
-        dto.setName("ajfhksad");
-        dto.setBirthDay("01/01/1988");
-        WSWrapper.bookRoom(hid, "10", null, "15/01/2010");
+//        KhachHangDTO dto= new KhachHangDTO();
+//        dto.setId("1324");
+//        dto.setName("ajfhksad");
+//        dto.setBirthDay("01/01/1988");
+//        WSWrapper.bookRoom(hid, "10", null, "15/01/2010");
         List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
         Hotel hotel = this.listHotel.getHotels().get(hid);
         List<Room> rooms = hotel.getListRoom().getRooms();

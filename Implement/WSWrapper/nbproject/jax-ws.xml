@@ -2,10 +2,10 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="book">
-      <wsdl-url>http://localhost:8084/WebService1/book?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8084/WebService1/book.wsdl</local-wsdl-file>
-      <package-name>WebService1</package-name>
+    <client name="Book">
+      <wsdl-url>http://localhost:8084/BookService/Book?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8084/BookService/Book.wsdl</local-wsdl-file>
+      <package-name>ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -18,7 +18,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8084/WebService1/book?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8084/BookService/Book?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

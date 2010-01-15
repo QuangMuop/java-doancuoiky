@@ -2,7 +2,11 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8084/WebService1/book?wsdl" uri="wsdl/localhost_8084/WebService1/book.wsdl"/>
     <system systemId="http://localhost:8084/WebService1/book?xsd=1" uri="wsdl/localhost_8084/WebService1/book.xsd_1.xsd"/>
+    <system systemId="http://localhost:8084/BookService/Book?wsdl" uri="wsdl/localhost_8084/BookService/Book.wsdl"/>
+    <system systemId="http://localhost:8084/BookService/Book?xsd=1" uri="wsdl/localhost_8084/BookService/Book.xsd_1.xsd"/>
 </catalog>
+
+
 
 
 

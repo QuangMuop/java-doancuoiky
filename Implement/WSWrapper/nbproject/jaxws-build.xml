@@ -11,22 +11,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-book" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/book"/>
-        <property name="wsdl-book" location="xml-resources/web-service-references/book/wsdl/localhost_8084/WebService1/book.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/book" destdir="${build.generated.dir}/jax-wsCache/book" wsdl="${wsdl-book}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/WebService1/book?wsdl" xnocompile="true">
-            <depends file="${wsdl-book}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/book"/>
+    <target name="wsimport-client-Book" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Book"/>
+        <property name="wsdl-Book" location="xml-resources/web-service-references/Book/wsdl/localhost_8084/BookService/Book.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Book" destdir="${build.generated.dir}/jax-wsCache/Book" wsdl="${wsdl-Book}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8084/BookService/Book?wsdl" xnocompile="true">
+            <depends file="${wsdl-Book}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Book"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/book">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Book">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-book" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/book"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/WebService1"/>
+    <target name="wsimport-client-clean-Book" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Book"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-book"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-Book"/>
 </project>

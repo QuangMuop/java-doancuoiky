@@ -14,7 +14,7 @@ public class MySqlConnector extends Connector {
     {
         connectionStr = "jdbc:mysql://localhost:3306/";
         driverStr = "com.mysql.jdbc.Driver";
-        database = "HOTELDB";
+        database = "hoteldb";
         user = "root";
         pass = "root";
     }
