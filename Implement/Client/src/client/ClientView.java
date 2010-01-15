@@ -547,7 +547,7 @@ public class ClientView extends FrameView {
             url = cldr.getResource();
               */
             
-            Desktop.getDesktop().open(new File("./Client/Document.chm"));
+            Desktop.getDesktop().open(new File("src/client/help/Document.chm"));
         } catch (IOException ex) {
             Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
         }
