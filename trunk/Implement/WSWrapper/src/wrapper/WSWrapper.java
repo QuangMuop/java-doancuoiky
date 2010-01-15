@@ -1,6 +1,7 @@
 
 package wrapper;
 
+import WebService1.Book;
 import java.util.List;
 import ws.KhachHangDTO;
 import ws.RoomDTO;
@@ -15,11 +16,7 @@ public class WSWrapper {
     static public boolean booking(int hid, String room, Customer customer) {
         switch (hid) {
             case 0:
-                WebService1.BookService service1 = new WebService1.BookService();
-                KhachHangDTO dto1 = new KhachHangDTO();
-                dto1.setName(customer.getName());
-                dto1.setAge(customer.getAge());
-                return service1.getBookPort().book(room, dto1);
+                break;
             case 1:
                 break;
         }
@@ -49,11 +46,24 @@ public class WSWrapper {
         return false;
     }
 
-    static public List<RoomDTO> updateListRoom(int hid) throws Exception {
+    static public List<RoomDTO> updateListRoom(int hid) {
         switch (hid) {
             case 0:
                 WebService1.BookService service = new WebService1.BookService();
                 return service.getBookPort().getListRoom();
+            case 1:
+                break;
+        }
+        return null;
+    }
+
+    static public List<Integer> updateListRoomAvailable(int hid) {
+        switch (hid) {
+            case 0:
+                WebService1.BookService service = new WebService1.BookService();
+                Book port = service.getBookPort();
+                List<Integer> lst = port.getListIdRoomAvailable();
+                return lst;
             case 1:
                 break;
         }
