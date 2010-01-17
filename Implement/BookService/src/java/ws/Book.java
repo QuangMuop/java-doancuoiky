@@ -6,6 +6,10 @@
 package ws;
 
 //import BUS.ThuePhongController;
+import DTO.MyDateTime;
+import DBProvider.MySqlConnector;
+import DBProvider.Connector;
+import DBProvider.RoomDAO;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,11 +41,9 @@ public class Book {
     @WebMethod(operationName = "getListIdRoomAvailable")
     public java.lang.Integer[] getListIdRoomAvailable() throws FileNotFoundException, IOException {
         //TODO write your implementation code here:
-        /*
-        PhongController phongController = new PhongController();
-
-        return phongController.getListIdPhongChuaThue();
-         */
+        RoomDAO roomDAO = new RoomDAO();
+        return roomDAO.getListRoomAvailable();
+       /*
         Connector connector = new MySqlConnector();
 
         DataOutputStream dos = null;
@@ -97,6 +99,7 @@ public class Book {
                 Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        */
     }
 
     /**
@@ -105,11 +108,13 @@ public class Book {
     @WebMethod(operationName = "bookRoom")
     public String bookRoom(@WebParam(name = "soPhong")
     int soPhong, @WebParam(name = "khach")
-    ws.KhachHangDTO khach, @WebParam(name = "ngayDat")
+    DTO.KhachHangDTO khach, @WebParam(name = "ngayDat")
     String ngayDat) throws FileNotFoundException, IOException, ParseException {
         //TODO write your implementation code here:
         //kiem tra phong co ton tai hay khong
-
+        RoomDAO roomDAO = new RoomDAO();
+        return roomDAO.bookRoom(soPhong, khach, ngayDat);
+/*
         Connector connector = new MySqlConnector();
 
         DataOutputStream dos = null;
@@ -117,10 +122,7 @@ public class Book {
             dos = new DataOutputStream(new FileOutputStream(new File(".\\log.txt")));
 
             dos.writeChars("--> bookRoom" + "\n");
-
-            ///////////////////////////
-
-
+            
             connector.openConnection();
 
             //kiem tra phong co con trong hay khong
@@ -279,72 +281,6 @@ public class Book {
                 return "";
             }
         
-
-            /*
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date ngayDatPhong = null;
-            if(ngayDat.equals(""))
-            {
-                ngayDatPhong = MyDateTime.getNow();
-            }
-            else
-            {
-                try {
-                    ngayDatPhong = sdf.parse(ngayDat);
-                } catch (ParseException ex) {
-                    Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
-                    return "";
-                }
-            }
-
-            dos.writeChars("Ngay dat phong:" + sdf.format(ngayDatPhong) + "\n");
-            
-            LoaiThue loaiThue = new LoaiThue();
-            loaiThue.setId(0);
-            loaiThue.setLoai("Dat phong");
-
-            dos.writeChars("Loai Thue:" + loaiThue.getLoai()+ "\n");
-
-            KhachHang myKhachDTO = new KhachHang();
-            myKhachDTO.setId(khach.getId());
-            myKhachDTO.setTen(khach.getName());
-
-            try {
-                myKhachDTO.setNgaySinh(sdf.parse(khach.getBirthDay()));
-            } catch (ParseException ex) {
-                Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
-                return "";
-            }
-
-            dos.writeChars("Ngay sinh cua khach:" + sdf.format(myKhachDTO.getNgaySinh()) + "\n");
-
-            ThuePhong thuePhong = new ThuePhong();
-            thuePhong.setIdLoaiThue(loaiThue);
-            thuePhong.addKhachHang(myKhachDTO);
-            thuePhong.setNgayThue(ngayDatPhong);
-            thuePhong.setPhong(phong);
-            thuePhong.setTongGia(0);
-
-            dos.writeChars("Kiem tra nghiep vu thue phong " + "\n");
-
-            ThuePhongController thuePhongController = new ThuePhongController();
-            String error = thuePhongController.kiemTraNghiepVuThuePhong(thuePhong);
-
-            dos.writeChars("Bat dau thue phong" + "\n");
-
-            if(error.equals(""))
-            {                
-                String code = thuePhongController.tiepNhanViecThuePhong(thuePhong,dos);
-                dos.writeChars("Ma so xac nhan:" + code + "\n");
-                dos.writeChars("bookRoom <--" + "\n");
-                return code;
-            }
-            else
-            {
-                dos.writeChars("bookRoom (loi) <--" + "\n");
-                return "";
-            }
-             */
         }
     catch (SQLException ex) {
             Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
@@ -366,6 +302,7 @@ public class Book {
             }
             connector.closeConnection();
         }
+ */
     }
 
     /**
@@ -375,32 +312,9 @@ public class Book {
     public Boolean cancelBookRoom(@WebParam(name = "securityCode")
     String securityCode) throws IOException {
         //TODO write your implementation code here:
-//        DataOutputStream dos = null;
-//        try {
-//            dos = new DataOutputStream(new FileOutputStream(new File(".\\log.txt")));
-//            dos.writeChars("--> cancelBook" + "\n");
-//
-//            ThuePhongController thuePhongController = new ThuePhongController();
-//
-//            boolean result = thuePhongController.huyDatPhong(securityCode);
-//
-//            dos.writeChars("cancelBook <--" + result + "\n");
-//            return result;
-//        }
-//        catch (IOException ex) {
-//            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
-//            return false;
-//        }
-//        finally {
-//            try {
-//                dos.flush();
-//                dos.close();
-//            }
-//            catch (IOException ex) {
-//                Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-
+        RoomDAO roomDAO = new RoomDAO();
+        return roomDAO.cancelBookRoom(securityCode);
+/*
         DataOutputStream dos = null;
         Connector connector = new MySqlConnector();
         try {
@@ -485,6 +399,6 @@ public class Book {
         {
             connector.closeConnection();
         }
-        
+        */
     }
 }
