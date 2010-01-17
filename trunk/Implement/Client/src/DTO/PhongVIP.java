@@ -14,4 +14,19 @@ public class PhongVIP extends Phong {
     {
         this.tenLoaiPhong = "VIP";
     }
+
+    @Override
+    public int getDonGiaPhong() {
+        return this.donGiaPhong;
+    }
+
+    @Override
+    public int tinhTienDatCoc(int tienCocToiDa) {
+        return tienCocToiDa;
+    }
+
+    @Override
+    public int tinhTienThuePhong(int ngayThue) {
+        return this.donGiaPhong*ngayThue;
+    }
 }

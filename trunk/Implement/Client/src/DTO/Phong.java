@@ -48,12 +48,7 @@ public abstract class Phong {
     public String getTenLoaiPhong()
     {
         return this.tenLoaiPhong;
-    }
-
-    public int getDonGiaPhong()
-    {
-        return this.donGiaPhong;
-    }
+    }        
     
     public void setDonGiaPhong(int donGia)
     {
@@ -108,28 +103,7 @@ public abstract class Phong {
         this.idTinhTrang = idTinhTrang;
     }
 
-    /*
-    public LoaiPhong getIdLoaiPhong() {
-        return idLoaiPhong;
-    }
-
-    public void setIdLoaiPhong(LoaiPhong idLoaiPhong) {
-        this.idLoaiPhong = idLoaiPhong;
-    }
-*/
-
-    public void clone(Phong phong)
-    {
-        this.gia = phong.getGia();
-        this.hinhAnh = phong.getHinhAnh();
-        this.id = phong.getId();
-        this.donGiaPhong = phong.donGiaPhong;
-        this.tenLoaiPhong = phong.tenLoaiPhong;
-
-        //this.idLoaiPhong.clone(phong.getIdLoaiPhong());
-
-        this.idTinhTrang.clone(phong.getIdTinhTrang());
-        this.lau = phong.getLau();
-        this.moTa = phong.getMoTa();
-    }
+    public abstract int getDonGiaPhong();
+    public abstract int tinhTienDatCoc(int tienCocToiDa);
+    public abstract int tinhTienThuePhong(int ngayThue);
 }

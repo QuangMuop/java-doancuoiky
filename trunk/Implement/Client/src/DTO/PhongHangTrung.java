@@ -14,4 +14,19 @@ public class PhongHangTrung extends Phong {
     {
         this.tenLoaiPhong = "Hang Trung";
     }
+
+    @Override
+    public int getDonGiaPhong() {
+        return this.donGiaPhong;
+    }
+
+    @Override
+    public int tinhTienDatCoc(int tienCocToiDa) {
+        return tienCocToiDa*80/100;
+    }
+
+    @Override
+    public int tinhTienThuePhong(int ngayThue) {
+        return this.donGiaPhong*ngayThue;
+    }
 }
