@@ -488,7 +488,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         jTxtNgayThue.setText(sdf.format(cal.getTime()));
 
-        this.jlabelTienDatCoc.setText("" + this.TienDatCocKhiThue);
+        if(TienDatCocKhiThue!=-1)
+            this.jlabelTienDatCoc.setText("" + this.lstPhong.get(0).tinhTienDatCoc(TienDatCocKhiThue));
+        else
+            this.jlabelTienDatCoc.setText("0");
 
         this.thuePhong = null;
         thuePhong = new ThuePhong();
@@ -543,6 +546,10 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         int giaTien = phong.getGia() + phong.getDonGiaPhong();//.getIdLoaiPhong().getGia();
         this.jLabelGiaTien.setText("" + giaTien);
         this.lLabelLau.setText("" + phong.getLau());
+        if(TienDatCocKhiThue!=-1)
+            this.jlabelTienDatCoc.setText("" + phong.tinhTienDatCoc(TienDatCocKhiThue));
+        else
+            this.jlabelTienDatCoc.setText("0");
     }
 
     private void jBtnThuePhongMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThuePhongMousePressed
@@ -569,12 +576,13 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
             thuePhong.setNgayThue(cNgayThue.getTime());
 
-            thuePhong.setPhong(layPhongTheoId(Integer.parseInt(jCbMaPhong.getSelectedItem().toString())));
+            Phong phong = layPhongTheoId(Integer.parseInt(jCbMaPhong.getSelectedItem().toString()));
+            thuePhong.setPhong(phong);
 
             if(this.TienDatCocKhiThue == -1)
                 thuePhong.setTongGia(0);
             else
-                thuePhong.setTongGia(this.TienDatCocKhiThue);
+                thuePhong.setTongGia(phong.tinhTienDatCoc(this.TienDatCocKhiThue));
 
             String error = thuePhongController.kiemTraNghiepVuThuePhong(thuePhong);
             if(error.equals(""))

@@ -46,24 +46,30 @@ public class KhachHangController {
 
     public String kiemTraKhachHang(KhachHang khach)
     {
+        if(khach.getTen().equals(""))
+        {
+            return "Vui lòng nhập tên khách hàng";
+        }
         if(khach.getNgaySinh()==null)
         {
             return "Vui lòng nhập vào ngày sinh của khách hàng";
+        }
+        else
+        {
+            if(TuoiToiThieu!=-1)
+            {
+                if((MyDateTime.getYear(MyDateTime.getNow()) - MyDateTime.getYear(khach.getNgaySinh())) <16)
+                    return "Tuổi tối thiểu để thuê khách sạn là " + TuoiToiThieu;
+            }
         }
         if(khach.getId().equals(""))
         {
             return "Vui lòng nhập vào CMND khách hàng";
         }
-        if(khach.getTen().equals(""))
+        else
         {
-            return "Vui lòng nhập tên khách hàng";
+            return khach.kiemTraMaPhong();
         }
-        if(TuoiToiThieu!=-1)
-        {
-            if((MyDateTime.getYear(MyDateTime.getNow()) - MyDateTime.getYear(khach.getNgaySinh())) <16)
-                return "Tuổi tối thiểu để thuê khách sạn là " + TuoiToiThieu;
-        }
-        return "";
     }
 
     public boolean capNhatLoaiKhachHang(String loaiKhachHang, int donGia)

@@ -60,12 +60,7 @@ public abstract class KhachHang {
     {
         return this.tenLoaiKhachHang;
     }
-
-    public int getDonGiaKhachHang()
-    {
-        return this.donGia;
-    }
-
+        
     public String getId() {
         return id;
     }
@@ -112,5 +107,9 @@ public abstract class KhachHang {
 
     public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
-    }        
+    }    
+    
+    public abstract int getDonGiaKhachHang();
+    public abstract String kiemTraMaPhong();
+
 }
