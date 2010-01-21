@@ -182,6 +182,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jMainPanelHeThong.add(jLabel14, gridBagConstraints);
 
+        jtxtTen.setBackground(resourceMap.getColor("jTxtWebsite.background")); // NOI18N
         jtxtTen.setEditable(false);
         jtxtTen.setText(resourceMap.getString("jtxtTen.text")); // NOI18N
         jtxtTen.setName("jtxtTen"); // NOI18N
@@ -192,6 +193,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jtxtTen, gridBagConstraints);
 
+        jTxtDiaChi.setBackground(resourceMap.getColor("jTxtWebsite.background")); // NOI18N
         jTxtDiaChi.setEditable(false);
         jTxtDiaChi.setText(resourceMap.getString("jTxtDiaChi.text")); // NOI18N
         jTxtDiaChi.setName("jTxtDiaChi"); // NOI18N
@@ -202,6 +204,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jTxtDiaChi, gridBagConstraints);
 
+        jTxtEmail.setBackground(resourceMap.getColor("jTxtWebsite.background")); // NOI18N
         jTxtEmail.setEditable(false);
         jTxtEmail.setText(resourceMap.getString("jTxtEmail.text")); // NOI18N
         jTxtEmail.setName("jTxtEmail"); // NOI18N
@@ -212,6 +215,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jTxtEmail, gridBagConstraints);
 
+        jTxtWebsite.setBackground(resourceMap.getColor("jTxtWebsite.background")); // NOI18N
         jTxtWebsite.setEditable(false);
         jTxtWebsite.setText(resourceMap.getString("jTxtWebsite.text")); // NOI18N
         jTxtWebsite.setName("jTxtWebsite"); // NOI18N
@@ -234,6 +238,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jFtxtDienThoai, gridBagConstraints);
 
+        jFtxtFax.setBackground(resourceMap.getColor("jTxtWebsite.background")); // NOI18N
         jFtxtFax.setEditable(false);
         jFtxtFax.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFtxtFax.setText(resourceMap.getString("jFtxtFax.text")); // NOI18N

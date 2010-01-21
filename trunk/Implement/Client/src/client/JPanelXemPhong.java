@@ -325,7 +325,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
 
             //set label for name of room
             JLabel label = new JLabel();
-            label.setText("Ma Phong: " + phong.getId());
+            label.setText("Mã Phòng: " + phong.getId());
             label.setName("" + phong.getId());
             label.setHorizontalTextPosition(JLabel.CENTER);
             label.setVerticalTextPosition(JLabel.CENTER);
