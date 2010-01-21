@@ -7,7 +7,7 @@ package DAO;
 
 import DTO.Phong;
 import DTO.TinhTrangPhong;
-import Utils.CompareOption;
+import Utils.MyCompare;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,11 +35,9 @@ public class MySqlPhongDAO implements IPhongDAO {
 
             Phong phong = null;
             TinhTrangPhong tinhTrangPhong;
-            //LoaiPhong loaiPhong;
-
+            
             MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
-            //MySqlLoaiPhongDAO loaiPhongDAO = new MySqlLoaiPhongDAO();
-
+            
             while(rs.next())
             {
                 int id_loai_phong = rs.getInt("id_loai_phong");
@@ -53,8 +51,6 @@ public class MySqlPhongDAO implements IPhongDAO {
                  tinhTrangPhong = tinhTrangPhongDAO.getTinhTrangPhongTheoId(id_tinh_trang);
                  phong.setIdTinhTrang(tinhTrangPhong);
                  
-                 //loaiPhong = loaiPhongDAO.getLoaiPhongTheoId(id_loai_phong);
-                 //phong.setIdLoaiPhong(loaiPhong);
                  phong.setDonGiaPhong(rs.getInt("loai_phong.gia"));
 
                  phong.setHinhAnh(rs.getString("hinh_anh"));
@@ -78,14 +74,14 @@ public class MySqlPhongDAO implements IPhongDAO {
      * lay danh sach tat ca cac lau hien co trong khach san va xep theo option
      * option -- xep tang dan/ xep giam dan
      */
-    public ArrayList getDSLau(CompareOption option)
+    public ArrayList getDSLau(MyCompare.CompareOption option)
     {
         Connector connector = new MySqlConnector();
         try {
             connector.openConnection();
 
             String sql = "select distinct lau from phong order by lau ";
-            if(option == CompareOption.GiamDan)
+            if(option == MyCompare.CompareOption.GiamDan)
             {
                 sql += "DESC";
             }
@@ -145,12 +141,6 @@ public class MySqlPhongDAO implements IPhongDAO {
                  tinhTrangPhong.setTen(rs.getString("tinh_trang_phong.ten"));
                  phong.setIdTinhTrang(tinhTrangPhong);
 
-                 //loaiPhong = new LoaiPhong();
-                 //loaiPhong.setGia(rs.getInt("loai_phong.gia"));
-                 //loaiPhong.setId(rs.getInt("id_loai_phong"));
-                 //loaiPhong.setTen(rs.getString("loai_phong.ten"));
-                 //phong.setIdLoaiPhong(loaiPhong);
-
                  phong.setHinhAnh(rs.getString("hinh_anh"));
                  phong.setMoTa(rs.getString("mo_ta"));
 
@@ -201,12 +191,6 @@ public class MySqlPhongDAO implements IPhongDAO {
                      phong.setGia(rs.getInt("gia"));
                      phong.setDonGiaPhong(rs.getInt("loai_phong.gia"));//this.getDonGiaPhongTheoTen(phong.getTenLoaiPhong()));
                      phong.setIdTinhTrang(tinhTrangPhong);
-
-//                     loaiPhong = new LoaiPhong();
-//                     loaiPhong.setGia(rs.getInt("loai_phong.gia"));
-//                     loaiPhong.setId(rs.getInt("id_loai_phong"));
-//                     loaiPhong.setTen(rs.getString("loai_phong.ten"));
-//                     phong.setIdLoaiPhong(loaiPhong);
 
                      phong.setHinhAnh(rs.getString("hinh_anh"));
                      phong.setMoTa(rs.getString("mo_ta"));
@@ -275,21 +259,21 @@ public class MySqlPhongDAO implements IPhongDAO {
             statement.setInt(2, phong.getGia());
             statement.setInt(3, phong.getIdTinhTrang().getId());
 
-            String loaiPhong = phong.getTenLoaiPhong().toLowerCase();
-            if(loaiPhong.equals("vip"))
+            String loaiPhong = phong.getTenLoaiPhong();
+            if(MyCompare.compareString(loaiPhong, "VIP") == 0)
+            //if(loaiPhong.equals("vip"))
             {
                 statement.setInt(4, 0);
             }
             else
-                if(loaiPhong.equals("hang trung"))
+                if(MyCompare.compareString(loaiPhong, "Hạng Trung") == 0)
+                //if(loaiPhong.equals("hang trung"))
                 {
                     statement.setInt(4, 1);
                 }
                 else
                     statement.setInt(4, 2);
-
-            //statement.setInt(4, phong.getIdLoaiPhong().getId());
-
+           
             statement.setString(5, phong.getHinhAnh());
             statement.setString(6, phong.getMoTa());
             statement.setInt(7, phong.getId());
@@ -337,13 +321,15 @@ public class MySqlPhongDAO implements IPhongDAO {
             }
             if(!idLoaiPhong.equals(""))
             {
-                String loaiPhong = idLoaiPhong.toLowerCase();
-                if(loaiPhong.equals("vip"))
+                String loaiPhong = idLoaiPhong;//.toLowerCase();
+                if(MyCompare.compareString(loaiPhong, "VIP") == 0)
+                //if(loaiPhong.equals("vip"))
                 {
                     sql += "id_loai_phong = 0 and ";
                 }
                 else
-                    if(loaiPhong.equals("hang trung"))
+                    if(MyCompare.compareString(loaiPhong, "Hạng Trung") == 0)
+                  //  if(loaiPhong.equals("hang trung"))
                     {
                         sql += "id_loai_phong = 1 and ";
                     }
@@ -434,15 +420,7 @@ public class MySqlPhongDAO implements IPhongDAO {
                  phong.setGia(rs.getInt("gia"));
                  phong.setDonGiaPhong(rs.getInt("loai_phong.gia"));
                  phong.setIdTinhTrang(tinhTrangPhong);
-
-                 /*
-                 loaiPhong = new LoaiPhong();
-                 loaiPhong.setGia(rs.getInt("loai_phong.gia"));
-                 loaiPhong.setId(rs.getInt("id_loai_phong"));
-                 loaiPhong.setTen(rs.getString("loai_phong.ten"));
-                 phong.setIdLoaiPhong(loaiPhong);
-                  */
-
+                 
                  phong.setHinhAnh(rs.getString("hinh_anh"));
                  phong.setMoTa(rs.getString("mo_ta"));
 
@@ -496,15 +474,7 @@ public class MySqlPhongDAO implements IPhongDAO {
                  tinhTrangPhong.setId(rs.getInt("id_tinh_trang"));
                  tinhTrangPhong.setTen(rs.getString("tinh_trang_phong.ten"));
                  phong.setIdTinhTrang(tinhTrangPhong);
-
-                 /*
-                 loaiPhong = new LoaiPhong();
-                 loaiPhong.setGia(rs.getInt("loai_phong.gia"));
-                 loaiPhong.setId(rs.getInt("id_loai_phong"));
-                 loaiPhong.setTen(rs.getString("loai_phong.ten"));
-                 phong.setIdLoaiPhong(loaiPhong);
-*/
-
+                
                 lstPhong.add(phong);
             }
 
@@ -582,11 +552,7 @@ public class MySqlPhongDAO implements IPhongDAO {
             //LoaiPhong loaiPhong = null;
             int donGia = -1;
             while(rs.next())
-            {
-              //  loaiPhong = new LoaiPhong();
-                //loaiPhong.setId(rs.getInt("id"));
-                //loaiPhong.setTen(rs.getString("ten"));
-                //loaiPhong.setGia(rs.getInt("gia"));
+            {              
                 donGia = rs.getInt("gia");
             }
             statement.close();
@@ -610,14 +576,9 @@ public class MySqlPhongDAO implements IPhongDAO {
             String sql = "update loai_phong set gia = ? where ten = ?;";
 
             CallableStatement statement = connector.getConnection().prepareCall(sql);
-            //statement.setString(1, loaiPhong.getTen());
-            //statement.setInt(2, loaiPhong.getGia());
-            //statement.setInt(3, id);
-
-            statement.setInt(1, donGia);// loaiPhong.getGia());
+            
+            statement.setInt(1, donGia);
             statement.setString(2, tenLoaiPhong);
-
-            //statement.setInt(3, id);
 
             if(statement.executeUpdate()>0)
                 return true;
@@ -646,12 +607,7 @@ public class MySqlPhongDAO implements IPhongDAO {
             ArrayList<String> lst = new ArrayList<String>();
             String loaiPhong = "";
             while(rs.next())
-            {
-                //loaiPhong = new LoaiPhong();
-                //loaiPhong.setId(rs.getInt("id"));
-                //loaiPhong.setTen(rs.getString("ten"));
-                //loaiPhong.setGia(rs.getInt("gia"));
-
+            {                
                 loaiPhong = rs.getString("ten");
                 lst.add(loaiPhong);
             }

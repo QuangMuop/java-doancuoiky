@@ -19,6 +19,7 @@ import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThamSo;
 import DTO.ThuePhong;
+import Utils.MyCompare;
 import Utils.MyDateTime;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -516,7 +517,8 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
         jCbLoaiThue.setModel(model);
 
-        if(lstLoaiThue.get(0).getLoai().toLowerCase().equals("dat phong"))
+        if(MyCompare.compareString(lstLoaiThue.get(0).getLoai(), "Đặt Phòng") == 0)
+        //if(lstLoaiThue.get(0).getLoai().toLowerCase().equals("dat phong"))
         {
             this.jTxtNgayThue.setEditable(true);
         }
@@ -664,7 +666,9 @@ public class JPanelThuePhong extends javax.swing.JPanel {
     private void jCbLoaiThueItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiThueItemStateChanged
         // TODO add your handling code here:
         LoaiThue loaiThue = layLoaiThueTheoTen(jCbLoaiThue.getSelectedItem().toString());
-        if(loaiThue.getLoai().toLowerCase().equals("dat phong"))
+        
+        if(MyCompare.compareString(loaiThue.getLoai(), "Đặt Phòng") == 0)
+        //if(loaiThue.getLoai().toLowerCase().equals("dat phong"))
         {
             this.jTxtNgayThue.setEditable(true);
         }

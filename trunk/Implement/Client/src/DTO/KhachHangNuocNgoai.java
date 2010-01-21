@@ -13,7 +13,7 @@ public class KhachHangNuocNgoai extends KhachHang {
 
     public KhachHangNuocNgoai()
     {
-        this.tenLoaiKhachHang = "Nuoc Ngoai";
+        this.tenLoaiKhachHang = "Nước Ngoài";
     }
 
     @Override

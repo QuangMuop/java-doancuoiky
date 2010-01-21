@@ -70,8 +70,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
             String sql = "INSERT INTO CHI_TIET_THUE_PHONG(id, id_phong, ngay_thue, tong_gia, id_loai_thue) VALUES (?,?,?,?,?);";
             CallableStatement statement = connector.getConnection().prepareCall(sql);
 
-            String sIdChiTietThue = "" + tp.getPhong().getId();
-            //SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String sIdChiTietThue = "" + tp.getPhong().getId();           
             SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyyMMddhhmmss");
 
             String sNgayThue = formatIdChiTietThue.format(tp.getNgayThue());
@@ -312,7 +311,6 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
                 loaiThue = new LoaiThue();
                 loaiThue.setId(rs.getInt("id"));
                 loaiThue.setLoai(rs.getString("loai"));
-
             }
 
             statement.close();
@@ -385,110 +383,5 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
         {
             connector.closeConnection();
         }
-    }
-
-    public String insertThuePhong(ThuePhong tp, DataOutputStream dos) {
-        Connector connector = new MySqlConnector();
-        try {
-            //them khach hang vao DB
-            MySqlKhachHangDAO khachHangDAO = new MySqlKhachHangDAO();
-            khachHangDAO.insertKhachHang(tp.getLstKhachHang());
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            connector.openConnection();
-
-            //them vao bang chi tiet thue phong
-            String sql = "INSERT INTO CHI_TIET_THUE_PHONG(id, id_phong, ngay_thue, tong_gia, id_loai_thue) VALUES (?,?,?,?,?);";
-            CallableStatement statement = connector.getConnection().prepareCall(sql);
-
-            String sIdChiTietThue = "" + tp.getPhong().getId();
-            //SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-            SimpleDateFormat formatIdChiTietThue = new SimpleDateFormat("yyyyMMddhhmmss");
-
-            String sNgayThue = formatIdChiTietThue.format(tp.getNgayThue());
-
-            sIdChiTietThue += sNgayThue;
-
-            statement.setString(1, sIdChiTietThue);
-            statement.setInt(2, tp.getPhong().getId());
-            statement.setString(3, sdf.format(tp.getNgayThue()));
-            statement.setInt(4, 0);
-            statement.setInt(5, tp.getIdLoaiThue().getId());
-
-
-
-            if(!(statement.executeUpdate()>0))
-            {
-                statement.close();
-                return "";
-            }
-
-            /////////////////////
-            try {
-                dos.writeChars("Bat dau insert bang thue phong" + "\n");
-            } catch (IOException ex) {
-                Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ///////////////////////
-
-            //them vao bang thue phong
-            sql = "INSERT INTO THUE_PHONG(id_chi_tiet_thue, id_khach) VALUES ";
-
-            int i;
-            ArrayList<KhachHang> lstKhach = tp.getLstKhachHang();
-            for(i=0;i<lstKhach.size();i++)
-            {
-                KhachHang khach = lstKhach.get(i);
-
-                String tmpSql = "('" + sIdChiTietThue + "','" + khach.getId() + "'),";
-                sql += tmpSql;
-            }
-
-            sql = sql.substring(0, sql.length()-1);
-            sql += ";";
-
-            /////////////////////
-            try {
-                dos.writeChars("cau lenh sql " + sql + "\n");
-            } catch (IOException ex) {
-                Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ///////////////////////
-
-            statement = connector.getConnection().prepareCall(sql);
-            //them vao bang thue phong
-            if(statement.executeUpdate()>0)
-            {
-                /////////////////////
-            try {
-                dos.writeChars("insert bang thue phong thanh cong" + "\n");
-            } catch (IOException ex) {
-                Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ///////////////////////
-
-                statement.close();
-
-                //cap nhat lai thong tin tinh trang phong
-                MySqlPhongDAO phongDAO = new MySqlPhongDAO();
-                MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
-
-                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Da thue");
-                phongDAO.updateTinhTrangPhongTheoId(tp.getPhong().getId(), tinhTrang);
-                return sIdChiTietThue;
-            }
-            else
-            {
-                statement.close();
-                return "";
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(MySqlThuePhongDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return "";
-        }
-        finally
-        {
-            connector.closeConnection();
-        }
-    }
+    }    
 }

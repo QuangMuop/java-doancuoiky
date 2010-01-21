@@ -12,7 +12,7 @@ package DTO;
 public class PhongHangThuong extends Phong {
     public PhongHangThuong()
     {
-        this.tenLoaiPhong = "Hang Thuong";
+        this.tenLoaiPhong = "Hạng Thường";
     }
 
     @Override

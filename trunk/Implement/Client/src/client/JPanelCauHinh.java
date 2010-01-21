@@ -22,6 +22,7 @@ import DTO.PhongHangThuong;
 import DTO.PhongHangTrung;
 import DTO.PhongVIP;
 import DTO.ThamSo;
+import Utils.MyCompare;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -732,14 +733,16 @@ public class JPanelCauHinh extends javax.swing.JPanel {
             for(i=0;i<lstLoaiPhong.size();i++)
             {
                 Phong phong = null;
-                String tenLoaiPhong = lstLoaiPhong.get(i).toLowerCase();
-                if(tenLoaiPhong.equals("vip"))
+                String tenLoaiPhong = lstLoaiPhong.get(i);//.toLowerCase();
+                if(MyCompare.compareString(tenLoaiPhong, "VIP") == 0)
+                //if(tenLoaiPhong.equals("vip"))
                 {
                     phong = new PhongVIP();
                 }
                 else
                 {
-                    if(tenLoaiPhong.equals("hang trung"))
+                    if(MyCompare.compareString(tenLoaiPhong, "Hạng Trung") == 0)
+                    //if(tenLoaiPhong.equals("hang trung"))
                     {
                         phong = new PhongHangTrung();
                     }
@@ -928,20 +931,6 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         return null;
     }
 
-    /*
-    private String layLoaiPhongTheoTen(String ten)
-    {
-        int i;
-        for(i=0;i<this.lstGiaLoaiPhong.size();i++)
-        {
-            if(lstLoaiPhong.get(i).equals(ten))
-            {
-                return lstLoaiPhong.get(i);
-            }
-        }
-        return null;
-    }
-*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel;
     private javax.swing.JLabel bgLabel1;

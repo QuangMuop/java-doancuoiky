@@ -31,4 +31,17 @@ public class KhachSanController {
     {
         return khachSanDAO.updateKhachSan(khachSan, khachSan.getId());
     }
+
+    public String kiemTraThongTinKhachSan(KhachSan khachsan)
+    {
+        if(khachsan.getTen().equals(""))
+        {
+            return "Vui lòng nhập tên khách sạn";
+        }
+        if(khachsan.getDiaChi().equals(""))
+        {
+            return "Vui lòng nhập vào địa chỉ của khách sạn";
+        }
+        return "";
+    }
 }

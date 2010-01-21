@@ -13,6 +13,7 @@ package client;
 
 import BUS.PhongController;
 import DTO.Phong;
+import Utils.MyCompare;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
@@ -304,7 +305,8 @@ public class JPanelXemPhong extends javax.swing.JPanel {
             button.setName("" + phong.getId());
 
             //set icon for button
-            if(phong.getIdTinhTrang().getTen().equals("Con trong"))
+            if(MyCompare.compareString(phong.getIdTinhTrang().getTen(), "Còn Trống") == 0)
+            //if(phong.getIdTinhTrang().getTen().equals("Con trong"))
             {
                 button.setIcon(iconPhongConTrong);
                 button.setToolTipText("Phòng còn trống");

@@ -10,7 +10,7 @@ import DAO.IPhongDAO;
 import DAO.ITinhTrangPhongDAO;
 import DTO.Phong;
 import DTO.TinhTrangPhong;
-import Utils.CompareOption;
+import Utils.MyCompare;
 import java.util.ArrayList;
 
 /**
@@ -47,14 +47,14 @@ public class PhongController {
         return phongDAO.updatePhongTheoId(phong.getId(), phong);
     }
 
-    public ArrayList getDSLau(CompareOption option)
+    private ArrayList getDSLau(MyCompare.CompareOption option)
     {
         return phongDAO.getDSLau(option);
     }
 
     public int getLauCaoNhat()
     {
-        ArrayList lst = phongDAO.getDSLau(CompareOption.GiamDan);
+        ArrayList lst = this.getDSLau(MyCompare.CompareOption.GiamDan);
         if(lst!=null && lst.size()>0)
         {
             return Integer.parseInt(lst.get(0).toString());
