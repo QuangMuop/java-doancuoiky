@@ -37,7 +37,7 @@ public abstract class Connector {
             Class.forName(driverStr);
             // Create connection
             connection = (Connection) DriverManager.getConnection(
-                    connectionStr + database, user, pass);
+                    connectionStr + database + "?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8", user, pass);
 
         } catch (SQLException ex) {
             Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);

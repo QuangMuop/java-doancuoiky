@@ -6,6 +6,7 @@
 package DAO;
 
 import DTO.KhachHang;
+import Utils.MyCompare;
 import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -41,13 +42,6 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
                 khach.setTen(rs.getString("ten"));
                 khach.setNgaySinh(rs.getDate("ngay_sinh"));
                 khach.setDonGiaKhachHang(rs.getInt("don_gia"));
-
-                //loaiKhachHang = new LoaiKhachHang();
-                //loaiKhachHang.setId(rs.getInt("id_loai_khach_hang"));
-                //loaiKhachHang.setTen(rs.getString("ten_loai_khach_hang"));
-                //loaiKhachHang.setGia(rs.getInt("don_gia"));
-
-                //khach.setIdLoaiKhachHang(loaiKhachHang);
             }
             return khach;
         } catch (SQLException ex) {
@@ -75,14 +69,13 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");            
             String strDate = sdf.format(khachhang.getNgaySinh());
-            //statement.setString(6, sdf.format(khachhang.getNgaySinh()));
-
+            
             statement.setDate(6, Date.valueOf(strDate));
 
-            //statement.setDate(6,(Date) khachhang.getNgaySinh());
+            if(MyCompare.compareString(khachhang.getTenLoaiKhachHang(), "Trong Nước") == 0)
+            //String tenLoaiKhach = khachhang.getTenLoaiKhachHang().toLowerCase();
 
-            String tenLoaiKhach = khachhang.getTenLoaiKhachHang().toLowerCase();
-            if(tenLoaiKhach.equals("trong nuoc"))
+            //if(tenLoaiKhach.equals("trong nuoc"))
             {
                 statement.setInt(7, 0);
             }
@@ -129,8 +122,10 @@ public class MySqlKhachHangDAO implements IKhachHangDAO {
 
                     KhachHang khach = lstKhachHang.get(i);
                     String tmpSql = "('" + khach.getId() + "','" + khach.getTen() + "','" + khach.getGioiTinh() + "','" + khach.getDiaChi() + "','" + khach.getDienThoai() + "','" + sdf.format(khach.getNgaySinh()) + "',";
-                    String tenLoaiKhachHang = khach.getTenLoaiKhachHang().toLowerCase();
-                    if(tenLoaiKhachHang.equals("trong nuoc"))
+
+                    if(MyCompare.compareString(khach.getTenLoaiKhachHang(), "Trong Nước") == 0)
+                    //String tenLoaiKhachHang = khach.getTenLoaiKhachHang().toLowerCase();
+                    //if(tenLoaiKhachHang.equals("trong nuoc"))
                     {
                         tmpSql += 0 + "),";
                     }

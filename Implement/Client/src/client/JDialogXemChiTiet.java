@@ -17,6 +17,7 @@ import DTO.PhongHangThuong;
 import DTO.PhongHangTrung;
 import DTO.PhongVIP;
 import DTO.TinhTrangPhong;
+import Utils.MyCompare;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -173,13 +174,12 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         this.jTxtTinhTrang.setText(phong.getIdTinhTrang().getTen());
 
         //set icon to display
-        strLoaiPhong = strLoaiPhong.toLowerCase();
-
-        if(strLoaiPhong.contains("vip"))
+        if(MyCompare.compareString(strLoaiPhong, "VIP") == 0)
+        //if(strLoaiPhong.contains("vip"))
             this.jLabelHinhPhong.setIcon(this.iconPhongVip);
-        else if(strLoaiPhong.contains("hang trung"))
+        else if(MyCompare.compareString(strLoaiPhong, "Hạng Trung") == 0) //if(strLoaiPhong.contains("hang trung"))
             this.jLabelHinhPhong.setIcon(this.iconPhongTrung);
-        else if(strLoaiPhong.contains("hang thuong"))
+        else if(MyCompare.compareString(strLoaiPhong, "Hạng Thường") == 0) //if(strLoaiPhong.contains("hang thuong"))
             this.jLabelHinhPhong.setIcon(this.iconPhongThuong);
         else//truong hop khong khop thi gan dai luon :D
             this.jLabelHinhPhong.setIcon(this.iconPhongThuong);
@@ -529,14 +529,16 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     {
         if(phongTmp==null)
         {
-            String sLoaiPhong = this.jCbLoaiPhong.getSelectedItem().toString().toLowerCase();
-            if(sLoaiPhong.equals("vip"))
+            String sLoaiPhong = this.jCbLoaiPhong.getSelectedItem().toString();//.toLowerCase();
+            if(MyCompare.compareString(sLoaiPhong, "VIP") == 0)
+            //if(sLoaiPhong.equals("vip"))
             {
                 phongTmp = new PhongVIP();
             }
             else
             {
-                if(sLoaiPhong.equals("hang trung"))
+                if(MyCompare.compareString(sLoaiPhong, "Hạng Trung") == 0)
+                //if(sLoaiPhong.equals("hang trung"))
                 {
                     phongTmp = new PhongHangTrung();
                 }
@@ -670,13 +672,14 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
 
     private void capNhatHinhPhong(String strLoaiPhong)
     {
-        strLoaiPhong = strLoaiPhong.toLowerCase();
-        
-        if(strLoaiPhong.contains("vip"))
+        //strLoaiPhong = strLoaiPhong.toLowerCase();
+
+        if(MyCompare.compareString(strLoaiPhong, "VIP") == 0)
+        //if(strLoaiPhong.contains("vip"))
             this.jLabelHinhPhong.setIcon(this.iconPhongVip);
-        else if(strLoaiPhong.contains("hang trung"))
+        else if(MyCompare.compareString(strLoaiPhong, "Hạng Trung") == 0) //if(strLoaiPhong.contains("hang trung"))
             this.jLabelHinhPhong.setIcon(this.iconPhongTrung);
-        else if(strLoaiPhong.contains("hang thuong"))
+        else if(MyCompare.compareString(strLoaiPhong, "Hạng Thường") == 0) //if(strLoaiPhong.contains("hang thuong"))
             this.jLabelHinhPhong.setIcon(this.iconPhongThuong);
         else//truong hop khong khop thi gan dai luon :D
             this.jLabelHinhPhong.setIcon(this.iconPhongThuong);
@@ -685,14 +688,16 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
     private void jCbLoaiPhongItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCbLoaiPhongItemStateChanged
         // TODO add your handling code here:
         capNhatHinhPhong(this.jCbLoaiPhong.getSelectedItem().toString());
-        String sLoaiPhong = this.jCbLoaiPhong.getSelectedItem().toString().toLowerCase();
-        if(sLoaiPhong.equals("vip"))
+        String sLoaiPhong = this.jCbLoaiPhong.getSelectedItem().toString();//.toLowerCase();
+        if(MyCompare.compareString(sLoaiPhong, "VIP") == 0)
+        //if(sLoaiPhong.equals("vip"))
         {
             phongTmp = new PhongVIP();
         }
         else
         {
-            if(sLoaiPhong.equals("hang trung"))
+            if(MyCompare.compareString(sLoaiPhong, "Hạng Trung") == 0)
+            //if(sLoaiPhong.equals("hang trung"))
             {
                 phongTmp = new PhongHangTrung();
             }

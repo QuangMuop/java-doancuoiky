@@ -7,7 +7,7 @@ package DAO;
 
 import DTO.Phong;
 import DTO.TinhTrangPhong;
-import Utils.CompareOption;
+import Utils.MyCompare;
 import java.util.ArrayList;
 
 public interface IPhongDAO {
@@ -15,7 +15,7 @@ public interface IPhongDAO {
     public ArrayList<Phong> getDSPhongTheoDK(int id, String tenLoaiPhong, int idTinhTrangPhong);
     public ArrayList<Phong> getDSPhongTheoLau(int floor);
     public boolean updatePhongTheoId(int id, Phong phong);
-    public ArrayList getDSLau(CompareOption option);
+    public ArrayList getDSLau(MyCompare.CompareOption option);
     public ArrayList<Phong> getDSPhongDangThue();
     public ArrayList<Phong> getDSPhongConTrong();
     public boolean updateTinhTrangPhongTheoId(int id, TinhTrangPhong tinhTrangPhong);
