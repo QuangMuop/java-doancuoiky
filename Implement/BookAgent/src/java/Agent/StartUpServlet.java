@@ -34,7 +34,7 @@ public class StartUpServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/hotels?action=get-hotels&p=0").forward(request, response);
         } finally { 
             out.close();
         }

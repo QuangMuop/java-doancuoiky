@@ -20,7 +20,6 @@
         <div class="wrapper">
             <jsp:include page="template/header.jsp" />
             <div class="body">
-                <jsp:include page="template/left-panel.jsp" />
                 <div class="main-panel">
                     <p>
                         Chương trình: Đặt vé qua mạng cho khách sạn. <br />
