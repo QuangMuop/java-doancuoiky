@@ -3,7 +3,10 @@ package wrapper;
 
 import java.util.List;
 import ws.BookService;
+import ws.FileNotFoundException_Exception;
+import ws.IOException_Exception;
 import ws.KhachHangDTO;
+import ws.ParseException_Exception;
 
 
 /**
@@ -12,7 +15,7 @@ import ws.KhachHangDTO;
  */
 public class WSWrapper {
 
-    static public String bookRoom(int hid, String rid, KhachHangDTO customer, String date) {
+    static public String bookRoom(int hid, String rid, KhachHangDTO customer, String date) throws FileNotFoundException_Exception, IOException_Exception, ParseException_Exception {
         switch (hid) {
             case 0:
                 BookService service = new BookService();
@@ -24,7 +27,7 @@ public class WSWrapper {
         return null;
     }
 
-    static public boolean cancelBookRoom(int hid, String validateCode) {
+    static public boolean cancelBookRoom(int hid, String validateCode) throws IOException_Exception {
         switch (hid) {
             case 0:
                 BookService service = new BookService();
@@ -35,7 +38,7 @@ public class WSWrapper {
         return false;
     }
 
-    static public List<Integer> updateListRoomAvailable(int hid) {
+    static public List<Integer> updateListRoomAvailable(int hid) throws FileNotFoundException_Exception, IOException_Exception {
         switch (hid) {
             case 0:
                 BookService service = new BookService();

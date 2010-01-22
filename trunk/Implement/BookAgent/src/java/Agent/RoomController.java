@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -53,20 +55,42 @@ public class RoomController extends HttpServlet {
                 case BOOK:
                     
                     String rid = request.getParameter("rid");
+                    String cName = request.getParameter("name");
+                    String cId = request.getParameter("cmnd");
+                    String cBirthday = request.getParameter("birth");
+                    String result = "Thao tác không thành công.";
+                    String validation = null;
+
+                    if (cName.equals("") ||
+                            cId.equals("") ||
+                            cBirthday.equals("")) {
+                        result = "Thao tác không thành công. Bạn phải điền đầy đủ thông tin để đăng ký.";
+                        request.setAttribute("result", result);
+                        getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+                        break;
+                    }
+
+                   
+                    if (!Pattern.matches("\\d{2}/\\d{2}/\\d{4}", cBirthday)) {
+                        result = "Thao tác không thành công. Định dạng của ngày sinh không hợp lệ.";
+                        request.setAttribute("result", result);
+                        getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+                        break;
+                    }
+
 
                     KhachHangDTO khachHangDto = new KhachHangDTO();
                     khachHangDto.setName(request.getParameter("name"));
                     khachHangDto.setId(request.getParameter("cmnd"));
                     khachHangDto.setBirthDay(request.getParameter("birth"));
 
-                    String result = "Thao tác không thành công.";
-                    String validation = null;
+                    
 
-                    if ((validation = model.bookRoom(hid, rid, khachHangDto)) != null) {
+                    if ((validation = model.bookRoom(hid, rid, khachHangDto)).equals("") == false) {
                         result = "Đặt chỗ thành công. Mã số xác nhận của bạn là <b>" + validation + "</b>";
                     }
                     else {
-                        request.setAttribute("result", "dang ky khong thanh cong");
+                        result = "Đăng ký không thành công.";
                     }
                     request.setAttribute("result", result);
                     getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
