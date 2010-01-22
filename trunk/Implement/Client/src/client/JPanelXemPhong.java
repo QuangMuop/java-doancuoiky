@@ -105,6 +105,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelXemPhong.class);
+        jBtnPrev.setBackground(resourceMap.getColor("jBtnNext.background")); // NOI18N
         jBtnPrev.setText(resourceMap.getString("jBtnPrev.text")); // NOI18N
         jBtnPrev.setEnabled(false);
         jBtnPrev.setName("jBtnPrev"); // NOI18N
@@ -128,6 +129,7 @@ public class JPanelXemPhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel1.add(jLabelPageNumber, gridBagConstraints);
 
+        jBtnNext.setBackground(resourceMap.getColor("jBtnNext.background")); // NOI18N
         jBtnNext.setText(resourceMap.getString("jBtnNext.text")); // NOI18N
         jBtnNext.setName("jBtnNext"); // NOI18N
         jBtnNext.addMouseListener(new java.awt.event.MouseAdapter() {

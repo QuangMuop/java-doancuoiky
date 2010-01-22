@@ -231,6 +231,7 @@ public class ClientView extends FrameView {
         jLeftPanel.setName("jLeftPanel"); // NOI18N
         jLeftPanel.setLayout(new java.awt.GridBagLayout());
 
+        jToggleBtnXemPhong.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnXemPhong);
         jToggleBtnXemPhong.setFont(resourceMap.getFont("jToggleBtnXemPhong.font")); // NOI18N
         jToggleBtnXemPhong.setIcon(resourceMap.getIcon("jToggleBtnXemPhong.icon")); // NOI18N
@@ -256,6 +257,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnXemPhong, gridBagConstraints);
 
+        jToggleBtnTimPhong.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnTimPhong);
         jToggleBtnTimPhong.setFont(resourceMap.getFont("jToggleBtnTimPhong.font")); // NOI18N
         jToggleBtnTimPhong.setIcon(resourceMap.getIcon("jToggleBtnTimPhong.icon")); // NOI18N
@@ -281,6 +283,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnTimPhong, gridBagConstraints);
 
+        jToggleBtnThuePhong.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnThuePhong);
         jToggleBtnThuePhong.setFont(resourceMap.getFont("jToggleBtnThuePhong.font")); // NOI18N
         jToggleBtnThuePhong.setIcon(resourceMap.getIcon("jToggleBtnThuePhong.icon")); // NOI18N
@@ -306,6 +309,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnThuePhong, gridBagConstraints);
 
+        jToggleBtnTraPhong.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnTraPhong);
         jToggleBtnTraPhong.setFont(resourceMap.getFont("jToggleBtnTraPhong.font")); // NOI18N
         jToggleBtnTraPhong.setIcon(resourceMap.getIcon("jToggleBtnTraPhong.icon")); // NOI18N
@@ -331,6 +335,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnTraPhong, gridBagConstraints);
 
+        jToggleBtnThongKe.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnThongKe);
         jToggleBtnThongKe.setFont(resourceMap.getFont("jToggleBtnThongKe.font")); // NOI18N
         jToggleBtnThongKe.setIcon(resourceMap.getIcon("jToggleBtnThongKe.icon")); // NOI18N
@@ -356,6 +361,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnThongKe, gridBagConstraints);
 
+        jToggleBtnAbout.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnAbout);
         jToggleBtnAbout.setFont(resourceMap.getFont("jToggleBtnAbout.font")); // NOI18N
         jToggleBtnAbout.setIcon(resourceMap.getIcon("jToggleBtnAbout.icon")); // NOI18N
@@ -381,6 +387,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnAbout, gridBagConstraints);
 
+        jToggleBtnCauHinh.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnCauHinh);
         jToggleBtnCauHinh.setFont(resourceMap.getFont("jToggleBtnCauHinh.font")); // NOI18N
         jToggleBtnCauHinh.setIcon(resourceMap.getIcon("jToggleBtnCauHinh.icon")); // NOI18N
@@ -406,6 +413,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnCauHinh, gridBagConstraints);
 
+        jToggleBtnHelp.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnHelp);
         jToggleBtnHelp.setFont(resourceMap.getFont("jToggleBtnHelp.font")); // NOI18N
         jToggleBtnHelp.setIcon(resourceMap.getIcon("jToggleBtnHelp.icon")); // NOI18N
@@ -431,6 +439,7 @@ public class ClientView extends FrameView {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jLeftPanel.add(jToggleBtnHelp, gridBagConstraints);
 
+        jToggleBtnIntro.setBackground(resourceMap.getColor("jToggleBtnXemPhong.background")); // NOI18N
         btnGroupMainController.add(jToggleBtnIntro);
         jToggleBtnIntro.setFont(resourceMap.getFont("jToggleBtnIntro.font")); // NOI18N
         jToggleBtnIntro.setIcon(resourceMap.getIcon("jToggleBtnIntro.icon")); // NOI18N

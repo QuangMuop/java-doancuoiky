@@ -229,6 +229,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jBtnLuu">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jBtnLuu.background"/>
                     <Property name="text" type="java.lang.String" resourceKey="jBtnLuu.text"/>
                     <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="jBtnLuu" noResource="true"/>
@@ -244,6 +245,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jBtnSua">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jBtnLuu.background"/>
                     <Property name="text" type="java.lang.String" resourceKey="jBtnSua.text"/>
                     <Property name="name" type="java.lang.String" value="jBtnSua" noResource="true"/>
                   </Properties>
@@ -377,6 +379,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jBtnChinhSua">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jBtnChinhSua.background"/>
                     <Property name="text" type="java.lang.String" resourceKey="jBtnChinhSua.text"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="name" type="java.lang.String" value="jBtnChinhSua" noResource="true"/>
@@ -392,6 +395,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jBtnCapNhat">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jBtnChinhSua.background"/>
                     <Property name="text" type="java.lang.String" resourceKey="jBtnCapNhat.text"/>
                     <Property name="enabled" type="boolean" value="false"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>

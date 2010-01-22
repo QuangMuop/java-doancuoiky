@@ -175,6 +175,7 @@ public class JPanelTimPhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(4, 8, 4, 8);
         jPanel7.add(jCbTinhTrang, gridBagConstraints);
 
+        jBtnTimKiem.setBackground(resourceMap.getColor("jBtnTimKiem.background")); // NOI18N
         jBtnTimKiem.setText(resourceMap.getString("jBtnTimKiem.text")); // NOI18N
         jBtnTimKiem.setName("jBtnTimKiem"); // NOI18N
         jBtnTimKiem.addMouseListener(new java.awt.event.MouseAdapter() {

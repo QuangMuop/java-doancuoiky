@@ -267,6 +267,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jLabelTongTien, gridBagConstraints);
 
+        jBtnTraPhong.setBackground(resourceMap.getColor("jBtnTraPhong.background")); // NOI18N
         jBtnTraPhong.setText(resourceMap.getString("jBtnTraPhong.text")); // NOI18N
         jBtnTraPhong.setName("jBtnTraPhong"); // NOI18N
         jBtnTraPhong.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -386,6 +387,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 80);
         jPanel2.add(jCbMaPhong, gridBagConstraints);
 
+        jBtnHuyDatPhong.setBackground(resourceMap.getColor("jBtnTraPhong.background")); // NOI18N
         jBtnHuyDatPhong.setText(resourceMap.getString("jBtnHuyDatPhong.text")); // NOI18N
         jBtnHuyDatPhong.setEnabled(false);
         jBtnHuyDatPhong.setName("jBtnHuyDatPhong"); // NOI18N

@@ -29,10 +29,7 @@ public class JPanelIntro extends javax.swing.JPanel {
     /** Creates new form JPanelIntro */
     public JPanelIntro() {
         initComponents();
-
-        icon = createImageIcon(imagedir + imageFileNames[0], imageCaptions[0]);
-        jImgKhachSan.setIcon(icon);
-
+        
         khachSanController = new KhachSanController();
         initData();
     }
@@ -65,13 +62,13 @@ public class JPanelIntro extends javax.swing.JPanel {
         jLabelFax = new javax.swing.JLabel();
         jLabelWebSite = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jImgKhachSan = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jBtnSlideShow = new javax.swing.JButton();
+        jImg = new javax.swing.JLabel();
         jLabelImg = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -162,17 +159,6 @@ public class JPanelIntro extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(15, 5, 5, 5);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jImgKhachSan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jImgKhachSan.setIcon(resourceMap.getIcon("jImgKhachSan.icon")); // NOI18N
-        jImgKhachSan.setText(resourceMap.getString("jImgKhachSan.text")); // NOI18N
-        jImgKhachSan.setName("jImgKhachSan"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.insets = new java.awt.Insets(47, 5, 47, 5);
-        jPanel1.add(jImgKhachSan, gridBagConstraints);
-
         jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
         jLabel3.setName("jLabel3"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -218,6 +204,7 @@ public class JPanelIntro extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel7, gridBagConstraints);
 
+        jBtnSlideShow.setBackground(resourceMap.getColor("jBtnSlideShow.background")); // NOI18N
         jBtnSlideShow.setText(resourceMap.getString("jBtnSlideShow.text")); // NOI18N
         jBtnSlideShow.setName("jBtnSlideShow"); // NOI18N
         jBtnSlideShow.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,6 +216,18 @@ public class JPanelIntro extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         jPanel1.add(jBtnSlideShow, gridBagConstraints);
+
+        jImg.setIcon(resourceMap.getIcon("jImg.icon")); // NOI18N
+        jImg.setText(resourceMap.getString("jImg.text")); // NOI18N
+        jImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jImg.setName("jImg"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 20, 0);
+        jPanel1.add(jImg, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -277,7 +276,7 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnSlideShow;
-    private javax.swing.JLabel jImgKhachSan;
+    private javax.swing.JLabel jImg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -296,27 +295,5 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     private KhachSan khachSan;
     private KhachSanController khachSanController;
-    private ImageIcon icon;
-
-    protected ImageIcon createImageIcon(String path,
-            String description) {
-        java.net.URL imgURL = getClass().getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL, description);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
-
-    private String[] imageCaptions = { "Original SUNW Logo", "The Clocktower",
-    "Clocktower from the West", "The Mansion", "Sun Auditorium"};
-
-    /**
-     * List of all the image files to load.
-     */
-    private String[] imageFileNames = { "sunw01.jpg", "sunw02.jpg",
-    "sunw03.jpg", "sunw04.jpg", "sunw05.jpg"};
-
-    private String imagedir = "images/";
+    
 }

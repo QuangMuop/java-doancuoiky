@@ -85,6 +85,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnThongKe">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnThongKe.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnThongKe.text"/>
                 <Property name="name" type="java.lang.String" value="jBtnThongKe" noResource="true"/>
               </Properties>

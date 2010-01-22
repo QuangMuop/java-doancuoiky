@@ -251,6 +251,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnTraPhong">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnTraPhong.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnTraPhong.text"/>
                 <Property name="name" type="java.lang.String" value="jBtnTraPhong" noResource="true"/>
               </Properties>
@@ -422,6 +423,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnHuyDatPhong">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnTraPhong.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnHuyDatPhong.text"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jBtnHuyDatPhong" noResource="true"/>

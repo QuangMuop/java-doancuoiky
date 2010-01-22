@@ -202,6 +202,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 0, 2, 0);
         jPanel2.add(jTxtNgayThue, gridBagConstraints);
 
+        jBtnThuePhong.setBackground(resourceMap.getColor("jBtnThemKhach.background")); // NOI18N
         jBtnThuePhong.setText(resourceMap.getString("jBtnThuePhong.text")); // NOI18N
         jBtnThuePhong.setToolTipText(resourceMap.getString("jBtnThuePhong.toolTipText")); // NOI18N
         jBtnThuePhong.setName("jBtnThuePhong"); // NOI18N
@@ -357,6 +358,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
+        jBtnThemKhach.setBackground(resourceMap.getColor("jBtnThemKhach.background")); // NOI18N
         jBtnThemKhach.setText(resourceMap.getString("jBtnThemKhach.text")); // NOI18N
         jBtnThemKhach.setName("jBtnThemKhach"); // NOI18N
         jBtnThemKhach.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -371,6 +373,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(20, 10, 0, 10);
         jPanel2.add(jBtnThemKhach, gridBagConstraints);
 
+        jBtnXoaKhach.setBackground(resourceMap.getColor("jBtnThemKhach.background")); // NOI18N
         jBtnXoaKhach.setText(resourceMap.getString("jBtnXoaKhach.text")); // NOI18N
         jBtnXoaKhach.setEnabled(false);
         jBtnXoaKhach.setName("jBtnXoaKhach"); // NOI18N

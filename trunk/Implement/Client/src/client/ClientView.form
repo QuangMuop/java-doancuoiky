@@ -178,6 +178,7 @@
               <SubComponents>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnXemPhong">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -204,6 +205,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnTimPhong">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -230,6 +232,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnThuePhong">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -256,6 +259,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnTraPhong">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -282,6 +286,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnThongKe">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -308,6 +313,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnAbout">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -334,6 +340,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnCauHinh">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -360,6 +367,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnHelp">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
@@ -386,6 +394,7 @@
                 </Component>
                 <Component class="javax.swing.JToggleButton" name="jToggleBtnIntro">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" resourceKey="jToggleBtnXemPhong.background"/>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="btnGroupMainController"/>
                     </Property>
