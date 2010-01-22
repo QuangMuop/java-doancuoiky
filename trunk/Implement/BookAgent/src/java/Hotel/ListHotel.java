@@ -42,6 +42,10 @@ public class ListHotel {
         }
     }
 
+    public int getPageSize() {
+        return Configuration.HOTELS_PAGE_SIZE;
+    }
+
     public int getPageCount() {
         int count = this.hotels.size() / Configuration.HOTELS_PAGE_SIZE;
         if ((this.hotels.size() % Configuration.HOTELS_PAGE_SIZE) != 0) {

@@ -8,7 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
-<%@page import="Hotel.ListHotel, Hotel.Hotel" %>
+<%@page import="Hotel.ListHotel, Hotel.Hotel, java.util.List" %>
 
 <html>
     <head>
@@ -24,8 +24,12 @@
                     <tbody>
                         <%
         ListHotel hotels = (ListHotel) request.getAttribute("hotels");
-        for (int i = 0; i < hotels.getHotels().size(); i++) {
-            Hotel hotel = hotels.getHotels().get(i);
+        int pageIndex = Integer.parseInt(request.getParameter("p"));
+
+        if (hotels != null) {
+            List<Hotel> hotelPage = hotels.getHotels(pageIndex);
+            for (int i = 0; i < hotelPage.size(); i++) {
+                Hotel hotel = hotelPage.get(i);
                         %>
                         <tr>
                             <td><span><%= hotel.getName()%></span></td>
@@ -49,17 +53,27 @@
                         </tr>
                         <tr>
                             <td align="left">
-                                <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>">Xem phòng</a>&nbsp;
+                                <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>&p=0">Xem phòng</a>&nbsp;
                                 <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
                             </td>
                         </tr>
                         <%
-        }
+            }
                         %>
                     </tbody>
                 </table>
-
-
+                <span class="page_navigate">
+                    <%
+            for (int i = 0; i < hotels.getPageCount(); i++) {
+                    %>
+                    <a href="hotels?action=get-hotels&p=<%= i%>" class="mainMenuItem"><%= i%></a>&nbsp;
+                    <%
+            }
+                    %>
+                </span>
+                <%
+        }
+                %>
             </div>
             <jsp:include page="template/footer.jsp" />
         </div>

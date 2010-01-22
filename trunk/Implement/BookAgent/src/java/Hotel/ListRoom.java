@@ -46,6 +46,10 @@ public class ListRoom {
         return new ListRoom(elem);
     }
 
+    public int getPageSize() {
+        return Configuration.ROOMS_PAGE_SIZE;
+    }
+
     public int getPageCount() {
         int count = this.rooms.size() / Configuration.ROOMS_PAGE_SIZE;
         if ((this.rooms.size() % Configuration.ROOMS_PAGE_SIZE) != 0) {
