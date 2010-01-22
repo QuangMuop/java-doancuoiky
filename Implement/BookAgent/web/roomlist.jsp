@@ -21,6 +21,8 @@
                 <div class="main-panel">
                     <%
         Hotel hotel = (Hotel) request.getAttribute("hotel");
+        int pageIndex = Integer.parseInt(request.getParameter("p"));
+
         if (hotel == null) {
                     %>
                     <p>Bạn phải chọn khách sạn để xem danh sách phòng.</p>
@@ -36,9 +38,10 @@
                         </thead>
                         <tbody>
                             <%
-                ListRoom listRoom = hotel.getListRoom();
-                for (int i = 0; i < listRoom.size(); i++) {
-                    Room room = listRoom.getRooms().get(i);
+            ListRoom listRoom = hotel.getListRoom();
+            List<Room> roomPage = listRoom.getRooms(pageIndex);
+            for (int i = 0; i < roomPage.size(); i++) {
+                Room room = roomPage.get(i);
                             %>
                             <tr>
                                 <td><%= room.getId()%></td>
@@ -55,10 +58,19 @@
                             </tr>
                             <%
             }
-        }
                             %>
                         </tbody>
                     </table>
+                    <span class="page_navigate">
+                        <%
+            for (int i = 0; i < listRoom.getPageCount(); i++) {
+                        %>
+                        <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>&p=<%= i%>"><%= i%></a>&nbsp;
+                        <%
+            }
+        }
+                        %>
+                    </span>
                 </div>
             </div>
             <jsp:include page="template/footer.jsp" />

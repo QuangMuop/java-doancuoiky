@@ -46,7 +46,7 @@
                         </tbody>
                     </table>
                     <br />
-                    <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>">Xem phòng</a>&nbsp;
+                    <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>&p=0">Xem phòng</a>&nbsp;
                     <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
                     <%
         }

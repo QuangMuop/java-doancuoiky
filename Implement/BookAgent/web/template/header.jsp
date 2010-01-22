@@ -5,6 +5,6 @@
     </center>
 </div>
 <div class="menu">
-    <a href="hotels?action=get-hotels" class="mainMenuItem">Khách sạn</a> |
+    <a href="hotels?action=get-hotels&p=0" class="mainMenuItem">Khách sạn</a> |
     <a href="index.jsp" class="mainMenuItem">Giới thiệu</a>
 </div>
