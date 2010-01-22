@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Khách hàng</title>
+        <title>Đăng ký đặt phòng</title>
         <link rel="stylesheet" type="text/css" href="img/stdtheme.css" />
     </head>
     <body>
@@ -25,15 +25,15 @@
                         <table border="0">
                             <tbody>
                                 <tr>
-                                    <td>Ten:</td>
+                                    <td><b>Tên:</b></td>
                                     <td><input type="text" name="name" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <td>Ngay sinh (dd/mm/yyyy):</td>
+                                    <td><b>Ngày sinh (dd/mm/yyyy): </b></td>
                                     <td><input type="text" name="birth" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <td>CMND:</td>
+                                    <td><b>CMND: </b></td>
                                     <td><input type="text" name="cmnd" value="" /></td>
                                 </tr>
                             </tbody>

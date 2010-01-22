@@ -20,9 +20,10 @@
         <div class="wrapper">
             <jsp:include page="template/header.jsp" />
             <div class="body">
-                <table border="0" cellspacing="5">
-                    <tbody>
-                        <%
+                <div class="main-panel">
+                    <table border="0" cellspacing="5">
+                        <tbody>
+                            <%
         ListHotel hotels = (ListHotel) request.getAttribute("hotels");
         int pageIndex = Integer.parseInt(request.getParameter("p"));
 
@@ -30,50 +31,55 @@
             List<Hotel> hotelPage = hotels.getHotels(pageIndex);
             for (int i = 0; i < hotelPage.size(); i++) {
                 Hotel hotel = hotelPage.get(i);
-                        %>
-                        <tr>
-                            <td><span><%= hotel.getName()%></span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table border="0" cellspacing="2">
-                                    <tbody>
-                                        <tr>
-                                            <td width="50px" height="50px"><img src="img/hotel.jpg" alt="Khách sạn" /></td>
-                                            <td align="top">
-                                                <span class="hotel_detail">
-                                                    Địa chỉ: <%= hotel.getAddress()%><br />
-                                                    <%= hotel.getDetail()%>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>&p=0">Xem phòng</a>&nbsp;
-                                <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
-                            </td>
-                        </tr>
+                            %>
+                            <tr>
+                                <td>
+                                    <span class="hotel_title">
+                                        <a class="hotel_title" href="hotels?action=get-hotel-info&hid=<%= hotel.getId()%>"><%= hotel.getName()%></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table border="0" cellspacing="2">
+                                        <tbody>
+                                            <tr>
+                                                <td><img src="img/hotel.jpg" alt="Khách sạn" height="150px" /></td>
+                                                <td align="top">
+                                                    <span class="hotel_detail">
+                                                        Địa chỉ: <%= hotel.getAddress()%><br />
+                                                        <%= hotel.getDetail()%>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>&p=0">Xem phòng</a>&nbsp;
+                                    <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
+                                </td>
+                            </tr>
+                            <%
+                }
+                            %>
+                        </tbody>
+                    </table>
+                    <span class="page_navigate">
                         <%
-            }
+                for (int i = 0; i < hotels.getPageCount(); i++) {
                         %>
-                    </tbody>
-                </table>
-                <span class="page_navigate">
+                        <a href="hotels?action=get-hotels&p=<%= i%>" class="mainMenuItem"><%= i%></a>&nbsp;
+                        <%
+                }
+                        %>
+                    </span>
                     <%
-            for (int i = 0; i < hotels.getPageCount(); i++) {
-                    %>
-                    <a href="hotels?action=get-hotels&p=<%= i%>" class="mainMenuItem"><%= i%></a>&nbsp;
-                    <%
-            }
-                    %>
-                </span>
-                <%
         }
-                %>
+                    %>
+                </div>
             </div>
             <jsp:include page="template/footer.jsp" />
         </div>

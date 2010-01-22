@@ -32,15 +32,15 @@
                     <table border="0" width="800px">
                         <tbody>
                             <tr>
-                                <td width="70px">Tên:</td>
+                                <td width="70px"><b>Tên:</b></td>
                                 <td><%= hotel.getName()%></td>
                             </tr>
                             <tr>
-                                <td>Địa chỉ:</td>
+                                <td><b>Địa chỉ:</b></td>
                                 <td><%= hotel.getAddress()%></td>
                             </tr>
                             <tr>
-                                <td>Mô tả:</td>
+                                <td><b>Giới thiệu:</b></td>
                                 <td><%= hotel.getDetail()%></td>
                             </tr>
                         </tbody>
