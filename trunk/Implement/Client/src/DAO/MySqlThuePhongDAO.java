@@ -10,8 +10,6 @@ import DTO.LoaiThue;
 import DTO.Phong;
 import DTO.ThuePhong;
 import DTO.TinhTrangPhong;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,7 +112,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
                 MySqlPhongDAO phongDAO = new MySqlPhongDAO();
                 MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
 
-                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Da thue");
+                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Đã Thuê");
                 phongDAO.updateTinhTrangPhongTheoId(tp.getPhong().getId(), tinhTrang);
                 return sIdChiTietThue;
             }
@@ -154,7 +152,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
                 MySqlPhongDAO phongDAO = new MySqlPhongDAO();
                 MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
 
-                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Con trong");
+                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Còn Trống");
                 phongDAO.updateTinhTrangPhongTheoId(tp.getPhong().getId(), tinhTrang);
                 return true;
             }
@@ -357,7 +355,7 @@ public class MySqlThuePhongDAO implements IThuePhongDAO {
                 MySqlPhongDAO phongDAO = new MySqlPhongDAO();
                 MySqlTinhTrangPhongDAO tinhTrangPhongDAO = new MySqlTinhTrangPhongDAO();
 
-                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Con trong");
+                TinhTrangPhong tinhTrang = tinhTrangPhongDAO.getTinhTrangPhongTheoTen("Còn Trống");
                 phongDAO.updateTinhTrangPhongTheoId(idPhong, tinhTrang);
                 statement.close();
 
