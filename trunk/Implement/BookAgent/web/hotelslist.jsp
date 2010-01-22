@@ -23,9 +23,9 @@
                 <table border="0" cellspacing="5">
                     <tbody>
                         <%
-            ListHotel hotels = (ListHotel) request.getAttribute("hotels");
-            for (int i = 0; i < hotels.getHotels().size(); i++) {
-                Hotel hotel = hotels.getHotels().get(i);
+        ListHotel hotels = (ListHotel) request.getAttribute("hotels");
+        for (int i = 0; i < hotels.getHotels().size(); i++) {
+            Hotel hotel = hotels.getHotels().get(i);
                         %>
                         <tr>
                             <td><span><%= hotel.getName()%></span></td>
@@ -47,8 +47,14 @@
                                 </table>
                             </td>
                         </tr>
+                        <tr>
+                            <td align="left">
+                                <a href="hotels?action=get-rooms&hid=<%= hotel.getId()%>">Xem phòng</a>&nbsp;
+                                <a href="room?action=cancel-nav&hid=<%= hotel.getId()%>">Hủy đặt phòng</a>
+                            </td>
+                        </tr>
                         <%
-            }
+        }
                         %>
                     </tbody>
                 </table>

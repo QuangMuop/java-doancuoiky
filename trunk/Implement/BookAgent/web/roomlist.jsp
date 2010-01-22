@@ -29,8 +29,8 @@
                     <table border="1" width="60%">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="60%">Gia</th>
+                                <th width="10%">Số hiệu phòng</th>
+                                <th width="60%">Đơn giá</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>

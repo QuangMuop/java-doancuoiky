@@ -5,10 +5,10 @@
 <div class="left-panel">
     <ul>
         <%
-            HotelModel hotelModel = new HotelModel();
-            ListHotel listHotel = hotelModel.getListHotel();
-            for (int i = 0; i < listHotel.size(); i++) {
-                Hotel h = listHotel.getHotels().get(i);
+        HotelModel hotelModel = new HotelModel();
+        ListHotel listHotel = hotelModel.getListHotel();
+        for (int i = 0; i < listHotel.size(); i++) {
+            Hotel h = listHotel.getHotels().get(i);
         %>
 
         <li>
@@ -16,7 +16,7 @@
         </li>
 
         <%
-            }
+        }
         %>
     </ul>
 </div>

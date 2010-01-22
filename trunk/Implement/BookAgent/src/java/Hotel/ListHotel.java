@@ -1,6 +1,7 @@
 
 package Hotel;
 
+import Common.Configuration;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -41,8 +42,30 @@ public class ListHotel {
         }
     }
 
+    public int getPageCount() {
+        int count = this.hotels.size() / Configuration.HOTELS_PAGE_SIZE;
+        if ((this.hotels.size() % Configuration.HOTELS_PAGE_SIZE) != 0) {
+            count++;
+        }
+        return count;
+    }
+
     public List<Hotel> getHotels() {
         return this.hotels;
+    }
+
+    public List<Hotel> getHotels(int startPageIndex) {
+        List<Hotel> page = new ArrayList<Hotel>();
+        int maxIndex = (startPageIndex + 1)*Configuration.HOTELS_PAGE_SIZE;
+        if (maxIndex > this.hotels.size()) {
+            maxIndex = this.hotels.size();
+        }
+
+        for (int i = startPageIndex*Configuration.HOTELS_PAGE_SIZE; i < maxIndex; i++) {
+            page.add(this.hotels.get(i));
+        }
+
+        return page;
     }
 
     /**

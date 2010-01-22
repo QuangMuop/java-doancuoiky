@@ -1,9 +1,10 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="header">
     <center>
         <a href="index.jsp"><img src="img/hotel-banner.jpg" alt="Homepage" /></a>
     </center>
 </div>
 <div class="menu">
-    <a href="hotels?action=get-hotels" class="mainMenuItem">Kh�ch s?n</a> |
-    <a href="index.jsp" class="mainMenuItem">Gi?i thi?u</a>
+    <a href="hotels?action=get-hotels" class="mainMenuItem">Khách sạn</a> |
+    <a href="index.jsp" class="mainMenuItem">Giới thiệu</a>
 </div>
