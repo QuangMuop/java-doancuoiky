@@ -15,7 +15,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import wrapper.WSWrapper;
+import ws.FileNotFoundException_Exception;
+import ws.IOException_Exception;
 import ws.KhachHangDTO;
+import ws.ParseException_Exception;
 
 /**
  *
@@ -56,27 +59,43 @@ public class HotelModel {
     }
 
     public Hotel getHotelById(int hid) {
-        if (hid < 0 || hid >= this.listHotel.getHotels().size()) {
-            throw new IndexOutOfBoundsException("Hotel index");
-        }
-        // update list room
-        List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
-        Hotel hotel = this.listHotel.getHotels().get(hid);
-        List<Room> rooms = hotel.getListRoom().getRooms();
-        for (int i = 0; i < rooms.size(); i++) {
-            rooms.get(i).setStay(false);
-            for (int j = 0; j < lst.size(); j++) {
-                if (rooms.get(i).getId().equals(String.valueOf(lst.get(j)))) {
-                    rooms.get(i).setStay(true);
-                    break;
+        try {
+            if (hid < 0 || hid >= this.listHotel.getHotels().size()) {
+                throw new IndexOutOfBoundsException("Hotel index");
+            }
+            // update list room
+            List<Integer> lst = WSWrapper.updateListRoomAvailable(hid);
+            Hotel hotel = this.listHotel.getHotels().get(hid);
+            List<Room> rooms = hotel.getListRoom().getRooms();
+            for (int i = 0; i < rooms.size(); i++) {
+                rooms.get(i).setStay(false);
+                for (int j = 0; j < lst.size(); j++) {
+                    if (rooms.get(i).getId().equals(String.valueOf(lst.get(j)))) {
+                        rooms.get(i).setStay(true);
+                        break;
+                    }
                 }
             }
+            return hotel;
+        } catch (FileNotFoundException_Exception ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException_Exception ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return hotel;
+        return null;
     }
 
     public String bookRoom(int hid, String rid, KhachHangDTO dto) {
-        return WSWrapper.bookRoom(hid, rid, dto, Utility.now("dd/MM/yyyy"));
+        try {
+            return WSWrapper.bookRoom(hid, rid, dto, Utility.now("dd/MM/yyyy"));
+        } catch (FileNotFoundException_Exception ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException_Exception ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException_Exception ex) {
+            Logger.getLogger(HotelModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     public ListHotel getListHotel() {

@@ -8,11 +8,14 @@ package Agent;
 import Common.Utility;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import wrapper.WSWrapper;
+import ws.IOException_Exception;
 import ws.KhachHangDTO;
 
 /**
@@ -78,11 +81,14 @@ public class RoomController extends HttpServlet {
                     
                     validation = request.getParameter("validation");
                     result = "Thao tác không thành công.";
-                    if (WSWrapper.cancelBookRoom(hid, validation)) {
-                        result = "Đặt phòng với mã số " + validation + " đã được hủy.";
-                    }
-                    else {
-                        result = "Thao tác không thành công. Do mã xác nhận không hợp lệ.";
+                    try {
+                        if (WSWrapper.cancelBookRoom(hid, validation)) {
+                            result = "Đặt phòng với mã số " + validation + " đã được hủy.";
+                        } else {
+                            result = "Thao tác không thành công. Do mã xác nhận không hợp lệ.";
+                        }
+                    } catch (IOException_Exception ex) {
+                        Logger.getLogger(RoomController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     request.setAttribute("result", result);
                     getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
@@ -150,9 +156,4 @@ public class RoomController extends HttpServlet {
         }
         return ACTION_CODE.INVALID;
     }
-//
-//    private Hotel getHotelInfo(int hid) {
-//        HotelModel model = new
-//        return hotelModel.getHotelById(hid);
-//    }
 }

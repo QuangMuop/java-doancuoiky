@@ -6,6 +6,7 @@
 package Agent;
 
 import Hotel.Hotel;
+import Hotel.ListHotel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -41,15 +42,20 @@ public class HotelController extends HttpServlet {
 
         try {
             String action = request.getParameter("action");
-            int hid = Integer.parseInt(request.getParameter("hid"));
+            int hid;
 
 
             switch (mapActionCode(action)) {
                 case GET_HOTELS:
+
+                    ListHotel hotels = hotelModel.getListHotel();
+                    request.setAttribute("hotels", hotels);
+                    getServletContext().getRequestDispatcher("/hotelslist.jsp").forward(request, response);
                     break;
 
                 case GET_HOTEL_INFO:
-                    
+
+                    hid = Integer.parseInt(request.getParameter("hid"));
                     request.setAttribute("hotel", getHotelInfo(hid));
                     getServletContext().getRequestDispatcher("/hotels.jsp").forward(request, response);
                     break;

@@ -4,6 +4,6 @@
     </center>
 </div>
 <div class="menu">
-    <a href="hotels.jsp" class="mainMenuItem">Hotels</a> |
-    <a href="index.jsp" class="mainMenuItem">About</a>
+    <a href="hotels?action=get-hotels" class="mainMenuItem">Khách s?n</a> |
+    <a href="index.jsp" class="mainMenuItem">Gi?i thi?u</a>
 </div>
