@@ -13,41 +13,25 @@ package client;
 
 import BUS.KhachSanController;
 import DTO.KhachSan;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.SwingWorker;
 
 /**
  *
  * @author bin
  */
 public class JPanelIntro extends javax.swing.JPanel {
-
-    private TimerTask timerTask = new TimerTask() {
-        int index = 0;
-
-        @Override
-        public void run() {
-            index++;
-            jImgKhachSan.setIcon(arrIcon[index%5]);
-        }
-    };
-
-    private Timer timer = new Timer();
-
-
+    
     /** Creates new form JPanelIntro */
     public JPanelIntro() {
         initComponents();
 
-        loadimages.execute();
-        
-        int delay = 5000; // delay for 5 sec.
-        int period = 1000; // repeat every sec.
-
-        timer.scheduleAtFixedRate(timerTask, delay, period);
+        icon = createImageIcon(imagedir + imageFileNames[0], imageCaptions[0]);
+        jImgKhachSan.setIcon(icon);
 
         khachSanController = new KhachSanController();
         initData();
@@ -87,6 +71,7 @@ public class JPanelIntro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jBtnSlideShow = new javax.swing.JButton();
         jLabelImg = new javax.swing.JLabel();
 
         setName("Form"); // NOI18N
@@ -233,6 +218,18 @@ public class JPanelIntro extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel7, gridBagConstraints);
 
+        jBtnSlideShow.setText(resourceMap.getString("jBtnSlideShow.text")); // NOI18N
+        jBtnSlideShow.setName("jBtnSlideShow"); // NOI18N
+        jBtnSlideShow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jBtnSlideShowMouseReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        jPanel1.add(jBtnSlideShow, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -258,6 +255,16 @@ public class JPanelIntro extends javax.swing.JPanel {
         initData();
     }//GEN-LAST:event_formComponentShown
 
+    private void jBtnSlideShowMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnSlideShowMouseReleased
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Desktop.getDesktop().open(new File("src/client/resources/SlideKhachSan.mpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBtnSlideShowMouseReleased
+
     private void initData()
     {
         khachSan = khachSanController.layKhachSan();
@@ -269,6 +276,7 @@ public class JPanelIntro extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnSlideShow;
     private javax.swing.JLabel jImgKhachSan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -288,6 +296,7 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     private KhachSan khachSan;
     private KhachSanController khachSanController;
+    private ImageIcon icon;
 
     protected ImageIcon createImageIcon(String path,
             String description) {
@@ -310,27 +319,4 @@ public class JPanelIntro extends javax.swing.JPanel {
     "sunw03.jpg", "sunw04.jpg", "sunw05.jpg"};
 
     private String imagedir = "images/";
-
-    private ImageIcon[] arrIcon = new ImageIcon[5];
-
-    private SwingWorker<Void, Void> loadimages = new SwingWorker<Void, Void>() {
-
-        /**
-         * Creates full size and thumbnail versions of the target image files.
-         */
-        @Override
-        protected Void doInBackground() throws Exception {
-            for (int i = 0; i < imageCaptions.length; i++) {
-                ImageIcon icon;
-                icon = createImageIcon(imagedir + imageFileNames[i], imageCaptions[i]);
-                arrIcon[i] = icon;
-
-            }
-            // unfortunately we must return something, and only null is valid to
-            // return when the return type is void.
-            return null;
-        }
-
-    };
-
 }
