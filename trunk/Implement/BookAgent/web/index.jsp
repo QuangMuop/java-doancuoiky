@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hotel Agency</title>
+        <title>Khách sạn</title>
         <link rel="stylesheet" type="text/css" href="img/stdtheme.css" />
     </head>
     <body>
