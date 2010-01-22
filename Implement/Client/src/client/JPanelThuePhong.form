@@ -162,6 +162,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnThuePhong">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnThemKhach.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnThuePhong.text"/>
                 <Property name="toolTipText" type="java.lang.String" resourceKey="jBtnThuePhong.toolTipText"/>
                 <Property name="name" type="java.lang.String" value="jBtnThuePhong" noResource="true"/>
@@ -353,6 +354,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jBtnThemKhach">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnThemKhach.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnThemKhach.text"/>
                 <Property name="name" type="java.lang.String" value="jBtnThemKhach" noResource="true"/>
               </Properties>
@@ -367,6 +369,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jBtnXoaKhach">
               <Properties>
+                <Property name="background" type="java.awt.Color" resourceKey="jBtnThemKhach.background"/>
                 <Property name="text" type="java.lang.String" resourceKey="jBtnXoaKhach.text"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="jBtnXoaKhach" noResource="true"/>

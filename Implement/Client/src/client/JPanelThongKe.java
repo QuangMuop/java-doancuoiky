@@ -106,6 +106,7 @@ public class JPanelThongKe extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(9, 9, 9, 9);
         jPanel10.add(jFTxtNam, gridBagConstraints);
 
+        jBtnThongKe.setBackground(resourceMap.getColor("jBtnThongKe.background")); // NOI18N
         jBtnThongKe.setText(resourceMap.getString("jBtnThongKe.text")); // NOI18N
         jBtnThongKe.setName("jBtnThongKe"); // NOI18N
         jBtnThongKe.addMouseListener(new java.awt.event.MouseAdapter() {

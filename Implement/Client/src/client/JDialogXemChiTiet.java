@@ -18,6 +18,9 @@ import DTO.PhongHangTrung;
 import DTO.PhongVIP;
 import DTO.TinhTrangPhong;
 import Utils.MyCompare;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
@@ -218,6 +221,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jBtnThoat = new javax.swing.JButton();
         jTxtLoaiPhong = new javax.swing.JTextField();
         jTxtTinhTrang = new javax.swing.JTextField();
+        jBtnXemChiTiet = new javax.swing.JButton();
         bgLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -243,6 +247,7 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 18, 0, 18);
         jPanel8.add(jLabelHinhPhong, gridBagConstraints);
 
@@ -313,9 +318,6 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
         jBtnChinhSua.setName("jBtnChinhSua"); // NOI18N
         jBtnChinhSua.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBtnChinhSuaMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jBtnChinhSuaMousePressed(evt);
             }
@@ -456,6 +458,21 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jTxtTinhTrang, gridBagConstraints);
+
+        jBtnXemChiTiet.setBackground(resourceMap.getColor("jBtnXemChiTiet.background")); // NOI18N
+        jBtnXemChiTiet.setText(resourceMap.getString("jBtnXemChiTiet.text")); // NOI18N
+        jBtnXemChiTiet.setName("jBtnXemChiTiet"); // NOI18N
+        jBtnXemChiTiet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jBtnXemChiTietMouseReleased(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 34, 60, 34);
+        jPanel8.add(jBtnXemChiTiet, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -706,16 +723,32 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jCbLoaiPhongItemStateChanged
 
-    private void jBtnChinhSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnChinhSuaMouseClicked
+    private void jBtnXemChiTietMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnXemChiTietMouseReleased
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_jBtnChinhSuaMouseClicked
+        String path = "";
+        if(MyCompare.compareString(phong.getTenLoaiPhong(), "VIP") == 0)
+            path = "src/client/resources/VIP.mpg";
+        else if(MyCompare.compareString(phong.getTenLoaiPhong(), "Hạng Trung") == 0)
+            path = "src/client/resources/HangTrung.mpg";
+        else if(MyCompare.compareString(phong.getTenLoaiPhong(), "Hạng Thường") == 0)
+            path = "src/client/resources/HangThuong.mpg";
+        else
+            path = "src/client/resources/HangThuong.mpg";
+        
+        try {
+            // TODO add your handling code here:
+            Desktop.getDesktop().open(new File(path));
+        } catch (IOException ex) {
+            Logger.getLogger(JDialogXemChiTiet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBtnXemChiTietMouseReleased
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgLabel4;
     private javax.swing.JButton jBtnCapNhat;
     private javax.swing.JButton jBtnChinhSua;
     private javax.swing.JButton jBtnThoat;
+    private javax.swing.JButton jBtnXemChiTiet;
     private javax.swing.JComboBox jCbLoaiPhong;
     private javax.swing.JComboBox jCbTinhTrang;
     private javax.swing.JLabel jLabel1;

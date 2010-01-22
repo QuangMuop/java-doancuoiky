@@ -251,6 +251,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 15, 5, 5);
         jMainPanelHeThong.add(jFtxtFax, gridBagConstraints);
 
+        jBtnLuu.setBackground(resourceMap.getColor("jBtnLuu.background")); // NOI18N
         jBtnLuu.setText(resourceMap.getString("jBtnLuu.text")); // NOI18N
         jBtnLuu.setEnabled(false);
         jBtnLuu.setName("jBtnLuu"); // NOI18N
@@ -266,6 +267,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(20, 30, 5, 0);
         jMainPanelHeThong.add(jBtnLuu, gridBagConstraints);
 
+        jBtnSua.setBackground(resourceMap.getColor("jBtnLuu.background")); // NOI18N
         jBtnSua.setText(resourceMap.getString("jBtnSua.text")); // NOI18N
         jBtnSua.setName("jBtnSua"); // NOI18N
         jBtnSua.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -370,6 +372,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jMainPanelNghiepVu.add(jCbLoaiKhach, gridBagConstraints);
 
+        jBtnChinhSua.setBackground(resourceMap.getColor("jBtnChinhSua.background")); // NOI18N
         jBtnChinhSua.setText(resourceMap.getString("jBtnChinhSua.text")); // NOI18N
         jBtnChinhSua.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnChinhSua.setName("jBtnChinhSua"); // NOI18N
@@ -385,6 +388,7 @@ public class JPanelCauHinh extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(21, 13, 10, 13);
         jMainPanelNghiepVu.add(jBtnChinhSua, gridBagConstraints);
 
+        jBtnCapNhat.setBackground(resourceMap.getColor("jBtnChinhSua.background")); // NOI18N
         jBtnCapNhat.setText(resourceMap.getString("jBtnCapNhat.text")); // NOI18N
         jBtnCapNhat.setEnabled(false);
         jBtnCapNhat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
