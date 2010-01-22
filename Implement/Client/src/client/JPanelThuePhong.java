@@ -608,11 +608,13 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             else
             {
                 JOptionPane.showMessageDialog(this.getComponent(0),error , "Thông Báo", JOptionPane.ERROR_MESSAGE);
+                initData();
             }
         }
         catch(Exception ex)
         {
             JOptionPane.showMessageDialog(this.getComponent(0),"Thuê phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
+            initData();
         }
     }//GEN-LAST:event_jBtnThuePhongMousePressed
 

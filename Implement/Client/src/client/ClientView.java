@@ -548,9 +548,26 @@ public class ClientView extends FrameView {
     }
 
     private void jToggleBtnHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleBtnHelpMousePressed
+//        try {
+//            // TODO add your handling code here:
+//            Desktop.getDesktop().open(new File("src/client/help/Document.chm"));
+//        } catch (IOException ex) {
+//            try {
+//                Desktop.getDesktop().open(new File("/Help/Document.chm"));
+//            } catch (IOException ex1) {
+//                try {
+//                    Desktop.getDesktop().open(new File("Help/Document.chm"));
+//                } catch (IOException ex2) {
+//                    Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex2);
+//                }
+//                Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex1);
+//            }
+//            Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
         try {
-            // TODO add your handling code here:           
-            Desktop.getDesktop().open(new File("src/client/help/Document.chm"));
+            // TODO add your handling code here:
+            Desktop.getDesktop().open(new File("Document.chm"));
         } catch (IOException ex) {
             Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
         }

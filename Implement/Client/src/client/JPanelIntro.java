@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -256,12 +255,25 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     private void jBtnSlideShowMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnSlideShowMouseReleased
         // TODO add your handling code here:
+//        try {
+//            // TODO add your handling code here:
+//            Desktop.getDesktop().open(new File("src/client/resources/SlideKhachSan.mpg"));
+//        } catch (IOException ex) {
+//            try {
+//                Desktop.getDesktop().open(new File("SlideKhachSan.mpg"));
+//            } catch (IOException ex1) {
+//                Logger.getLogger(JPanelIntro.class.getName()).log(Level.SEVERE, null, ex1);
+//            }
+//            Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
         try {
             // TODO add your handling code here:
-            Desktop.getDesktop().open(new File("src/client/resources/SlideKhachSan.mpg"));
-        } catch (IOException ex) {
+            Desktop.getDesktop().open(new File("SlideKhachSan.mpg"));
+        } catch (IOException ex) {            
             Logger.getLogger(ClientView.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_jBtnSlideShowMouseReleased
 
     private void initData()
