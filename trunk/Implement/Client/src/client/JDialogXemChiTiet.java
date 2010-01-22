@@ -727,13 +727,13 @@ public class JDialogXemChiTiet extends javax.swing.JDialog {
         // TODO add your handling code here:
         String path = "";
         if(MyCompare.compareString(phong.getTenLoaiPhong(), "VIP") == 0)
-            path = "src/client/resources/VIP.mpg";
+            path = "VIP.mpg";
         else if(MyCompare.compareString(phong.getTenLoaiPhong(), "Hạng Trung") == 0)
-            path = "src/client/resources/HangTrung.mpg";
+            path = "HangTrung.mpg";
         else if(MyCompare.compareString(phong.getTenLoaiPhong(), "Hạng Thường") == 0)
-            path = "src/client/resources/HangThuong.mpg";
+            path = "HangThuong.mpg";
         else
-            path = "src/client/resources/HangThuong.mpg";
+            path = "HangThuong.mpg";
         
         try {
             // TODO add your handling code here:
