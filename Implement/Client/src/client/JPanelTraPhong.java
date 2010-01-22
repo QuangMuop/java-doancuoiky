@@ -238,7 +238,7 @@ public class JPanelTraPhong extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 2, 0);
         jPanel2.add(jLabel54, gridBagConstraints);
 
-        jLabel70.setFont(resourceMap.getFont("jLabel70.font")); // NOI18N
+        jLabel70.setFont(resourceMap.getFont("jLabel54.font")); // NOI18N
         jLabel70.setForeground(resourceMap.getColor("jLabel70.foreground")); // NOI18N
         jLabel70.setText(resourceMap.getString("jLabel70.text")); // NOI18N
         jLabel70.setName("jLabel70"); // NOI18N

@@ -372,6 +372,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         jPanel2.add(jBtnThemKhach, gridBagConstraints);
 
         jBtnXoaKhach.setText(resourceMap.getString("jBtnXoaKhach.text")); // NOI18N
+        jBtnXoaKhach.setEnabled(false);
         jBtnXoaKhach.setName("jBtnXoaKhach"); // NOI18N
         jBtnXoaKhach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -592,7 +593,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
                 String secutiryCode = thuePhongController.tiepNhanViecThuePhong(thuePhong);
                 if(secutiryCode.equals(""))
                 {
-                    JOptionPane.showMessageDialog(this.getComponent(0),error , "Thông Báo", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this.getComponent(0),"Thuê phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
                     initData();                    
                 }
                 else
@@ -608,7 +609,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
         }
         catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(this.getComponent(0),ex.getMessage() , "Thông Báo", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getComponent(0),"Thuê phòng thất bại" , "Thông Báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jBtnThuePhongMousePressed
 
@@ -623,7 +624,6 @@ public class JPanelThuePhong extends javax.swing.JPanel {
 
     private void jBtnThemKhachMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnThemKhachMousePressed
         // TODO add your handling code here:
-
         if(this.SoKhachHangToiDa == -1 || thuePhong.getLstKhachHang().size()<this.SoKhachHangToiDa)
         {
             JDialogThemKhachHang themKhachDlg = new JDialogThemKhachHang(thuePhong.getLstKhachHang(), mainFrame, true);
@@ -633,6 +633,7 @@ public class JPanelThuePhong extends javax.swing.JPanel {
             {
                 thuePhong.addKhachHang(themKhachDlg.getKhachHang());
                 updateTableKhachHang();
+                this.jBtnXoaKhach.setEnabled(true);
                 this.jBtnXoaKhach.setEnabled(true);
             }
         }

@@ -49,6 +49,8 @@ public class JPanelIntro extends javax.swing.JPanel {
 
         timer.scheduleAtFixedRate(timerTask, delay, period);
 
+        khachSanController = new KhachSanController();
+        initData();
     }
 
     private void hienThiThongTinKhachSan()
@@ -97,11 +99,6 @@ public class JPanelIntro extends javax.swing.JPanel {
 
         jPanel1.setName("jPanel1"); // NOI18N
         jPanel1.setOpaque(false);
-        jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown(evt);
-            }
-        });
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(client.ClientApp.class).getContext().getResourceMap(JPanelIntro.class);
@@ -258,20 +255,18 @@ public class JPanelIntro extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        khachSanController = new KhachSanController();
+        initData();
+    }//GEN-LAST:event_formComponentShown
+
+    private void initData()
+    {
         khachSan = khachSanController.layKhachSan();
 
         if(khachSan!=null)
         {
             hienThiThongTinKhachSan();
         }
-    }//GEN-LAST:event_formComponentShown
-
-    private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jPanel1ComponentShown
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jImgKhachSan;
